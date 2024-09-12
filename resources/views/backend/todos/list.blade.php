@@ -17,7 +17,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Vendor ID</th>
+                                <th>Vendor</th>
                                 <th>Name</th>
                                 <th>Status</th>
                                 <th>Actions</th>
@@ -27,7 +27,7 @@
                             @foreach ($todos as $data)
                                 <tr>
                                     <td>{{ $data->id }}</td>
-                                    <td>{{ $data->vendor_id }}</td>
+                                    <td>{{ $data->vendor ? $data->vendor->user->name ?? 'No User Assigned' : 'No Vendor Assigned' }}</td>
                                     <td>{{ $data->name }}</td>
                                     <td>{{ $data->status }}</td>
                                     <td class="text-start">
