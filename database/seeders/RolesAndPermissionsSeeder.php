@@ -30,6 +30,21 @@ class RolesAndPermissionsSeeder extends Seeder
             [
                 'name' => 'Editor',
             ],
+            [
+                'name' => 'Property',
+            ],
+            [
+                'name' => 'Expense',
+            ],
+            [
+                'name' => 'Vendor',
+            ],
+            [
+                'name' => 'Todo',
+            ],
+            [
+                'name' => 'House Chore',
+            ],
         ];
 
        // Resources and their parent permissions
@@ -76,25 +91,8 @@ class RolesAndPermissionsSeeder extends Seeder
        
 
         // Retrieve the "Admin" role
-        $adminRole = Role::where('name', 'Super-Admin')->first();
-
-        // Assign the "Admin" role to a user
-        // $user = User::create([
-        //     'first_name' => 'Admin',
-        //     'last_name' => 'User',
-        //     'email'             => 'admin@app.com',
-        //     'password'          => Hash::make('12345678'),
-        //     'type'              => 'admin',
-        //     'status'            => 'active',
-        //     'phone'             => '+880 1381055093',
-        //     'email_verified_at' => \Carbon\Carbon::now(),
-        // ]);
-        // $user = User::create([
-        //     'name' => 'Super Admin',
-        //     'email' => 'admin@gmail.com',
-        //     'phone'=>'0288716234',
-        //     'password' => Hash::make('12345678'), // Use bcrypt to hash password
-        // ]);
+        $adminRole = Role::where('name', 'Super-Admin')->first(); 
+        $user = User::where("email",'superadmin@gmail.com')->first();
         $user->assignRole($adminRole);
 
         // Retrieve all permissions

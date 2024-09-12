@@ -32,4 +32,8 @@ class Todo extends Model
             self::TODO_DUE => 'Due',
         ];
     }
+    public function vendor()
+    {
+        return $this->belongsTo(Vendor::class);
+    }
 }
