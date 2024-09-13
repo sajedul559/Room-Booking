@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Log In | UBold - Responsive Admin Dashboard Template</title>
+        <title>Log In | Roomings</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -92,7 +92,7 @@
 
                                 </form>
 
-                                <div class="text-center">
+                                {{-- <div class="text-center">
                                     <h5 class="mt-3 text-muted">Sign in with</h5>
                                     <ul class="social-list list-inline mt-3 mb-0">
                                         <li class="list-inline-item">
@@ -108,18 +108,18 @@
                                             <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github"></i></a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> --}}
 
                             </div> <!-- end card-body -->
                         </div>
                         <!-- end card -->
 
-                        <div class="row mt-3">
+                        {{-- <div class="row mt-3">
                             <div class="col-12 text-center">
                                 <p> <a href="auth-recoverpw.html" class="text-white-50 ms-1">Forgot your password?</a></p>
                                
                             </div> <!-- end col -->
-                        </div>
+                        </div> --}}
                         <!-- end row -->
 
                     </div> <!-- end col -->
@@ -132,7 +132,7 @@
 
 
         <footer class="footer footer-alt">
-            2015 - <script>document.write(new Date().getFullYear())</script> &copy; UBold theme by <a href="" class="text-white-50">Coderthemes</a> 
+             <script>document.write(new Date().getFullYear())</script> &copy; Roomings by <a href="" class="text-white-50">SarahIt BD</a> 
         </footer>
 
         <!-- Vendor js -->
