@@ -56,9 +56,6 @@ class PropertyController extends Controller
 
     public function destroy(Property $property)
     {
-        // Check permission manually and abort with 403 if not authorized
-        $this->authorize('Delete Property');
-
         $this->propertyService->delete($property);
 
         return redirect()->route('properties.index')->with('success', 'Property deleted successfully.');
