@@ -44,9 +44,6 @@ class PropertyController extends Controller
 
     public function edit(Property $property)
     {
-        // Check permission manually and abort with 403 if not authorized
-        $this->authorize('Edit Property');
-
         return view('backend.properties.edit', compact('property'));
     }
 
