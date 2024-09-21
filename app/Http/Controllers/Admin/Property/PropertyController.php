@@ -49,9 +49,6 @@ class PropertyController extends Controller
 
     public function update(PropertyFormRequest $request, Property $property)
     {
-        // Check permission manually and abort with 403 if not authorized
-        $this->authorize('Edit Property');
-
         $this->propertyService->update($property, $request->payloadsData());
 
         return redirect()->route('properties.index')->with('success', 'Property updated successfully.');
