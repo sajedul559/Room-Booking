@@ -37,9 +37,6 @@ class PropertyController extends Controller
 
     public function store(PropertyFormRequest $request)
     {
-        // Check permission manually and abort with 403 if not authorized
-        $this->authorize('Create Property');
-
         $this->propertyService->create($request->payloadsData());
 
         return redirect()->route('properties.index')->with('success', 'Property created successfully.');
