@@ -33,7 +33,7 @@ class PropertyController extends Controller
     public function create()
     {
         // Check permission manually and abort with 403 if not authorized
-        $this->authorize('Create Property');  // This will automatically return 403 if unauthorized
+        $this->authorize('Create Property');
 
         return view('backend.properties.create');
     }
@@ -41,7 +41,7 @@ class PropertyController extends Controller
     public function store(PropertyFormRequest $request)
     {
         // Check permission manually and abort with 403 if not authorized
-        $this->authorize('Create Property');  // This will automatically return 403 if unauthorized
+        $this->authorize('Create Property');
 
         $this->propertyService->create($request->payloadsData());
 
@@ -51,7 +51,7 @@ class PropertyController extends Controller
     public function edit(Property $property)
     {
         // Check permission manually and abort with 403 if not authorized
-        $this->authorize('Edit Property');  // This will automatically return 403 if unauthorized
+        $this->authorize('Edit Property');
 
         return view('backend.properties.edit', compact('property'));
     }
@@ -59,7 +59,7 @@ class PropertyController extends Controller
     public function update(PropertyFormRequest $request, Property $property)
     {
         // Check permission manually and abort with 403 if not authorized
-        $this->authorize('Edit Property');  // This will automatically return 403 if unauthorized
+        $this->authorize('Edit Property');
 
         $this->propertyService->update($property, $request->payloadsData());
 
@@ -69,7 +69,7 @@ class PropertyController extends Controller
     public function destroy(Property $property)
     {
         // Check permission manually and abort with 403 if not authorized
-        $this->authorize('Delete Property');  // This will automatically return 403 if unauthorized
+        $this->authorize('Delete Property');
 
         $this->propertyService->delete($property);
 
