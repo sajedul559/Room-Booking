@@ -56,7 +56,6 @@ class ExpenseController extends Controller
         $vendors = $this->vendorService->getAllVendors();
         $properties = $this->propertyService->getAllProperties();
 
-
         return view('backend.expenses.edit', compact('expense','vendors','properties'));
     }
 
