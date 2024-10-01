@@ -28,7 +28,6 @@ class ExpenseController extends Controller
         $this->middleware('can:Edit Expense')->only('edit', 'update');
         $this->middleware('can:Delete Expense')->only('destroy');
         $this->middleware('can:Index Properties')->only('index');
-
     }
 
 
