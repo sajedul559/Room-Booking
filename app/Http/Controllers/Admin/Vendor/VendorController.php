@@ -16,6 +16,12 @@ class VendorController extends Controller
     public function __construct(VendorService $vendorService)
     {
         $this->vendorService = $vendorService;
+        // Apply permission checks globally for these actions
+        $this->middleware('can:Create Vendor')->only('create', 'store');
+        $this->middleware('can:Edit Vendor')->only('edit', 'update');
+        $this->middleware('can:Delete Vendor')->only('destroy');
+        $this->middleware('can:Index Vendors')->only('index');
+        
     }
 
     /**
