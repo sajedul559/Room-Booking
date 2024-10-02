@@ -20,6 +20,11 @@ class TodoController extends Controller
     {
         $this->todoService = $todoService;
         $this->vendorService = $vendorService;
+         // Apply permission checks globally for these actions
+         $this->middleware('can:Create Todo')->only('create', 'store');
+         $this->middleware('can:Edit Todo')->only('edit', 'update');
+         $this->middleware('can:Delete Todo')->only('destroy');
+         $this->middleware('can:Index Todos')->only('index');
 
     }
 
