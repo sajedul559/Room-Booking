@@ -16,6 +16,11 @@ class HouseChoreController extends Controller
     public function __construct(HouseChoreService $houseChoreService)
     {
         $this->houseChoreService = $houseChoreService;
+         // Apply permission checks globally for these actions
+         $this->middleware('can:Create House Chore')->only('create', 'store');
+         $this->middleware('can:Edit House Chore')->only('edit', 'update');
+         $this->middleware('can:Delete House Chore')->only('destroy');
+         $this->middleware('can:Index House Chores')->only('index');
     }
 
     public function index()
