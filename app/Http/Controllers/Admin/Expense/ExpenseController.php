@@ -23,7 +23,11 @@ class ExpenseController extends Controller
         $this->expenseService = $expenseService;
         $this->vendorService = $vendorService;
         $this->propertyService = $propertyService;
-
+        // Apply permission checks globally for these actions
+        $this->middleware('can:Create Expense')->only('create', 'store');
+        $this->middleware('can:Edit Expense')->only('edit', 'update');
+        $this->middleware('can:Delete Expense')->only('destroy');
+        $this->middleware('can:Index Properties')->only('index');
 
     }
 
