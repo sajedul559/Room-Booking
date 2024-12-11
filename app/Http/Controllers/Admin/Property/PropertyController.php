@@ -1,0 +1,57 @@
+<?php
+
+namespace App\Http\Controllers\Admin\Property;
+
+use App\Http\Requests\PropertyFormRequest;
+use App\Http\Controllers\Controller;
+
+use App\Models\Property;
+use App\Services\Property\PropertyService;
+use Illuminate\Http\Request;
+
+class  PropertyController extends Controller
+{
+    protected $propertyService;
+
+    public function __construct(PropertyService $propertyService)
+    {
+        $this->propertyService = $propertyService;
+    }
+
+    public function index()
+    {
+        $properties = $this->propertyService->getAllProperties();
+        return view('backend.properties.list', compact('properties'));
+    }
+
+    public function create()
+    {
+        return view('backend.properties.create');
+    }
+
+    public function store(PropertyFormRequest $request)
+    {
+        $this->propertyService->create($request->payloadsData());
+
+        return redirect()->route('properties.index')->with('success', 'Property created successfully.');
+    }
+
+    public function edit(Property $property)
+    {
+        return view('backend.properties.edit', compact('property'));
+    }
+
+    public function update(PropertyFormRequest $request, Property $property)
+    {
+        $this->propertyService->update($property, $request->payloadsData());
+
+        return redirect()->route('properties.index')->with('success', 'Property updated successfully.');
+    }
+
+    public function destroy(Property $property)
+    {
+        $this->propertyService->delete($property);
+
+        return redirect()->route('properties.index')->with('success', 'Property deleted successfully.');
+    }
+}

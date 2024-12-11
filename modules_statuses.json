@@ -1,0 +1,15 @@
+{
+    "Appoinment": true,
+    "OPD": true,
+    "IPD": true,
+    "Pathology": true,
+    "Radiology": true,
+    "Hospital": true,
+    "HRM": true,
+    "Leave": true,
+    "Pharmacy": true,
+    "Billing": true,
+    "Account": true,
+    "Lab": true,
+    "Roaster": true
+}
