@@ -63,17 +63,12 @@ To set up this project locally, follow these steps:
 
     ```bash
     php artisan migrate
+    ```
+
+9. Run database seeder:
+
+    ```bash
     php artisan db:seed
-    ```
-
-9. Setup passport:
-
-    ```bash
-    php artisan passport:keys
-    ```
-
-    ```bash
-    php artisan passport:client --personal --name="nobin"
     ```
 
 10. Compile front-end assets:
