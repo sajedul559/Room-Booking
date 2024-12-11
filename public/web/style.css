@@ -1,0 +1,275 @@
+ .navbar {
+            background-color: white !important;
+            height: 80px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #3572d4 !important;
+            font-weight: bold;
+        }
+        .hero-section {
+            background-image: url('images/banner.jpg');
+            background-size: cover; /* Ensures the image covers the entire width */
+            background-position: center;
+            background-repeat: no-repeat; /* Prevent repeating */
+            height: 60vh; /* Adjust this for the desired height, e.g., 50% of viewport height */
+            padding: 0;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .search-box {
+            margin-top: 30px;
+        }
+
+        /* Ensure the navbar background is white */
+        @media (max-width: 768px) {
+            .navbar-collapse {
+                background-color: white; /* Background color for the collapsed menu */
+                padding: 15px;
+            }
+            .navbar-toggler {
+                border-color: rgba(0, 0, 0, 0.1); /* Ensure the toggle button is visible */
+            }
+            .navbar-nav .nav-link {
+                color: black !important; /* Ensure the links inside the dropdown are visible */
+            }
+            .dropdown-menu {
+                background-color: white; /* Dropdown background color on mobile */
+            }
+        }
+
+        .logo{
+
+            width: 80px;
+            padding: 5px;
+        }
+
+         h3.underline {
+            position: relative;
+            display: inline-block;
+            color: #3572d4;
+        }
+
+        h3.underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+
+            background-color: #3572d4; /* Color of the underline */
+            left: 0;
+            bottom: -5px; /* Adjust distance below the text */
+        }
+
+        .icon-list {
+            list-style: none; /* Removes bullets only for this list */
+            padding-left: 0;  /* Removes the default padding */
+        }
+        .icon-list li {
+            margin-bottom: 10px; /* Adds space between list items */
+        }
+        .icon-list li i {
+            margin-right: 8px; /* Adds space between icon and text */
+        }
+
+         /* Styles for the rectangles */
+        .rounded-rectangle {
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            height: 570px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+        }
+
+        .right-rectangle {
+            background-color: #018EE8;
+            border-radius: 0px 15px 15px 0px;
+            height: 570px;
+            width: 33.33%;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .right-rectangle ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            color: white;
+        }
+
+        .right-rectangle ul li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .right-rectangle ul li i {
+            color: #ffc107; /* Icon color */
+            margin-right: 8px;
+        }
+
+        .image-container {
+            position: absolute;
+            left: 0;
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .image-container img {
+            height: 570px;
+            border-radius: 15px 0 0 15px;
+        }
+
+
+        .right-rectangle h6 {
+            font-size: 1.1em;
+        }
+
+        .right-rectangle small {
+            color: #cccccc;
+        }
+
+        .right-rectangle i {
+            color: #ffc107; /* Icon color */
+        }
+
+
+
+
+
+        .bus-card {
+            background: #fff;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        .bus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .bus-header {
+            font-weight: bold;
+            font-size: 20px;
+            color: #007bff;
+        }
+        .bus-timing {
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .bus-facilities i {
+            margin-right: 10px;
+            color: #28a745;
+        }
+        .bus-price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ff5722;
+        }
+        .book-btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .book-btn:hover {
+            background-color: #0056b3;
+        }
+        .badge-seat {
+            background-color: #28a745;
+            font-size: 14px;
+        }
+        .seats-available {
+            font-size: 16px;
+        }
+        .card-body {
+            padding: 20px;
+        }
+
+
+
+        
+         .print-page {
+        font-family: 'Poppins', sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .ticket-header h2 {
+        color: #007bff;
+        margin-bottom: 10px;
+    }
+
+    .ticket-header p {
+        color: #6c757d;
+        font-size: 1.1rem;
+    }
+
+    .print-button {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        padding: 10px 20px;
+    }
+
+    .ticket-details {
+        background: #f8f9fa;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .ticket-details h5 {
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    .ticket-details p {
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+
+    .border {
+        border: 1px solid #dee2e6;
+    }
+
+    .rounded {
+        border-radius: 10px;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .important-info {
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+
+    @media print {
+        .print-button {
+            display: none;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+        .container {
+            width: 100%;
+            padding: 0;
+        }
+    }
+
+         

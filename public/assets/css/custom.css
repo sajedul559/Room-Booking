@@ -1,0 +1,35 @@
+.form-select {
+    display: block;
+    width: 100%;
+    padding: .45rem 2.7rem .45rem .9rem;
+    -moz-padding-start: calc(.9rem - 3px);
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--ct-form-select-color);
+    background-color: var(--ct-form-select-bg);
+    /* background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%238b96a0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"); */
+    background-repeat: no-repeat;
+    background-position: right .9rem center;
+    background-size: 14px 10px;
+    border: 1px solid var(--ct-input-border-color);
+    border-radius: .25rem;
+    -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.nice-select-search-box {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.nice-select-search {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    outline: none;
+}
