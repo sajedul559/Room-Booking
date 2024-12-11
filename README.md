@@ -63,6 +63,7 @@ To set up this project locally, follow these steps:
 
     ```bash
     php artisan migrate
+    php artisan db:seed
     ```
 
 9. Setup passport:
