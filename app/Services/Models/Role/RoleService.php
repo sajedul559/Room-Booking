@@ -2,7 +2,8 @@
 
 namespace App\Services\Models\Role;
 
-use App\Models\Role;
+use Spatie\Permission\Models\Role;
+
 
 Class RoleService {
 
@@ -14,15 +15,17 @@ Class RoleService {
     }
     public function getAll($isActive = false, $isVisible = false, $isPaginate = false)
     {
-        $roles = Role::when($isActive, function($q) use($isActive){
-            $q->where('is_active', $isActive);
-        })->when($isVisible, function($q) use($isVisible){
-            $q->where('is_visible', $isVisible);
-        })->get();
+        // $roles = Role::when($isActive, function($q) use($isActive){
+        //     $q->where('is_active', $isActive);
+        // })->when($isVisible, function($q) use($isVisible){
+        //     $q->where('is_visible', $isVisible);
+        // })->get();
+        $roles = Role::all();
         return $roles;
     }
     public function store(array $payloads)
     {
+        // dd($payloads);
         Role::create($payloads);
     }
     public function update($payloads, $id)
@@ -45,6 +48,6 @@ Class RoleService {
 
     public function roleList()
     {
-        return Role::where('is_visible', '1')->where('is_active', '1')->select('id', 'name')->get();
+        return Role::all();
     }
 }

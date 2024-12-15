@@ -32,7 +32,7 @@ Route::get('/', function () {
 
 
 Auth::routes();
-Route::resource('/roles', RolePermissionController::class);
+// Route::resource('/roles', RolePermissionController::class);
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 

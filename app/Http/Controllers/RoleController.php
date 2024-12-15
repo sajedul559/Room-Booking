@@ -20,7 +20,7 @@ class RoleController extends Controller
     public function index()
     {
         $data = $this->roleService->index();
-        return view('roles.index', $data);
+        return view('backend.roles.index', $data);
     }
     public function create()
     {
