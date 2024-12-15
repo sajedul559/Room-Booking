@@ -25,14 +25,11 @@
                             <tr class="">
                                 <th class="sort" data-sort="id">SL</th>
                                 <th class="sort" data-sort="name">Name</th>
-                                <th class="sort" data-sort="created_by">Created By</th>
-                                <th class="sort" data-sort="created_at">Created AT</th>
-                                <th class="sort" data-sort="status">Status</th>
                                 <th class="sort text-end">Action</th>
                             </tr>
                         </thead>
                         <tbody class="list form-check-all">
-                            @include('roles.list')
+                            @include('backend.roles.list')
                         </tbody>
                     </table>
 
@@ -45,8 +42,8 @@
         <!--end col-->
     </div>
     <!--end row-->
-    @include('roles.form')
-    @include('roles.edit')
+    @include('backend.roles.form')
+    @include('backend.roles.edit')
 @endsection
 @push('scripts')
     <script>

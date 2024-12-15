@@ -99,39 +99,42 @@
                     <label class="form-check-label" for="check-all">Check All Permissions</label>
                 </div>
             </div>
-
-            <div class="row">
-                @foreach ($permissions as $permission)
-                    @if ($permission->parent_id === null)
-                        <div class="col-md-4">
-                            <div class="accordion-item">
-                                <div class="accordion-header" onclick="toggleAccordion('{{ $permission->id }}')">
-                                    <span>
-                                        <input type="checkbox" id="parent-{{ $permission->id }}" class="form-check-input"
-                                            onchange="toggleChildren('{{ $permission->id }}')">
-                                        <label class="form-check-label" for="parent-{{ $permission->id }}">{{ $permission->name }}</label>
-                                    </span>
-                                    <span>&#x25BC;</span>
-                                </div>
-                                <div class="accordion-body" id="accordion-body-{{ $permission->id }}" style="display: none;">
-                                    @foreach ($permissions->where('parent_id', $permission->id) as $child)
-                                        <div class="form-check child-checkboxes">
-                                            <input type="checkbox" id="child-{{ $child->id }}" class="form-check-input parent-{{ $permission->id }}"
-                                                name="permissions[]" value="{{ $child->name }}">
-                                            <label class="form-check-label" for="child-{{ $child->id }}">{{ $child->name }}</label>
-                                        </div>
-                                    @endforeach
+           <form action="{{ route('assign-permissions.store') }}" method="POST">
+            @csrf
+                <div class="row">
+                    <input type="hidden" value="{{ $role->name }}" name="role" class="form-check-input">
+                    @foreach ($permissions as $permission)
+                        @if ($permission->parent_id === null)
+                            <div class="col-md-4">
+                                <div class="accordion-item">
+                                    <div class="accordion-header" onclick="toggleAccordion('{{ $permission->id }}')">
+                                        <span>
+                                            <input type="checkbox" id="parent-{{ $permission->id }}" class="form-check-input"
+                                                onchange="toggleChildren('{{ $permission->id }}')">
+                                            <label class="form-check-label" for="parent-{{ $permission->id }}">{{ $permission->name }}</label>
+                                        </span>
+                                        <span>&#x25BC;</span>
+                                    </div>
+                                    <div class="accordion-body" id="accordion-body-{{ $permission->id }}" style="display: none;">
+                                        @foreach ($permissions->where('parent_id', $permission->id) as $child)
+                                            <div class="form-check child-checkboxes">
+                                                <input type="checkbox" id="child-{{ $child->id }}" class="form-check-input parent-{{ $permission->id }}"
+                                                    name="permissions[]" value="{{ $child->name }}">
+                                                <label class="form-check-label" for="child-{{ $child->id }}">{{ $child->name }}</label>
+                                            </div>
+                                        @endforeach
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endif
-                @endforeach
-            </div>
+                        @endif
+                    @endforeach
+                </div>
 
-            <div class="d-flex justify-content-end mt-4">
-                <button type="button" class="btn-secondary" onclick="window.location.href='{{ route('roles.index') }}'">Cancel</button>
-                <button type="submit" class="btn-primary ml-2">Submit</button>
-            </div>
+                <div class="d-flex justify-content-end mt-4">
+                    <button type="button" class="btn-secondary" onclick="window.location.href='{{ route('roles.index') }}'">Cancel</button>
+                    <button type="submit" class="btn-primary ml-2">Submit</button>
+                </div>
+          </form>
         </div>
     </div>
 @endsection

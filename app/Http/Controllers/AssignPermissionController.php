@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
-use App\Models\Permission;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class AssignPermissionController extends Controller
 {
@@ -16,6 +16,30 @@ class AssignPermissionController extends Controller
     }
     public function store(Request $request)
     {
-        dd($request->all());
+      
+
+         // Get the role name from the request
+    $roleName = $request->input('role');
+
+    // Retrieve the role by name
+    $role = Role::where('name', $roleName)->first();
+
+    if (!$role) {
+        return response()->json(['error' => 'Role not found'], 404);
+    }
+
+
+    //     $roleId = $request['role'];
+    // $role = Role::find($roleId); // Make sure Role is imported and properly used
+
+
+    if (!$role) {
+        return response()->json(['error' => 'Role not found'], 404); // Handle not found case
+    }
+
+    $role->syncPermissions($request['permissions']);
+    return  back()->with('success','Role created successfully');
+
+
     }
 }
