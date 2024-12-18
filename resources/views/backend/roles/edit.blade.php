@@ -9,7 +9,7 @@
         <div class="offcanvas-body">
             <div class="mb-3">
                 <x-common.label for="name" title="Name" isRequired=true />
-                <x-common.input name="name" id="name" value="" placeholder="Enter brnad name"/>
+                <x-common.input name="name" id="name" value="" placeholder="Enter role name"/>
             </div>
             <div class="mb-3">
                 <x-common.label for="is_active" title="Is Active?" isRequired=true />

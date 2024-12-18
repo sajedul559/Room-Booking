@@ -108,5 +108,7 @@
 </div> --}}
 
 <div class="mb-3">
-    <button type="submit" class="btn btn-primary">{{ $submitButtonText }}</button>
+    <button type="submit" class="btn btn-success">{{ $submitButtonText }}</button>
+    <a href="{{ route('vendors.index') }}" class="btn btn-secondary">Cancel</a>
+
 </div>

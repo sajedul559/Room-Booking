@@ -10,7 +10,9 @@
                     <form action="{{ route('properties.store') }}" method="POST">
                         @csrf
                         @include('backend.properties.form')
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-success">Save</button>
+                        <a href="{{ route('properties.index') }}" class="btn btn-secondary">Cancel</a>
+
                     </form>
 
                 </div> <!-- Row -->

@@ -78,6 +78,6 @@
     required />
 
 <div class="form-group mt-3">
-    <button type="submit" class="btn btn-primary">{{ $submitButtonText }}</button>
+    <button type="submit" class="btn btn-success">{{ $submitButtonText }}</button>
     <a href="{{ route('house_chores.index') }}" class="btn btn-secondary">Cancel</a>
 </div>
