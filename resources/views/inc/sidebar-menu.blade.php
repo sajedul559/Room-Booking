@@ -45,6 +45,8 @@
                         </ul>
                     </div>
                 </li>
+                @can(['Create Role'])
+                
                 <li>
                     <a href="#sidebarProperty" data-bs-toggle="collapse">
                         <i class="fas  fa-parachute-box"></i>
@@ -59,6 +61,8 @@
                         </ul>
                     </div>
                 </li>
+                @endcan
+
                 <li>
                     <a href="#sidebarVendor" data-bs-toggle="collapse">
                         <i class="fas fa-user"></i>

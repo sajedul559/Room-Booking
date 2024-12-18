@@ -3,6 +3,8 @@
 namespace App\Services\Models\Role;
 
 use App\Models\Role;
+use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Permission;
 
 
 
@@ -50,5 +52,21 @@ Class RoleService {
     public function roleList()
     {
         return Role::all();
+    }
+    public function assignPermissions($id)
+    {
+        $role = Role::find($id);
+        $permissions = Permission::get();
+        $rolePermission = DB::table('role_has_permissions')->where('role_has_permissions.role_id', $id)
+            ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
+            ->all();
+
+        $rolePermissions = array_values($rolePermission);
+
+        return $data = [
+            'role' => $role,
+            'permissions' => $permissions,
+            'rolePermissions' => $rolePermissions,
+        ];
     }
 }

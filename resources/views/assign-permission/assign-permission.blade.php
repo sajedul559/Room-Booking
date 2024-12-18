@@ -90,7 +90,7 @@
         </style>
     @endpush
 
-    <div class="container my-4">
+    <div class="mt-4">
         <div class="main-container">
             <div class="permission-header">
                 <h3>Assign Permission ({{ $role->name }})</h3>
@@ -99,8 +99,8 @@
                     <label class="form-check-label" for="check-all">Check All Permissions</label>
                 </div>
             </div>
-           <form action="{{ route('assign-permissions.store') }}" method="POST">
-            @csrf
+            <form action="{{ route('assign-permissions.store') }}" method="POST">
+                @csrf
                 <div class="row">
                     <input type="hidden" value="{{ $role->name }}" name="role" class="form-check-input">
                     @foreach ($permissions as $permission)
@@ -109,8 +109,14 @@
                                 <div class="accordion-item">
                                     <div class="accordion-header" onclick="toggleAccordion('{{ $permission->id }}')">
                                         <span>
-                                            <input type="checkbox" id="parent-{{ $permission->id }}" class="form-check-input"
-                                                onchange="toggleChildren('{{ $permission->id }}')">
+                                            <input type="checkbox" 
+                                                id="parent-{{ $permission->id }}" 
+                                                class="form-check-input"
+                                                onchange="toggleChildren('{{ $permission->id }}')"
+                                                name="permissions[]" 
+                                                value="{{ $permission->id }}" 
+
+                                                {{ in_array($permission->id, $rolePermissions) ? 'checked' : '' }}>
                                             <label class="form-check-label" for="parent-{{ $permission->id }}">{{ $permission->name }}</label>
                                         </span>
                                         <span>&#x25BC;</span>
@@ -118,8 +124,12 @@
                                     <div class="accordion-body" id="accordion-body-{{ $permission->id }}" style="display: none;">
                                         @foreach ($permissions->where('parent_id', $permission->id) as $child)
                                             <div class="form-check child-checkboxes">
-                                                <input type="checkbox" id="child-{{ $child->id }}" class="form-check-input parent-{{ $permission->id }}"
-                                                    name="permissions[]" value="{{ $child->name }}">
+                                                <input type="checkbox" 
+                                                    id="child-{{ $child->id }}" 
+                                                    class="form-check-input parent-{{ $permission->id }}" 
+                                                    name="permissions[]" 
+                                                    value="{{ $child->id }}" 
+                                                    {{ in_array($child->id, $rolePermissions) ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="child-{{ $child->id }}">{{ $child->name }}</label>
                                             </div>
                                         @endforeach
@@ -129,12 +139,13 @@
                         @endif
                     @endforeach
                 </div>
-
+                
                 <div class="d-flex justify-content-end mt-4">
-                    <button type="button" class="btn-secondary" onclick="window.location.href='{{ route('roles.index') }}'">Cancel</button>
+                    <button type="button" class="btn-secondary" style="margin-right: 5px;" onclick="window.location.href='{{ route('roles.index') }}'">Cancel</button>
                     <button type="submit" class="btn-primary ml-2">Submit</button>
                 </div>
-          </form>
+            </form>
+            
         </div>
     </div>
 @endsection
@@ -160,4 +171,17 @@
         });
     }
 </script>
+
+@push('scripts')
+<script>
+    @if (session('success'))
+        toastr.success("{{ session('success') }}");
+    @endif
+
+    @if (session('error'))
+        toastr.error("{{ session('error') }}");
+    @endif
+</script>
+
+@endpush
 @endsection
