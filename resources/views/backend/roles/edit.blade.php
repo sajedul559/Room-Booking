@@ -11,13 +11,13 @@
                 <x-common.label for="name" title="Name" isRequired=true />
                 <x-common.input name="name" id="name" value="" placeholder="Enter brnad name"/>
             </div>
-            {{-- <div class="mb-3">
+            <div class="mb-3">
                 <x-common.label for="is_active" title="Is Active?" isRequired=true />
                 <x-common.select name="is_active" id="is_active">
                     <option value="1">Active</option>
-                    <option value="2">DeActive</option>
+                    <option value="0">DeActive</option>
                 </x-common.select>
-            </div> --}}
+            </div>
 
         </div>
         <div class="offcanvas-foorter border p-3 text-center __web-inspector-hide-shortcut__">           

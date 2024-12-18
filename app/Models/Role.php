@@ -2,21 +2,23 @@
 
 namespace App\Models;
 
-use App\Models\Traits\HasCreatedUpdatedBy;
-use Illuminate\Database\Eloquent\Model;
-use App\Models\Traits\UserRelationshipTrait;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Permission\Models\Role as SpatieRole;
 
-class Role extends Model
+class Role extends SpatieRole
 {
-    use HasFactory, UserRelationshipTrait, HasCreatedUpdatedBy;
-    protected $fillable = [
-        'name',
-        'slug',
-        'is_active',
-        'is_system',
-        'user_id',
-        'created_by',
-        'updated_by'
-    ];
+    /**
+     * Relationship: Created By
+     */
+    public function createdBy()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
+
+    /**
+     * Relationship: Last Updated By
+     */
+    public function lastUpdatedBy()
+    {
+        return $this->belongsTo(User::class, 'last_updated_by');
+    }
 }

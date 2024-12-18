@@ -24,7 +24,7 @@ class RuleRequestForm extends FormRequest
     {
         return [
             'name'      => ['required', 'unique:roles,name,'.$this->id],
-            // 'is_active' => ['required']
+            'is_active' => ['required']
         ];
     }
     public function payloadsData()

@@ -1,13 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\AssignPermissionController;
+use App\Http\Controllers\Admin\RolePermission\RoleController;
 use App\Http\Controllers\Admin\RolePermission\RolePermissionController;
 
 
@@ -46,6 +46,7 @@ Route::get('dashboard/superadmin', [SuperAdminController::class, 'home'])->name(
 
 
 Route::group(['as'=>'roles.', 'prefix'=>'roles'], function(){
+    
     Route::get('/', [RoleController::class, 'index'])->name('index');
     Route::post('/', [RoleController::class, 'store'])->name('store');
     Route::get('/{id}/show', [RoleController::class, 'show'])->name('show');
