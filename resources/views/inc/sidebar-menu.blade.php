@@ -47,7 +47,7 @@
                 </li>
                 <li>
                     <a href="#sidebarProperty" data-bs-toggle="collapse">
-                        <i class="fas fa-landmark"></i>
+                        <i class="fas  fa-parachute-box"></i>
                         <span>Properties </span>
                         <span class="menu-arrow"></span>
                     </a>
@@ -55,6 +55,34 @@
                         <ul class="nav-second-level">
                             <li><a href="{{ route('properties.index') }}">Lists</a></li>
                             <li><a href="{{ route('properties.create') }}">Create</a></li>
+                          
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#sidebarVendor" data-bs-toggle="collapse">
+                        <i class="fas fa-user"></i>
+                        <span>Vendor </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarVendor">
+                        <ul class="nav-second-level">
+                            <li><a href="{{ route('vendors.index') }}">Lists</a></li>
+                            <li><a href="{{ route('vendors.create') }}">Create</a></li>
+                          
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#sidebarHomeChore" data-bs-toggle="collapse">
+                        <i class="fas fa-landmark"></i>
+                        <span>House Chores </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarHomeChore">
+                        <ul class="nav-second-level">
+                            <li><a href="{{ route('house_chores.index') }}">Lists</a></li>
+                            <li><a href="{{ route('house_chores.create') }}">Create</a></li>
                           
                         </ul>
                     </div>

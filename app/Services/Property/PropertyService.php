@@ -14,9 +14,9 @@ class PropertyService
      */
     public function getAllProperties(int $perPage = 10)
     {
-        return Property::where('is_delete', false)
-            ->orderBy('id', 'desc') // Change 'created_at' to the column you want to sort by
-            ->paginate($perPage);
+      
+      return Property::with('vendor.user')->where('is_publish','1')->get();
+
     }
     public function create(array $data)
     {

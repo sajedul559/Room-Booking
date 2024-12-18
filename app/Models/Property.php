@@ -36,4 +36,16 @@ class Property extends Model
              self::PROPERTY_TYPE_HOMESTAY => 'Homestay',
          ];
      }
+     public function vendor()
+     {
+        return $this->belongsTo(Vendor::class,'vendor_id','id');
+     }
+     public function createdBy()
+     {
+        return $this->belongsTo(user::class,'created_by','id');
+     }
+     public function updatedBy()
+     {
+        return $this->belongsTo(user::class,'last_updated_by','id');
+     }
 }

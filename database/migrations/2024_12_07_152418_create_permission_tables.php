@@ -42,6 +42,14 @@ return new class extends Migration
             }
             $table->string('name');       // For MySQL 8.0 use string('name', 125);
             $table->string('guard_name'); // For MySQL 8.0 use string('guard_name', 125);
+            $table->string('description')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('last_updated_by')->nullable();
+            $table->boolean('is_active')->default(true);
+
+            // Add foreign key constraints if needed
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('last_updated_by')->references('id')->on('users')->onDelete('set null');
             $table->timestamps();
             if ($teams || config('permission.testing')) {
                 $table->unique([$columnNames['team_foreign_key'], 'name', 'guard_name']);

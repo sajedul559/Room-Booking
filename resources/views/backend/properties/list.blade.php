@@ -19,9 +19,12 @@
                             <tr>
                                 <th>#</th>
                                 <th>Property Name</th>
+                                <th>Vendor Name</th>
                                 <th>Location</th>
                                 <th>Type</th>
                                 <th>Publish Status</th> <!-- New Column -->
+                                <th>Created By</th> <!-- New Column -->
+                                <th>LastUpdated By</th> <!-- New Column -->
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -30,6 +33,8 @@
                                 <tr>
                                     <td>{{ $property->id }}</td>
                                     <td>{{ $property->property_name }}</td>
+                                    <td>{{ $property->vendor->user->name }}</td>
+
                                     <td>{{ $property->location }}</td>
                                     <td>{{ $property->property_type }}</td>
                                     <td>
@@ -39,6 +44,9 @@
                                             <span class="badge bg-warning">Unpublished</span>
                                         @endif
                                     </td>
+                                    <td>{{ $property->createdBy->name }}</td>
+                                    <td>{{ $property->updatedBy->name }}</td>
+
                                     <td class="text-start">
                                         <x-common.action-drop-down>
                                             <!-- Edit Button -->
