@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\Vendor\VendorController;
 use App\Http\Controllers\Admin\Property\PropertyController;
+use App\Http\Controllers\Admin\HouseChore\HouseChoreController;
 
 
 
@@ -20,6 +22,11 @@ use App\Http\Controllers\Admin\Property\PropertyController;
 
 Route::resource('properties', PropertyController::class);
 Route::resource('admins', UserController::class);
+Route::resource('vendors', VendorController::class);
+Route::resource('house_chores', HouseChoreController::class);
+
+
+
 
 
 

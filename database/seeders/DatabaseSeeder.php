@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             SystemSettingSeeder::class,
             RolesAndPermissionsSeeder::class,
             PropertySeeder::class,
+            VendorSeeder::class,
+            HouseChoreSeeder::class,
         ]);
     }
 }
