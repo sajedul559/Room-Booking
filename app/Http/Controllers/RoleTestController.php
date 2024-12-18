@@ -10,7 +10,7 @@ use App\Http\Requests\RuleRequestForm;
 use Illuminate\Support\Facades\Session;
 use App\Services\Models\Role\RoleService;
 
-class RoleController extends Controller
+class RoleTestController extends Controller
 {
     protected $roleService;
     public function __construct()
@@ -19,6 +19,7 @@ class RoleController extends Controller
     }
     public function index()
     {
+        dd("working");
         $data = $this->roleService->index();
         return view('backend.roles.index', $data);
     }

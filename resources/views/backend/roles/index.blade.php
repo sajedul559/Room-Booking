@@ -25,6 +25,9 @@
                             <tr class="">
                                 <th class="sort" data-sort="id">SL</th>
                                 <th class="sort" data-sort="name">Name</th>
+                                <th class="sort" data-sort="name">Created By</th>
+                                <th class="sort" data-sort="name">LastUpdated By</th>
+                                <th class="sort" data-sort="name">Status</th>
                                 <th class="sort text-end">Action</th>
                             </tr>
                         </thead>
