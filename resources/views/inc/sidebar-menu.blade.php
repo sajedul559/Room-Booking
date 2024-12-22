@@ -45,6 +45,20 @@
                         </ul>
                     </div>
                 </li>
+                <li>
+                    <a href="#sidebarTodo" data-bs-toggle="collapse">
+                        <i class="fas  fa-parachute-box"></i>
+                        <span>Todo </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarTodo">
+                        <ul class="nav-second-level">
+                            <li><a href="{{ route('todos.index') }}">Lists</a></li>
+                            <li><a href="{{ route('todos.create') }}">Create</a></li>
+                          
+                        </ul>
+                    </div>
+                </li>
                 @can(['Create Role'])
                 
                 <li>
@@ -61,6 +75,7 @@
                         </ul>
                     </div>
                 </li>
+
                 @endcan
 
                 <li>
