@@ -59,6 +59,20 @@
                         </ul>
                     </div>
                 </li>
+                <li>
+                    <a href="#sidebarExpense" data-bs-toggle="collapse">
+                        <i class="fas  fa-parachute-box"></i>
+                        <span>Expense </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarExpense">
+                        <ul class="nav-second-level">
+                            <li><a href="{{ route('expenses.index') }}">Lists</a></li>
+                            <li><a href="{{ route('expenses.create') }}">Create</a></li>
+                          
+                        </ul>
+                    </div>
+                </li>
                 @can(['Create Role'])
                 
                 <li>
