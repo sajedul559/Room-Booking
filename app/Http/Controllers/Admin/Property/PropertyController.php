@@ -16,6 +16,11 @@ class  PropertyController extends Controller
     public function __construct(PropertyService $propertyService)
     {
         $this->propertyService = $propertyService;
+         // Apply permission checks globally for these actions
+         $this->middleware('can:Create Property')->only('create', 'store');
+         $this->middleware('can:Edit Property')->only('edit', 'update');
+         $this->middleware('can:Delete Property')->only('destroy');
+         $this->middleware('can:Index Properties')->only('index');
     }
 
     public function index()

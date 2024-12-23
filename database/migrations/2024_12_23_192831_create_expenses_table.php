@@ -26,8 +26,7 @@ return new class extends Migration
 
             $table->foreign('vendor_id')->references('id')->on('vendors')->onDelete('cascade');
             $table->foreign('property_id')->references('id')->on('properties')->onDelete('set null');
-            $table->foreign('created_by')->references('id')->on('users');
-            $table->foreign('last_updated_by')->references('id')->on('users');
+           
         });
     }
 
