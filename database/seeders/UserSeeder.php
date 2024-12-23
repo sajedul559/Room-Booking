@@ -13,14 +13,55 @@ class UserSeeder extends Seeder
 
     public function run(): void
     {
-        
-        // Create Superadmin user
-        $superadmin = User::create([
-            'name' => 'Super Admin',
-            'email' => 'superadmin@gmail.com',
-            'phone'=>'017765211123',
-            'password' => Hash::make('12345678'), // Use bcrypt to hash password
-        ]);
-    }
+        $users = [
+            [
+                'name' => 'Super Admin',
+                'email' => 'superadmin@gmail.com',
+                'phone' => '017765211123',
+                'password' => Hash::make('12345678'),
+            ],
+            [
+                'name' => 'Property User',
+                'email' => 'property@gmail.com',
+                'phone' => '017765211123',
+                'password' => Hash::make('12345678'),
+            ],
+            [
+                'name' => 'Admin User',
+                'email' => 'admin@gmail.com',
+                'phone' => '017765211123',
+                'password' => Hash::make('12345678'),
+            ],
+            [
+                'name' => 'Vendor User',
+                'email' => 'vendor@gmail.com',
+                'phone' => '017765211123',
+                'password' => Hash::make('12345678'),
+            ],
+            [
+                'name' => 'House Chore User',
+                'email' => 'housechore@gmail.com',
+                'phone' => '017765211123',
+                'password' => Hash::make('12345678'),
+            ],
+            [
+                'name' => 'Todo User',
+                'email' => 'todo@gmail.com',
+                'phone' => '017765211123',
+                'password' => Hash::make('12345678'),
+            ],
+            [
+                'name' => 'Expense User',
+                'email' => 'expense@gmail.com',
+                'phone' => '017765211123',
+                'password' => Hash::make('12345678'),
+            ],
+        ];
+    
+        // Loop through each user and create them
+        foreach ($users as $user) {
+            User::create($user);
+        }
   
+    }
 }

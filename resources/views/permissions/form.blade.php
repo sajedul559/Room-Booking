@@ -14,10 +14,10 @@
                     <x-common.label for="name" title="Name" isRequired=true />
                     <x-common.input id="name" name="name" value="{{ isset($editPermission)  ? $editPermission->name : '' }}"/>
                 </div>
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <x-common.label for="route" title="Route" isRequired=true />
                     <x-common.input id="route" name="route" value="{{ isset($editPermission)  ? $editPermission->route : '' }}"/>
-                </div>
+                </div> --}}
                 <div class="mb-3">
                     <x-common.label for="parent_route" title="Parent Route" isRequired=false />
                     <x-common.select2 name="parent_route" id="parent_route">
