@@ -15,7 +15,6 @@ class PropertyController extends Controller
     public function __construct(PropertyService $propertyService)
     {
         $this->propertyService = $propertyService;
-
         // Apply permission checks globally for these actions
         $this->middleware('can:Create Property')->only('create', 'store');
         $this->middleware('can:Edit Property')->only('edit', 'update');
@@ -25,7 +24,6 @@ class PropertyController extends Controller
 
     public function index()
     {
-        // Permission already checked by middleware
         $properties = $this->propertyService->getAllProperties();
         return view('backend.properties.list', compact('properties'));
     }
