@@ -10,6 +10,7 @@ use App\Http\Controllers\AssignPermissionController;
 use App\Http\Controllers\Admin\RolePermission\RoleController;
 use App\Http\Controllers\Admin\RolePermission\RolePermissionController;
 
+use Inertia\Inertia;
 
 
 
@@ -24,10 +25,14 @@ use App\Http\Controllers\Admin\RolePermission\RolePermissionController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/admin-login', function () {
     return view('auth.login');
 });
 
+
+Route::get('/', function () {
+    return Inertia::render('Home');
+});
 
 
 
