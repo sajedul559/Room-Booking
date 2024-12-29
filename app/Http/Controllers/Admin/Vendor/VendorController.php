@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin\Vendor;
 
-use App\Http\Requests\VendorFormRequest;
-use App\Http\Controllers\Controller;
-
+use App\Models\User;
 use App\Models\Vendor;
-use App\Services\Vendor\VendorService;
+
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Services\Vendor\VendorService;
+use App\Http\Requests\VendorFormRequest;
 
 class VendorController extends Controller
 {
@@ -38,7 +39,9 @@ class VendorController extends Controller
      */
     public function create()
     {
-        return view('backend.vendors.create');
+        $users = User::all();
+
+        return view('backend.vendors.create',compact('users'));
     }
 
     /**

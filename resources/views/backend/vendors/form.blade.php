@@ -1,11 +1,15 @@
+
 <div class="mb-3">
-    <x-common.label title="User ID" isRequired="true" />
-    <x-common.input name="user_id" placeholder="Enter User ID" 
-                    value="{{ old('user_id', $vendor->user_id ?? '') }}" required />
-    @error('user_id')
-        <span class="text-danger">{{ $message }}</span>
-    @enderror
-</div>
+    <x-common.label title="User" isRequired="true" />
+    <x-common.select2 name="user_id">
+        <option value="">Select User</option>
+        @foreach ($users as $user)
+            <option value="{{ $user->id }}" {{ old('user_id', $expense->user_id ?? '') == $user->id ? 'selected' : '' }}>
+                {{ $user->name }}
+            </option>
+        @endforeach
+    </x-common.select2>
+   </div>
 
 <div class="mb-3">
     <x-common.label title="Address" isRequired="true" />

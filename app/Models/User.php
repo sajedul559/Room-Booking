@@ -36,7 +36,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
+    public const TYPE_VENDOR = 'Vendor';
+    public const TYPE_ADMIN  = 'Admin';
    
    
     public function role()
