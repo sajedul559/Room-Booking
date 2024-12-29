@@ -18,7 +18,6 @@ class VendorService
 
     public function createVendor(array $data)
     {
-        $data['id'] = (string) \Illuminate\Support\Str::uuid();
         return Vendor::create($data);
     }
 
