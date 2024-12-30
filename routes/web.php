@@ -31,7 +31,8 @@ Route::get('/admin-login', function () {
 
 
 Route::get('/', function () {
-    return Inertia::render('Home');
+    return Inertia::render('home/home-index');
+
 });
 
 
