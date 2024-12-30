@@ -11727,4 +11727,8 @@ section.partners-sec .container .partners-slider.owl-carousel .carousel .partner
   width: 100%;
 }
 
+.cities-list-sec .city-card-slider.owl-carousel .carousel .city-first-card {
+  margin: 0 8px;
+}
+
 /*# sourceMappingURL=style.css.map */
