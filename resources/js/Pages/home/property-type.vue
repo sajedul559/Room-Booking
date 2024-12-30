@@ -49,7 +49,8 @@
 
 <script>
 import { Carousel, Navigation, Slide } from "vue3-carousel";
-import PropertyType from '@/assets/json/index-property-type.json'
+import PropertyType from '@/Json/index-property-type.json'
+
 import "vue3-carousel/dist/carousel.css";
 
 export default {

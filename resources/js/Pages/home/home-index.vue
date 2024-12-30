@@ -21,3 +21,25 @@
 
     <layouts-footer></layouts-footer>
 </template>
+
+<script>
+import Footer from "@/layouts/layouts-footer.vue";
+import Header from "@/layouts/layouts-header.vue";
+import Banner from "./home-banner.vue";
+import PropertyType from "./property-type.vue";
+// import FeatureProperty from "./index-feature-property.vue";
+// import Cities from "./index-cities-list.vue";
+// import FeatureRent from "./index-feature-rent.vue";
+// import MainProperty from "./index-main-property.vue";
+// import Testimonial from "./testimonial-index.vue";
+// import Faq from "./faq-index.vue";
+
+export default {
+  components: {
+    'layouts-footer': Footer,
+    'layouts-header': Header,
+    'home-banner': Banner,
+    'property-type': PropertyType
+  }
+};
+</script>
