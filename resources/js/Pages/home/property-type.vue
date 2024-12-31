@@ -21,7 +21,7 @@
                         <div class="owl-nav mynav1 nav-control"></div>
                     </div>
                 </div>
-                <div class="col-md-8">
+                <!-- <div class="col-md-8">
                     <div class="property-type-slider owl-carousel">
                         <Carousel :wrap-around="true" :settings="settings" :breakpoints="breakpoints">
                             <Slide v-for="item in PropertyType" :key="item.id">
@@ -40,7 +40,7 @@
                             </template>
                         </Carousel>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
