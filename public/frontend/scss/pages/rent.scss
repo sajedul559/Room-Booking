@@ -427,6 +427,7 @@
     min-height: 100%;
     position: $__sticky;
     right: 0;
+    top: 200px;
     z-index: 1029;
 	padding-left: 0;
 	padding-right: 0;
@@ -450,7 +451,7 @@
     }
    
     .map-listing {
-		height: calc(140vh - 200px);
+        height: calc(100vh - 200px);
         width: $__full__width;
 		.profile-widget {
 			padding: 0;

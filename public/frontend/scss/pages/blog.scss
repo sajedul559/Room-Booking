@@ -529,7 +529,7 @@
 }
 .blog-details-sec {
     background: $__snow__light;
-    @include margin-padding(null, 60px 0 100px 0);
+    @include margin-padding(null, 60px 0);
     @include respond-below(custom991) {
         @include margin-padding(null, 50px 0);
     }
