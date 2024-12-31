@@ -532,7 +532,7 @@
 	}
 }
 .bg-01 {
-	@include position($__absolute, 80%, null, null, 20px);
+	@include position($__absolute, 30%, 100px, null, null);
 	@include respond-below(custom1399) {
 		right: 20px;
 		width: 70px;

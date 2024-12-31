@@ -266,3 +266,14 @@
         }
     }
 }  
+.login-wrapper .loginbox .toggle-password1 {
+    position: absolute;
+    right: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  .login-wrapper .loginbox .toggle-password1.fa-eye {
+    margin-right: 1px;
+    font-weight: 500;
+  }
