@@ -1,0 +1,75 @@
+<?php
+
+namespace App\Http\Controllers\Admin\RentManagement;
+
+use App\Models\RentManagement;
+use Illuminate\Http\Request;
+
+use App\Http\Controllers\Controller;
+use App\Services\Vendor\VendorService;
+use App\Services\RentManagement\RentManagementService;
+use App\Http\Requests\RentManagementFormRequest;
+use App\Services\Property\PropertyService;
+
+class RentManagementController extends Controller
+{
+    protected $rentManagementService;
+    protected $vendorService;
+    protected $propertyService;
+
+
+    public function __construct(RentManagementService $rentManagementService, VendorService $vendorService, PropertyService $propertyService)
+    {
+        $this->rentManagementService = $rentManagementService;
+        $this->vendorService = $vendorService;
+        $this->propertyService = $propertyService;
+        // Apply permission checks globally for these actions
+        $this->middleware('can:Create Expense')->only('create', 'store');
+        $this->middleware('can:Edit Expense')->only('edit', 'update');
+        $this->middleware('can:Delete Expense')->only('destroy');
+        $this->middleware('can:Index Properties')->only('index');
+    }
+
+
+    public function index()
+    {
+        $rentManagements = $this->rentManagementService->getAllRentManagements();
+        return view('backend.rent_managements.list', compact('rentManagements'));
+    }
+
+    public function create()
+    {
+        $data = $this->rentManagementService->create();
+        return view('backend.rent_managements.create',compact('data'));
+    }
+
+    public function store(RentManagementFormRequest $request)
+    {
+        // dd("workng",$request->all());
+        $this->rentManagementService->createRentManagement($request->payloadsData());
+        return redirect()->route('rent_managements.index')->with('success', 'Rent created successfully.');
+    }
+
+    public function edit($id)
+    {
+        $rentManagement = $this->rentManagementService->getRentManagementById($id);
+        $vendors = $this->vendorService->getAllVendors();
+        $data = $this->rentManagementService->create();
+
+        $properties = $this->propertyService->getAllProperties();
+
+        return view('backend.rent_managements.edit', compact('vendors','properties','data','rentManagement'));
+    }
+
+    public function update(RentManagementFormRequest $request, $id)
+    {
+        $this->rentManagementService->updateRentManagement($id, $request->payloadsData());
+        return redirect()->route('rent_managements.index')->with('success', 'Rent updated successfully.');
+    }
+
+    public function destroy($id)
+    {
+        $this->rentManagementService->deleteRentManagement($id);
+        return redirect()->route('rent_managements.index')->with('success', 'Rent deleted successfully.');
+    }
+}
