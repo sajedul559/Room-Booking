@@ -11,4 +11,4 @@
     name="{{ $name }}" 
     placeholder="{{ $placeholder }}" 
     {{ $isRequired ? 'required' : '' }}
->{{ old($name, $value) }}</textarea>
+>{{ $slot->isEmpty() ? old($name, $value) : $slot }}</textarea>

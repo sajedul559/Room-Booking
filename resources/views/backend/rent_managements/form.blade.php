@@ -49,7 +49,7 @@
     <x-common.select2 name="user_id">
         <option value="">Select Tenant</option>
         @foreach ($data['tenants'] as $tenant)
-            <option value="{{ $tenant->id }}" {{ old('user_id', $rent->tenant_user_id ?? '') == $tenant->id ? 'selected' : '' }}>
+            <option value="{{ $tenant->id }}" {{ old('user_id', $rent->user_id ?? '') == $tenant->id ? 'selected' : '' }}>
                 {{ $tenant->name }}
             </option>
         @endforeach
@@ -74,21 +74,10 @@
     </x-common.select2>
 </div>
 
-{{-- <div class="mb-3">
-    <x-common.label title="Payment Collected By" isRequired="true" />
-    <x-common.select2 name="payment_collect_by">
-        <option value="">Select Collector</option>
-        @foreach ($collectors as $collector)
-            <option value="{{ $collector->id }}" {{ old('payment_collect_by', $rent->payment_collect_by ?? '') == $collector->id ? 'selected' : '' }}>
-                {{ $collector->name }}
-            </option>
-        @endforeach
-    </x-common.select2>
-</div> --}}
 
 <div class="mb-3">
     <x-common.label title="Notes" />
-    <x-common.textarea name="notes" rows="3">{{ old('notes', $rent->notes ?? '') }}</x-common.textarea>
+    <x-common.textarea name="notes">{{ old('notes', $rent->notes ?? '') }}</x-common.textarea>
 </div>
 
 <div class="form-group mt-3">
