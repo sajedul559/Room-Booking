@@ -21,17 +21,16 @@
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link active" id="buy-property" data-bs-toggle="tab" href="#buy_property"
                                         role="tab" aria-controls="buy_property" aria-selected="true">
-                                        <img src="{{ URL::asset('/frontend/img/icons/buy-icon.svg') }}" alt="icon"> Buy a
-                                        Property
+                                        <img src="{{ URL::asset('/frontend/img/icons/buy-icon.svg') }}" alt="icon"> Rent a Room
                                     </a>
                                 </li>
-                                <li class="nav-item" role="presentation">
+                                {{-- <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="rent-property" data-bs-toggle="tab" href="#rent_property"
                                         role="tab" aria-controls="rent_property" aria-selected="false">
                                         <img src="{{ URL::asset('/frontend/img/icons/rent-icon.svg') }}" alt="icon"> Rent
                                         a Property
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                         <div class="tab-content" id="bannerTabContent">
