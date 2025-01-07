@@ -7,8 +7,8 @@
                 <div class="card" id="orderList">
                     <div class="card-header" >
                         <div class="d-flex justify-content-between align-items-center mb-1">
-                            <h4 class="header-title mb-0">Expense List</h4>
-                            <a class="btn btn-success" href="{{ route('expenses.create') }}" class="btn btn-primary"> <i class="mdi mdi-plus-circle me-2"></i>New Expense</a>
+                            <h4 class="header-title mb-0">Rent Management List</h4>
+                            <a class="btn btn-success" href="{{ route('rent_managements.create') }}" class="btn btn-primary"> <i class="mdi mdi-plus-circle me-2"></i>New Rent Management</a>
 
                         </div>
                     </div>
@@ -19,8 +19,15 @@
                                 <th>ID</th>
                                 <th>Vendor Name</th>
                                 <th>Property</th>
-                                <th>Type</th>
-                                <th>Is Creadit</th>
+                                <th>User</th>
+                                <th>Room</th>
+                                <th>Amount</th>
+                                <th> Type</th>
+                                <th> CollectionType</th>
+                                <th> CollectedBy</th>
+                                <th>Date</th>
+                                <th>CreatedBy</th>
+                                {{-- <th>UpdatedBy</th> --}}
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -30,8 +37,15 @@
                                     <td>{{ $data->id }}</td>
                                     <td>{{ $data->vendor ? $data->vendor->user->name ?? 'No User Assigned' : 'No Vendor Assigned' }}</td>
                                     <td>{{ $data->property ? $data->property->property_name : 'No Vendor Assigned' }}</td>
-                                    <td>{{ $data->expense_type }}</td>
-                                    <td>{{ $data->is_credit ? 'Yes' : 'No' }}</td>
+                                    <td>{{ $data->user ? $data->user->name : 'No User Assigned' }}</td>
+                                    <td>Will Add</td>
+                                    <td>{{ $data->amount }}</td>
+                                    <td>{{ $data->payment_type }}</td>
+                                    <td>{{ $data->payment_collection_type }}</td>
+                                    <td>{{ $data->paymentCollecteddBy? $data->paymentCollecteddBy->name:'No Assigned' }}</td>
+                                    <td>{{ $data->date }}</td>
+                                    <td>{{ $data->createdBy->name }}</td>
+                                    {{-- <td>{{ $data->updatedBy->name }}</td> --}}
                                     <td class="text-start">
                                         <x-common.action-drop-down>
                                             <!-- Edit Button -->
@@ -68,19 +82,6 @@
 @endpush
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-  
 
-</script>
-
-<script>
-    @if (session('success'))
-        toastr.success("{{ session('success') }}");
-    @endif
-
-    @if (session('error'))
-        toastr.error("{{ session('error') }}");
-    @endif
-</script>
 
 @endpush
