@@ -193,7 +193,7 @@
                                 <p>30 Properties</p>
                             </div>
                         </div>
-                        <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
+                        {{-- <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
                                 <img src="{{ URL::asset('/frontend/img/icons/property-icon-2.svg') }}" alt="icon">
                             </div>
@@ -201,7 +201,7 @@
                                 <h4>Offices</h4>
                                 <p>25 Properties</p>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
                                 <img src="{{ URL::asset('/frontend/img/icons/property-icon-3.svg') }}" alt="icon">
@@ -254,756 +254,7 @@
     </section>
     <!-- /Property Type -->
 
-    <!-- Feature Properties For Sale-->
-    <section class="feature-property-sec">
-        <div class="container">
-            <div class="section-heading text-center">
-                <h2>Featured Properties for Sales</h2>
-                <div class="sec-line">
-                    <span class="sec-line1"></span>
-                    <span class="sec-line2"></span>
-                </div>
-                <p>Hand-Picked selection of quality places</p>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="feature-slider owl-carousel">
-                        <div class="slider-col">
-                            <div class="product-custom" data-aos="fade-down" data-aos-duration="1000">
-                                <div class="profile-widget">
-                                    <div class="doc-img">
-                                        <a href="{{ url('rent-details') }}" class="property-img">
-                                            <img class="img-fluid" alt="Property Image"
-                                                src="{{ URL::asset('/frontend/img/product/product-1.jpg') }}">
-                                        </a>
-                                        <div class="product-amount">
-                                            <span>$41,000</span>
-                                        </div>
-                                        <div class="feature-rating">
-                                            <div>
-                                                <div class="featured">
-                                                    <span>Featured</span>
-                                                </div>
-                                                <div class="new-featured">
-                                                    <span>New</span>
-                                                </div>
-                                            </div>
-                                            <a href="javascript:void(0)">
-                                                <div class="favourite selected">
-                                                    <span><i class="fa-regular fa-heart"></i></span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="user-avatar">
-                                            <img src="{{ URL::asset('/frontend/img/profiles/avatar-01.jpg') }}"
-                                                alt="User">
-                                        </div>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                            </span>
-                                            <p class="rating-review"><span>5.0</span>(20 Reviews)</p>
-                                        </div>
-                                        <h3 class="title">
-                                            <a href="{{ url('rent-details') }}">Place perfect for nature</a>
-                                        </h3>
-                                        <p><span><i class="feather-map-pin"></i></span>318-S Oakley Blvd, Chicago, IL
-                                            60612, USA</p>
-                                        <ul class="d-flex details">
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bed-icon.svg') }}"
-                                                    alt="bed-icon">
-                                                4 Beds
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bath-icon.svg') }}"
-                                                    alt="bath-icon">
-                                                4 Baths
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/building-icon.svg') }}"
-                                                    alt="building-icon">
-                                                35000 Sqft
-                                            </li>
-                                        </ul>
-
-                                        <ul class="property-category d-flex justify-content-between">
-                                            <li>
-                                                <span class="list">Listed on : </span>
-                                                <span class="date">16 Jan 2023</span>
-                                            </li>
-                                            <li>
-                                                <span class="category list">Category : </span>
-                                                <span class="category-value date">Apartment</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-custom" data-aos="fade-down" data-aos-duration="1000">
-                                <div class="profile-widget">
-                                    <div class="doc-img">
-                                        <a href="{{ url('rent-details') }}" class="property-img">
-                                            <img class="img-fluid" alt="Property Image"
-                                                src="{{ URL::asset('/frontend/img/product/product-2.jpg') }}">
-                                        </a>
-                                        <div class="feature-rating">
-                                            <div>
-                                                <div class="featured">
-                                                    <span>Featured</span>
-                                                </div>
-                                            </div>
-                                            <a href="javascript:void(0)">
-                                                <div class="favourite">
-                                                    <span><i class="fa-regular fa-heart"></i></span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="product-amount">
-                                            <span>$78,000</span>
-                                        </div>
-                                        <div class="user-avatar">
-                                            <img src="{{ URL::asset('/frontend/img/profiles/avatar-02.jpg') }}"
-                                                alt="User">
-                                        </div>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </span>
-                                            <p class="rating-review"><span>3.0</span>(10 Reviews)</p>
-                                        </div>
-                                        <h3 class="title">
-                                            <a href="{{ url('rent-details') }}">Beautiful Condo Room</a>
-                                        </h3>
-                                        <p><i class="feather-map-pin"></i>470 Park Ave S, New York, NY 10016</p>
-                                        <ul class="d-flex details">
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bed-icon.svg') }}"
-                                                    alt="bed-icon">
-                                                3 Beds
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bath-icon.svg') }}"
-                                                    alt="bath-icon">
-                                                2 Baths
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/building-icon.svg') }}"
-                                                    alt="building-icon">
-                                                15000 Sqft
-                                            </li>
-                                        </ul>
-
-                                        <ul class="property-category d-flex justify-content-between">
-                                            <li>
-                                                <span class="list">Listed on : </span>
-                                                <span class="date">17 Jan 2023</span>
-                                            </li>
-                                            <li>
-                                                <span class="category list">Category : </span>
-                                                <span class="category-value date">Condos</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider-col">
-                            <div class="product-custom" data-aos="fade-down" data-aos-duration="1000">
-                                <div class="profile-widget">
-                                    <div class="doc-img">
-                                        <a href="{{ url('rent-details') }}" class="property-img">
-                                            <img class="img-fluid" alt="Property Image"
-                                                src="{{ URL::asset('/frontend/img/product/product-3.jpg') }}">
-                                        </a>
-                                        <div class="product-amount">
-                                            <span>$63,000</span>
-                                        </div>
-                                        <div class="feature-rating">
-                                            <div>
-                                                <div class="featured">
-                                                    <span>Featured</span>
-                                                </div>
-                                            </div>
-                                            <a href="javascript:void(0)">
-                                                <div class="favourite">
-                                                    <span><i class="fa-regular fa-heart"></i></span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="user-avatar">
-                                            <img src="{{ URL::asset('/frontend/img/profiles/avatar-03.jpg') }}"
-                                                alt="User">
-                                        </div>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </span>
-                                            <p class="rating-review"><span>4.0</span>(28 Reviews)</p>
-                                        </div>
-                                        <h3 class="title">
-                                            <a href="{{ url('rent-details') }}">Summer house</a>
-                                        </h3>
-                                        <p><i class="feather-map-pin"></i>82-25 Parsons Blvd, Jamaica, NY 11432, USA</p>
-                                        <ul class="d-flex details">
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bed-icon.svg') }}"
-                                                    alt="bed-icon">
-                                                2 Beds
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bath-icon.svg') }}"
-                                                    alt="bath-icon">
-                                                1 Bath
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/building-icon.svg') }}"
-                                                    alt="building-icon">
-                                                5000 Sqft
-                                            </li>
-                                        </ul>
-
-                                        <ul class="property-category d-flex justify-content-between">
-                                            <li>
-                                                <span class="list">Listed on : </span>
-                                                <span class="date">13 Jan 2023</span>
-                                            </li>
-                                            <li>
-                                                <span class="category list">Category : </span>
-                                                <span class="category-value date">House</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-custom" data-aos="fade-down" data-aos-duration="1000">
-                                <div class="profile-widget">
-                                    <div class="doc-img">
-                                        <a href="{{ url('rent-detail-view') }}" class="property-img">
-                                            <img class="img-fluid" alt="Property Image"
-                                                src="{{ URL::asset('/frontend/img/product/product-4.jpg') }}">
-                                        </a>
-                                        <div class="product-amount">
-                                            <span>$51,000</span>
-                                        </div>
-                                        <div class="feature-rating">
-                                            <div>
-                                                <div class="featured">
-                                                    <span>Featured</span>
-                                                </div>
-                                            </div>
-                                            <a href="javascript:void(0)">
-                                                <div class="favourite">
-                                                    <span><i class="fa-regular fa-heart"></i></span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="user-avatar">
-                                            <img src="{{ URL::asset('/frontend/img/profiles/avatar-04.jpg') }}"
-                                                alt="User">
-                                        </div>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                            </span>
-                                            <p class="rating-review"><span>5.0</span>(15 Reviews)</p>
-                                        </div>
-                                        <h3 class="title">
-                                            <a href="{{ url('rent-details') }}">Minimalist and bright flat</a>
-                                        </h3>
-                                        <p><i class="feather-map-pin"></i>518-520 8th Ave, New York, NY 10018, USA</p>
-                                        <ul class="d-flex details">
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bed-icon.svg') }}"
-                                                    alt="bed-icon">
-                                                3 Beds
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bath-icon.svg') }}"
-                                                    alt="bath-icon">
-                                                1 Baths
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/building-icon.svg') }}"
-                                                    alt="building-icon">
-                                                25000 Sqft
-                                            </li>
-                                        </ul>
-
-                                        <ul class="property-category d-flex justify-content-between">
-                                            <li>
-                                                <span class="list">Listed on : </span>
-                                                <span class="date">18 Jan 2023</span>
-                                            </li>
-                                            <li>
-                                                <span class="category list">Category : </span>
-                                                <span class="category-value date">Flats</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider-col">
-                            <div class="product-custom" data-aos="fade-down" data-aos-duration="1000">
-                                <div class="profile-widget">
-                                    <div class="doc-img">
-                                        <a href="{{ url('rent-details') }}" class="property-img">
-                                            <img class="img-fluid" alt="Property Image"
-                                                src="{{ URL::asset('/frontend/img/product/product-5.jpg') }}">
-                                        </a>
-                                        <div class="product-amount">
-                                            <span>$29,000</span>
-                                        </div>
-                                        <div class="feature-rating">
-                                            <div>
-                                                <div class="featured">
-                                                    <span>Featured</span>
-                                                </div>
-                                            </div>
-                                            <a href="javascript:void(0)">
-                                                <div class="favourite">
-                                                    <span><i class="fa-regular fa-heart"></i></span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="user-avatar">
-                                            <img src="{{ URL::asset('/frontend/img/profiles/avatar-05.jpg') }}"
-                                                alt="User">
-                                        </div>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                            </span>
-                                            <p class="rating-review"><span>5.0</span>(20 Reviews)</p>
-                                        </div>
-                                        <h3 class="title">
-                                            <a href="{{ url('rent-details') }}">Two storey modern flat</a>
-                                        </h3>
-                                        <p><i class="feather-map-pin"></i>470 Park Ave S, New York, NY 10016</p>
-                                        <ul class="d-flex details">
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bed-icon.svg') }}"
-                                                    alt="bed-icon">
-                                                2 Beds
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bath-icon.svg') }}"
-                                                    alt="bath-icon">
-                                                2 Baths
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/building-icon.svg') }}"
-                                                    alt="building-icon">
-                                                31000 Sqft
-                                            </li>
-                                        </ul>
-
-                                        <ul class="property-category d-flex justify-content-between">
-                                            <li>
-                                                <span class="list">Listed on : </span>
-                                                <span class="date">19 Jan 2023</span>
-                                            </li>
-                                            <li>
-                                                <span class="category list">Category : </span>
-                                                <span class="category-value date">Flat</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-custom" data-aos="fade-down" data-aos-duration="1000">
-                                <div class="profile-widget">
-                                    <div class="doc-img">
-                                        <a href="{{ url('rent-details') }}" class="property-img">
-                                            <img class="img-fluid" alt="Property Image"
-                                                src="{{ URL::asset('/frontend/img/product/product-2.jpg') }}">
-                                        </a>
-                                        <div class="product-amount">
-                                            <span>$80,000</span>
-                                        </div>
-                                        <div class="feature-rating">
-                                            <div>
-                                                <div class="featured">
-                                                    <span>Featured</span>
-                                                </div>
-                                            </div>
-                                            <a href="javascript:void(0)">
-                                                <div class="favourite">
-                                                    <span><i class="fa-regular fa-heart"></i></span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="user-avatar">
-                                            <img src="{{ URL::asset('/frontend/img/profiles/avatar-06.jpg') }}"
-                                                alt="User">
-                                        </div>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </span>
-                                            <p class="rating-review"><span>4.0</span>(12 Reviews)</p>
-                                        </div>
-                                        <h3 class="title">
-                                            <a href="{{ url('rent-details') }}">Modern apartment</a>
-                                        </h3>
-                                        <p><i class="feather-map-pin"></i>122 N Morgan St, Chicago, IL 60607, USA</p>
-                                        <ul class="d-flex details">
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bed-icon.svg') }}"
-                                                    alt="bed-icon">
-                                                3 Beds
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bath-icon.svg') }}"
-                                                    alt="bath-icon">
-                                                3 Baths
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/building-icon.svg') }}"
-                                                    alt="building-icon">
-                                                12000 Sqft
-                                            </li>
-                                        </ul>
-
-                                        <ul class="property-category d-flex justify-content-between">
-                                            <li>
-                                                <span class="list">Listed on : </span>
-                                                <span class="date">20 Jan 2023</span>
-                                            </li>
-                                            <li>
-                                                <span class="category list">Category : </span>
-                                                <span class="category-value date">Apartment</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider-col">
-                            <div class="product-custom" data-aos="fade-down" data-aos-duration="1000">
-                                <div class="profile-widget">
-                                    <div class="doc-img">
-                                        <a href="{{ url('rent-details') }}" class="property-img">
-                                            <img class="img-fluid" alt="Property Image"
-                                                src="{{ URL::asset('/frontend/img/product/product-4.jpg') }}">
-                                        </a>
-                                        <div class="product-amount">
-                                            <span>$51,000</span>
-                                        </div>
-                                        <div class="feature-rating">
-                                            <div>
-                                                <div class="featured">
-                                                    <span>Featured</span>
-                                                </div>
-                                            </div>
-                                            <a href="javascript:void(0)">
-                                                <div class="favourite">
-                                                    <span><i class="fa-regular fa-heart"></i></span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="user-avatar">
-                                            <img src="{{ URL::asset('/frontend/img/profiles/avatar-07.jpg') }}"
-                                                alt="User">
-                                        </div>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                            </span>
-                                            <span class="rating-review">5.0 (60 Reviews)</span>
-                                        </div>
-                                        <h3 class="title">
-                                            <a href="{{ url('rent-details') }}">Minimalist and bright flat</a>
-                                        </h3>
-                                        <p><i class="feather-map-pin"></i>518-520 8th Ave, New York, NY 10018, USA</p>
-                                        <ul class="d-flex details">
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bed-icon.svg') }}"
-                                                    alt="bed-icon">
-                                                4 Beds
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bath-icon.svg') }}"
-                                                    alt="bath-icon">
-                                                2 Baths
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/building-icon.svg') }}"
-                                                    alt="building-icon">
-                                                23000 Sqft
-                                            </li>
-                                        </ul>
-
-                                        <ul class="property-category d-flex justify-content-between">
-                                            <li>
-                                                <span class="list">Listed on : </span>
-                                                <span class="date">21 Jan 2023</span>
-                                            </li>
-                                            <li>
-                                                <span class="category list">Category : </span>
-                                                <span class="category-value date">Flats</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-custom" data-aos="fade-down" data-aos-duration="1000">
-                                <div class="profile-widget">
-                                    <div class="doc-img">
-                                        <a href="{{ url('rent-details') }}" class="property-img">
-                                            <img class="img-fluid" alt="Property Image"
-                                                src="{{ URL::asset('/frontend/img/product/product-3.jpg') }}">
-                                        </a>
-                                        <div class="product-amount">
-                                            <span>$41000</span>
-                                        </div>
-                                        <div class="feature-rating">
-                                            <div>
-                                                <div class="featured">
-                                                    <span>Featured</span>
-                                                </div>
-                                            </div>
-                                            <a href="javascript:void(0)">
-                                                <div class="favourite">
-                                                    <span><i class="fa-regular fa-heart"></i></span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="user-avatar">
-                                            <img src="{{ URL::asset('/frontend/img/profiles/avatar-05.jpg') }}"
-                                                alt="User">
-                                        </div>
-                                    </div>
-                                    <div class="pro-content">
-                                        <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                            </span>
-                                            <span class="rating-review">5.0 (50 Reviews)</span>
-                                        </div>
-                                        <h3 class="title">
-                                            <a href="{{ url('rent-details') }}">Place perfect for nature</a>
-                                        </h3>
-                                        <p><i class="feather-map-pin"></i>318-S Oakley Blvd, Chicago, IL 60612, USA</p>
-                                        <ul class="d-flex details">
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bed-icon.svg') }}"
-                                                    alt="bed-icon">
-                                                2 Beds
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bath-icon.svg') }}"
-                                                    alt="bath-icon">
-                                                4 Baths
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/building-icon.svg') }}"
-                                                    alt="building-icon">
-                                                15000 Sqft
-                                            </li>
-                                        </ul>
-
-                                        <ul class="property-category d-flex justify-content-between">
-                                            <li>
-                                                <span class="list">Listed on : </span>
-                                                <span class="date">16 Jan 2023</span>
-                                            </li>
-                                            <li>
-                                                <span class="category list">Category : </span>
-                                                <span class="category-value date">Apartment</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="view-property-btn d-flex justify-content-center" data-aos="fade-down"
-                        data-aos-duration="1000">
-                        <a href="{{ url('rent-property-grid') }}" class="btn-primary">View All Properties</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="bg-imgs">
-            <img src="{{ URL::asset('/frontend/img/bg/price-bg.png') }}" class="bg-01" alt="icon">
-            <img src="{{ URL::asset('/frontend/img/icons/blue-circle.svg') }}" class="bg-02" alt="icon">
-            <img src="{{ URL::asset('/frontend/img/icons/red-circle.svg') }}" class="bg-03" alt="icon">
-        </div>
-    </section>
-    <!-- /Feature Properties For Sale -->
-
-    <!-- Cities List -->
-    <section class="cities-list-sec">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Cities With Listing</h2>
-                <div class="sec-line">
-                    <span class="sec-line1"></span>
-                    <span class="sec-line2"></span>
-                </div>
-                <p>Destinations we love the most</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="city-card-slider owl-carousel">
-                        <div class="city-first-card" data-aos="fade-down" data-aos-duration="2000">
-                            <div class="city-list">
-                                <div class="city-img">
-                                    <img src="{{ URL::asset('/frontend/img/city/city-1.jpg') }}" alt="City">
-                                </div>
-                                <div class="city-name">
-                                    <h5>New York</h5>
-                                    <p>300 Properties</p>
-                                </div>
-                                <div class="arrow-overlay">
-                                    <a href="{{ url('rent-property-grid') }}"><i class='fa-solid fa-arrow-right'></i></a>
-                                </div>
-                            </div>
-                            <div class="city-list">
-                                <div class="city-img">
-                                    <img src="{{ URL::asset('/frontend/img/city/city-2.jpg') }}" alt="City">
-                                </div>
-                                <div class="city-name">
-                                    <h5>Singapore</h5>
-                                    <p>400 Properties</p>
-                                </div>
-                                <div class="arrow-overlay">
-                                    <a href="{{ url('rent-property-grid') }}"><i class='fa-solid fa-arrow-right'></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="city-card-two" data-aos="fade-down" data-aos-duration="2000">
-                            <div class="city-list">
-                                <div class="city-img">
-                                    <img src="{{ URL::asset('/frontend/img/city/city-3.jpg') }}" alt="City">
-                                </div>
-                                <div class="city-name">
-                                    <h5>Thailand</h5>
-                                    <p>200 Properties</p>
-                                </div>
-                                <div class="arrow-overlay">
-                                    <a href="{{ url('rent-property-grid') }}"><i class='fa-solid fa-arrow-right'></i></a>
-                                </div>
-                            </div>
-                            <div class="city-list">
-                                <div class="city-img">
-                                    <img src="{{ URL::asset('/frontend/img/city/city-4.jpg') }}" alt="City">
-                                </div>
-                                <div class="city-name">
-                                    <h5>Argentina</h5>
-                                    <p>740 Properties</p>
-                                </div>
-                                <div class="arrow-overlay">
-                                    <a href="{{ url('rent-property-grid') }}"><i class='fa-solid fa-arrow-right'></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="city-card-three" data-aos="fade-down" data-aos-duration="2000">
-                            <div class="city-list">
-                                <div class="city-img">
-                                    <img src="{{ URL::asset('/frontend/img/city/city-5.jpg') }}" alt="City">
-                                </div>
-                                <div class="city-name">
-                                    <h5>United Kingdom</h5>
-                                    <p>1450 Properties</p>
-                                </div>
-                                <div class="arrow-overlay">
-                                    <a href="{{ url('rent-property-grid') }}"><i class='fa-solid fa-arrow-right'></i></a>
-                                </div>
-                            </div>
-                            <div class="city-list">
-                                <div class="city-img">
-                                    <img src="{{ URL::asset('/frontend/img/city/city-1.jpg') }}" alt="City">
-                                </div>
-                                <div class="city-name">
-                                    <h5>United Arab Emirates</h5>
-                                    <p>100 Properties</p>
-                                </div>
-                                <div class="arrow-overlay">
-                                    <a href="{{ url('rent-property-grid') }}"><i class='fa-solid fa-arrow-right'></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="city-first-card" data-aos="fade-down" data-aos-duration="2000">
-                            <div class="city-list">
-                                <div class="city-img">
-                                    <img src="{{ URL::asset('/frontend/img/city/city-1.jpg') }}" alt="City">
-                                </div>
-                                <div class="city-name">
-                                    <h5>USA</h5>
-                                    <p>320 Properties</p>
-                                </div>
-                                <div class="arrow-overlay">
-                                    <a href="{{ url('rent-property-grid') }}"><i class='fa-solid fa-arrow-right'></i></a>
-                                </div>
-                            </div>
-                            <div class="city-list">
-                                <div class="city-img">
-                                    <img src="{{ URL::asset('/frontend/img/city/city-2.jpg') }}" alt="City">
-                                </div>
-                                <div class="city-name">
-                                    <h5>Singapore</h5>
-                                    <p>500 Properties</p>
-                                </div>
-                                <div class="arrow-overlay">
-                                    <a href="{{ url('rent-property-grid') }}"><i class='fa-solid fa-arrow-right'></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- /Cities List -->
+ 
 
     <!-- Feature Property For Rent -->
     <section class="feature-property-sec for-rent">
@@ -1027,20 +278,20 @@
                                             <img class="img-fluid" alt="Property Image"
                                                 src="{{ URL::asset('/frontend/img/product/product-6.jpg') }}">
                                         </a>
-                                        <div class="product-amount">
+                                        {{-- <div class="product-amount">
                                             <h5><span>$2,200 </span> / Night</h5>
-                                        </div>
+                                        </div> --}}
                                         <div class="featured">
                                             <span>Featured</span>
                                         </div>
                                         <div class="new-featured">
                                             <span>New</span>
                                         </div>
-                                        <a href="javascript:void(0)">
+                                        {{-- <a href="javascript:void(0)">
                                             <div class="favourite selected">
                                                 <span><i class="fa-regular fa-heart"></i></span>
                                             </div>
-                                        </a>
+                                        </a> --}}
                                     </div>
                                     <div class="pro-content">
                                         <div class="rating">
@@ -1075,7 +326,7 @@
                                             </li>
                                         </ul>
                                         <ul class="property-category d-flex justify-content-between align-items-center">
-                                            <li class="user-info">
+                                            {{-- <li class="user-info">
                                                 <a href="{{ url('rent-details') }}"><img
                                                         src="{{ URL::asset('/frontend/img/profiles/avatar-01.jpg') }}"
                                                         class="img-fluid avatar" alt="User"></a>
@@ -1083,9 +334,9 @@
                                                     <h6><a href="{{ url('rent-details') }}">Marc Silva</a></h6>
                                                     <p>Newyork</p>
                                                 </div>
-                                            </li>
+                                            </li> --}}
                                             <li>
-                                                <a href="{{ url('rent-details') }}" class="btn-primary">Book Now</a>
+                                                <a href="{{ url('rent-details') }}" class="btn-primary">View Rooms</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1098,17 +349,17 @@
                                             <img class="img-fluid" alt="Property Image"
                                                 src="{{ URL::asset('/frontend/img/product/product-7.jpg') }}">
                                         </a>
-                                        <div class="product-amount">
+                                        {{-- <div class="product-amount">
                                             <h5><span>$1,400 </span> / Night</h5>
-                                        </div>
+                                        </div> --}}
                                         <div class="featured">
                                             <span>Featured</span>
                                         </div>
-                                        <a href="javascript:void(0)">
+                                        {{-- <a href="javascript:void(0)">
                                             <div class="favourite">
                                                 <span><i class="fa-regular fa-heart"></i></span>
                                             </div>
-                                        </a>
+                                        </a> --}}
                                     </div>
                                     <div class="pro-content">
                                         <div class="rating">
@@ -1143,7 +394,7 @@
                                             </li>
                                         </ul>
                                         <ul class="property-category d-flex justify-content-between align-items-center">
-                                            <li class="user-info">
+                                            {{-- <li class="user-info">
                                                 <a href="javascript:void(0);"><img
                                                         src="{{ URL::asset('/frontend/img/profiles/avatar-02.jpg') }}"
                                                         class="img-fluid avatar" alt="User"></a>
@@ -1151,9 +402,9 @@
                                                     <h6><a href="{{ url('rent-details') }}">Karen Maria</a></h6>
                                                     <p>South Dokata</p>
                                                 </div>
-                                            </li>
+                                            </li> --}}
                                             <li>
-                                                <a href="{{ url('rent-details') }}" class="btn-primary">Book Now</a>
+                                                <a href="{{ url('rent-details') }}" class="btn-primary">View Rooms</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1168,17 +419,17 @@
                                             <img class="img-fluid" alt="Property Image"
                                                 src="{{ URL::asset('/frontend/img/product/product-8.jpg') }}">
                                         </a>
-                                        <div class="product-amount">
+                                        {{-- <div class="product-amount">
                                             <h5><span>$1,500 </span> / Night</h5>
-                                        </div>
+                                        </div> --}}
                                         <div class="featured">
                                             <span>Featured</span>
                                         </div>
-                                        <a href="javascript:void(0)">
+                                        {{-- <a href="javascript:void(0)">
                                             <div class="favourite selected">
                                                 <span><i class="fa-regular fa-heart"></i></span>
                                             </div>
-                                        </a>
+                                        </a> --}}
                                     </div>
                                     <div class="pro-content">
                                         <div class="rating">
@@ -1213,7 +464,7 @@
                                             </li>
                                         </ul>
                                         <ul class="property-category d-flex justify-content-between align-items-center">
-                                            <li class="user-info">
+                                            {{-- <li class="user-info">
                                                 <a href="{{ url('rent-details') }}"><img
                                                         src="{{ URL::asset('/frontend/img/profiles/avatar-03.jpg') }}"
                                                         class="img-fluid avatar" alt="User"></a>
@@ -1221,9 +472,9 @@
                                                     <h6><a href="{{ url('rent-details') }}">Scott Gwin</a></h6>
                                                     <p>Minipoliies</p>
                                                 </div>
-                                            </li>
+                                            </li> --}}
                                             <li>
-                                                <a href="{{ url('rent-details') }}" class="btn-primary">Book Now</a>
+                                                <a href="{{ url('rent-details') }}" class="btn-primary">View Rooms</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1236,17 +487,17 @@
                                             <img class="img-fluid" alt="Property Image"
                                                 src="{{ URL::asset('/frontend/img/product/product-9.jpg') }}">
                                         </a>
-                                        <div class="product-amount">
+                                        {{-- <div class="product-amount">
                                             <h5><span>$3,500 </span> / Night</h5>
-                                        </div>
+                                        </div> --}}
                                         <div class="featured">
                                             <span>Featured</span>
                                         </div>
-                                        <a href="javascript:void(0)">
+                                        {{-- <a href="javascript:void(0)">
                                             <div class="favourite">
                                                 <span><i class="fa-regular fa-heart"></i></span>
                                             </div>
-                                        </a>
+                                        </a> --}}
                                     </div>
                                     <div class="pro-content">
                                         <div class="rating">
@@ -1281,7 +532,7 @@
                                             </li>
                                         </ul>
                                         <ul class="property-category d-flex justify-content-between align-items-center">
-                                            <li class="user-info">
+                                            {{-- <li class="user-info">
                                                 <a href="{{ url('rent-details') }}"><img
                                                         src="{{ URL::asset('/frontend/img/profiles/avatar-04.jpg') }}"
                                                         class="img-fluid avatar" alt="User"></a>
@@ -1289,9 +540,9 @@
                                                     <h6><a href="{{ url('rent-details') }}">Burdette</a></h6>
                                                     <p>Cambridge</p>
                                                 </div>
-                                            </li>
+                                            </li> --}}
                                             <li>
-                                                <a href="{{ url('rent-details') }}" class="btn-primary">Book Now</a>
+                                                <a href="{{ url('rent-details') }}" class="btn-primary">View Rooms</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1306,17 +557,17 @@
                                             <img class="img-fluid" alt="Property Image"
                                                 src="{{ URL::asset('/frontend/img/product/product-10.jpg') }}">
                                         </a>
-                                        <div class="product-amount">
+                                        {{-- <div class="product-amount">
                                             <h5><span>$4,500 </span> / Night</h5>
-                                        </div>
+                                        </div> --}}
                                         <div class="featured">
                                             <span>Featured</span>
                                         </div>
-                                        <a href="javascript:void(0)">
+                                        {{-- <a href="javascript:void(0)">
                                             <div class="favourite">
                                                 <span><i class="fa-regular fa-heart"></i></span>
                                             </div>
-                                        </a>
+                                        </a> --}}
                                     </div>
                                     <div class="pro-content">
                                         <div class="rating">
@@ -1351,7 +602,7 @@
                                             </li>
                                         </ul>
                                         <ul class="property-category d-flex justify-content-between align-items-center">
-                                            <li class="user-info">
+                                            {{-- <li class="user-info">
                                                 <a href="{{ url('rent-details') }}"><img
                                                         src="{{ URL::asset('/frontend/img/profiles/avatar-05.jpg') }}"
                                                         class="img-fluid avatar" alt="User"></a>
@@ -1359,9 +610,9 @@
                                                     <h6><a href="{{ url('rent-details') }}">Kell Robinson</a></h6>
                                                     <p>USA</p>
                                                 </div>
-                                            </li>
+                                            </li> --}}
                                             <li>
-                                                <a href="{{ url('rent-details') }}" class="btn-primary">Book Now</a>
+                                                <a href="{{ url('rent-details') }}" class="btn-primary">View Rooms</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1374,17 +625,17 @@
                                             <img class="img-fluid" alt="Property Image"
                                                 src="{{ URL::asset('/frontend/img/product/product-11.jpg') }}">
                                         </a>
-                                        <div class="product-amount">
+                                        {{-- <div class="product-amount">
                                             <h5><span>$2,400 </span> / Night</h5>
-                                        </div>
+                                        </div> --}}
                                         <div class="featured">
                                             <span>Featured</span>
                                         </div>
-                                        <a href="javascript:void(0)">
+                                        {{-- <a href="javascript:void(0)">
                                             <div class="favourite">
                                                 <span><i class="fa-regular fa-heart"></i></span>
                                             </div>
-                                        </a>
+                                        </a> --}}
                                     </div>
                                     <div class="pro-content">
                                         <div class="rating">
@@ -1419,7 +670,7 @@
                                             </li>
                                         </ul>
                                         <ul class="property-category d-flex justify-content-between align-items-center">
-                                            <li class="user-info">
+                                            {{-- <li class="user-info">
                                                 <a href="{{ url('rent-details') }}"><img
                                                         src="{{ URL::asset('/frontend/img/profiles/avatar-07.jpg') }}"
                                                         class="img-fluid avatar" alt="User"></a>
@@ -1427,9 +678,9 @@
                                                     <h6><a href="{{ url('rent-details') }}">Pittman</a></h6>
                                                     <p>Cambridge</p>
                                                 </div>
-                                            </li>
+                                            </li> --}}
                                             <li>
-                                                <a href="{{ url('rent-details') }}" class="btn-primary">Book Now</a>
+                                                <a href="{{ url('rent-details') }}" class="btn-primary">View Rooms</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1444,17 +695,17 @@
                                             <img class="img-fluid" alt="Property Image"
                                                 src="{{ URL::asset('/frontend/img/product/product-7.jpg') }}">
                                         </a>
-                                        <div class="product-amount">
+                                        {{-- <div class="product-amount">
                                             <h5><span>$1,400 </span> / Night</h5>
-                                        </div>
+                                        </div> --}}
                                         <div class="featured">
                                             <span>Featured</span>
                                         </div>
-                                        <a href="javascript:void(0)">
+                                        {{-- <a href="javascript:void(0)">
                                             <div class="favourite">
                                                 <span><i class="fa-regular fa-heart"></i></span>
                                             </div>
-                                        </a>
+                                        </a> --}}
                                     </div>
                                     <div class="pro-content">
                                         <div class="rating">
@@ -1489,7 +740,7 @@
                                             </li>
                                         </ul>
                                         <ul class="property-category d-flex justify-content-between align-items-center">
-                                            <li class="user-info">
+                                            {{-- <li class="user-info">
                                                 <a href="{{ url('rent-details') }}"><img
                                                         src="{{ URL::asset('/frontend/img/profiles/avatar-10.jpg') }}"
                                                         class="img-fluid avatar" alt="User"></a>
@@ -1497,9 +748,9 @@
                                                     <h6><a href="{{ url('rent-details') }}">John Doe</a></h6>
                                                     <p>Newyork</p>
                                                 </div>
-                                            </li>
+                                            </li> --}}
                                             <li>
-                                                <a href="{{ url('rent-details') }}" class="btn-primary">Book Now</a>
+                                                <a href="{{ url('rent-details') }}" class="btn-primary">View Rooms</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1567,7 +818,7 @@
                                                 </div>
                                             </li>
                                             <li>
-                                                <a href="{{ url('rent-details') }}" class="btn-primary">Book Now</a>
+                                                <a href="{{ url('rent-details') }}" class="btn-primary">View Rooms</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1588,167 +839,8 @@
     </section>
     <!-- /Feature Property For Rent -->
 
-    <!-- Couter -->
-    <section class="counter-sec">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
-                    <div class="counter-box flex-fill" data-aos="fade-down" data-aos-duration="2000">
-                        <div class="counter-icon">
-                            <img src="{{ URL::asset('/frontend/img/icons/counter-icon-1.svg') }}" alt="icon">
-                        </div>
-                        <div class="counter-value">
-                            <h3 class="dash-count"><span class="counter-up">50</span>K</h3>
-                            <h5>Listings Added </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
-                    <div class="counter-box flex-fill" data-aos="fade-down" data-aos-duration="2000">
-                        <div class="counter-icon">
-                            <img src="{{ URL::asset('/frontend/img/icons/counter-icon-2.svg') }}" alt="icon">
-                        </div>
-                        <div class="counter-value">
-                            <h3 class="dash-count"><span class="counter-up">3000</span>+</h3>
-                            <h5>Agents Listed </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
-                    <div class="counter-box flex-fill" data-aos="fade-down" data-aos-duration="2000">
-                        <div class="counter-icon">
-                            <img src="{{ URL::asset('/frontend/img/icons/counter-icon-3.svg') }}" alt="icon">
-                        </div>
-                        <div class="counter-value">
-                            <h3 class="dash-count"><span class="counter-up">2000</span>+</h3>
-                            <h5>Sales Completed </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
-                    <div class="counter-box flex-fill" data-aos="fade-down" data-aos-duration="2000">
-                        <div class="counter-icon">
-                            <img src="{{ URL::asset('/frontend/img/icons/counter-icon-4.svg') }}" alt="icon">
-                        </div>
-                        <div class="counter-value">
-                            <h3 class="dash-count"><span class="counter-up">5000</span>+</h3>
-                            <h5>Users</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- /Couter -->
-
-    <!-- Main Property -->
-    <section class="main-property-sec">
-        <div class="container">
-            <div class="main-property-details">
-                <div class="row justify-content-center">
-
-                    <!-- Buy Property -->
-                    <div class="col-lg-4 col-md-6" data-aos="fade-down" data-aos-duration="2000">
-                        <div class="single-property-card">
-                            <div class="img-card">
-                                <a href="{{ url('buy-property-grid') }}"><img
-                                        src="{{ URL::asset('/frontend/img/city/property-img-1.jpg') }}"
-                                        alt="Property Image"></a>
-                            </div>
-                            <div class="buy-property">
-                                <h4><a href="{{ url('buy-property-grid') }}">Buy a Property</a></h4>
-                                <a href="{{ url('buy-property-grid') }}" class="arrow buy-arrow"><i
-                                        class='fa-solid fa-arrow-right'></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Buy Property -->
-
-                    <!-- Sell Property -->
-                    <div class="col-lg-4 col-md-6" data-aos="fade-down" data-aos-duration="2000">
-                        <div class="single-property-card">
-                            <div class="img-card">
-                                <a href="{{ url('rent-property-grid') }}"><img
-                                        src="{{ URL::asset('/frontend/img/city/property-img-2.jpg') }}"
-                                        alt="Property Image"></a>
-                            </div>
-                            <div class="buy-property">
-                                <h4><a href="rent-property-gri')}}">Sell a Property</a></h4>
-                                <a href="{{ url('rent-property-grid') }}" class="arrow sell-arrow"><i
-                                        class='fa-solid fa-arrow-right'></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Sell Property -->
-
-                    <!-- Rent Property -->
-                    <div class="col-lg-4 col-md-6" data-aos="fade-down" data-aos-duration="2000">
-                        <div class="single-property-card">
-                            <div class="img-card">
-                                <a href="{{ url('rent-property-grid') }}"><img
-                                        src="{{ URL::asset('/frontend/img/city/property-img-3.jpg') }}"
-                                        alt="Property Image"></a>
-                            </div>
-                            <div class="buy-property">
-                                <h4><a href="{{ url('rent-property-grid') }}">Rent a Property</a></h4>
-                                <a href="{{ url('rent-property-grid') }}" class="arrow rent-arrow"><i
-                                        class='fa-solid fa-arrow-right'></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Rent Property -->
-
-                </div>
-
-
-                <div class="bg-imgs">
-                    <img src="{{ URL::asset('/frontend/img/bg/prop-bg.png') }}" class="bg-10" alt="icon">
-                </div>
-            </div>
-
-            <!-- Partners -->
-            <div class="partners-sec">
-                <div class="section-heading text-center">
-                    <h2>Hundreds of Partners Around the World</h2>
-                    <div class="sec-line">
-                        <span class="sec-line1"></span>
-                        <span class="sec-line2"></span>
-                    </div>
-                    <p> Every day, we build trust through communication, transparency, and results.</p>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="partners-slider owl-carousel">
-                            <div class="partner-icon">
-                                <img src="{{ URL::asset('/frontend/img/icons/partner-icon-1.svg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ URL::asset('/frontend/img/icons/partner-icon-2.svg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ URL::asset('/frontend/img/icons/partner-icon-3.svg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ URL::asset('/frontend/img/icons/partner-icon-4.svg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ URL::asset('/frontend/img/icons/partner-icon-5.svg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ URL::asset('/frontend/img/icons/partner-icon-6.svg') }}" alt="Partners">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /Partners -->
-
-        </div>
-        <div class="bg-imgs">
-            <img src="{{ URL::asset('/frontend/img/icons/blue-circle.svg') }}" class="bg-08" alt="icon">
-        </div>
-    </section>
-    <!-- /Main Property -->
+ 
+  
 
     <!-- Testimonial -->
     <section class="testimonial-sec">
@@ -1867,257 +959,27 @@
     <!-- /Testimonial -->
 
     <!-- Pricing -->
-    <section class="price-section">
-        <div class="container">
-            <div class="pricing-tab">
-                <div class="section-heading">
-                    <h2>Pricing & Subscriptions</h2>
-                    <div class="sec-line">
-                        <span class="sec-line1"></span>
-                        <span class="sec-line2"></span>
-                    </div>
-                    <p>Checkout our package, choose your package wisely</p>
-                </div>
-                <ul class="nav nav-pills" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
-                            data-bs-target="#monthly-price" type="button" role="tab"
-                            aria-controls="monthly-price" aria-selected="true">Monthly</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
-                            data-bs-target="#yearly-price" type="button" role="tab"
-                            aria-controls="yearly-price" aria-selected="false">Yearly</button>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="tab-content" id="pills-tabContent">
+     <!-- Note remove this section for unwanted error handle -->
+    <section class="price-section d-none">
+        <div class="container">        
+          <div class="tab-content" id="pills-tabContent">
 
                 <!-- Monthly Price -->
-                <div class="tab-pane fade active show" id="monthly-price" role="tabpanel"
-                    aria-labelledby="pills-profile-tab">
+                <div  id="monthly-price">
                     <div class="row justify-content-center">
 
                         <!-- Price Item -->
                         <div class="col-lg-4 col-md-6">
-                            <div class="price-card aos" data-aos="flip-right" data-aos-easing="ease-out-cubic">
-                                <div class="price-title">
-                                    <h3>Standard</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
-                                        ullamcorper mattis, pulvinar dapibus leo.</p>
-                                </div>
-                                <div class="price-features">
-                                    <h5>Key Features</h5>
-                                    <ul>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>10 Listing Per Login
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>100+ Users</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Enquiry On Listing</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>24 Hrs Support</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Custom Review</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Impact Reporting</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Onboarding & Account
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>API Access</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Transaction Tracking
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Branding</li>
-                                    </ul>
-                                </div>
-                                <div class="price-btn">
-                                    <a href="{{ url('login') }}" class="btn-primary">Get Quote</a>
-                                </div>
+                            <div class="price-card aos" >
+                               
                             </div>
                         </div>
                         <!-- /Price Item -->
-
-                        <!-- Price Item -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="price-card" data-aos="flip-right" data-aos-easing="ease-out-cubic"
-                                data-aos-duration="1000">
-                                <div class="price-sticker">
-                                    <img src="{{ URL::asset('/frontend/img/icons/pricing-icon.svg') }}"
-                                        alt="price-sticker">
-                                </div>
-                                <div class="price-title">
-                                    <h3>Professional</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
-                                        ullamcorper mattis, pulvinar dapibus leo.</p>
-                                </div>
-                                <div class="price-features professional">
-                                    <h5>Key Features</h5>
-                                    <ul>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>20 Listing Per Login
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>100+ Users</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Enquiry On Listing</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>24 Hrs Support</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Custom Review</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Impact Reporting</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Onboarding & Account
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>API Access</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Transaction Tracking
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Branding</li>
-                                    </ul>
-                                </div>
-                                <div class="price-btn">
-                                    <a href="{{ url('login') }}" class="btn-primary">Get Quote</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Price Item -->
-
-                        <!-- Price Item -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="price-card" data-aos="flip-right" data-aos-easing="ease-out-cubic"
-                                data-aos-duration="2000">
-                                <div class="price-title">
-                                    <h3>Enterprise</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
-                                        ullamcorper mattis, pulvinar dapibus leo.</p>
-                                </div>
-                                <div class="price-features enterprise">
-                                    <h5>Key Features</h5>
-                                    <ul>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>30 Listing Per Login
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>100+ Users</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Enquiry On Listing</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>24 Hrs Support</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Custom Review</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Impact Reporting</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Onboarding & Account
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>API Access</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Transaction Tracking
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Branding</li>
-                                    </ul>
-                                </div>
-                                <div class="price-btn">
-                                    <a href="{{ url('login') }}" class="btn-primary">Get Quote</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Price Item -->
-
                     </div>
-                </div>
-                <!-- /Monthly Price -->
-
-                <!-- Yearly Price -->
-                <div class="tab-pane fade" id="yearly-price" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    <div class="row justify-content-center">
-
-                        <!-- Price Item -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="price-card">
-                                <div class="price-title">
-                                    <h3>Standard</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
-                                        ullamcorper mattis, pulvinar dapibus leo.</p>
-                                </div>
-                                <div class="price-features">
-                                    <h5>Key Features</h5>
-                                    <ul>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>50 Listing per login
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>150+ Users</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Enquiry on listing</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>24 hrs Support</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Custom Review</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Impact Reporting</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Onboarding & Account
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>API Access</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Transaction tracking
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Branding</li>
-                                    </ul>
-                                </div>
-                                <div class="price-btn">
-                                    <a href="{{ url('login') }}" class="btn-primary">Get Quote</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Price Item -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="price-card">
-                                <div class="price-title">
-                                    <h3>Professional</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
-                                        ullamcorper mattis, pulvinar dapibus leo.</p>
-                                </div>
-                                <div class="price-features professional">
-                                    <h5>Key Features</h5>
-                                    <ul>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>80 Listing per login
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>200+ Users</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Enquiry on listing</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>24 hrs Support</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Custom Review</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Impact Reporting</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Onboarding & Account
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>API Access</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Transaction tracking
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Branding</li>
-                                    </ul>
-                                </div>
-                                <div class="price-btn">
-                                    <a href="{{ url('login') }}" class="btn-primary">Get Quote</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Price Item -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="price-card">
-                                <div class="price-title">
-                                    <h3>Enterprise</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
-                                        ullamcorper mattis, pulvinar dapibus leo.</p>
-                                </div>
-                                <div class="price-features enterprise">
-                                    <h5>Key Features</h5>
-                                    <ul>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>70 Listing per login
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>300+ Users</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Enquiry on listing</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>24 hrs Support</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Custom Review</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Impact Reporting</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Onboarding & Account
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>API Access</li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Transaction tracking
-                                        </li>
-                                        <li><span><i class="fa-regular fa-square-check"></i></span>Branding</li>
-                                    </ul>
-                                </div>
-                                <div class="price-btn">
-                                    <a href="{{ url('login') }}" class="btn-primary">Get Quote</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Price Item -->
-
-                    </div>
-                </div>
-                <!-- /Yearly Price -->
-
+                </div>             
             </div>
         </div>
-        <div class="bg-imgs">
-            <img src="{{ URL::asset('/frontend/img/bg/price-bg.png') }}" class="bg-05" alt="icon">
-        </div>
+       
     </section>
     <!-- /Pricing -->
 
