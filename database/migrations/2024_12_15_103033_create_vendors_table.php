@@ -25,7 +25,7 @@ return new class extends Migration
             $table->foreignId('approved_by')->nullable()->constrained('users');
             $table->foreignId('last_approved_by')->nullable()->constrained('users');
             $table->timestamp('approved_date')->nullable();
-            $table->timestamp('last_update_date')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
             $table->timestamps(); // Includes created_at and updated_at
           
         });

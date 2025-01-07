@@ -137,6 +137,22 @@
                 </li>
                 @endcan
             
+                  <!-- Rent Management Section -->
+                  {{-- @can('House Chores') --}}
+                  <li>
+                      <a href="#sidebarRent" data-bs-toggle="collapse">
+                          <i class="fas fa-landmark"></i>
+                          <span>Rent Management </span>
+                          <span class="menu-arrow"></span>
+                      </a>
+                      <div class="collapse" id="sidebarRent">
+                          <ul class="nav-second-level">
+                              <li><a href="{{ route('rent_managements.index') }}">Lists</a></li>
+                              <li><a href="{{ route('rent_managements.create') }}">Create</a></li>
+                          </ul>
+                      </div>
+                  </li>
+                  {{-- @endcan --}}
                 <!-- Settings Section -->
                 <li class="menu-title mt-2">Settings</li>
                 <li>

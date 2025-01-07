@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Vendor\VendorController;
 use App\Http\Controllers\Admin\Expense\ExpenseController;
 use App\Http\Controllers\Admin\Property\PropertyController;
 use App\Http\Controllers\Admin\HouseChore\HouseChoreController;
+use App\Http\Controllers\Admin\RentManagement\RentManagementController;
 
 
 
@@ -28,6 +29,7 @@ Route::resource('vendors', VendorController::class);
 Route::resource('house_chores', HouseChoreController::class);
 Route::resource('todos', TodoController::class);
 Route::resource('expenses', ExpenseController::class);
+Route::resource('rent_managements', RentManagementController::class);
 
 
 

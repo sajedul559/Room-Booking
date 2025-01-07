@@ -1,26 +1,16 @@
 <?php
 
 use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Vendor;
+use App\Models\Property;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Crypt;
 use League\CommonMark\Normalizer\SlugNormalizer;
 
-const SUPER_ADMIN = 1;
-const ORDERCANCEL=5;
-const typeOfExpense=1;
-const typeOfIncome=2;
-const DEBIT = 1; // cash in 
-const CREDIT = 2; // cash out 
-const CASH = 1;
-const BANK = 2;
-const DOCTOR = 4;
-const PATIENT = 6;
-const FULL_PAID = 1;
-const PARTIAL_PAID = 2;
-const FULL_DUE = 3;
-const OVER_PAID = 4;
+
 
 const date_format_list = [
     'jS M, Y'                   => '22th May, 2024',
@@ -349,30 +339,7 @@ if(!function_exists('getStatusText')) {
         return "<span style=\"color: {$status['color']};\">{$status['text']}</span>";
     }
 }
-if(!function_exists('storeReferralData')) {
-    function storeReferralData(array $data): bool
-        {
-            try {
-                DB::table('referral_income_histories')->insert([
-                    'referral_id'    => $data['referral_id'] ?? null,
-                    'model'          => $data['model'] ?? null,
-                    'model_id'       => $data['model_id'] ?? null,
-                    'amount'         => $data['amount'] ?? null,
-                    'payment_status' => $data['payment_status'] ?? 0,
-                    'is_active'      => $data['is_active'] ?? 1,
-                    'created_by'     => $data['created_by'] ?? null,
-                    'updated_by'     => $data['updated_by'] ?? null,
-                    'created_at'     => now(),
-                    'updated_at'     => now(),
-                ]);
-                return true;
-            } catch (\Exception $e) {
-                // Log the exception or handle error
-                Log::error('Failed to store referral data: ' . $e->getMessage());
-                return false;
-            }
-        }
-}
+
 if(!function_exists('calculateDays')) {
     function calculateDays($startDate, $endDate, $inclusive = false)
     {
@@ -433,5 +400,50 @@ if (!function_exists('dateFormatter')) {
         }else{
             return NULL;
         }
+    }
+}
+
+if (!function_exists('getApprovedVendors')) {
+    /**
+     * Fetch approved vendors.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    function getApprovedVendors()
+    {
+        return Vendor::where("status", Vendor::VENDOR_STATUS_APPROVE)->get();
+    }
+}
+if (!function_exists('getPublishedProperties')) {
+    /**
+     * Fetch published properties.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    function getPublishedProperties()
+    {
+        return Property::where("is_publish", 1)->get();
+    }
+}
+if (!function_exists('getUsers')) {
+    /**
+     * Fetch approved tenants.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    function getUsers()
+    {
+        return User::where("type", User::USER_TYPE_USER)->get(); // Adjust the model if tenants are a separate entity.
+    }
+}
+if (!function_exists('getRooms')) {
+    /**
+     * Fetch approved tenants.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    function getRooms()
+    {
+        return User::where("type", User::USER_TYPE_USER)->get(); // Adjust the model if tenants are a separate entity.
     }
 }

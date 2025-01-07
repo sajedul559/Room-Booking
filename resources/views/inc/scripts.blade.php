@@ -62,6 +62,15 @@
     <script src="{{ asset('assets/js/developer.js') }}"></script>
 
     @yield('scripts')
+    <script>
+        @if (session('success'))
+            toastr.success("{{ session('success') }}");
+        @endif
+    
+        @if (session('error'))
+            toastr.error("{{ session('error') }}");
+        @endif
+    </script>
     @stack('js')
     <script>
         $(document).ready(function () {

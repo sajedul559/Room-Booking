@@ -22,17 +22,17 @@ class Vendor extends Model
         'last_update_date' => 'datetime',
     ];
 
-    public const VENDOR_APPROVE = 'Approve';
-    public const VENDOR_REJECTED = 'Rejected';
-    public const VENDOR_PENDING = 'Pending';
+    public const VENDOR_STATUS_APPROVE = 'Approve';
+    public const VENDOR_STATUS_REJECTED = 'Rejected';
+    public const VENDOR_STATUS_PENDING = 'Pending';
 
     // Return property types as an associative array
     public static function getVendorStatus(): array
     {
         return [
-            self::VENDOR_APPROVE => 'Approve',
-            self::VENDOR_REJECTED => 'Rejected',
-            self::VENDOR_PENDING => 'Pending',
+            self::VENDOR_STATUS_APPROVE => 'Approve',
+            self::VENDOR_STATUS_REJECTED => 'Rejected',
+            self::VENDOR_STATUS_PENDING => 'Pending',
         ];
     }
     public function user()
