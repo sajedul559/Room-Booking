@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="footer">
+<footer class="footer" style="background-color:#da1f43">
     <!-- Footer Top -->
     <div class="footer-top">
         <div class="footer-border-img">
@@ -7,21 +7,21 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="col-lg-3 col-md-6 col-sm-8">
                     <div class="footer-widget footer-about">
                         <div class="footer-app-content">
                             <div class="footer-content-heading">
                                 <h4>Get Our App </h4>
-                                <p>Download the app and book your property</p>
+                                {{-- <p>Download the app and book your property</p> --}}
                             </div>
-                            <div class="download-app">
+                            {{-- <div class="download-app">
                                 <a href="javascript:void(0);"><img src="{{ URL::asset('/frontend/img/google-pay.png') }}"
                                         alt="google play"></a>
                                 <a href="javascript:void(0);"><img src="{{ URL::asset('/frontend/img/app-store.png') }}"
                                         alt="app store"></a>
-                            </div>
+                            </div> --}}
                             <div class="social-links">
-                                <h4>Connect with us</h4>
+                                {{-- <h4>Connect with us</h4> --}}
                                 <ul>
                                     <li><a href="javascript:void(0);"><i
                                                 class="fa-brands fa-facebook-f hi-icon"></i></a></li>
@@ -40,49 +40,38 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-4">
+                <div class="col-lg-3 col-md-4 col-sm-4">
+                    <h4 class="text-white">Contact Us</h4>
+                    <ul class="contact-info text-white">
+                        <li>
+                            <i class="fa-solid fa-envelope"></i> 
+                            <span>Email: info@roomingkos.com</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i> 
+                            <span>Address: 44 Batesford Rd, Malvern East VIC 3144</span>
+                        </li>
+                    </ul>
+                </div>
+                
+              
+               
+               
+                <div class="col-lg-3 col-md-4 col-sm-4">
                     <div class="footer-widget-list">
                         <div class="footer-content-heading">
-                            <h4>Explore</h4>
+                            <h4>Quick Links</h4>
                         </div>
                         <ul>
-                            <li><a href="{{ url('rent-property-list') }}">Listings</a></li>
-                            <li><a href="{{ url('register') }}">Register</a></li>
-                            <li><a href="{{ url('login') }}">Login</a></li>
-                            <li><a href="{{ url('blog-grid') }}">Blogs</a></li>
-                            <li><a href="{{ url('agency-grid') }}">Agency</a></li>
+                            <li><a href="{{ url('about-us') }}">About</a></li>
+                            <li><a href="{{ url('faq') }}">Faq</a></li>
+                            <li><a href="{{ url('terms-condition') }}">Terms & Conditions</a></li>
+                            <li><a href="{{ url('privacy-policy') }}">Privacy Policy</a></li>
+                            <li><a href="{{ url('gallery') }}">Gallery</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-4">
-                    <div class="footer-widget-list">
-                        <div class="footer-content-heading">
-                            <h4>Categories</h4>
-                        </div>
-                        <ul>
-                            <li><a href="javascript:void(0);">Apartments</a></li>
-                            <li><a href="javascript:void(0);">Home</a></li>
-                            <li><a href="javascript:void(0);">Office</a></li>
-                            <li><a href="javascript:void(0);">Villas</a></li>
-                            <li><a href="javascript:void(0);">Flat</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-4">
-                    <div class="footer-widget-list">
-                        <div class="footer-content-heading">
-                            <h4>Locations</h4>
-                        </div>
-                        <ul>
-                            <li><a href="javascript:void(0);">United States</a></li>
-                            <li><a href="javascript:void(0);">Canada</a></li>
-                            <li><a href="javascript:void(0);">India</a></li>
-                            <li><a href="javascript:void(0);">UK</a></li>
-                            <li><a href="javascript:void(0);">Australia</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-4">
+                <div class="col-lg-3 col-md-4 col-sm-4">
                     <div class="footer-widget-list">
                         <div class="footer-content-heading">
                             <h4>Quick Links</h4>
