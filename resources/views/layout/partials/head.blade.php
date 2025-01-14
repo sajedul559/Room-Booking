@@ -34,7 +34,6 @@
     <!-- Fancybox CSS -->
     <link rel="stylesheet" href="{{url('frontend/plugins/fancybox/jquery.fancybox.min.css') }}">
 @endif
-
 @if (Route::is(['rental-order-step3']))
 <!-- Bootstrap Datetimepicker CSS -->
 <link rel="stylesheet" href="{{url('frontend/css/bootstrap-datetimepicker.min.css') }}">
@@ -44,7 +43,7 @@
 <link rel="stylesheet" href="{{url('frontend/plugins/select2/css/select2.min.css') }}">
 
 <!-- Main CSS -->
-<link rel="stylesheet" href="{{url('frontend/css/style.css') }}">
+<link rel="stylesheet" href="{{url('assets/frontend/css/style.css') }}">
 @if (Route::is([
         'index',
         'rent-property-grid-sidebar',
@@ -86,4 +85,4 @@
 <link rel="stylesheet" href="{{ url('frontend/plugins/select2/css/select2.min.css') }}">
 
 <!-- Main CSS -->
-<link rel="stylesheet" href="{{ url('frontend/css/style.css') }}">
+<link rel="stylesheet" href="{{ url('assets/frontend/css/style.css') }}">

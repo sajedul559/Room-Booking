@@ -462,6 +462,34 @@ Version      : 1.0
 			connect: true
 		});
 
+	// Room Slider
+
+	if($('.room-feature-slider').length > 0) {
+		$('.oom-feature-sliderr').owlCarousel({
+			loop:true,
+			margin:24,
+			nav:true,
+			dots:false,
+			smartSpeed: 2000,
+			navText : ["<i class='fa-solid fa-arrow-left'></i>","<i class='fa-solid fa-arrow-right'></i>"],
+			responsive:{
+				0:{
+					items:1
+				},
+				
+				768:{
+					items:1
+				},		
+				992:{
+					items:2
+				},
+				1200:{
+					items:3
+				},
+			}
+		})
+	}
+
 		// Set visual min and max values and also update value hidden form inputs
 
 		rangeSlider.noUiSlider.on("update", function (values, handle) {

@@ -19,7 +19,7 @@
                 <div class="col-lg-12">
                     <div class="blog-banner">
                         <div class="blog-banner-img">
-                            <img src="{{ URL::asset('/frontend/img/blog/blog-banner.jpg') }}" alt="img">
+                            <img src="{{ URL::asset('assets/frontend/img/blog/blog2-details.jpg') }}" alt="img">
                         </div>
                         <div class="blog-banner-content">
                             <div class="blog-banner-contenthead">
@@ -29,7 +29,7 @@
                             <div class="blog-detailset">
                                 <div class="post-author">
                                     <div class="post-author-img">
-                                        <img src="{{ URL::asset('/frontend/img/profiles/avatar-01.jpg') }}" alt="author">
+                                        <img src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}" alt="author">
                                     </div>
                                     <a href="javascript:void(0)"> <span> Francis</span></a>
                                 </div>
@@ -45,7 +45,7 @@
                             so much that you lose your privacy. Living in a community can help you feel more comfortable and
                             safe.Let’s further check out why community living is important for elderly people:</p>
                         <h4>There’s no place like home:</h4>
-                        <img src="{{ URL::asset('/frontend/img/blog/blog-banner1.jpg') }}" alt="img">
+                        <img src="{{ URL::asset('assets/frontend/img/blog/blog2-details.jpg') }}" alt="img">
                         <p>Home is where the heart is. It’s where you make memories, laugh with friends and family, and feel
                             safe. Where you can relax and enjoy life and be yourself. Home is where you can sleep peacefully
                             at night, knowing that someone is there to watch over you when you need them most.
@@ -77,7 +77,7 @@
                     <div class="testimonial-slider testimonialnext-prev owl-carousel">
                         <div class="blog-card">
                             <div class="blog-img">
-                                <a href="javascript:void(0);"><img src="{{ URL::asset('/frontend/img/blog/blog-1.jpg') }}"
+                                <a href="javascript:void(0);"><img src="{{ URL::asset('assets/frontend/img/blog/blog1.jpg') }}"
                                         alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
@@ -91,7 +91,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('/frontend/img/profiles/avatar-01.jpg') }}"
+                                                src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <a href="javascript:void(0);">Rafael</a>
@@ -107,7 +107,7 @@
                         </div>
                         <div class="blog-card">
                             <div class="blog-img">
-                                <a href="javascript:void(0);"><img src="{{ URL::asset('/frontend/img/blog/blog-2.jpg') }}"
+                                <a href="javascript:void(0);"><img src="{{ URL::asset('assets/frontend/img/blog/blog2.jpg') }}"
                                         alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
@@ -121,7 +121,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('/frontend/img/profiles/avatar-03.jpg') }}"
+                                                src="{{ URL::asset('assets/frontend/img/profiles/user3.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <a href="javascript:void(0);">John</a>
@@ -137,7 +137,7 @@
                         </div>
                         <div class="blog-card">
                             <div class="blog-img">
-                                <a href="javascript:void(0);"><img src="{{ URL::asset('/frontend/img/blog/blog-3.jpg') }}"
+                                <a href="javascript:void(0);"><img src="{{ URL::asset('assets/frontend/img/blog/blog1.jpg') }}"
                                         alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
@@ -152,7 +152,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('/frontend/img/profiles/avatar-05.jpg') }}"
+                                                src="{{ URL::asset('assets/frontend/img/profiles/user3.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <a href="javascript:void(0);">Eric Krok</a>
@@ -168,7 +168,7 @@
                         </div>
                         <div class="blog-card">
                             <div class="blog-img">
-                                <a href="javascript:void(0);"><img src="{{ URL::asset('/frontend/img/blog/blog-2.jpg') }}"
+                                <a href="javascript:void(0);"><img src="{{ URL::asset('assets/frontend/img/blog/blog1.jpg') }}"
                                         alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
@@ -182,7 +182,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('/frontend/img/profiles/avatar-07.jpg') }}"
+                                                src="{{ URL::asset('assets/frontend/img/profiles/user2.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <a href="javascript:void(0);">Francis</a>
@@ -198,7 +198,7 @@
                         </div>
                         <div class="blog-card">
                             <div class="blog-img">
-                                <a href="javascript:void(0);"><img src="{{ URL::asset('/frontend/img/blog/blog-1.jpg') }}"
+                                <a href="javascript:void(0);"><img src="{{ URL::asset('assets/frontend/img/blog/blog2.jpg') }}"
                                         alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
@@ -212,7 +212,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('/frontend/img/profiles/avatar-03.jpg') }}"
+                                                src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <a href="javascript:void(0);">Rafael</a>

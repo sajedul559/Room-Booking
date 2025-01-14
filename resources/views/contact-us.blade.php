@@ -14,7 +14,7 @@
     @endcomponent
 
     <!-- Contact us -->
-    <section class="section contact-section">
+    {{-- <section class="section contact-section">
         <div class="container">
             <div class="contact-content">
                 <div class="row align-items-center">
@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- /Contact us -->
 
     <!-- Contact Info Details -->

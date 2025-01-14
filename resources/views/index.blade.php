@@ -21,13 +21,13 @@
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link active" id="buy-property" data-bs-toggle="tab" href="#buy_property"
                                         role="tab" aria-controls="buy_property" aria-selected="true">
-                                        <img src="{{ URL::asset('/frontend/img/icons/buy-icon.svg') }}" alt="icon"> Rent a Room
+                                        <img src="{{ URL::asset('assets/frontend/img/icons/buy-icon.svg') }}" alt="icon"> Rent a Room
                                     </a>
                                 </li>
                                 {{-- <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="rent-property" data-bs-toggle="tab" href="#rent_property"
                                         role="tab" aria-controls="rent_property" aria-selected="false">
-                                        <img src="{{ URL::asset('/frontend/img/icons/rent-icon.svg') }}" alt="icon"> Rent
+                                        <img src="{{ URL::asset('assets/frontend/img/icons/rent-icon.svg') }}" alt="icon"> Rent
                                         a Property
                                     </a>
                                 </li> --}}
@@ -121,7 +121,7 @@
                     <div class="howit-work-card" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100">
                         <div class="work-card-icon">
                             <span>
-                                <img src="{{ URL::asset('/frontend/img/icons/work-icon-1.svg') }}" alt="icon">
+                                <img src="{{ URL::asset('assets/frontend/img/icons/work-icon-1.svg') }}" alt="icon">
                             </span>
                         </div>
                         <h4>01. Search for Location</h4>
@@ -133,7 +133,7 @@
                     <div class="howit-work-card" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="200">
                         <div class="work-card-icon">
                             <span class="bg-red">
-                                <img src="{{ URL::asset('/frontend/img/icons/work-icon-2.svg') }}" alt="icon">
+                                <img src="{{ URL::asset('assets/frontend/img/icons/work-icon-2.svg') }}" alt="icon">
                             </span>
                         </div>
                         <h4>02. Select Property Type</h4>
@@ -145,7 +145,7 @@
                     <div class="howit-work-card" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="300">
                         <div class="work-card-icon">
                             <span class="bg-green">
-                                <img src="{{ URL::asset('/frontend/img/icons/work-icon-3.svg') }}" alt="icon">
+                                <img src="{{ URL::asset('assets/frontend/img/icons/work-icon-3.svg') }}" alt="icon">
                             </span>
                         </div>
                         <h4>03. Book Your Property</h4>
@@ -161,11 +161,11 @@
     <!-- Property Type -->
     <section class="property-type-sec">
         <div class="section-shape-imgs">
-            <img src="{{ URL::asset('/frontend/img/shapes/property-sec-bg-1.png') }}" class="rectangle-left"
+            <img src="{{ URL::asset('assets/frontend/img/shapes/property-sec-bg-1.png') }}" class="rectangle-left"
                 alt="icon">
-            <img src="{{ URL::asset('/frontend/img/shapes/property-sec-bg-2.png') }}" class="rectangle-right"
+            <img src="{{ URL::asset('assets/frontend/img/shapes/property-sec-bg-2.png') }}" class="rectangle-right"
                 alt="icon">
-            <img src="{{ URL::asset('/frontend/img/icons/red-circle.svg') }}" class="bg-09" alt="Image">
+            <img src="{{ URL::asset('assets/frontend/img/icons/red-circle.svg') }}" class="bg-09" alt="Image">
         </div>
         <div class="container">
             <div class="row">
@@ -186,7 +186,7 @@
                     <div class="property-type-slider owl-carousel">
                         <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
-                                <img src="{{ URL::asset('/frontend/img/icons/property-icon-1.svg') }}" alt="icon">
+                                <img src="{{ URL::asset('assets/frontend/img/icons/property-icon-1.svg') }}" alt="icon">
                             </div>
                             <div class="property-name">
                                 <h4>Houses</h4>
@@ -195,7 +195,7 @@
                         </div>
                         {{-- <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
-                                <img src="{{ URL::asset('/frontend/img/icons/property-icon-2.svg') }}" alt="icon">
+                                <img src="{{ URL::asset('assets/frontend/img/icons/property-icon-2.svg') }}" alt="icon">
                             </div>
                             <div class="property-name">
                                 <h4>Offices</h4>
@@ -204,7 +204,7 @@
                         </div> --}}
                         <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
-                                <img src="{{ URL::asset('/frontend/img/icons/property-icon-3.svg') }}" alt="icon">
+                                <img src="{{ URL::asset('assets/frontend/img/icons/property-icon-3.svg') }}" alt="icon">
                             </div>
                             <div class="property-name">
                                 <h4>Villas</h4>
@@ -213,7 +213,7 @@
                         </div>
                         <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
-                                <img src="{{ URL::asset('/frontend/img/icons/property-icon-4.svg') }}" alt="icon">
+                                <img src="{{ URL::asset('assets/frontend/img/icons/property-icon-4.svg') }}" alt="icon">
                             </div>
                             <div class="property-name">
                                 <h4>Apartment</h4>
@@ -222,7 +222,7 @@
                         </div>
                         <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
-                                <img src="{{ URL::asset('/frontend/img/icons/property-icon-3.svg') }}" alt="icon">
+                                <img src="{{ URL::asset('assets/frontend/img/icons/property-icon-3.svg') }}" alt="icon">
                             </div>
                             <div class="property-name">
                                 <h4>Villas</h4>
@@ -231,7 +231,7 @@
                         </div>
                         <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
-                                <img src="{{ URL::asset('/frontend/img/icons/property-icon-1.svg') }}" alt="icon">
+                                <img src="{{ URL::asset('assets/frontend/img/icons/property-icon-1.svg') }}" alt="icon">
                             </div>
                             <div class="property-name">
                                 <h4>Houses</h4>
@@ -240,7 +240,7 @@
                         </div>
                         <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
-                                <img src="{{ URL::asset('/frontend/img/icons/property-icon-4.svg') }}" alt="icon">
+                                <img src="{{ URL::asset('assets/frontend/img/icons/property-icon-4.svg') }}" alt="icon">
                             </div>
                             <div class="property-name">
                                 <h4>Apartment</h4>
@@ -276,7 +276,7 @@
                                     <div class="doc-img">
                                         <a href="{{ url('rent-details') }}" class="property-img">
                                             <img class="img-fluid" alt="Property Image"
-                                                src="{{ URL::asset('/frontend/img/product/product-6.jpg') }}">
+                                                src="{{ URL::asset('assets/frontend/img/product/room1.jpg') }}">
                                         </a>
                                         {{-- <div class="product-amount">
                                             <h5><span>$2,200 </span> / Night</h5>
@@ -310,17 +310,17 @@
                                         <p><i class="feather-map-pin"></i> 318-S Oakley Blvd, Chicago, IL 60612, USA</p>
                                         <ul class="d-flex details">
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bed-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/bed-icon.svg') }}"
                                                     alt="bed-icon">
                                                 4 Beds
                                             </li>
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bath-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/bath-icon.svg') }}"
                                                     alt="bath-icon">
                                                 4 Baths
                                             </li>
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/building-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/building-icon.svg') }}"
                                                     alt="building-icon">
                                                 35000 Sqft
                                             </li>
@@ -328,7 +328,7 @@
                                         <ul class="property-category d-flex justify-content-between align-items-center">
                                             {{-- <li class="user-info">
                                                 <a href="{{ url('rent-details') }}"><img
-                                                        src="{{ URL::asset('/frontend/img/profiles/avatar-01.jpg') }}"
+                                                        src="{{ URL::asset('assets/frontend/img/profiles/avatar-01.jpg') }}"
                                                         class="img-fluid avatar" alt="User"></a>
                                                 <div class="user-name">
                                                     <h6><a href="{{ url('rent-details') }}">Marc Silva</a></h6>
@@ -347,7 +347,7 @@
                                     <div class="doc-img">
                                         <a href="{{ url('rent-details') }}" class="property-img">
                                             <img class="img-fluid" alt="Property Image"
-                                                src="{{ URL::asset('/frontend/img/product/product-7.jpg') }}">
+                                                src="{{ URL::asset('assets/frontend/img/product/room2.jpg') }}">
                                         </a>
                                         {{-- <div class="product-amount">
                                             <h5><span>$1,400 </span> / Night</h5>
@@ -378,17 +378,17 @@
                                         <p><i class="feather-map-pin"></i> 470 Park Ave S, New York, NY 10016</p>
                                         <ul class="d-flex details">
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bed-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/bed-icon.svg') }}"
                                                     alt="bed-icon">
                                                 4 Beds
                                             </li>
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bath-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/bath-icon.svg') }}"
                                                     alt="bath-icon">
                                                 4 Baths
                                             </li>
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/building-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/building-icon.svg') }}"
                                                     alt="building-icon">
                                                 35000 Sqft
                                             </li>
@@ -396,7 +396,7 @@
                                         <ul class="property-category d-flex justify-content-between align-items-center">
                                             {{-- <li class="user-info">
                                                 <a href="javascript:void(0);"><img
-                                                        src="{{ URL::asset('/frontend/img/profiles/avatar-02.jpg') }}"
+                                                        src="{{ URL::asset('assets/frontend/img/profiles/avatar-02.jpg') }}"
                                                         class="img-fluid avatar" alt="User"></a>
                                                 <div class="user-name">
                                                     <h6><a href="{{ url('rent-details') }}">Karen Maria</a></h6>
@@ -417,7 +417,7 @@
                                     <div class="doc-img">
                                         <a href="{{ url('rent-details') }}" class="property-img">
                                             <img class="img-fluid" alt="Property Image"
-                                                src="{{ URL::asset('/frontend/img/product/product-8.jpg') }}">
+                                                src="{{ URL::asset('assets/frontend/img/product/room6.jpg') }}">
                                         </a>
                                         {{-- <div class="product-amount">
                                             <h5><span>$1,500 </span> / Night</h5>
@@ -448,17 +448,17 @@
                                         <p><i class="feather-map-pin"></i> 82-25 Parsons Blvd, Jamaica, NY 11432, USA</p>
                                         <ul class="d-flex details">
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bed-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/bed-icon.svg') }}"
                                                     alt="bed-icon">
                                                 2 Beds
                                             </li>
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bath-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/bath-icon.svg') }}"
                                                     alt="bath-icon">
                                                 3 Baths
                                             </li>
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/building-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/building-icon.svg') }}"
                                                     alt="building-icon">
                                                 12000 Sqft
                                             </li>
@@ -466,7 +466,7 @@
                                         <ul class="property-category d-flex justify-content-between align-items-center">
                                             {{-- <li class="user-info">
                                                 <a href="{{ url('rent-details') }}"><img
-                                                        src="{{ URL::asset('/frontend/img/profiles/avatar-03.jpg') }}"
+                                                        src="{{ URL::asset('assets/frontend/img/profiles/avatar-03.jpg') }}"
                                                         class="img-fluid avatar" alt="User"></a>
                                                 <div class="user-name">
                                                     <h6><a href="{{ url('rent-details') }}">Scott Gwin</a></h6>
@@ -485,7 +485,7 @@
                                     <div class="doc-img">
                                         <a href="{{ url('rent-details') }}" class="property-img">
                                             <img class="img-fluid" alt="Property Image"
-                                                src="{{ URL::asset('/frontend/img/product/product-9.jpg') }}">
+                                                src="{{ URL::asset('assets/frontend/img/product/room4.jpg') }}">
                                         </a>
                                         {{-- <div class="product-amount">
                                             <h5><span>$3,500 </span> / Night</h5>
@@ -516,17 +516,17 @@
                                         <p><i class="feather-map-pin"></i> 518-520 8th Ave, New York, NY 10018, USA</p>
                                         <ul class="d-flex details">
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bed-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/bed-icon.svg') }}"
                                                     alt="bed-icon">
                                                 3 Beds
                                             </li>
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bath-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/bath-icon.svg') }}"
                                                     alt="bath-icon">
                                                 2 Baths
                                             </li>
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/building-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/building-icon.svg') }}"
                                                     alt="building-icon">
                                                 23000 Sqft
                                             </li>
@@ -534,7 +534,7 @@
                                         <ul class="property-category d-flex justify-content-between align-items-center">
                                             {{-- <li class="user-info">
                                                 <a href="{{ url('rent-details') }}"><img
-                                                        src="{{ URL::asset('/frontend/img/profiles/avatar-04.jpg') }}"
+                                                        src="{{ URL::asset('assets/frontend/img/profiles/avatar-04.jpg') }}"
                                                         class="img-fluid avatar" alt="User"></a>
                                                 <div class="user-name">
                                                     <h6><a href="{{ url('rent-details') }}">Burdette</a></h6>
@@ -555,7 +555,7 @@
                                     <div class="doc-img">
                                         <a href="{{ url('rent-details') }}" class="property-img">
                                             <img class="img-fluid" alt="Property Image"
-                                                src="{{ URL::asset('/frontend/img/product/product-10.jpg') }}">
+                                                src="{{ URL::asset('assets/frontend/img/product/room5.jpg') }}">
                                         </a>
                                         {{-- <div class="product-amount">
                                             <h5><span>$4,500 </span> / Night</h5>
@@ -586,17 +586,17 @@
                                         <p><i class="feather-map-pin"></i> 470 Park Ave S, New York, NY 10016</p>
                                         <ul class="d-flex details">
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bed-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/bed-icon.svg') }}"
                                                     alt="bed-icon">
                                                 4 Beds
                                             </li>
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bath-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/bath-icon.svg') }}"
                                                     alt="bath-icon">
                                                 3 Baths
                                             </li>
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/building-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/building-icon.svg') }}"
                                                     alt="building-icon">
                                                 5000 Sqft
                                             </li>
@@ -604,7 +604,7 @@
                                         <ul class="property-category d-flex justify-content-between align-items-center">
                                             {{-- <li class="user-info">
                                                 <a href="{{ url('rent-details') }}"><img
-                                                        src="{{ URL::asset('/frontend/img/profiles/avatar-05.jpg') }}"
+                                                        src="{{ URL::asset('assets/frontend/img/profiles/avatar-05.jpg') }}"
                                                         class="img-fluid avatar" alt="User"></a>
                                                 <div class="user-name">
                                                     <h6><a href="{{ url('rent-details') }}">Kell Robinson</a></h6>
@@ -623,7 +623,7 @@
                                     <div class="doc-img">
                                         <a href="{{ url('rent-details') }}" class="property-img">
                                             <img class="img-fluid" alt="Property Image"
-                                                src="{{ URL::asset('/frontend/img/product/product-11.jpg') }}">
+                                                src="{{ URL::asset('assets/frontend/img/product/room6.jpg') }}">
                                         </a>
                                         {{-- <div class="product-amount">
                                             <h5><span>$2,400 </span> / Night</h5>
@@ -654,17 +654,17 @@
                                         <p><i class="feather-map-pin"></i> 122 N Morgan St, Chicago, IL 60607, USA</p>
                                         <ul class="d-flex details">
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bed-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/bed-icon.svg') }}"
                                                     alt="bed-icon">
                                                 2 Beds
                                             </li>
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bath-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/bath-icon.svg') }}"
                                                     alt="bath-icon">
                                                 3 Baths
                                             </li>
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/building-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/building-icon.svg') }}"
                                                     alt="building-icon">
                                                 25000 Sqft
                                             </li>
@@ -672,7 +672,7 @@
                                         <ul class="property-category d-flex justify-content-between align-items-center">
                                             {{-- <li class="user-info">
                                                 <a href="{{ url('rent-details') }}"><img
-                                                        src="{{ URL::asset('/frontend/img/profiles/avatar-07.jpg') }}"
+                                                        src="{{ URL::asset('assets/frontend/img/profiles/avatar-07.jpg') }}"
                                                         class="img-fluid avatar" alt="User"></a>
                                                 <div class="user-name">
                                                     <h6><a href="{{ url('rent-details') }}">Pittman</a></h6>
@@ -693,7 +693,7 @@
                                     <div class="doc-img">
                                         <a href="{{ url('rent-details') }}" class="property-img">
                                             <img class="img-fluid" alt="Property Image"
-                                                src="{{ URL::asset('/frontend/img/product/product-7.jpg') }}">
+                                                src="{{ URL::asset('assets/frontend/img/product/room1.jpg') }}">
                                         </a>
                                         {{-- <div class="product-amount">
                                             <h5><span>$1,400 </span> / Night</h5>
@@ -724,17 +724,17 @@
                                         <p><i class="feather-map-pin"></i> 518-520 8th Ave, New York, NY 10018, USA</p>
                                         <ul class="d-flex details">
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bed-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/bed-icon.svg') }}"
                                                     alt="bed-icon">
                                                 2 Beds
                                             </li>
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bath-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/bath-icon.svg') }}"
                                                     alt="bath-icon">
                                                 2 Baths
                                             </li>
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/building-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/building-icon.svg') }}"
                                                     alt="building-icon">
                                                 18000 Sqft
                                             </li>
@@ -742,7 +742,7 @@
                                         <ul class="property-category d-flex justify-content-between align-items-center">
                                             {{-- <li class="user-info">
                                                 <a href="{{ url('rent-details') }}"><img
-                                                        src="{{ URL::asset('/frontend/img/profiles/avatar-10.jpg') }}"
+                                                        src="{{ URL::asset('assets/frontend/img/profiles/avatar-10.jpg') }}"
                                                         class="img-fluid avatar" alt="User"></a>
                                                 <div class="user-name">
                                                     <h6><a href="{{ url('rent-details') }}">John Doe</a></h6>
@@ -761,7 +761,7 @@
                                     <div class="doc-img">
                                         <a href="{{ url('rent-details') }}" class="property-img">
                                             <img class="img-fluid" alt="Property Image"
-                                                src="{{ URL::asset('/frontend/img/product/product-9.jpg') }}">
+                                                src="{{ URL::asset('assets/frontend/img/product/product-9.jpg') }}">
                                         </a>
                                         <div class="product-amount">
                                             <h5><span>$3,500 </span> / Night</h5>
@@ -792,17 +792,17 @@
                                         <p><i class="feather-map-pin"></i> 318-S Oakley Blvd, Chicago, IL 60612, USA</p>
                                         <ul class="d-flex details">
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bed-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/bed-icon.svg') }}"
                                                     alt="bed-icon">
                                                 3 Beds
                                             </li>
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/bath-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/bath-icon.svg') }}"
                                                     alt="bath-icon">
                                                 1 Bath
                                             </li>
                                             <li>
-                                                <img src="{{ URL::asset('/frontend/img/icons/building-icon.svg') }}"
+                                                <img src="{{ URL::asset('assets/frontend/img/icons/building-icon.svg') }}"
                                                     alt="building-icon">
                                                 12000 Sqft
                                             </li>
@@ -810,7 +810,7 @@
                                         <ul class="property-category d-flex justify-content-between align-items-center">
                                             <li class="user-info">
                                                 <a href="{{ url('rent-details') }}"><img
-                                                        src="{{ URL::asset('/frontend/img/profiles/avatar-12.jpg') }}"
+                                                        src="{{ URL::asset('assets/frontend/img/profiles/avatar-12.jpg') }}"
                                                         class="img-fluid avatar" alt="User"></a>
                                                 <div class="user-name">
                                                     <h6><a href="{{ url('rent-details') }}">Richard</a></h6>
@@ -834,7 +834,7 @@
             </div>
         </div>
         <div class="bg-imgs">
-            <img src="{{ URL::asset('/frontend/img/bg/price-bg.png') }}" class="bg-04" alt="Image">
+            <img src="{{ URL::asset('assets/frontend/img/bg/price-bg.png') }}" class="bg-04" alt="Image">
         </div>
     </section>
     <!-- /Feature Property For Rent -->
@@ -859,7 +859,7 @@
                         <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="user-icon">
                                 <a href="javascript:void(0);"><img
-                                        src="{{ URL::asset('/frontend/img/profiles/avatar-01.jpg') }}"
+                                        src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}"
                                         alt="User"></a>
                             </div>
                             <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
@@ -878,7 +878,7 @@
                         <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="user-icon">
                                 <a href="javascript:void(0);"><img
-                                        src="{{ URL::asset('/frontend/img/profiles/avatar-02.jpg') }}"
+                                        src="{{ URL::asset('assets/frontend/img/profiles/user2.jpg') }}"
                                         alt="User"></a>
                             </div>
                             <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
@@ -897,7 +897,7 @@
                         <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="user-icon">
                                 <a href="javascript:void(0);"><img
-                                        src="{{ URL::asset('/frontend/img/profiles/avatar-03.jpg') }}"
+                                        src="{{ URL::asset('assets/frontend/img/profiles/user3.jpg') }}"
                                         alt="User"></a>
                             </div>
                             <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
@@ -916,7 +916,7 @@
                         <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="user-icon">
                                 <a href="javascript:void(0);"><img
-                                        src="{{ URL::asset('/frontend/img/profiles/avatar-04.jpg') }}"
+                                        src="{{ URL::asset('assets/frontend/img/profiles/user2.jpg') }}"
                                         alt="User"></a>
                             </div>
                             <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
@@ -935,7 +935,7 @@
                         <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="user-icon">
                                 <a href="javascript:void(0);"><img
-                                        src="{{ URL::asset('/frontend/img/profiles/avatar-05.jpg') }}"
+                                        src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}"
                                         alt="User"></a>
                             </div>
                             <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
@@ -989,7 +989,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="faq-img">
-                        <img src="{{ URL::asset('/frontend/img/faq-img.jpg') }}" alt="icon">
+                        <img src="{{ URL::asset('assets/frontend/img/faq-img.jpg') }}" alt="icon">
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -1091,8 +1091,8 @@
             </div>
         </div>
         <div class="bg-imgs">
-            <img src="{{ URL::asset('/frontend/img/icons/blue-circle.svg') }}" class="bg-06" alt="icon">
-            <img src="{{ URL::asset('/frontend/img/icons/red-circle.svg') }}" class="bg-07" alt="icon">
+            <img src="{{ URL::asset('assets/frontend/img/icons/blue-circle.svg') }}" class="bg-06" alt="icon">
+            <img src="{{ URL::asset('assets/frontend/img/icons/red-circle.svg') }}" class="bg-07" alt="icon">
         </div>
     </section>
     <!-- /Agent Register -->
@@ -1120,7 +1120,7 @@
                         <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ URL::asset('/frontend/img/blog/blog-1.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ URL::asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -1134,7 +1134,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('/frontend/img/profiles/avatar-01.jpg') }}"
+                                                src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <h6><a href="javascript:void(0);">Doe John</a></h6>
@@ -1154,7 +1154,7 @@
                         <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ URL::asset('/frontend/img/blog/blog-2.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ URL::asset('assets/frontend/img/blog/blog2.jpg') }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -1168,7 +1168,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('/frontend/img/profiles/avatar-03.jpg') }}"
+                                                src="{{ URL::asset('assets/frontend/img/profiles/user3.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <h6><a href="javascript:void(0);">John</a></h6>
@@ -1188,7 +1188,7 @@
                         <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ URL::asset('/frontend/img/blog/blog-3.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ URL::asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -1203,7 +1203,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('/frontend/img/profiles/avatar-05.jpg') }}"
+                                                src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <h6><a href="javascript:void(0);">Eric Krok</a></h6>
@@ -1223,7 +1223,7 @@
                         <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ URL::asset('/frontend/img/blog/blog-2.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ URL::asset('assets/frontend/img/blog/blog2.jpg') }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -1237,7 +1237,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('/frontend/img/profiles/avatar-07.jpg') }}"
+                                                src="{{ URL::asset('assets/frontend/img/profiles/user2.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <h6><a href="javascript:void(0);">Francis</a></h6>
@@ -1257,7 +1257,7 @@
                         <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ URL::asset('/frontend/img/blog/blog-1.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ URL::asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -1271,7 +1271,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('/frontend/img/profiles/avatar-03.jpg') }}"
+                                                src="{{ URL::asset('assets/frontend/img/profiles/user3.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <h6><a href="javascript:void(0);">Rafael</a></h6>

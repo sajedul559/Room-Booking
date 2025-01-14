@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="footer" style="background-color:#da1f43">
+<footer class="footer pt-5">
     <!-- Footer Top -->
     <div class="footer-top">
         <div class="footer-border-img">
@@ -11,7 +11,7 @@
                     <div class="footer-widget footer-about">
                         <div class="footer-app-content">
                             <div class="footer-content-heading">
-                                <h4>Get Our App </h4>
+                                {{-- <h4>Get Our App </h4> --}}
                                 {{-- <p>Download the app and book your property</p> --}}
                             </div>
                             {{-- <div class="download-app">
@@ -21,7 +21,7 @@
                                         alt="app store"></a>
                             </div> --}}
                             <div class="social-links">
-                                {{-- <h4>Connect with us</h4> --}}
+                                <h4>Get Our App</h4>
                                 <ul>
                                     <li><a href="javascript:void(0);"><i
                                                 class="fa-brands fa-facebook-f hi-icon"></i></a></li>
@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-4">
+                <div class="col-lg-3 col-md-4 col-sm-4 ">
                     <h4 class="text-white">Contact Us</h4>
                     <ul class="contact-info text-white">
                         <li>
@@ -60,32 +60,42 @@
                 <div class="col-lg-3 col-md-4 col-sm-4">
                     <div class="footer-widget-list">
                         <div class="footer-content-heading">
-                            <h4>Quick Links</h4>
+                            <h4>Pages</h4>
                         </div>
                         <ul>
-                            <li><a href="{{ url('about-us') }}">About</a></li>
-                            <li><a href="{{ url('faq') }}">Faq</a></li>
-                            <li><a href="{{ url('terms-condition') }}">Terms & Conditions</a></li>
-                            <li><a href="{{ url('privacy-policy') }}">Privacy Policy</a></li>
-                            <li><a href="{{ url('gallery') }}">Gallery</a></li>
+                            <li style="color: white">Student Accommodation</li>
+                            <li ><a style="padding-left: 20px;" href="{{ route('room') }}">RoomingKos Dudley</a></li>
+                            <li><a style="padding-left: 20px;" href="{{ route('room')}}">RoomingKos Swanston</a></li>
+                            <div style="padding-right:20px;"><li><a href="{{ route('room')}}">Rooming Houses</a></li></div>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-4">
                     <div class="footer-widget-list">
                         <div class="footer-content-heading">
-                            <h4>Quick Links</h4>
+                            <h4>Other</h4>
                         </div>
                         <ul>
                             <li><a href="{{ url('about-us') }}">About</a></li>
-                            <li><a href="{{ url('faq') }}">Faq</a></li>
-                            <li><a href="{{ url('terms-condition') }}">Terms & Conditions</a></li>
-                            <li><a href="{{ url('privacy-policy') }}">Privacy Policy</a></li>
-                            <li><a href="{{ url('gallery') }}">Gallery</a></li>
+                            <li><a href="{{ url('blog-list') }}">Blog</a></li>
+                            <li><a href="{{ url('contact-us') }}">Contact</a></li>
+                           
                         </ul>
                     </div>
                 </div>
             </div>
+            {{-- <div class="footer-bottom-content">
+                <div class="copyright">
+                    <p>Copyright <script>
+                        document.write(new Date().getFullYear())
+                  
+                        </script> - All right reserved DreamsEstate</p>
+                </div>
+                <div>
+                    <a>Privacy Policy</a>
+                </div>
+               
+            </div> --}}
         </div>
     </div>
     <!-- /Footer Top -->
@@ -95,19 +105,19 @@
         <div class="container">
             <div class="footer-bottom-content">
                 <div class="copyright">
-                    <p>Copyright <script>
-                        document.write(new Date().getFullYear())
-                  
-                        </script> - All right reserved DreamsEstate</p>
+                    <p>
+                        Copyright <script>
+                            document.write(new Date().getFullYear());
+                        </script> - All rights reserved Rooming
+                    </p>
                 </div>
-                <div class="company-logo">
-                    <p>a product of</p>
-                    <a href="https://dreamstechnologies.com/" target="_blank"><img
-                            src="{{ URL::asset('/frontend/img/company-logo.png') }}" alt="Logo"></a>
+                <div class="pb-5">
+                    <a href="https://dreamstechnologies.com/" target="_blank">Privacy Policy</a>
                 </div>
             </div>
         </div>
     </div>
+    
     <!-- /Footer Bottom -->
 
 </footer>
