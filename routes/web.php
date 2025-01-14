@@ -51,6 +51,9 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 Route::get('/', function () {
     return view('index');
 })->name('index');
+Route::get('/rooming-houses', function () {
+    return view('room');
+})->name('room');
 
 Route::get('/index', function () {
     return view('index');

@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-    <title>DreamsEstate</title>
+    <title>Rooming</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ URL::asset('/assets/img/favicon.png') }}" type="image/x-icon">
@@ -15,11 +15,11 @@
 
 @if (!Route::is(['coming-soon', 'error-404', 'error-500', 'maintenance']))
 
-    <body>
+    <body style="background: #F6F6F9">
 @endif
 @if (Route::is(['coming-soon', 'error-404', 'error-500', 'maintenance']))
 
-    <body class="error-page login-body p-0">
+    <body style="background: #F6F6F9" class="error-page login-body p-0">
 @endif
 @component('components.loader')
 @endcomponent

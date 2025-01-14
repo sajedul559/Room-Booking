@@ -185,4 +185,315 @@
         </div>
     </section>
     <!-- /Partners -->
+     <!-- Testimonial -->
+     <section class="testimonial-sec">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Testimonials</h2>
+                <div class="sec-line">
+                    <span class="sec-line1"></span>
+                    <span class="sec-line2"></span>
+                </div>
+                <p>What our happy client says</p>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="testimonial-slider owl-carousel">
+                        <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
+                            <div class="user-icon">
+                                <a href="javascript:void(0);"><img
+                                        src="{{ URL::asset('/frontend/img/profiles/avatar-01.jpg') }}"
+                                        alt="User"></a>
+                            </div>
+                            <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
+                                Sed fuga est harum quo nesciunt sint. Optio veniam...Omnis velit quia. Perspiciatis et
+                                cupiditate. Voluptatum beatae asperiores dolor magnam fuga. Sed fuga est harum quo nesciunt
+                                sint. Optio veniam...</p>
+                            <h4><a href="javascript:void(0);">Horace Cole</a></h4>
+                            <div class="rating">
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
+                            <div class="user-icon">
+                                <a href="javascript:void(0);"><img
+                                        src="{{ URL::asset('/frontend/img/profiles/avatar-02.jpg') }}"
+                                        alt="User"></a>
+                            </div>
+                            <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
+                                Sed fuga est harum quo nesciunt sint. Optio veniam...Omnis velit quia. Perspiciatis et
+                                cupiditate. Voluptatum beatae asperiores dolor magnam fuga. Sed fuga est harum quo nesciunt
+                                sint. Optio veniam...</p>
+                            <h4><a href="javascript:void(0);">Karen Maria</a></h4>
+                            <div class="rating">
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
+                            <div class="user-icon">
+                                <a href="javascript:void(0);"><img
+                                        src="{{ URL::asset('/frontend/img/profiles/avatar-03.jpg') }}"
+                                        alt="User"></a>
+                            </div>
+                            <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
+                                Sed fuga est harum quo nesciunt sint. Optio veniam...Omnis velit quia. Perspiciatis et
+                                cupiditate. Voluptatum beatae asperiores dolor magnam fuga. Sed fuga est harum quo nesciunt
+                                sint. Optio veniam...</p>
+                            <h4><a href="javascript:void(0);">Jack Nitzsche</a></h4>
+                            <div class="rating">
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
+                            <div class="user-icon">
+                                <a href="javascript:void(0);"><img
+                                        src="{{ URL::asset('/frontend/img/profiles/avatar-04.jpg') }}"
+                                        alt="User"></a>
+                            </div>
+                            <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
+                                Sed fuga est harum quo nesciunt sint. Optio veniam...Omnis velit quia. Perspiciatis et
+                                cupiditate. Voluptatum beatae asperiores dolor magnam fuga. Sed fuga est harum quo nesciunt
+                                sint. Optio veniam...</p>
+                            <h4><a href="javascript:void(0);">Sofia Retz</a></h4>
+                            <div class="rating">
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                            </div>
+                        </div>
+                        <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
+                            <div class="user-icon">
+                                <a href="javascript:void(0);"><img
+                                        src="{{ URL::asset('/frontend/img/profiles/avatar-05.jpg') }}"
+                                        alt="User"></a>
+                            </div>
+                            <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
+                                Sed fuga est harum quo nesciunt sint. Optio veniam...Omnis velit quia. Perspiciatis et
+                                cupiditate. Voluptatum beatae asperiores dolor magnam fuga. Sed fuga est harum quo nesciunt
+                                sint. Optio veniam...</p>
+                            <h4><a href="javascript:void(0);">John Doe</a></h4>
+                            <div class="rating">
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Testimonial -->
+       <!-- Latest Blog -->
+       <section class="latest-blog-sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="section-heading text-center">
+                        <h2>Latest Blog</h2>
+                        <div class="sec-line">
+                            <span class="sec-line1"></span>
+                            <span class="sec-line2"></span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmodtempor incididunt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-slider owl-carousel">
+
+                        <!-- Blog -->
+                        <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
+                            <div class="blog-img">
+                                <a href="{{ url('blog-details') }}"><img
+                                        src="{{ URL::asset('/frontend/img/blog/blog-1.jpg') }}" alt="Blog Image"></a>
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-property">
+                                    <span>Property</span>
+                                </div>
+                                <div class="blog-title">
+                                    <h3><a href="{{ url('blog-details') }}">How to achieve financial independence</a>
+                                    </h3>
+                                    <p>There are many variations of passages of lorem ipsum available.</p>
+                                </div>
+                                <ul class="property-category d-flex justify-content-between align-items-center">
+                                    <li class="user-info">
+                                        <a href="javascript:void(0);"><img
+                                                src="{{ URL::asset('/frontend/img/profiles/avatar-01.jpg') }}"
+                                                class="img-fluid avatar" alt="User"></a>
+                                        <div class="user-name">
+                                            <h6><a href="javascript:void(0);">Doe John</a></h6>
+                                            <p>Posted on : 15 Jan 2023</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('blog-details') }}"><span><i
+                                                    class='fa-solid fa-arrow-right'></i></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /Blog -->
+
+                        <!-- Blog -->
+                        <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
+                            <div class="blog-img">
+                                <a href="{{ url('blog-details') }}"><img
+                                        src="{{ URL::asset('/frontend/img/blog/blog-2.jpg') }}" alt="Blog Image"></a>
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-property">
+                                    <span>Advantages</span>
+                                </div>
+                                <div class="blog-title">
+                                    <h3><a href="{{ url('blog-details') }}">The most popular cities for homebuyers</a>
+                                    </h3>
+                                    <p>There are many variations of passages of lorem ipsum available.</p>
+                                </div>
+                                <ul class="property-category d-flex justify-content-between align-items-center">
+                                    <li class="user-info">
+                                        <a href="javascript:void(0);"><img
+                                                src="{{ URL::asset('/frontend/img/profiles/avatar-03.jpg') }}"
+                                                class="img-fluid avatar" alt="User"></a>
+                                        <div class="user-name">
+                                            <h6><a href="javascript:void(0);">John</a></h6>
+                                            <p>Posted on : 15 Jan 2023</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('blog-details') }}"><span><i
+                                                    class='fa-solid fa-arrow-right'></i></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /Blog -->
+
+                        <!-- Blog -->
+                        <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
+                            <div class="blog-img">
+                                <a href="{{ url('blog-details') }}"><img
+                                        src="{{ URL::asset('/frontend/img/blog/blog-3.jpg') }}" alt="Blog Image"></a>
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-property">
+                                    <span>Finanace</span>
+                                </div>
+                                <div class="blog-title">
+                                    <h3><a href="{{ url('blog-details') }}">Learn how real estate really shapes our
+                                            future</a>
+                                    </h3>
+                                    <p>There are many variations of passages of lorem ipsum available.</p>
+                                </div>
+                                <ul class="property-category d-flex justify-content-between align-items-center">
+                                    <li class="user-info">
+                                        <a href="javascript:void(0);"><img
+                                                src="{{ URL::asset('/frontend/img/profiles/avatar-05.jpg') }}"
+                                                class="img-fluid avatar" alt="User"></a>
+                                        <div class="user-name">
+                                            <h6><a href="javascript:void(0);">Eric Krok</a></h6>
+                                            <p>Posted on : 15 Jan 2023</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('blog-details') }}"><span><i
+                                                    class='fa-solid fa-arrow-right'></i></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /Blog -->
+
+                        <!-- Blog -->
+                        <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
+                            <div class="blog-img">
+                                <a href="{{ url('blog-details') }}"><img
+                                        src="{{ URL::asset('/frontend/img/blog/blog-2.jpg') }}" alt="Blog Image"></a>
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-property">
+                                    <span>Property</span>
+                                </div>
+                                <div class="blog-title">
+                                    <h3><a href="{{ url('blog-details') }}">The most popular cities for homebuyers</a>
+                                    </h3>
+                                    <p>There are many variations of passages of lorem ipsum available.</p>
+                                </div>
+                                <ul class="property-category d-flex justify-content-between align-items-center">
+                                    <li class="user-info">
+                                        <a href="javascript:void(0);"><img
+                                                src="{{ URL::asset('/frontend/img/profiles/avatar-07.jpg') }}"
+                                                class="img-fluid avatar" alt="User"></a>
+                                        <div class="user-name">
+                                            <h6><a href="javascript:void(0);">Francis</a></h6>
+                                            <p>Posted on : 12 May 2023</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('blog-details') }}"><span><i
+                                                    class='fa-solid fa-arrow-right'></i></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /Blog -->
+
+                        <!-- Blog -->
+                        <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
+                            <div class="blog-img">
+                                <a href="{{ url('blog-details') }}"><img
+                                        src="{{ URL::asset('/frontend/img/blog/blog-1.jpg') }}" alt="Blog Image"></a>
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-property">
+                                    <span>Property</span>
+                                </div>
+                                <div class="blog-title">
+                                    <h3><a href="{{ url('blog-details') }}">How to achieve financial independence</a>
+                                    </h3>
+                                    <p>There are many variations of passages of lorem ipsum available.</p>
+                                </div>
+                                <ul class="property-category d-flex justify-content-between align-items-center">
+                                    <li class="user-info">
+                                        <a href="javascript:void(0);"><img
+                                                src="{{ URL::asset('/frontend/img/profiles/avatar-03.jpg') }}"
+                                                class="img-fluid avatar" alt="User"></a>
+                                        <div class="user-name">
+                                            <h6><a href="javascript:void(0);">Rafael</a></h6>
+                                            <p>Posted on : 13 Jan 2023</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('blog-details') }}"><span><i
+                                                    class='fa-solid fa-arrow-right'></i></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /Blog -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Latest Blog -->
 @endsection

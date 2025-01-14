@@ -11,14 +11,14 @@
     ]))
     <!-- Header -->
     <header class="header header-fix">
-        @if (Route::is(['index']))
+        {{-- @if (Route::is(['index']))
             <div class="header-top">
                 <div class="template-ad">
                     <img src="{{ URL::asset('/frontend/img/icons/badge-icon.svg') }}" alt="icon">
                     <h5>No 1, Realestate Website to Buy / Sell Your Place <span>First Listing Free!!!</span></h5>
                 </div>
             </div>
-        @endif
+        @endif --}}
         <nav class="navbar navbar-expand-lg header-nav">
             <div class="navbar-header">
                 <a id="mobile_btn" href="javascript:void(0);">
@@ -48,30 +48,30 @@
                    
                     <li
                         class="has-submenu  {{ Request::is('agent-grid', 'agent-list', 'agent-grid-sidebar', 'agent-list-sidebar', 'agent-details') ? 'active' : '' }}">
-                        <a href="javascript:void(0);">Student Accommodation <i class="fas fa-chevron-down"></i></a>
-                        <ul class="submenu">
-                            <li><a href="{{ url('agent-grid') }}"
+                        <a style="color: white" href="javascript:void(0);">Student Accommodation <i class="fas fa-chevron-down"></i></a>
+                        <ul style="background-color: #DA1F43" class="submenu">
+                            <li><a style="color: white" href="{{ url('agent-grid') }}"
                                     class="{{ Request::is('agent-grid') ? 'active' : '' }}">Agent Grid</a></li>
-                            <li><a href="{{ url('agent-list') }}"
+                            <li><a style="color: white" href="{{ url('agent-list') }}"
                                     class="{{ Request::is('agent-list') ? 'active' : '' }}">Agent List</a></li>
                         </ul>
                     </li>
-                    <li class="{{ Request::is('index', '/') ? 'active' : '' }}">
-                        <a href="{{ url('index') }}">Rooming House</a>
+                    <li  class="{{ Request::is('room', '/') ? 'active' : '' }}">
+                        <a style="color: white" href="{{ route('room')}}">Rooming House</a>
                     </li>
-                    <li><a href="{{ url('about-us') }}"
+                    <li><a style="color: white" href="{{ url('about-us') }}"
                         class="{{ Request::is('about-us') ? 'active' : '' }}">About</a></li>
-                    <li class="login-link"><a href="{{ url('login') }}">Sign Up</a></li>
-                    <li class="login-link"><a href="{{ url('register') }}">Sign In</a></li>
+                    <li class="login-link"><a style="color: white" href="{{ url('login') }}">Sign Up</a></li>
+                    <li class="login-link"><a style="color: white" href="{{ url('register') }}">Sign In</a></li>
                 </ul>
             </div>
             <ul class="nav header-navbar-rht">
-                <li class="new-property-btn">
-                    <a href="{{ url('add-new-property') }}"
+                {{-- <li class="new-property-btn">
+                    <a style="color: white" href="{{ url('add-new-property') }}"
                         class="{{ Request::is('add-new-property') ? 'active' : '' }}">
-                        <i class="bx bxs-plus-circle"></i> Add New Property
+                        <i style="color: white" class="bx bxs-plus-circle"></i> Add New Property
                     </a>
-                </li>
+                </li> --}}
                 <li class="{{ Request::is('register') ? 'active' : '' }}">
                     <a href="{{ url('register') }}" class="btn btn-primary"><i class="feather-user-plus"></i>Sign
                         Up</a>

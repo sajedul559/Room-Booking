@@ -1,7 +1,9 @@
 /*-----------------	
     11. Footer
 -----------------------*/
-
+.footer-li-style{
+	padding-left: 20px;
+}
 .footer {
 	background: $__black__currant;
 	position: $__relative;
@@ -116,7 +118,7 @@
 	}
 	ul {
 		li {
-			margin-bottom: 20px;
+			margin-bottom: 5px;
 			position: $__relative;
 			@extend %flex-center;	
 			padding-left: 18px;		
