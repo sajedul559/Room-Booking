@@ -2752,7 +2752,7 @@ label span {
 
 .listing-section {
   position: relative;
-  padding: px 0 36px;
+  padding: 5px 0 36px;
 }
 @media (max-width: 991.98px) {
   .listing-section {
@@ -2951,7 +2951,7 @@ label span {
 .breadcrumb {
   margin: 0;
   padding: 90px 0;
-  background-image: url(../img/bg/breadcrumb-bg.jpg);
+  background: #DA1F43;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center bottom;
@@ -2959,7 +2959,7 @@ label span {
 }
 .breadcrumb:before {
   content: "";
-  background: #0E0E46;
+  background: #DA1F43;
   opacity: 0.8;
   position: absolute;
   top: 0;

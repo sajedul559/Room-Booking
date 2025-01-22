@@ -51,9 +51,7 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 Route::get('/', function () {
     return view('index');
 })->name('index');
-Route::get('/rooming-houses', function () {
-    return view('room');
-})->name('room');
+
 
 Route::get('/index', function () {
     return view('index');
@@ -86,7 +84,9 @@ Route::get('/rent-list-map', function () {
 Route::get('/rent-details', function () {
     return view('rent-details');
 })->name('rent-details');
-
+Route::get('/rooming-houses', function () {
+    return view('room');
+})->name('room');
 Route::get('/rental-order-step1', function () {
     return view('rental-order-step1');
 })->name('rental-order-step1');

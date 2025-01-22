@@ -22,7 +22,7 @@
                             <div class="blog grid-blog">
                                 <div class="blog-image-list">
                                     <a href="{{ url('blog-details') }}"><img class="img-fluid"
-                                            src="{{ URL::asset('/frontend/img/blog/blog-list-01.jpg') }}"
+                                            src="{{ URL::asset('assets/frontend/img/blog/blog1-list1.jpg') }}"
                                             alt="Post Image"></a>
                                 </div>
                                 <div class="blog-content">
@@ -34,7 +34,7 @@
                                             <li class="date-icon">
                                                 <div class="post-author">
                                                     <div class="post-author-img">
-                                                        <img src="{{ URL::asset('/frontend/img/profiles/avatar-01.jpg') }}"
+                                                        <img src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}"
                                                             alt="author">
                                                     </div>
                                                     <a href="javascript:void(0)"> <span> Alphonsa Daniel </span></a>
@@ -54,7 +54,7 @@
                             <div class="blog grid-blog">
                                 <div class="blog-image-list">
                                     <a href="{{ url('blog-details') }}"><img class="img-fluid"
-                                            src="{{ URL::asset('/frontend/img/blog/blog-list-02.jpg') }}"
+                                            src="{{ URL::asset('assets/frontend/img/blog/blog2-list2.jpg') }}"
                                             alt="Post Image"></a>
                                 </div>
                                 <div class="blog-content">
@@ -66,7 +66,7 @@
                                             <li class="date-icon">
                                                 <div class="post-author">
                                                     <div class="post-author-img">
-                                                        <img src="{{ URL::asset('/frontend/img/profiles/avatar-02.jpg') }}"
+                                                        <img src="{{ URL::asset('assets/frontend/img/profiles/user2.jpg') }}"
                                                             alt="author">
                                                     </div>
                                                     <a href="javascript:void(0)"> <span>Francis </span></a>
@@ -88,7 +88,8 @@
                             <div class="blog grid-blog">
                                 <div class="blog-image-list">
                                     <a href="{{ url('blog-details') }}"><img class="img-fluid"
-                                            src="{{ URL::asset('/frontend/img/blog/blog-list-03.jpg') }}"
+                                            src="{{ URL::asset('assets/frontend/img/blog/blog1-list1.jpg') }}"
+
                                             alt="Post Image"></a>
                                 </div>
                                 <div class="blog-content">
@@ -100,7 +101,7 @@
                                             <li class="date-icon">
                                                 <div class="post-author">
                                                     <div class="post-author-img">
-                                                        <img src="{{ URL::asset('/frontend/img/profiles/avatar-03.jpg') }}"
+                                                        <img src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}"
                                                             alt="author">
                                                     </div>
                                                     <a href="javascript:void(0)"> <span> Eric Krok </span></a>
@@ -170,7 +171,7 @@
                             <div class="article">
                                 <div class="article-blog">
                                     <a href="{{ url('blog-details') }}">
-                                        <img class="img-fluid" src="{{ URL::asset('/frontend/img/blog/blog-7.jpg') }}"
+                                        <img class="img-fluid" src="{{ URL::asset('assets/frontend/img/blog/blog1-list1-sidbar1.jpg') }}"
                                             alt="Blog">
                                     </a>
                                 </div>
@@ -185,7 +186,7 @@
                             <div class="article">
                                 <div class="article-blog">
                                     <a href="{{ url('blog-details') }}">
-                                        <img class="img-fluid" src="{{ URL::asset('/frontend/img/blog/blog-8.jpg') }}"
+                                        <img class="img-fluid" src="{{ URL::asset('assets/frontend/img/blog/blog2-list2-sidbar2.jpg') }}"
                                             alt="Blog">
                                     </a>
                                 </div>
@@ -200,7 +201,7 @@
                             <div class="article">
                                 <div class="article-blog">
                                     <a href="{{ url('blog-details') }}">
-                                        <img class="img-fluid" src="{{ URL::asset('/frontend/img/blog/blog-9.jpg') }}"
+                                        <img class="img-fluid" src="{{ URL::asset('assets/frontend/img/blog/blog1-list1-sidbar1.jpg') }}"
                                             alt="Blog">
                                     </a>
                                 </div>

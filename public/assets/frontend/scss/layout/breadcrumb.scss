@@ -4,12 +4,13 @@
 
 .breadcrumb {
     @include margin-padding(0, 90px 0);
-    background-image: url(../img/bg/breadcrumb-bg.jpg);
+    // background-image: url(../img/bg/breadcrumb-bg.jpg);
+    background: $__primarycolor;
     @include background-properties($__cover, $__no_repeat, $__center $__bottom);
     position: $__relative;
     &:before {
         content: '';
-        background: $__dark__black;
+        background: $__primarycolor;
         opacity: 0.8;
         @include position($__absolute,0,null,null,0);
         width: $__full__width;

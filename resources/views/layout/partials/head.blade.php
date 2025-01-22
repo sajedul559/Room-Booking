@@ -44,6 +44,7 @@
 
 <!-- Main CSS -->
 <link rel="stylesheet" href="{{url('assets/frontend/css/style.css') }}">
+<link rel="stylesheet" href="{{url('assets/frontend/css/custome.css') }}">
 @if (Route::is([
         'index',
         'rent-property-grid-sidebar',

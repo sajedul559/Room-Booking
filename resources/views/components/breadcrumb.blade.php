@@ -12,9 +12,9 @@
                 </ul>
             </div>
         </div>
-        <div class="breadcrumb-border-img">
+        {{-- <div class="breadcrumb-border-img">
             <img src="{{URL::asset('assets/img/bg/line-bg.png')}}" alt="Line Image">
-        </div>
+        </div> --}}
     </div>
 </div>
 <!-- Breadcrumb -->
