@@ -8,7 +8,7 @@
                 <div class="row">
                     
                     <div class="container">
-                        <form action="{{ route('rooms.update', $room->id) }}" method="POST" enctype="multipart/form-data">
+                        <form id="room-form" action="{{ route('rooms.update', $room->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -253,7 +253,7 @@
                             <div class="col-md">
                                 <div class="mb-3">
                                     <div class="input-field">
-                                        <label class="active">Service Gallery Image (817 W and 446 H)<span class="text-danger"> *</span></label>
+                                        <label class="active">Room Gallery Image (817 W and 446 H)<span class="text-danger"> *</span></label>
                                         <div class="input-images-1" style="padding-top: .5rem;"></div>
                                     </div>
                                 </div>
@@ -291,10 +291,12 @@
 @endpush
 @push('scripts')
 <script src="{{ asset('assets/frontend/js/image-uploader.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 <script>
    $(document).ready(function () {
+   
     setTimeout(function () {
         var posts = @json($gellary_image);
         let preloaded = [];
@@ -314,7 +316,19 @@
         });
 
     }, 500); // Delay for smoother loading
+ $('#room-form').on('submit', function (e) {
+        const imageCount = $('.image-uploader .uploaded .uploaded-image').length;
 
+        if (imageCount < 4) {
+            e.preventDefault();
+            Swal.fire({
+            icon: 'warning',
+            title: 'Minimum 4 Images Required',
+            text: 'Please upload at least 4 room gallery images before submitting.',
+            confirmButtonText: 'OK'
+        });
+        }
+    });
     $('.image-uploader input[type="file"]').attr('accept', 'image/*');
 
         // changing the tenant Preference

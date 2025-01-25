@@ -7,7 +7,7 @@
             <div class="card p-4 border-0 shadow-sm">
                 <div class="row">
                     <div class="container">
-                        <form action="{{ route('rooms.store') }}" method="POST" enctype="multipart/form-data">
+                        <form id="room-form" action="{{ route('rooms.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                     
                             <div class="row">
@@ -248,7 +248,7 @@
                             <div class="col-md">
                                 <div class="mb-3">
                                     <div class="input-field">
-                                        <label class="active">Service Gallery Image (817 W and 446 H)</label>
+                                        <label class="active">Room Gallery Image (817 W and 446 H)</label>
                                         <div class="input-images-1" style="padding-top: .5rem;"></div>
                                     </div>
                                 </div>
@@ -283,6 +283,7 @@
 
 <!-- Include CKEditor Script -->
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
     $(document).ready(function() {
@@ -291,6 +292,20 @@
             extensions: ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp'],
             mimes: ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/webp'],
         });
+         $('#room-form').on('submit', function (e) {
+        // Count number of images
+        const imageCount = $('.image-uploader .uploaded .uploaded-image').length;
+
+         if (imageCount < 4) {
+            e.preventDefault();
+            Swal.fire({
+            icon: 'warning',
+            title: 'Minimum 4 Images Required',
+            text: 'Please upload at least 4 room gallery images before submitting.',
+            confirmButtonText: 'OK'
+        });
+        }
+    });
         $('#summernote').summernote();
         $('.image-uploader input[type="file"]').attr('accept', 'image/*');
 
