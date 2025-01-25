@@ -142,23 +142,32 @@
     <div class="col-md-6">
         <div class="mb-3">
             <label class="form-label">Property Image (416 W and 293 H)</label>
-            <input type="file" name="image" class="form-control" accept="image/*">
+            <input type="file" name="image" class="form-control" accept="image/*" onchange="previewImage(event)">
         </div>
     </div>
-     <div class="col-md-3">
-        {{-- Show image preview if exists --}}
+
+    <div class="col-md-3">
+        {{-- Show current image preview if exists --}}
         @if (!empty($property->image_path))
             <p class="text-sm text-gray-600 m-0">Current Image:</p>
             <a href="{{ asset('storage/' . $property->image_path) }}" target="_blank">
                 <img src="{{ asset('storage/' . $property->image_path) }}"
-                    alt="Current Image"
-                    class="w-16 h-16 rounded border border-gray-300"
-                    style="height:50px; width:150px"/>
+                     alt="Current Image"
+                     class="w-16 h-16 rounded border border-gray-300"
+                     style="height:50px; width:150px"/>
             </a>
-
         @endif
-     </div>
-     <div class="col-md-3"></div>
+
+        {{-- New image preview --}}
+        <div id="new-image-preview" class="mt-2" style="display:none;">
+            <p class="text-sm text-primary m-0">New Image Preview:</p>
+            <img id="preview-img" src="#" alt="Preview Image"
+                 class="w-16 h-16 rounded border border-primary"
+                 style="height:70px; width:100px;"/>
+        </div>
+    </div>
+
+    <div class="col-md-3"></div>
 </div>
 
 <div class="mb-3">
@@ -185,6 +194,24 @@
     $(document).on('click', '.remove-item', function () {
         $(this).closest('.nearby-item').remove();
     });
+</script>
+<script>
+    function previewImage(event) {
+        const input = event.target;
+        const preview = document.getElementById('preview-img');
+        const previewWrapper = document.getElementById('new-image-preview');
+
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                previewWrapper.style.display = 'block';
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 </script>
 @endpush
     

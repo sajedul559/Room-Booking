@@ -42,6 +42,10 @@ class PropertyController extends Controller
 
         return redirect()->route('properties.index')->with('success', 'Property created successfully.');
     }
+    public function show(Property $property)
+    {
+        return view('backend.properties.show', compact('property'));
+    }
 
     public function edit(Property $property)
     {  
