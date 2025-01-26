@@ -839,8 +839,6 @@
     </section>
     <!-- /Feature Property For Rent -->
 
- 
-  
 
     <!-- Testimonial -->
     <section class="testimonial-sec">
