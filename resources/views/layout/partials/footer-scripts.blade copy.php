@@ -35,10 +35,10 @@
 
   {{-- @if (Route::is(['rent-details','buy-details','buy-detail-view'])) --}}
       <!-- Slick JS -->
-      {{-- <script src="frontend/plugins/slick/slick.js"></script> --}}
+      <script src="frontend/plugins/slick/slick.js"></script>
 
       <!-- Fancybox JS -->
-      {{-- <script src="frontend/plugins/fancybox/jquery.fancybox.min.js"></script> --}}
+      <script src="frontend/plugins/fancybox/jquery.fancybox.min.js"></script>
     {{-- @endif --}}
   {{-- @if (Route::is([
           'index',

@@ -30,10 +30,10 @@
     <link rel="stylesheet" href="{{url('frontend/plugins/range-slider/slider-range.css') }}">
 @endif
 
-{{-- @if (Route::is(['rent-details','buy-details'])) --}}
+@if (Route::is(['rent-details','buy-details']))
     <!-- Fancybox CSS -->
     <link rel="stylesheet" href="{{url('frontend/plugins/fancybox/jquery.fancybox.min.css') }}">
-{{-- @endif --}}
+@endif
 @if (Route::is(['rental-order-step3']))
 <!-- Bootstrap Datetimepicker CSS -->
 <link rel="stylesheet" href="{{url('frontend/css/bootstrap-datetimepicker.min.css') }}">
@@ -72,10 +72,10 @@
     <link rel="stylesheet" href="{{ url('frontend/plugins/range-slider/slider-range.css') }}">
 @endif
 
-{{-- @if (Route::is(['rent-details', 'buy-details', 'gallery']))
+@if (Route::is(['rent-details', 'buy-details', 'gallery']))
     <!-- Fancybox CSS -->
     <link rel="stylesheet" href="{{ url('frontend/plugins/fancybox/jquery.fancybox.min.css') }}">
-@endif --}}
+@endif
 
 @if (Route::is(['rental-order-step3']))
     <!-- Bootstrap Datetimepicker CSS -->

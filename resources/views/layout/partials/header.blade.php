@@ -50,10 +50,10 @@
                         class="has-submenu  {{ Request::is('agent-grid', 'agent-list', 'agent-grid-sidebar', 'agent-list-sidebar', 'agent-details') ? 'active' : '' }}">
                         <a style="color: white" href="javascript:void(0);">Student Accommodation <i class="fas fa-chevron-down"></i></a>
                         <ul style="background-color: #DA1F43" class="submenu">
-                            <li><a style="color: white" href="{{ url('agent-grid') }}"
-                                    class="{{ Request::is('agent-grid') ? 'active' : '' }}">Agent Grid</a></li>
-                            <li><a style="color: white" href="{{ url('agent-list') }}"
-                                    class="{{ Request::is('agent-list') ? 'active' : '' }}">Agent List</a></li>
+                            <li><a style="color: white" href="{{ route('room')}}"
+                                    class="{{ Request::is('agent-grid') ? 'active' : '' }}">RoomingKos Dudley</a></li>
+                            <li><a style="color: white" href="{{ route('room')}}"
+                                    class="{{ Request::is('agent-list') ? 'active' : '' }}">RoomingKos Swanston</a></li>
                         </ul>
                     </li>
                     <li  class="{{ Request::is('room', '/') ? 'active' : '' }}">
