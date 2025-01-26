@@ -14,20 +14,13 @@
 
                 <div class="card-body row">
                     {{-- Left Side Image --}}
-                    <div class="col-md-5">
-                        @if ($property->image_path)
-                            <img src="{{ asset('storage/' . $property->image_path }}" 
-                             class="img-fluid rounded border" 
-                             alt="Property Image" 
-                             style="max-height: 300px; width: 100%;">
-                             @else
-                              <img src="{{ asset('assets/frontend/img/default.png') }}" 
-                             class="img-fluid rounded border" 
-                             alt="Property Image" 
-                             style="max-height: 300px; width: 100%;">
-                        @endif
-                        
+                   <div class="col-md-5">
+                        <img src="{{ $property->image_path ? asset('storage/' . $property->image_path) : asset('assets/frontend/img/default.png') }}"
+                            class="img-fluid rounded border"
+                            alt="Property Image"
+                            style="max-height: 300px; width: 100%;">
                     </div>
+
 
                     {{-- Right Side Details --}}
                     <div class="col-md-7">
