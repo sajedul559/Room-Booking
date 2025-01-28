@@ -39,4 +39,14 @@ class Vendor extends Model
     {
         return $this->belongsTo(User::class,'user_id','id');
     }
+    public function approvedBy()
+    {
+        return $this->belongsTo(User::class, 'approved_by');
+    }
+
+    public function lastApprovedBy()
+    {
+        return $this->belongsTo(User::class, 'last_approved_by');
+    }
+
 }
