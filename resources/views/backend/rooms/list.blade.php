@@ -92,7 +92,11 @@
                 
                                 <td class="text-start">
                                     <x-common.action-drop-down>
-                                        <!-- Edit Button -->
+                                        <!-- show Button -->
+                                        <a class="dropdown-item show-item-btn" href="{{ route('rooms.show', $data->id) }}">
+                                            <i class="mdi mdi-pencil me-2 text-muted vertical-middle"></i>Show
+                                        </a>
+                                         <!-- Edit Button -->
                                         <a class="dropdown-item edit-item-btn" href="{{ route('rooms.edit', $data->id) }}">
                                             <i class="mdi mdi-pencil me-2 text-muted vertical-middle"></i>Edit
                                         </a>

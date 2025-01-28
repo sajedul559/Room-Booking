@@ -107,10 +107,10 @@
                 </div>
 
                 <div class="card-footer text-end">
-                    {{-- <a href="{{ route('properties.edit', $property->id) }}" class="btn btn-warning btn-sm">
+                    <a href="{{ route('properties.edit', $property->id) }}" class="btn btn-warning btn-sm">
                         <i class="mdi mdi-pencil"></i> Edit
                     </a>
-                    <form action="{{ route('properties.destroy', $property->id) }}" method="POST" class="d-inline"
+                    {{-- <form action="{{ route('properties.destroy', $property->id) }}" method="POST" class="d-inline"
                           onsubmit="return confirm('Are you sure to delete this property?')">
                         @csrf
                         @method('DELETE')

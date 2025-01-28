@@ -102,6 +102,37 @@ class UserController extends Controller
 
         return redirect()->route('admins.index')->with('success', 'User has been successfully deleted.');
     }
+    public function profile(){
+        return view('backend.users.update_profile');
+    }
+    public function profileUpdate(Request $request)
+    {
+        $user = auth()->user();
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'phone' => 'nullable|string|max:20',
+            'password' => 'nullable|string|min:6|confirmed',
+            'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:5048',
+        ]);
+
+        if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('user-photos', 'public');
+            $validated['photo'] = $path;
+        }
+
+        if ($request->filled('password')) {
+            $validated['password'] = Hash::make($request->password);
+        } else {
+            unset($validated['password']);
+        }
+
+        $user->update($validated);
+
+        return back()->with('success', 'Profile updated successfully.');
+    }
+
 }
 
 
