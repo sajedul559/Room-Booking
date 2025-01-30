@@ -108,8 +108,6 @@ class RoomService
             // Upload new images if any
             $this->uploadImages($room, $data['images']);
         }
-        
-
 
         return $room;
     }
