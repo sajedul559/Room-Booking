@@ -175,7 +175,6 @@
         </div>
     </section>
     <!-- /How It Work -->
-
     <!-- Property Type -->
     <section class="property-type-sec">
         <div class="section-shape-imgs">
@@ -272,7 +271,6 @@
     </section>
     <!-- /Property Type -->
 
- 
 
     <!-- Feature Property For Rent -->
     <section class="feature-property-sec for-rent" id="available-room">
