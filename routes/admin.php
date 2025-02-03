@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\Room\RoomController;
 use App\Http\Controllers\Admin\Todo\TodoController;
 use App\Http\Controllers\Admin\Vendor\VendorController;
 use App\Http\Controllers\Admin\Expense\ExpenseController;
@@ -30,6 +31,7 @@ Route::resource('house_chores', HouseChoreController::class);
 Route::resource('todos', TodoController::class);
 Route::resource('expenses', ExpenseController::class);
 Route::resource('rent_managements', RentManagementController::class);
+Route::resource('rooms', RoomController::class);
 
 
 

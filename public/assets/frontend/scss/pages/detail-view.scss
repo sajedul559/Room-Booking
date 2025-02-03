@@ -134,11 +134,10 @@
     }
 }
 .collapse-card {
-    background: $__white;
-    box-shadow: $__lightgray__shadow;
+    // box-shadow: $__lightgray__shadow;
     border-radius: 5px;
     position: $__relative;
-    @include margin-padding(0 0 24px, 24px 24px 10px);
+    // @include margin-padding(0 0 24px, 24px 24px 10px);
     .card-title {
         padding-bottom: 14px;
         a {
@@ -1034,7 +1033,7 @@ textarea {
     overflow: $__hidden;
     box-shadow: 0px 4px 24px rgba(225, 225, 225, 0.25);
     border-radius: 5px;
-    @include margin-padding(0 0 24px, 20px 10px);
+    @include margin-padding(0 0 0px, 8px 0px);
 }
 .rental-slider {
     position: $__relative;

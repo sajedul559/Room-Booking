@@ -136,6 +136,19 @@
                     </div>
                 </li>
                 @endcan
+                <li>
+                    <a href="#sidebarRoom" data-bs-toggle="collapse">
+                        <i class="fas fa-landmark"></i>
+                        <span>Room </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarRoom">
+                        <ul class="nav-second-level">
+                            <li><a href="{{ route('rooms.index') }}">Lists</a></li>
+                            <li><a href="{{ route('rooms.create') }}">Create</a></li>
+                        </ul>
+                    </div>
+                </li>
             
                   <!-- Rent Management Section -->
                   {{-- @can('House Chores') --}}

@@ -11,11 +11,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    
     @include('inc.css')
+    @stack('style')
+
     <script src="{{ asset('assets/js/head.js') }}"></script>
     @yield('header_scripts')
     @stack('scripts-head')
-    @stack('style')
     <input type="hidden" name="csrf-token" id="csrf-token" value="{{ csrf_token() }}">
 
 </head>

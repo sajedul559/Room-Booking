@@ -27,7 +27,7 @@
     <script src="{{ asset('assets/libs/select2/js/select2.min.js')}}"></script>
     <script src="{{ asset('assets/libs/flatpickr/flatpickr.min.js') }}"></script>
 
-    <script src="{{ asset('assets/libs/selectize/js/standalone/selectize.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets/libs/selectize/js/standalone/selectize.min.js') }}"></script> --}}
 
     <!-- Dashboar 1 init js-->
     <script src="{{ asset('assets/js/pages/datatables.init.js') }}"></script>

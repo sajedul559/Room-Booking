@@ -4,7 +4,7 @@
 
 .banner-section {
 	@include margin-padding(null, 100px 0 100px);
-	background: url(../img/banner.jpg);
+	background: url(../img/banner.webp);
 	@include background-properties($__cover,$__no-repeat,$__center);
 	position: $__relative;
 	overflow: $__hidden;
@@ -21,9 +21,10 @@
 		text-align: $__center;
 	}
 	h1 {
+		// margin-top: 200px;
 		font-weight: $__bold;
 		font-size: $__font__size__56;
-		color: $__dark__black;
+		color: $__white;
 		line-height: $__normal;
 		margin-bottom: 20px;
 		@include respond-below(custom1399) {
@@ -41,13 +42,13 @@
 			font-size: $__font__size__26;
 		}
 		span {
-			color: $__primarycolor;
+			color: $__white;
 		}
 	}
 	p {
-		font-weight: $__medium;
+		font-weight: $__bold;
 		font-size: $__font__size__18;
-		color: $__dark__black;
+		color: $__white;
 		margin-bottom: 40px;
 		max-width: 570px;
 		width: $__full__width;
@@ -367,7 +368,9 @@
 	}
 }
 .howit-work {
-	@include margin-padding(null,80px 0);
+	background: $__secondarycolor;
+
+	// @include margin-padding(null,80px 0);
 	@include respond-below(custom991) {
 		@include margin-padding(null,50px 0 26px);
 	}
@@ -387,32 +390,36 @@
 	}
 }
 .howit-work-card {
-	@extend %flex-align-center;
+	// background: $__white;
+	color: $__white;
 	flex-direction: $__column;
-	text-align: $__center;
-	box-shadow: $__shadow2;
+	text-align: $__left;
+	// box-shadow: $__shadow2;
 	border-radius: 10px;
 	@include transition(0.5s all);
 	@include margin-padding(null,24px);
 	@include respond-below(custom991) {
 		margin-bottom: 24px;
 	}
-	&:hover {
-		transform: translatey(-20px);
-	}
+	// &:hover {
+	// 	transform: translatey(-20px);
+	// }
 	.work-card-icon {
 		@include margin-padding(0 0 16px, null);
 		span {
 			width: 86px;
 			height: 86px;
 			border-radius: 50%;
-			background: $__primarycolor;
-			@extend %flex-align-center;
+			// background: $__primarycolor;
+			// @extend %flex-align-center;
 		}
 	}
 	h4 {
+		text-align: $__left;
+		color:$__white;
+
 		@include margin-padding(0 0 16px, null);
-		font-size: $__font__size__20;
+		font-size: 25 !important;
 		@include respond-below(custom767) {
 			font-size: $__font__size__18;
 		}
@@ -1029,7 +1036,7 @@
 	}
 }
 .testimonial-sec {
-	@include margin-padding(null,80px 0);
+	// @include margin-padding(null,80px 0);
 	@include respond-below(custom991) {
 		@include margin-padding(null,50px 0);
 	}
@@ -1535,8 +1542,8 @@
 	p {
 		font-size: $__font__size__14;
 		font-weight: $__medium;
+		color: black;
 		margin-bottom: 20px;
-		white-space: $__nowrap;
 		overflow: $__hidden;
 		text-overflow: $__ellipsis;
 		i {
@@ -1669,7 +1676,7 @@
 	}
 	.section-heading {
 		align-items: $__start;
-		margin-bottom: 28px;
+		margin-bottom: 15px;
 		@include respond-below(custom767) {
 			align-items: $__center;
 			text-align: $__center;

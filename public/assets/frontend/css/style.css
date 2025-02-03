@@ -57,7 +57,7 @@ Version      : 1.0
   float: left;
 }
 
-.gallery-property ul li a, .cart-section .product-group .product-content .social-links a, .shop-page .product-custom .profile-widget .doc-img-view ul li a, .blog-banner .blog-detailset, .blog-banner, .bloglistleft-widget .post-author, .bloggrid-sidebar .post-author, .blog-section .blog-content .blog-list-date .meta-item-list, .blog-section .blog-content .meta-item li .post-author, .blog-section .blog-content .meta-item, .blog-section .blog-content .date-icon .post-author, .blog-section .blog-content .date-icon, .our-team-section .our-team .team-prof .footer-social-links ul li a, .our-team-section .our-team .team-prof .footer-social-links ul, .contact-info-sec .contact-info-details span, .details-wrap.agency .detail-user-img, .service-area li::before, .agent-list.agency .agent-img, .login-wrapper, .modal-succeess .success-popup h4, .modal-succeess .success-popup, .booking-details .payment-icon ul li span, .booking-details .payment-icon ul li, .success-div span, .grid-list-view ul li a, .connect-us li a, .sidebar-card .contact-btn.contact-btn-new a, .collapse-card .sample-video .play-icon, .compare-head .compare-action a, .grid-pagination .pagination li a, .blog-card .blog-content .property-category a span, .product-custom .favourite, .testimonial-card .user-icon, .single-property-card .buy-property .arrow, .cities-list-sec .city-list .arrow-overlay a, .property-card, .howit-work-card .work-card-icon span, .howit-work-card, .section-heading, .banner-search .banner-tab-property .banner-property-info .banner-property-grid:last-child a, .banner-search .banner-tab-property .banner-property-info, .banner-search .banner-tab .nav-tabs .nav-item .nav-link, .serve-form .form-group .button-notific, .serve-form .form-group, .error-page .main-wrapper, .error-page, .header .header-navbar-rht li .btn, .header .main-menu-wrapper .main-nav li .btn.sign-btn, .header .header-top .template-ad, .login-body .footer-social-links .nav li a, .login-body .footer-social-links .nav, .social-links ul li a, .avatar .avatar-title, .btn-lightred, .btn-secondary, .btn-primary, .align-center {
+.gallery-property ul li a, .cart-section .product-group .product-content .social-links a, .shop-page .product-custom .profile-widget .doc-img-view ul li a, .blog-banner .blog-detailset, .blog-banner, .bloglistleft-widget .post-author, .bloggrid-sidebar .post-author, .blog-section .blog-content .blog-list-date .meta-item-list, .blog-section .blog-content .meta-item li .post-author, .blog-section .blog-content .meta-item, .blog-section .blog-content .date-icon .post-author, .blog-section .blog-content .date-icon, .our-team-section .our-team .team-prof .footer-social-links ul li a, .our-team-section .our-team .team-prof .footer-social-links ul, .contact-info-sec .contact-info-details span, .details-wrap.agency .detail-user-img, .service-area li::before, .agent-list.agency .agent-img, .login-wrapper, .modal-succeess .success-popup h4, .modal-succeess .success-popup, .booking-details .payment-icon ul li span, .booking-details .payment-icon ul li, .success-div span, .grid-list-view ul li a, .connect-us li a, .sidebar-card .contact-btn.contact-btn-new a, .collapse-card .sample-video .play-icon, .compare-head .compare-action a, .grid-pagination .pagination li a, .blog-card .blog-content .property-category a span, .product-custom .favourite, .testimonial-card .user-icon, .single-property-card .buy-property .arrow, .cities-list-sec .city-list .arrow-overlay a, .property-card, .section-heading, .banner-search .banner-tab-property .banner-property-info .banner-property-grid:last-child a, .banner-search .banner-tab-property .banner-property-info, .banner-search .banner-tab .nav-tabs .nav-item .nav-link, .serve-form .form-group .button-notific, .serve-form .form-group, .error-page .main-wrapper, .error-page, .header .header-navbar-rht li .btn, .header .main-menu-wrapper .main-nav li .btn.sign-btn, .header .header-top .template-ad, .login-body .footer-social-links .nav li a, .login-body .footer-social-links .nav, .social-links ul li a, .avatar .avatar-title, .btn-lightred, .btn-secondary, .btn-primary, .align-center {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -381,7 +381,7 @@ h1, h2, h3, h4, h5, h6 {
   float: left;
 }
 
-.gallery-property ul li a, .cart-section .product-group .product-content .social-links a, .shop-page .product-custom .profile-widget .doc-img-view ul li a, .blog-banner .blog-detailset, .blog-banner, .bloglistleft-widget .post-author, .bloggrid-sidebar .post-author, .blog-section .blog-content .blog-list-date .meta-item-list, .blog-section .blog-content .meta-item li .post-author, .blog-section .blog-content .meta-item, .blog-section .blog-content .date-icon .post-author, .blog-section .blog-content .date-icon, .our-team-section .our-team .team-prof .footer-social-links ul li a, .our-team-section .our-team .team-prof .footer-social-links ul, .contact-info-sec .contact-info-details span, .details-wrap.agency .detail-user-img, .service-area li::before, .agent-list.agency .agent-img, .login-wrapper, .modal-succeess .success-popup h4, .modal-succeess .success-popup, .booking-details .payment-icon ul li span, .booking-details .payment-icon ul li, .success-div span, .grid-list-view ul li a, .connect-us li a, .sidebar-card .contact-btn.contact-btn-new a, .collapse-card .sample-video .play-icon, .compare-head .compare-action a, .grid-pagination .pagination li a, .blog-card .blog-content .property-category a span, .product-custom .favourite, .testimonial-card .user-icon, .single-property-card .buy-property .arrow, .cities-list-sec .city-list .arrow-overlay a, .property-card, .howit-work-card .work-card-icon span, .howit-work-card, .section-heading, .banner-search .banner-tab-property .banner-property-info .banner-property-grid:last-child a, .banner-search .banner-tab-property .banner-property-info, .banner-search .banner-tab .nav-tabs .nav-item .nav-link, .serve-form .form-group .button-notific, .serve-form .form-group, .error-page .main-wrapper, .error-page, .header .header-navbar-rht li .btn, .header .main-menu-wrapper .main-nav li .btn.sign-btn, .header .header-top .template-ad, .login-body .footer-social-links .nav li a, .login-body .footer-social-links .nav, .social-links ul li a, .avatar .avatar-title, .btn-lightred, .btn-secondary, .btn-primary, .align-center {
+.gallery-property ul li a, .cart-section .product-group .product-content .social-links a, .shop-page .product-custom .profile-widget .doc-img-view ul li a, .blog-banner .blog-detailset, .blog-banner, .bloglistleft-widget .post-author, .bloggrid-sidebar .post-author, .blog-section .blog-content .blog-list-date .meta-item-list, .blog-section .blog-content .meta-item li .post-author, .blog-section .blog-content .meta-item, .blog-section .blog-content .date-icon .post-author, .blog-section .blog-content .date-icon, .our-team-section .our-team .team-prof .footer-social-links ul li a, .our-team-section .our-team .team-prof .footer-social-links ul, .contact-info-sec .contact-info-details span, .details-wrap.agency .detail-user-img, .service-area li::before, .agent-list.agency .agent-img, .login-wrapper, .modal-succeess .success-popup h4, .modal-succeess .success-popup, .booking-details .payment-icon ul li span, .booking-details .payment-icon ul li, .success-div span, .grid-list-view ul li a, .connect-us li a, .sidebar-card .contact-btn.contact-btn-new a, .collapse-card .sample-video .play-icon, .compare-head .compare-action a, .grid-pagination .pagination li a, .blog-card .blog-content .property-category a span, .product-custom .favourite, .testimonial-card .user-icon, .single-property-card .buy-property .arrow, .cities-list-sec .city-list .arrow-overlay a, .property-card, .section-heading, .banner-search .banner-tab-property .banner-property-info .banner-property-grid:last-child a, .banner-search .banner-tab-property .banner-property-info, .banner-search .banner-tab .nav-tabs .nav-item .nav-link, .serve-form .form-group .button-notific, .serve-form .form-group, .error-page .main-wrapper, .error-page, .header .header-navbar-rht li .btn, .header .main-menu-wrapper .main-nav li .btn.sign-btn, .header .header-top .template-ad, .login-body .footer-social-links .nav li a, .login-body .footer-social-links .nav, .social-links ul li a, .avatar .avatar-title, .btn-lightred, .btn-secondary, .btn-primary, .align-center {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2752,7 +2752,7 @@ label span {
 
 .listing-section {
   position: relative;
-  padding: 5px 0 36px;
+  padding: 5px 0 8px;
 }
 @media (max-width: 991.98px) {
   .listing-section {
@@ -3036,7 +3036,7 @@ label span {
 -----------------------*/
 .banner-section {
   padding: 100px 0 100px;
-  background: url(../img/banner.jpg);
+  background: url(../img/banner.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -3063,7 +3063,7 @@ label span {
 .banner-content h1 {
   font-weight: 700;
   font-size: 56px;
-  color: #0E0E46;
+  color: #FFF;
   line-height: normal;
   margin-bottom: 20px;
 }
@@ -3090,12 +3090,12 @@ label span {
   }
 }
 .banner-content h1 span {
-  color: #DA1F43;
+  color: #FFF;
 }
 .banner-content p {
-  font-weight: 500;
+  font-weight: 700;
   font-size: 18px;
-  color: #0E0E46;
+  color: #FFF;
   margin-bottom: 40px;
   max-width: 570px;
   width: 100%;
@@ -3475,7 +3475,7 @@ label span {
 }
 
 .howit-work {
-  padding: 80px 0;
+  background: #DA1F43;
 }
 @media (max-width: 991.98px) {
   .howit-work {
@@ -3502,9 +3502,9 @@ label span {
 }
 
 .howit-work-card {
+  color: #FFF;
   flex-direction: column;
-  text-align: center;
-  box-shadow: 0px 4px 24px rgba(189, 189, 189, 0.24);
+  text-align: left;
   border-radius: 10px;
   -webkit-transition: 0.5s all;
   -ms-transition: 0.5s all;
@@ -3516,9 +3516,6 @@ label span {
     margin-bottom: 24px;
   }
 }
-.howit-work-card:hover {
-  transform: translatey(-20px);
-}
 .howit-work-card .work-card-icon {
   margin: 0 0 16px;
 }
@@ -3526,11 +3523,12 @@ label span {
   width: 86px;
   height: 86px;
   border-radius: 50%;
-  background: #DA1F43;
 }
 .howit-work-card h4 {
+  text-align: left;
+  color: #FFF;
   margin: 0 0 16px;
-  font-size: 20px;
+  font-size: 25 !important;
 }
 @media (max-width: 767.78px) {
   .howit-work-card h4 {
@@ -4287,7 +4285,6 @@ label span {
 }
 
 .testimonial-sec {
-  padding: 80px 0;
   background-color: #DA1F43;
   position: relative;
 }
@@ -4834,8 +4831,8 @@ label span {
 .pro-content p {
   font-size: 14px;
   font-weight: 500;
+  color: black;
   margin-bottom: 20px;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -4990,7 +4987,7 @@ label span {
 }
 .faq-section .section-heading {
   align-items: start;
-  margin-bottom: 28px;
+  margin-bottom: 15px;
 }
 @media (max-width: 767.78px) {
   .faq-section .section-heading {
@@ -6089,12 +6086,8 @@ body.search-visible {
 }
 
 .collapse-card {
-  background: #FFF;
-  box-shadow: 0px 4px 14px rgba(214, 214, 214, 0.24);
   border-radius: 5px;
   position: relative;
-  margin: 0 0 24px;
-  padding: 24px 24px 10px;
 }
 .collapse-card .card-title {
   padding-bottom: 14px;
@@ -7004,8 +6997,8 @@ textarea {
   overflow: hidden;
   box-shadow: 0px 4px 24px rgba(225, 225, 225, 0.25);
   border-radius: 5px;
-  margin: 0 0 24px;
-  padding: 20px 10px;
+  margin: 0 0 0px;
+  padding: 8px 0px;
 }
 
 .rental-slider {
