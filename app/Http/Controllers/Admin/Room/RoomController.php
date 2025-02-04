@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Room;
 
 use App\Models\Room;
+use App\Models\RoomImage;
 use App\Services\Room\RoomService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +42,9 @@ class RoomController extends Controller
 
     public function edit(Room $room)
     {
-        return view('backend.rooms.edit', compact('room'));
+        $gellary_image = RoomImage::where('room_id', $room->id)->get();
+
+        return view('backend.rooms.edit', compact('room','gellary_image'));
     }
 
     public function update(RoomFromRequest $request, Room $room)

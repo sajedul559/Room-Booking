@@ -1,5 +1,5 @@
 @extends('layouts.layouts')
-@section('title', 'Properties')
+@section('title', 'Rooms')
 @section('content')
     <x-common.bread-crum />
     <div class="row">
@@ -7,8 +7,8 @@
                 <div class="card" id="orderList">
                     <div class="card-header" >
                         <div class="d-flex justify-content-between align-items-center mb-1">
-                            <h4 class="header-title mb-0">Todo List</h4>
-                            <a class="btn btn-success" href="{{ route('todos.create') }}" class="btn btn-primary"> <i class="mdi mdi-plus-circle me-2"></i>New Todo</a>
+                            <h4 class="header-title mb-0">Room List</h4>
+                            <a class="btn btn-success" href="{{ route('rooms.create') }}" class="btn btn-primary"> <i class="mdi mdi-plus-circle me-2"></i>New Room</a>
 
                         </div>
                     </div>
@@ -17,9 +17,18 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Vendor</th>
+                                <th>Property</th>
                                 <th>Name</th>
-                                <th>Status</th>
+                                <th>Price</th>
+                                <th>Weekly Rent</th>
+                                <th>Available Date</th>
+                                <th>Internet Available</th>
+                                <th>Included Rent</th>
+                                <th>Min Length Of Stay</th>
+                                <th>Max Length Of Stay</th>
+                                <th>Smoking Allowed</th>
+                                <th>Pet Allowed</th>
+                                <th>Welfare Allowed</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -27,13 +36,51 @@
                             @foreach ($rooms as $data)
                                 <tr>
                                     <td>{{ $data->id }}</td>
-                                    <td>{{ $data->vendor ? $data->vendor->user->name ?? 'No User Assigned' : 'No Vendor Assigned' }}</td>
+                                    <td>{{ $data->property ? $data->property->property_name : ' ' }}</td>
                                     <td>{{ $data->name }}</td>
-                                    <td>{{ $data->status }}</td>
+                                    <td>{{ $data->price }}</td>
+                                    <td>{{ $data->weekly_rent }}</td>
+                                    <td>{{ $data->available_date }}</td>
+                                    <td>
+                                        <span class="badge {{ $data->internet ? 'bg-success' : 'bg-danger' }}">
+                                            {{ $data->internet ? 'Yes' : 'No' }}
+                                        </span>
+                                    </td>
+                                    <!-- Badge for Included Rent -->
+                                    <td>
+                                        <span class="badge {{ $data->is_bill_included_rent ? 'bg-success' : 'bg-danger' }}">
+                                            {{ $data->is_bill_included_rent ? 'Yes' : 'No' }}
+                                        </span>
+                                    </td>
+                    
+                                    <td>{{ $data->min_length_of_stay }}</td>
+                                    <td>{{ $data->max_length_of_stay }}</td>
+                    
+                                    <!-- Badge for Smoking Allowed -->
+                                    <td>
+                                        <span class="badge {{ $data->is_smoking_allowed ? 'bg-success' : 'bg-danger' }}">
+                                            {{ $data->is_smoking_allowed ? 'Yes' : 'No' }}
+                                        </span>
+                                    </td>
+                    
+                                    <!-- Badge for Pet Allowed -->
+                                    <td>
+                                        <span class="badge {{ $data->is_pet_allowed ? 'bg-success' : 'bg-danger' }}">
+                                            {{ $data->is_pet_allowed ? 'Yes' : 'No' }}
+                                        </span>
+                                    </td>
+                    
+                                    <!-- Badge for Welfare Allowed -->
+                                    <td>
+                                        <span class="badge {{ $data->on_welfare_allowed ? 'bg-success' : 'bg-danger' }}">
+                                            {{ $data->on_welfare_allowed ? 'Yes' : 'No' }}
+                                        </span>
+                                    </td>
+                    
                                     <td class="text-start">
                                         <x-common.action-drop-down>
                                             <!-- Edit Button -->
-                                            <a class="dropdown-item edit-item-btn" href="{{ route('todos.edit', $data->id) }}">
+                                            <a class="dropdown-item edit-item-btn" href="{{ route('rooms.edit', $data->id) }}">
                                                 <i class="mdi mdi-pencil me-2 text-muted vertical-middle"></i>Edit
                                             </a>
                                             <!-- Delete Button -->
@@ -41,7 +88,7 @@
                                                 <i class="mdi mdi-delete me-2 text-muted vertical-middle"></i>Delete
                                             </button>
                                         </x-common.action-drop-down>
-                                        <form id="delete-form-{{ $data->id }}" action="{{ route('todos.destroy', $data->id) }}" method="POST" style="display: none;">
+                                        <form id="delete-form-{{ $data->id }}" action="{{ route('rooms.destroy', $data->id) }}" method="POST" style="display: none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>
@@ -50,6 +97,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    
                     
                 </div>
             </div>

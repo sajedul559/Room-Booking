@@ -20,10 +20,10 @@
             <!-- Details -->
             <div class="row align-items-center page-head">
                 <div class="col-lg-8">
-                    <div class="buy-btn">
+                    {{-- <div class="buy-btn">
                         <span class="buy">Buy</span>
                         <span class="appartment">Appartment</span>
-                    </div>
+                    </div> --}}
                     <div class="page-title">
                         <h3>Modern Apartment in the City Center<span><img
                                     src="{{ URL::asset('/frontend/img/icons/location-icon.svg') }}" alt="Image"></span>
@@ -35,12 +35,12 @@
                     <div class="latest-update">
                         <h5>Last Updated on : 15 Jan 2023</h5>
                         <p>$4,000</p>
-                        <ul class="other-pages">
+                        {{-- <ul class="other-pages">
                             <li><a href="javascript:void(0);"><i class="feather-share-2"></i>Share</a></li>
                             <li><a href="{{ url('compare') }}"><i class="feather-git-pull-request"></i>Add to Compare</a>
                             </li>
                             <li><a href="javascript:void(0);"><i class="feather-heart"></i>Wishlist</a></li>
-                        </ul>
+                        </ul> --}}
                     </div>
                 </div>
             </div>
@@ -467,7 +467,7 @@
                         <!-- /Listing Owner Details -->
 
                         <!-- Share Property -->
-                        <div class="sidebar-card">
+                        {{-- <div class="sidebar-card">
                             <div class="sidebar-card-title">
                                 <h5>Share Property</h5>
                             </div>
@@ -487,7 +487,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- /Share Property -->
 
                     </div>

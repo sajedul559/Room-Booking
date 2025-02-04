@@ -32,4 +32,8 @@ class Room extends Model
     {
         return $this->hasMany(RoomImage::class);
     }
+    public function property()
+    {
+        return $this->belongsTo(Property::class,'property_id','id');
+    }
 }
