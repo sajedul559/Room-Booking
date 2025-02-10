@@ -165,9 +165,16 @@
                           </ul>
                       </div>
                   </li>
+                  <li>
+                    <a href="{{ route('contacts.index') }}">
+                        <i class="fas fa-desktop"></i>
+                        <span> Contact List </span>
+                    </a>
+                </li>
                   {{-- @endcan --}}
                 <!-- Settings Section -->
                 <li class="menu-title mt-2">Settings</li>
+                
                 <li>
                     <a href="#sidebarSetup" data-bs-toggle="collapse">
                         <i class="fas fa-globe"></i>

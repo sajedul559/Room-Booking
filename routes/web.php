@@ -4,12 +4,13 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SuperAdminController;
-use App\Http\Controllers\AssignPermissionController;
 
+use App\Http\Controllers\AssignPermissionController;
 use App\Http\Controllers\Admin\RolePermission\RoleController;
 use App\Http\Controllers\Admin\RolePermission\RolePermissionController;
 
@@ -313,6 +314,15 @@ Route::group(['as'=>'permissions.', 'prefix'=>'permissions'], function(){
     Route::delete('/{id}/delete', [PermissionController::class, 'delete'])->name('delete');
 
 });
+
+
+Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+Route::get('/contacts/create', [ContactController::class, 'create'])->name('contacts.create');
+Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
+Route::get('/contacts/{contact}/edit', [ContactController::class, 'edit'])->name('contacts.edit');
+Route::put('/contacts/{contact}', [ContactController::class, 'update'])->name('contacts.update');
+Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
+
 
 
 

@@ -13,50 +13,13 @@
         @endslot
     @endcomponent
 
-    <!-- Contact us -->
-    {{-- <section class="section contact-section">
-        <div class="container">
-            <div class="contact-content">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="row">
-                            <div class="col-lg-12 d-flex">
-                                <div class="card">
-                                    <div class="card-body contact-info flex-fill">
-                                        <h3>Talk to Member of Sales Team</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis ligula eu
-                                            lectus vulputate porttitor sed feugiat nunc. Mauris ac consectetur ante,</p>
-                                        <a href="javascript:void(0);" class="btn-primary d-inline-block">Contact Sales</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 d-flex">
-                                <div class="card">
-                                    <div class="card-body contact-info flex-fill">
-                                        <h3>Product & Account Support</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis ligula eu
-                                            lectus vulputate porttitor sed feugiat nunc. Mauris ac consectetur ante,</p>
-                                        <a href="{{ url('faq') }}" class="btn-primary d-inline-block">Go to FAQ</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <img src="{{ URL::asset('/frontend/img/contact.jpg') }}" alt="Image">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-    <!-- /Contact us -->
-
     <!-- Contact Info Details -->
     <section class="section contact-info-sec">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <form action="#">
+                    <form action="{{ route('contacts.store') }}" method="POST">
+                        @csrf
                         <div class="card">
                             <div class="card-header">
                                 <h3>Get In Touch</h3>
@@ -66,26 +29,26 @@
                                     <div class="col-lg-12 col-12">
                                         <div class="form-group">
                                             <label>Your Name</label>
-                                            <input type="text" class="form-control" placeholder="Your Name">
+                                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group">
                                             <label>Phone Number</label>
-                                            <input type="text" class="form-control" placeholder="Enter Number">
+                                            <input type="text" name="phone" class="form-control" placeholder="Enter Number">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group">
                                             <label>Email Address</label>
-                                            <input type="email" class="form-control" placeholder="Enter Email">
+                                            <input type="email" name="email" class="form-control"  placeholder="Enter Email">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group">
                                             <label>Country</label>
-                                            <select class="select">
-                                                <option value="0">Select </option>
+                                            <select name="country" class="form-control">
+                                                <option value="">Select</option>
                                                 <option value="India">India</option>
                                                 <option value="United States">United States</option>
                                                 <option value="Australia">Australia</option>
@@ -97,20 +60,21 @@
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group">
                                             <label>Subject</label>
-                                            <input type="text" class="form-control" placeholder="Enter Subject">
+                                            <input type="text" name="subject" class="form-control" placeholder="Enter Subject">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea class="form-control" rows="14" placeholder="Comments"></textarea>
+                                            <textarea name="description" class="form-control" rows="5" placeholder="Comments"></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn-primary">Submit Enquiry</button>
+                                <button type="submit" class="btn btn-primary">Submit Enquiry</button>
                             </div>
                         </div>
                     </form>
+                    
                 </div>
                 <div class="col-lg-6">
                     <h3>Contact Details</h3>
@@ -163,4 +127,23 @@
         </div>
     </section>
     <!-- /Contact Info Details -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    
+    <script>
+        @if (session('success'))
+            toastr.success("{{ session('success') }}");
+        @endif
+
+        @if (session('error'))
+            toastr.error("{{ session('error') }}");
+        @endif
+        @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            toastr.error("{{ $error }}");
+        @endforeach
+    @endif
+    </script>
 @endsection
