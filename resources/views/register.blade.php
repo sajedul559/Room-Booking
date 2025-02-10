@@ -63,11 +63,11 @@
                         <div>
                             <button class="btn btn-outline-light w-100 btn-size" type="submit">Sign Up</button>
                         </div>
-                        <div class="login-or">
+                        {{-- <div class="login-or">
                             <span class="span-or-log">Or, Sign up with your email</span>
-                        </div>
+                        </div> --}}
                         <!-- Social Login -->
-                        <div class="social-login">
+                        {{-- <div class="social-login">
                             <a href="javascript:void(0);"
                                 class="d-flex align-items-center justify-content-center form-group btn google-login w-100"><span><img
                                         src="{{ URL::asset('/frontend/img/icons/google.svg') }}" class="img-fluid"
@@ -80,7 +80,7 @@
                                         src="{{ URL::asset('/frontend/img/icons/facebook.svg') }}" class="img-fluid"
                                         alt="Facebook"></span>Sign up
                                 with Facebook</a>
-                        </div>
+                        </div> --}}
                         <!-- /Social Login -->
                         <div class="text-center dont-have">Already have login ? <a href="{{ url('login') }}">Sign In</a>
                         </div>

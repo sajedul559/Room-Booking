@@ -37,9 +37,9 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group mb-5">
+                        {{-- <div class="form-group mb-5">
                             <a class="forgot-link" href="{{ url('forgot-password') }}">Forgot Password ?</a>
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label class="custom_check mt-0 mb-0"><span>Remember me</span>
                                 <input type="checkbox" name="remeber">
@@ -49,11 +49,11 @@
                         <div>
                             <button class="btn btn-outline-light w-100 btn-size" type="submit">Sign In</button>
                         </div>
-                        <div class="login-or">
+                        {{-- <div class="login-or">
                             <span class="span-or-log">Or, Sign in with your email</span>
-                        </div>
+                        </div> --}}
                         <!-- Social Login -->
-                        <div class="social-login">
+                        {{-- <div class="social-login">
                             <a href="javascript:void(0);"
                                 class="d-flex align-items-center justify-content-center form-group btn google-login w-100"><span><img
                                         src="{{ URL::asset('/frontend/img/icons/google.svg') }}" class="img-fluid"
@@ -66,7 +66,7 @@
                                         src="{{ URL::asset('/frontend/img/icons/facebook.svg') }}" class="img-fluid"
                                         alt="Facebook"></span>Sign in
                                 with Facebook</a>
-                        </div>
+                        </div> --}}
                         <!-- /Social Login -->
                         <div class="text-center dont-have">Don't have an account ? <a href="{{ url('register') }}">Sign
                                 Up</a></div>

@@ -166,6 +166,12 @@
                       </div>
                   </li>
                   <li>
+                    <a href="{{ route('tenant-reports.index') }}">
+                        <i class="fas fa-desktop"></i>
+                        <span> Report List </span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('contacts.index') }}">
                         <i class="fas fa-desktop"></i>
                         <span> Contact List </span>

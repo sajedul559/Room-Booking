@@ -66,19 +66,40 @@
                 </ul>
             </div>
             <ul class="nav header-navbar-rht">
-                {{-- <li class="new-property-btn">
-                    <a style="color: white" href="{{ url('add-new-property') }}"
-                        class="{{ Request::is('add-new-property') ? 'active' : '' }}">
-                        <i style="color: white" class="bx bxs-plus-circle"></i> Add New Property
+                @auth
+                @if(auth()->user()->type == "user")
+                    <li class="new-property-btn">
+                        <a style="color: white" href="{{ route('tenant-reports.create') }}" 
+                            class="{{ Request::is('add-new-property') ? 'active' : '' }}">
+                            <i style="color: white" class="bx bxs-plus-circle"></i> Create Report
+                        </a>
+                    </li>
+                @endif
+            
+                <!-- Logout Button -->
+                <li class="new-property-btn">
+                    <a style="color: white" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i style="color: white" class="bx bx-log-out"></i> Logout
                     </a>
-                </li> --}}
-                <li class="{{ Request::is('register') ? 'active' : '' }}">
-                    <a href="{{ url('register') }}" class="btn btn-primary"><i class="feather-user-plus"></i>Sign
-                        Up</a>
                 </li>
-                <li class="{{ Request::is('login') ? 'active' : '' }}">
-                    <a href="{{ url('login') }}" class="btn sign-btn"><i class="feather-unlock"></i>Sign In</a>
-                </li>
+            
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            @endauth
+           
+            @guest
+            <li class="{{ Request::is('register') ? 'active' : '' }}">
+                <a href="{{ url('register') }}" class="btn btn-primary"><i class="feather-user-plus"></i>Sign
+                    Up</a>
+            </li>
+            <li class="{{ Request::is('login') ? 'active' : '' }}">
+                <a href="{{ url('login') }}" class="btn sign-btn"><i class="feather-unlock"></i>Sign In</a>
+            </li>
+            @endguest
+               
+               
             </ul>
         </nav>
     </header>

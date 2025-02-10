@@ -10,6 +10,7 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SuperAdminController;
 
+use App\Http\Controllers\TenantReportController;
 use App\Http\Controllers\AssignPermissionController;
 use App\Http\Controllers\Admin\RolePermission\RoleController;
 use App\Http\Controllers\Admin\RolePermission\RolePermissionController;
@@ -325,6 +326,7 @@ Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->nam
 
 
 
+Route::resource('tenant-reports', TenantReportController::class);
 
 
 
