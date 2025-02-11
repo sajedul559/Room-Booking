@@ -21,27 +21,32 @@ class CustomAuthController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
-        ],
-        [
+        ], [
             'email.required' => 'Email is required',
             'password.required' => 'Password is required',
-
-        ]
-
-    );
+        ]);
+    
         $credentials = $request->only('email', 'password');
-          if ($credentials['email']=='admin@example.com' && $credentials['password']=='123456'){
-        return redirect()->intended('/')
-                        ->withSuccess('Signed in');
-        }
+    
+        // Hardcoded admin login
+        // if ($credentials['email'] == 'admin@example.com' && $credentials['password'] == '123456') {
+        //     return redirect()->intended('/dashboard')->withSuccess('Signed in');
+        // }
+    
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/')
-                        ->withSuccess('Signed in');
+            $user = Auth::user();
+    
+            // Check user type and redirect accordingly
+            if ($user->type === 'admin') {
+                return redirect()->intended('/dashboard')->withSuccess('Signed in');
+            } else {
+                return redirect()->intended('/index')->withSuccess('Signed in');
+            }
         }
-         
-      
+    
         return redirect("login")->withErrors('These credentials do not match our records.');
     }
+    
     public function registration()
     {
         return view('register'); 

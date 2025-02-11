@@ -24,14 +24,19 @@ use App\Http\Controllers\Admin\RentManagement\RentManagementController;
 |
 */
 
-Route::resource('properties', PropertyController::class);
-Route::resource('admins', UserController::class);
-Route::resource('vendors', VendorController::class);
-Route::resource('house_chores', HouseChoreController::class);
-Route::resource('todos', TodoController::class);
-Route::resource('expenses', ExpenseController::class);
-Route::resource('rent_managements', RentManagementController::class);
-Route::resource('rooms', RoomController::class);
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
+    Route::resource('properties', PropertyController::class);
+    Route::resource('admins', UserController::class);
+    Route::resource('vendors', VendorController::class);
+    Route::resource('house_chores', HouseChoreController::class);
+    Route::resource('todos', TodoController::class);
+    Route::resource('expenses', ExpenseController::class);
+    Route::resource('rent_managements', RentManagementController::class);
+    Route::resource('rooms', RoomController::class);
+});
+
 
 
 

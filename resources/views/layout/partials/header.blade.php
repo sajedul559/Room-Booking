@@ -74,15 +74,16 @@
                             <i style="color: white" class="bx bxs-plus-circle"></i> Create Report
                         </a>
                     </li>
-                @endif
-            
-                <!-- Logout Button -->
+                     <!-- Logout Button -->
                 <li class="new-property-btn">
                     <a style="color: white" href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         <i style="color: white" class="bx bx-log-out"></i> Logout
                     </a>
                 </li>
+                @endif
+            
+               
             
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf

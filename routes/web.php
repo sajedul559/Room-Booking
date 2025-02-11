@@ -113,9 +113,9 @@ Route::get('/forgot-password', function () {
     return view('forgot-password');
 })->name('forgot-password');
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+// Route::get('/login', function () {
+//     return view('login');
+// })->name('login');
 
 Route::get('/register', function () {
     return view('register');
@@ -271,7 +271,6 @@ Route::get('/add-new-property', function () {
 })->name('add-new-property');
 
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
 
 Route::get('/user/password-change', [UserController::class, 'passwordChange'])->name('user.pass.change');
@@ -326,7 +325,10 @@ Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->nam
 
 
 
-Route::resource('tenant-reports', TenantReportController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::resource('tenant-reports', TenantReportController::class);
+});
+
 
 
 
