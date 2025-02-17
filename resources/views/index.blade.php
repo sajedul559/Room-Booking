@@ -166,7 +166,7 @@
                                 <img src="{{ URL::asset('assets/frontend/img/icons/work-icon-3.svg') }}" alt="icon">
                             </span>
                         </div>
-                        <h4>03. Book Your Property</h4>
+                        <h4>Book Your Property</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis et sem sed sollicitudin.
                             Donec non odio…</p>
                     </div>

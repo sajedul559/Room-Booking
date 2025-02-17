@@ -1,6 +1,7 @@
 <template>
   <loader-index></loader-index>
   
+  <style-css></style-css>
   <layouts-header></layouts-header>
 
   <!-- <home-banner></home-banner> -->
@@ -22,6 +23,7 @@
   <!-- <layouts-footer></layouts-footer> -->
 </template>
 <script>
+import StyleCss from "@/layouts/style-css.vue";
 import Footer from "@/layouts/layouts-footer.vue";
 import Header from "@/layouts/layouts-header.vue";
 import Banner from "./home-banner.vue";

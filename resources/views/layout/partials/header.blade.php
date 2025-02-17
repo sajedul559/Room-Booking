@@ -75,20 +75,20 @@
                         </a>
                     </li>
                      <!-- Logout Button -->
-                <li class="new-property-btn">
-                    <a style="color: white" href="{{ route('logout') }}"
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i style="color: white" class="bx bx-log-out"></i> Logout
-                    </a>
-                </li>
-                @endif
-            
-               
-            
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-            @endauth
+                        <li class="new-property-btn">
+                            <a style="color: white" href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i style="color: white" class="bx bx-log-out"></i> Logout
+                            </a>
+                        </li>
+                        @endif
+                    
+                    
+                    
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                 @endauth
            
             @guest
             <li class="{{ Request::is('register') ? 'active' : '' }}">

@@ -1,51 +1,21 @@
 <template>
-  <header class="header header-fix">
+  <header v-if="!isAuthRoute" class="header header-fix">
     <nav class="navbar navbar-expand-lg header-nav">
       <div class="navbar-header">
-        <a @click="toggleMobileMenu" href="javascript:void(0);">
-          <span class="bar-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </a>
         <Link href="/" class="navbar-brand logo">
-          <img src="/public/frontend/img/logo.svg" class="img-fluid" alt="Logo">
+          <img class="img-fluid" src="/public/frontend/img/logo.svg" alt="Logo" />
         </Link>
       </div>
-
-      <div :class="['main-menu-wrapper', { active: mobileMenuOpen }]">
-        <div class="menu-header">
-          <Link href="/" class="menu-logo">
-            <img src="/public/frontend/img/logo.svg" class="img-fluid" alt="Logo">
-          </Link>
-          <a @click="toggleMobileMenu" class="menu-close" href="javascript:void(0);">
-            <i class="fas fa-times"></i>
-          </a>
-        </div>
-
+      <div :class="['main-menu-wrapper', { active: menuOpen }]">
         <ul class="main-nav">
-          <li class="has-submenu" :class="{ active: isActive('room') }">
-            <a href="javascript:void(0);">Student Accommodation <i class="fas fa-chevron-down"></i></a>
-            <ul class="submenu">
-              <li>
-                <Link href="/room" :class="{ active: isActive('room') }">RoomingKos Dudley</Link>
-              </li>
-              <li>
-                <Link href="/room" :class="{ active: isActive('room') }">RoomingKos Swanston</Link>
-              </li>
-            </ul>
-          </li>
           <li :class="{ active: isActive('room') }">
             <Link href="/room">Rooming House</Link>
           </li>
           <li :class="{ active: isActive('about-us') }">
             <Link href="/about-us">About</Link>
           </li>
-
-          <!-- Authenticated User Links -->
           <template v-if="isAuthenticated">
-            <li v-if="userType == 'user'" class="new-property-btn">
+            <li v-if="userType === 'user'" class="new-property-btn">
               <Link href="/tenant-reports/create">
                 <i class="bx bxs-plus-circle"></i> Create Report
               </Link>
@@ -56,23 +26,26 @@
               </a>
             </li>
           </template>
-
-          <!-- Guest Links -->
           <template v-else>
             <li :class="{ active: isActive('register') }">
               <Link href="/register" class="btn btn-primary">
-                <i class="feather-user-plus"></i> Sign Up
+                <i class="feather-user-plus"></i>Sign Up
               </Link>
             </li>
             <li :class="{ active: isActive('login') }">
               <Link href="/login" class="btn sign-btn">
-                <i class="feather-unlock"></i> Sign In
+                <i class="feather-unlock"></i>Sign In
               </Link>
             </li>
           </template>
         </ul>
       </div>
     </nav>
+  </header>
+  <header v-else class="log-header">
+    <Link href="/">
+      <img class="img-fluid logo-dark"  src="/public/frontend/img/logo.svg" alt="Logo" />
+    </Link>
   </header>
 </template>
 
@@ -99,16 +72,13 @@ const logout = () => {
 };
 </script>
 
-
 <style>
 .header {
-  background-color: #da1f43;
+  background-color: #DA1F43;
 }
-
 .main-nav a {
   color: white;
 }
-
 .new-property-btn a {
   color: white;
 }

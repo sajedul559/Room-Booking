@@ -33,10 +33,10 @@ Route::get('/admin-login', function () {
 });
 
 
-// Route::get('/', function () {
-//     return Inertia::render('home/home-index');
+Route::get('/', function () {
+    return Inertia::render('home/home-index');
 
-// });
+});
 
 
 
@@ -50,9 +50,9 @@ Route::get('register', [CustomAuthController::class, 'registration'])->name('reg
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+// Route::get('/', function () {
+//     return view('index');
+// })->name('index');
 
 
 Route::get('/index', function () {
