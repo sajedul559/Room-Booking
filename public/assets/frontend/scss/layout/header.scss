@@ -346,6 +346,7 @@
                             display: $__block;
                             padding: 10px 15px;
                             clear: $__both;
+                            color: $__white;
                             white-space: $__nowrap;
                             font-size: $__font__size__14;
                             @include transition(all .35s ease);
@@ -362,7 +363,7 @@
                             &:hover {
                                 
                                 @include respond-above(custom992) {
-                                    color: $__primarycolor;
+                                    color: $__light__white;
                                 }
                             }
                             @include respond-below(custom991) { 

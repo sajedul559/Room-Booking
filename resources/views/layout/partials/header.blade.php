@@ -90,15 +90,15 @@
                         </form>
                  @endauth
            
-            @guest
-            <li class="{{ Request::is('register') ? 'active' : '' }}">
-                <a href="{{ url('register') }}" class="btn btn-primary"><i class="feather-user-plus"></i>Sign
-                    Up</a>
-            </li>
-            <li class="{{ Request::is('login') ? 'active' : '' }}">
-                <a href="{{ url('login') }}" class="btn sign-btn"><i class="feather-unlock"></i>Sign In</a>
-            </li>
-            @endguest
+                @guest
+                <li class="{{ Request::is('register') ? 'active' : '' }}">
+                    <a href="{{ url('register') }}" class="btn btn-primary"><i class="feather-user-plus"></i>Sign
+                        Up</a>
+                </li>
+                <li class="{{ Request::is('login') ? 'active' : '' }}">
+                    <a href="{{ url('login') }}" class="btn sign-btn"><i class="feather-unlock"></i>Sign In</a>
+                </li>
+                @endguest
                
                
             </ul>

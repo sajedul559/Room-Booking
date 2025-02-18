@@ -2055,6 +2055,7 @@ label span {
   display: block;
   padding: 10px 15px;
   clear: both;
+  color: #FFF;
   white-space: nowrap;
   font-size: 14px;
   -webkit-transition: all 0.35s ease;
@@ -2075,7 +2076,7 @@ label span {
 }
 @media (min-width: 992px) {
   .header .main-menu-wrapper .main-nav > li .submenu li a:hover {
-    color: #DA1F43;
+    color: #ECF4EF;
   }
 }
 @media (max-width: 991.98px) {

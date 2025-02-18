@@ -4,7 +4,10 @@
   <style-css></style-css>
   <layouts-header></layouts-header>
 
-  <!-- <home-banner></home-banner> -->
+  <home-banner></home-banner>
+  <how-work></how-work>
+  <explore></explore>
+  <feature-property></feature-property>
 
   <!-- <property-type></property-type> -->
 
@@ -27,6 +30,9 @@ import StyleCss from "@/layouts/style-css.vue";
 import Footer from "@/layouts/layouts-footer.vue";
 import Header from "@/layouts/layouts-header.vue";
 import Banner from "./home-banner.vue";
+import Work from "./how-work.vue";
+import Explore from "./explore.vue";
+import FeatureProperty from "./feature-property.vue";
 import PropertyType from "./property-type.vue";
 // import FeatureProperty from "./index-feature-property.vue";
 // import Cities from "./index-cities-list.vue";
@@ -40,6 +46,9 @@ export default {
     'layouts-footer': Footer,
     'layouts-header': Header,
     'home-banner': Banner,
+    'how-work': Work,
+    'explore': Explore,
+    'feature-property': FeatureProperty,
     'property-type': PropertyType
   }
 };
