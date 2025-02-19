@@ -90,8 +90,8 @@
     <script src="{{ URL::asset('/frontend/js/script.js') }}"></script>
 
     <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6adZVdzTvBpE2yBRK8cDfsss8QXChK0I"></script>
-    <script src="{{ URL::asset('/frontend/js/map-grid.js') }}"></script>
+    {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6adZVdzTvBpE2yBRK8cDfsss8QXChK0I"></script>
+    <script src="{{ URL::asset('/frontend/js/map-grid.js') }}"></script> --}}
 
     <script>
     function scrollToAvailableRooms() {

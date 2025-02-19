@@ -7,7 +7,6 @@
   <home-banner></home-banner>
   <how-work></how-work>
   <explore></explore>
-  <feature-property></feature-property>
 
   <!-- <property-type></property-type> -->
 

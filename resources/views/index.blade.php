@@ -210,15 +210,7 @@
                                 <p>30 Properties</p>
                             </div>
                         </div>
-                        {{-- <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
-                            <div class="property-img">
-                                <img src="{{ URL::asset('assets/frontend/img/icons/property-icon-2.svg') }}" alt="icon">
-                            </div>
-                            <div class="property-name">
-                                <h4>Offices</h4>
-                                <p>25 Properties</p>
-                            </div>
-                        </div> --}}
+                       
                         <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
                                 <img src="{{ URL::asset('assets/frontend/img/icons/property-icon-3.svg') }}" alt="icon">

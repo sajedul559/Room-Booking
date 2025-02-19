@@ -21,7 +21,7 @@
                         ref="carousel"
                         :items-to-show="4"
                         :snapAlign="'start'"
-                        :wrap-around="true"
+                        :wrap-around="false"
                         class="custom-carousel"
                     >
                         <Slide v-for="(property, index) in propertyTypes" :key="index">
