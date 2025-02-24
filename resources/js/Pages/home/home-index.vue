@@ -10,17 +10,17 @@
 
   <!-- <property-type></property-type> -->
 
-  <!-- <index-feature-property></index-feature-property>
+  <feature-property></feature-property>
 
-  <index-cities-list></index-cities-list>
+  <!-- <index-cities-list></index-cities-list> -->
 
-  <index-feature-rent></index-feature-rent>
+  <!-- <index-feature-rent></index-feature-rent> -->
 
-  <index-main-property></index-main-property>
+  <!-- <index-main-property></index-main-property> -->
 
-  <testimonial-index></testimonial-index>
+  <testimonial></testimonial>
 
-  <faq-index></faq-index> -->
+  <!-- <faq-index></faq-index> -->
 
   <!-- <layouts-footer></layouts-footer> -->
 </template>
@@ -37,7 +37,7 @@ import PropertyType from "./property-type.vue";
 // import Cities from "./index-cities-list.vue";
 // import FeatureRent from "./index-feature-rent.vue";
 // import MainProperty from "./index-main-property.vue";
-// import Testimonial from "./testimonial-index.vue";
+import Testimonial from "./testimonial.vue";
 // import Faq from "./faq-index.vue";
 
 export default {
@@ -48,7 +48,8 @@ export default {
     'how-work': Work,
     'explore': Explore,
     'feature-property': FeatureProperty,
-    'property-type': PropertyType
+    'property-type': PropertyType,
+    'testimonial': Testimonial
   }
 };
 </script>
