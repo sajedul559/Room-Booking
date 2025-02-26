@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="faq-img">
-                        <img src="@/assets/img/faq-img.jpg" alt="icon">
+                        <img src="/public/assets/frontend/img/faq-img.jpg" alt="icon">
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -107,75 +107,14 @@
             </div>
         </div>
         <div class="bg-imgs">
-            <img src="@/assets/img/icons/blue-circle.svg" class="bg-06" alt="icon">
-            <img src="@/assets/img/icons/red-circle.svg" class="bg-07" alt="icon">
+            <img src="/public/assets/frontend/img/icons/blue-circle.svg" class="bg-06" alt="icon">
+            <img src="/public/assets/frontend/img/icons/red-circle.svg" class="bg-07" alt="icon">
         </div>
     </section>
     <!-- /Agent Register -->
 
     <!-- Latest Blog -->
-    <section class="latest-blog-sec">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 mx-auto">
-                    <div class="section-heading text-center">
-                        <h2>Latest Blog</h2>
-                        <div class="sec-line">
-                            <span class="sec-line1"></span>
-                            <span class="sec-line2"></span>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmodtempor incididunt</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="blog-slider owl-carousel">
-
-                        <!-- Blog -->
-                        <Carousel :wrap-around="true" :settings="settings" :breakpoints="breakpoints">
-                            <Slide v-for="item in LatestBlog" :key="item.id">
-                                <div class="blog-card">
-                                    <div class="blog-img">
-                                        <router-link to="/blogs/blog-details"><img :src="require(`@/assets/img/blog/${item.Image}`)" alt="Blog Image"></router-link>
-                                    </div>
-                                    <div class="blog-content text-start">
-                                        <div class="blog-property">
-                                            <span>{{item.Badge}}</span>
-                                        </div>
-                                        <div class="blog-title">
-                                            <h3><router-link to="/blogs/blog-details">{{item.Title}}</router-link></h3>
-                                            <p>{{item.Content}}</p>
-                                        </div>
-                                        <ul class="property-category d-flex justify-content-between align-items-center">
-                                            <li class="user-info">
-                                                <a href="javascript:void(0);"><img :src="require(`@/assets/img/profiles/${item.Avatar}`)"
-                                                        class="img-fluid avatar" alt="User"></a>
-                                                <div class="user-name">
-                                                    <h6><a href="javascript:void(0);">{{item.Name}}</a></h6>
-                                                    <p>Posted on : {{item.PostedDate}}</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <router-link to="/blogs/blog-details"><span>
-                                                    <i class='fa-solid fa-arrow-right'></i></span>
-                                                </router-link>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </Slide>
-                            <template #addons>
-                                <Pagination />
-                            </template>
-                        </Carousel>
-                        <!-- /Blog -->
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   
     <!-- /Latest Blog -->
 
     <!-- News Letter -->
@@ -204,13 +143,12 @@
 
 <script>
 import { Carousel, Pagination, Slide } from "vue3-carousel";
-import LatestBlog from '@/assets/json/index-latest-blog.json'
 import "vue3-carousel/dist/carousel.css";
 
 export default {
     data() {
         return {
-            LatestBlog: LatestBlog,
+            // LatestBlog: LatestBlog,
             settings: {
                 itemsToShow: 1,
                 snapAlign: "center",

@@ -701,7 +701,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="blog-slider owl-carousel">
+                    <div class="">
 
                         <!-- Blog -->
                         <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">

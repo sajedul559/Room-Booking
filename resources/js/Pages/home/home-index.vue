@@ -16,13 +16,13 @@
 
   <!-- <index-feature-rent></index-feature-rent> -->
 
-  <!-- <index-main-property></index-main-property> -->
 
   <testimonial></testimonial>
+  <blog></blog>
 
-  <!-- <faq-index></faq-index> -->
+  <faq-index></faq-index>
 
-  <!-- <layouts-footer></layouts-footer> -->
+  <layouts-footer></layouts-footer>
 </template>
 <script>
 import StyleCss from "@/layouts/style-css.vue";
@@ -33,6 +33,9 @@ import Work from "./how-work.vue";
 import Explore from "./explore.vue";
 import FeatureProperty from "./feature-property.vue";
 import PropertyType from "./property-type.vue";
+import Faq from "./faq-index.vue";
+import Blog from "./blog.vue";
+
 // import FeatureProperty from "./index-feature-property.vue";
 // import Cities from "./index-cities-list.vue";
 // import FeatureRent from "./index-feature-rent.vue";
@@ -49,7 +52,9 @@ export default {
     'explore': Explore,
     'feature-property': FeatureProperty,
     'property-type': PropertyType,
-    'testimonial': Testimonial
+    'testimonial': Testimonial,
+    'faq-index': Faq,
+    'blog': Blog
   }
 };
 </script>
