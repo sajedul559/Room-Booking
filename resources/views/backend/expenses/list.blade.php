@@ -13,6 +13,33 @@
                         </div>
                     </div>
                 <div class="card-body">
+                    <form id="filterForm" class="row mb-3">
+                        <div class="col-md-3">
+                            <label for="year" class="form-label">Filter by Year</label>
+                            <select name="year" id="year" class="form-select">
+                                <option value="">All Years</option>
+                                @foreach (range(date('Y'), 2020) as $year)
+                                    <option value="{{ $year }}">{{ $year }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    
+                        <div class="col-md-3">
+                            <label for="month" class="form-label">Filter by Month</label>
+                            <select name="month" id="month" class="form-select">
+                                <option value="">All Months</option>
+                                @foreach (range(1, 12) as $m)
+                                    <option value="{{ $m }}">{{ \Carbon\Carbon::create()->month($m)->format('F') }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    
+                        <div class="col-md-3 align-self-end">
+                            <button type="submit" class="btn btn-primary">Filter</button>
+                        </div>
+                    </form>
+                    
+                    
                     <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
                         <thead>
                             <tr>
@@ -22,10 +49,11 @@
                                 <th>Type</th>
                                 <th>Is Creadit</th>
                                 <th>Created By</th>
+                                <th>Created Date</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="expenseTableBody">
                             @foreach ($expenses as $data)
                                 <tr>
                                     <td>{{ $data->id }}</td>
@@ -34,6 +62,7 @@
                                     <td>{{ $data->expense_type }}</td>
                                     <td>{{ $data->is_credit ? 'Yes' : 'No' }}</td>
                                     <td>{{ $data->createdBy?->name?:'' }}</td>
+                                    <td>{{ $data->created_at }}</td>
 
                                     <td class="text-start">
                                         <x-common.action-drop-down>
@@ -82,4 +111,29 @@
 @endpush
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function () {
+        $('#filterForm').on('submit', function (e) {
+            e.preventDefault();
+
+            let year = $('#year').val();
+            let month = $('#month').val();
+
+            $.ajax({
+                url: "{{ route('data.filter') }}",
+                method: "GET",
+                data: {
+                    year: year,
+                    month: month
+                },
+                success: function (response) {
+                    $('#expenseTableBody').html(response.html);
+                },
+                error: function (xhr) {
+                    alert('Something went wrong while fetching data.');
+                }
+            });
+        });
+    });
+</script>
 @endpush
