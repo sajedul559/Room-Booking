@@ -36,6 +36,7 @@
                     
                         <div class="col-md-3 align-self-end">
                             <button type="submit" class="btn btn-primary">Filter</button>
+                            <button type="button" id="clearFilterBtn" class="btn btn-secondary">Clear</button>
                         </div>
                     </form>
                     
@@ -133,6 +134,12 @@
                     alert('Something went wrong while fetching data.');
                 }
             });
+        });
+        //Clear filter
+        $('#clearFilterBtn').on('click', function() {
+            $('#year').val('');
+            $('#month').val('');
+            $('#filterForm').submit(); 
         });
     });
 </script>
