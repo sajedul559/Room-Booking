@@ -135,6 +135,7 @@
                 }
             });
         });
+        
         //Clear filter
         $('#clearFilterBtn').on('click', function() {
             $('#year').val('');
