@@ -53,21 +53,44 @@ class HomeController extends Controller
     //     $data['referral_income'] = ReferralIncomeHistory::where('referral_id', userId())->sum('amount');
     //     return $data;
     // }
-    public function locationWiseRoom($location){
-
-        if(isset($location))
-        {
-            $rooms = Room::with(['images', 'property'])
+    public function locationWiseRoom(Request $request)
+    {
+        $location = $request->location;
+    
+        $rooms = Room::with(['images', 'property'])
             ->when($location, function ($query) use ($location) {
                 $query->whereHas('property', function ($q) use ($location) {
                     $q->where('city', 'LIKE', "%{$location}%");
                 });
             })
             ->get();
-            return view('room',compact('rooms','location'));
-
-        }
-
+    
+        return view('room', compact('rooms', 'location'));
     }
+    public function searchRooms(Request $request)
+{
+    // dd($request->all());
+    $rooms = Room::with(['images', 'property'])
+        ->when($request->room_name, function ($query) use ($request) {
+            $query->where('name', 'LIKE', '%' . $request->room_name . '%');
+        })
+
+        ->when($request->property_city, function ($query) use ($request) {
+            $query->whereHas('property', function ($q) use ($request) {
+                $q->where('city', 'LIKE', '%' . $request->property_city . '%');
+            });
+        })
+        ->when($request->min_price, function ($query) use ($request) {
+            $query->where('price', '>=', $request->min_price);
+        })
+        ->when($request->max_price, function ($query) use ($request) {
+            $query->where('price', '<=', $request->max_price);
+        })
+        ->get();
+
+    return view('search_room', compact('rooms'));
+}
+
+    
 
 }
