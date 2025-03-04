@@ -78,7 +78,9 @@
                     <!-- /Rent grid -->
                     @endforeach
                    
-                    
+                    <div class="d-flex justify-content-center mt-4">
+                        {{ $properties->links() }}
+                    </div>
                     
                 </div> <!-- Close row here -->
             </div>
