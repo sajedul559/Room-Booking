@@ -365,51 +365,51 @@ Version      : 1.0
 	}
 
 	// Rental Slider
-	// if ($('.rental-slider').length > 0) {
-	// 	$('.rental-slider').slick({
-	// 		slidesToShow: 1,
-	// 		slidesToScroll: 1,
-	// 		arrows: true,
-	// 		fade: true,
-	// 		asNavFor: '.slider-nav-thumbnails'
-	// 	});
-	// }
-
-	// if ($('.slider-nav-thumbnails').length > 0) {
-	// 	$('.slider-nav-thumbnails').slick({
-	// 		slidesToShow: 4,
-	// 		slidesToScroll: 1,
-	// 		asNavFor: '.rental-slider',
-	// 		dots: false,
-	// 		arrows: false,
-	// 		centerMode: false,
-	// 		focusOnSelect: true
-
-	// 	});
-	// }
-
-	$(document).ready(function () {
-		$('.rental-slider-wrapper').each(function () {
-			$(this).find('.rental-slider').slick({
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				arrows: true,
-				fade: true,
-				asNavFor: $(this).find('.slider-nav-thumbnails')
-			});
-		
-			$(this).find('.slider-nav-thumbnails').slick({
-				slidesToShow: 4,
-				slidesToScroll: 1,
-				asNavFor: $(this).find('.rental-slider'),
-				dots: false,
-				arrows: false,
-				centerMode: false,
-				focusOnSelect: true
-			});
+	if ($('.rental-slider').length > 0) {
+		$('.rental-slider').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: true,
+			fade: true,
+			asNavFor: '.slider-nav-thumbnails'
 		});
+	}
+
+	if ($('.slider-nav-thumbnails').length > 0) {
+		$('.slider-nav-thumbnails').slick({
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			asNavFor: '.rental-slider',
+			dots: false,
+			arrows: false,
+			centerMode: false,
+			focusOnSelect: true
+
+		});
+	}
+
+	// $(document).ready(function () {
+	// 	$('.rental-slider-wrapper').each(function () {
+	// 		$(this).find('.rental-slider').slick({
+	// 			slidesToShow: 1,
+	// 			slidesToScroll: 1,
+	// 			arrows: true,
+	// 			fade: true,
+	// 			asNavFor: $(this).find('.slider-nav-thumbnails')
+	// 		});
 		
-	});
+	// 		$(this).find('.slider-nav-thumbnails').slick({
+	// 			slidesToShow: 4,
+	// 			slidesToScroll: 1,
+	// 			asNavFor: $(this).find('.rental-slider'),
+	// 			dots: false,
+	// 			arrows: false,
+	// 			centerMode: false,
+	// 			focusOnSelect: true
+	// 		});
+	// 	});
+		
+	// });
 	
 	// Parners Slider
 

@@ -24,12 +24,9 @@ class HomeController extends Controller
         return view('index',compact('rooms','properties'));
     }
     public function allRoom()
-{
+    {
        
-            $rooms = Room::with('images')->get();
-
-
-       
+        $rooms = Room::with('images')->get();     
         return view('room',compact('rooms'));
     }
 
