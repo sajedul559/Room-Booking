@@ -511,7 +511,7 @@
                     font-size: $__font__size__15;
                     color: $__primarycolor;
                     @extend %flex-inline-center;
-                    line-height: 40px;
+                    // line-height: 40px;
                     &:hover {
                         color: $__light__blue;
                     }

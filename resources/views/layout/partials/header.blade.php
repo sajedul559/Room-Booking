@@ -74,13 +74,13 @@
                             <a style="color:white" class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i style="color:white"  class="bx bxs-user"></i> {{ auth()->user()->name }}
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <ul class="dropdown-menu dropdown-menu-end " aria-labelledby="userDropdown">
                                 <li><a class="dropdown-item" href="{{ route('tenant-reports.create') }}">Create Report</a></li>
-                                <li><a class="dropdown-item" href="{{ route('index') }}">Profile</a></li>
-                                <li><a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a></li>
+                                {{-- <li><a class="dropdown-item" href="{{ route('index') }}">Profile</a></li> --}}
+                                {{-- <li><a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a></li> --}}
 
                                 <li><a class="dropdown-item" href="{{ route('user.bookingList') }}">Booking List</a></li>
-                                <li><a class="dropdown-item" href="{{ route('index') }}">Change Password</a></li>
+                                <li><a class="dropdown-item" href="{{ route('profile.index') }}">Change Password</a></li>
                                 <li>
                                     <a class="dropdown-item text-danger logout" href="{{ route('logout') }}"
                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
