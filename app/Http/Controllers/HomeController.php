@@ -33,10 +33,12 @@ class HomeController extends Controller
         return view('room',compact('rooms'));
     }
 
-    public function allRooms()
+    public function allProperty()
     {
         $rooms = Room::with('images')->get();
-        return view('rent-property-grid',compact('rooms'));
+        $properties = Property::where('is_publish','1')->paginate(6);
+
+        return view('rent-property-grid',compact('rooms','properties'));
     }
 
     public function roomDetails($slug)

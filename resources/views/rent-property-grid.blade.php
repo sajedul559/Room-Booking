@@ -22,15 +22,14 @@
             <div class="feature-property-sec for-rent for-rent p-0 bg-transparent">
                 <div class="row pt-5"> <!-- Keep row outside the loop -->
             
-                    @foreach ($rooms as $room)
+                    @foreach ($properties as $data)
                     <!-- Rent grid -->
                     <div class="col-lg-4 col-md-6">
                         <div class="product-custom">
                             <div class="profile-widget">
                                 <div class="doc-img">
                                     <a href="{{ url('rent-details') }}" class="property-img">
-                                        <img class="img-fluid" alt="Property Image"
-                                            src="{{ $room->images->isNotEmpty() ? asset('storage/' . $room->room_image) : URL::asset('assets/frontend/img/product/default.jpg') }}">
+                                        <img class="img-fluid" alt="Property Image" src="{{ get_image_path($data->image_path) }}"> 
                                     </a>
                                     <div class="featured">
                                         <span>Featured</span>
@@ -51,25 +50,25 @@
                                         <span class="rating-review">Excellent</span>
                                     </div>
                                     <h3 class="title">
-                                        <a href="{{ route('room.details',$room->slug)}}">{{ $room->name }}</a>
+                                        <a href="{{ route('room.details',$data->slug)}}">{{ $data->property_name }}</a>
                                     </h3>
                                     <p><i class="feather-map-pin"></i> 
-                                        {{ isset($room->property->location) ? $room->property->location : 'Location not available' }}
+                                        {{ isset($data->location) ? $data->location : 'Location not available' }}
                                     </p>
             
-                                    <ul class="d-flex details">
+                                    {{-- <ul class="d-flex details">
                                         <li>
                                             <img src="{{ URL::asset('assets/frontend/img/icons/bed-icon.svg') }}" alt="bed-icon">
-                                            Min Stay: {{ $room->min_length_of_stay }} 
+                                            Min Stay: {{ $data->min_length_of_stay }} 
                                         </li>
                                         <li>
                                             <img src="{{ URL::asset('assets/frontend/img/icons/bath-icon.svg') }}" alt="bath-icon">
-                                            Max Stay:  {{ $room->max_length_of_stay }} 
+                                            Max Stay:  {{ $data->max_length_of_stay }} 
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                     <ul class="property-category d-flex justify-content-between align-items-center">
                                         <li>
-                                            <a href="{{ route('room.details',$room->slug)}}" class="btn-primary">View Rooms</a>
+                                            <a href="{{ route('room.details',$data->slug)}}" class="btn-primary">View Rooms</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -78,7 +77,9 @@
                     </div>
                     <!-- /Rent grid -->
                     @endforeach
-            
+                   
+                    
+                    
                 </div> <!-- Close row here -->
             </div>
             
