@@ -40,10 +40,7 @@
                         <i class="fas fa-times"></i>
                     </a>
                 </div>
-                <ul class="main-nav">
-                   
-                   
-                   
+                <ul class="main-nav">                  
                     <li
                         class="has-submenu {{ in_array(Route::currentRouteName(), ['agent-grid', 'agent-list', 'agent-grid-sidebar', 'agent-list-sidebar', 'agent-details']) ? 'active' : '' }}">
                         <a  href="javascript:void(0);">Student Accommodation <i class="fas fa-chevron-down"></i></a>
