@@ -6,7 +6,7 @@
         <td>{{ $data->expense_type }}</td>
         <td>{{ $data->is_credit ? 'Yes' : 'No' }}</td>
         <td>{{ $data->createdBy?->name ?? '' }}</td>
-        <td>{{ $data->created_at }}</td>
+        <td>{{ \Carbon\Carbon::parse($data->created_at)->format('Y-m-d') }}</td>
 
         <td class="text-start">
             <x-common.action-drop-down>
