@@ -92,6 +92,6 @@ class ExpenseController extends Controller
     public function destroy($id)
     {
         $this->expenseService->deleteExpense($id);
-        return redirect()->route('expenses.index')->with('success', 'TODO deleted successfully.');
+        return redirect()->route('expenses.index')->with('success', 'Todo deleted successfully.');
     }
 }
