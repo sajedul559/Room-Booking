@@ -56,7 +56,7 @@
                 @can('Todos')
                 <li>
                     <a href="#sidebarTodo" data-bs-toggle="collapse">
-                        <i class="fas  fa-parachute-box"></i>
+                        <i class="fas fa-toolbox"></i>
                         <span>Todo </span>
                         <span class="menu-arrow"></span>
                     </a>
@@ -74,6 +74,7 @@
                 <li>
                     <a href="#sidebarExpense" data-bs-toggle="collapse">
                         <i class="fas  fa-parachute-box"></i>
+                        
                         <span>Expense </span>
                         <span class="menu-arrow"></span>
                     </a>
