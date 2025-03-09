@@ -2,6 +2,7 @@
 
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
@@ -50,14 +51,22 @@ Route::get('register', [CustomAuthController::class, 'registration'])->name('reg
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+// Route::get('/', function () {
+//     return view('index');
+// })->name('index');
 
 
-Route::get('/index', function () {
-    return view('index');
-})->name('index');
+// Route::get('/index', function () {
+//     return view('index');
+// })->name('index');
+
+Route::get('/', [HomeController::class, 'home'])->name('index');
+Route::get('/room-details/{slug}', [HomeController::class, 'roomDetails'])->name('room.details');
+Route::get('/rent-details', function () {
+    return view('rent-details');
+})->name('rent-details');Route::get('/rent-details', function () {
+    return view('rent-details');
+})->name('rent-details');
 
 Route::get('/rent-property-grid', function () {
     return view('rent-property-grid');

@@ -23,13 +23,35 @@ class RoomService
     {
         $room->update(array_merge($data, ['updated_by' => $updatedBy]));
 
+        
         if (isset($data['images'])) {
+             // Delete old images
+             $this->galleryImageDelete($data, $room->id);
+
             $this->uploadImages($room, $data['images']);
         }
 
         return $room;
     }
-
+    public function galleryImageDelete($data, $roomId)
+    {
+        // If 'old' images exist, keep them, otherwise delete all images for the room
+        $query = RoomImage::where('room_id', $roomId);
+        
+        if (isset($data['old'])) {
+            $query->whereNotIn('id', $data['old']);
+        }
+    
+        $roomImages = $query->get();
+    
+        foreach ($roomImages as $roomImage) {
+            // Delete the image file from storage
+            Storage::disk('public')->delete($roomImage->image_path);
+    
+            // Delete the database record
+            $roomImage->delete();
+        }
+    }
     public function delete(Room $room)
     {
         foreach ($room->images as $image) {

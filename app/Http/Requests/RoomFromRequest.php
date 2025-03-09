@@ -37,6 +37,7 @@ class RoomFromRequest extends FormRequest
             'is_smoking_allowed' => 'nullable|boolean',
             'is_pet_allowed' => 'nullable|boolean',
             'on_welfare_allowed' => 'nullable|boolean',
+            'old'           => ['nullable'],
             'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }

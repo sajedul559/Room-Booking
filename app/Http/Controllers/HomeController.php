@@ -2,23 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ReferralIncomeHistory;
+use App\Models\Room;
 use Illuminate\Http\Request;
+use App\Models\ReferralIncomeHistory;
 
 class HomeController extends Controller
 {
 
-    public function __construct()
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
+
+
+    public function home()
     {
-        $this->middleware('auth');
+        $rooms = Room::with('images')->get();
+        return view('index',compact('rooms'));
     }
 
-
-
-    public function index()
+    public function roomDetails($slug)
     {
-        return view('home');
+        // Retrieve the room using the slug
+        $room = Room::with('images')->where('slug', $slug)->firstOrFail();
+    
+        return view('rent-details', compact('room'));
     }
+    
+
     // private function dashboardData()
     // {
     //     $user_id = userId();

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\Room\RoomController;
 use App\Http\Controllers\Admin\Todo\TodoController;
+use App\Http\Controllers\GeneralSettingsController;
 use App\Http\Controllers\Admin\Vendor\VendorController;
 use App\Http\Controllers\Admin\Expense\ExpenseController;
 use App\Http\Controllers\Admin\Property\PropertyController;
@@ -37,6 +38,13 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('rooms', RoomController::class);
 });
 
+
+Route::group(['as'=>'settings.', 'prefix'=>'settings'], function(){
+    
+    Route::get('/general', [GeneralSettingsController::class, 'index'])->name('general');
+    Route::post('/general', [GeneralSettingsController::class, 'store'])->name('general.store');
+   
+});
 
 
 

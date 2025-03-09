@@ -52,37 +52,39 @@
                     <!-- Slider -->
                     <div class="buy-details-col">
                         <div class="rental-card">
+                            <!-- Main Slider -->
                             <div class="slider rental-slider">
-                                <div class="product-img">
-                                    <img src="{{ URL::asset('/frontend/img/rent/rent-detail-01.jpg') }}" alt="Slider">
-                                </div>
-                                <div class="product-img">
-                                    <img src="{{ URL::asset('/frontend/img/rent/rent-detail-02.jpg') }}" alt="Slider">
-                                </div>
-                                <div class="product-img">
-                                    <img src="{{ URL::asset('/frontend/img/rent/rent-detail-03.jpg') }}" alt="Slider">
-                                </div>
-                                <div class="product-img">
-                                    <img src="{{ URL::asset('/frontend/img/rent/rent-detail-04.jpg') }}" alt="Slider">
-                                </div>
-                                <div class="product-img">
-                                    <img src="{{ URL::asset('/frontend/img/rent/rent-detail-05.jpg') }}" alt="Slider">
-                                </div>
+                                @if($room->images->isNotEmpty())
+                                    @foreach($room->images as $image)
+                                        <div class="product-img">
+                                            <img src="{{ asset('storage/' . $image->image_path) }}" alt="Room Image">
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <!-- Default Placeholder Image -->
+                                    <div class="product-img">
+                                        <img src="{{ URL::asset('/frontend/img/rent/rent-detail-01.jpg') }}" alt="Default Image">
+                                    </div>
+                                @endif
                             </div>
+                    
+                            <!-- Thumbnail Navigation -->
                             <div class="slider slider-nav-thumbnails">
-                                <div><img src="{{ URL::asset('/frontend/img/rent/rent-detail-01.jpg') }}" alt="product image">
-                                </div>
-                                <div><img src="{{ URL::asset('/frontend/img/rent/rent-detail-02.jpg') }}" alt="product image">
-                                </div>
-                                <div><img src="{{ URL::asset('/frontend/img/rent/rent-detail-03.jpg') }}" alt="product image">
-                                </div>
-                                <div><img src="{{ URL::asset('/frontend/img/rent/rent-detail-04.jpg') }}"
-                                        alt="product image"></div>
-                                <div><img src="{{ URL::asset('/frontend/img/rent/rent-detail-05.jpg') }}"
-                                        alt="product image"></div>
+                                @if($room->images->isNotEmpty())
+                                    @foreach($room->images as $image)
+                                        <div>
+                                            <img src="{{ asset('storage/' . $image->image_path) }}" alt="Room Thumbnail">
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <!-- Default Thumbnails -->
+                                    <div><img src="{{ URL::asset('/frontend/img/rent/rent-detail-01.jpg') }}" alt="Default Thumbnail"></div>
+                                @endif
                             </div>
                         </div>
                     </div>
+                    
+                    
                     <!-- /Slider -->
 
                     <!-- Overview -->

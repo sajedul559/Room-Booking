@@ -156,27 +156,28 @@
 
 
 <script>
-    $(document).ready(function() {
-        // $('.input-images-1').imageUploader();
-
-        var posts = {!! json_encode($gellary_image) !!};
+   $(document).ready(function () {
+    setTimeout(function () {
+        var posts = @json($gellary_image);
         let preloaded = [];
-        posts.forEach(function(post) {
-            $photo = post['image_path'];
-            // do something
+        
+        posts.forEach(function (post) {
             let data = {
-                id: post['id'],
-                src: "{{ asset('storage/') }}/" + $photo + ""
+                id: post.id,
+                src: "{{ asset('storage') }}/" + post.image_path
             };
             preloaded.push(data);
         });
+
         $('.input-images-1').imageUploader({
             preloaded: preloaded,
             imagesInputName: 'images',
             preloadedInputName: 'old'
         });
-       
-    });
+
+    }, 500); // Delay for smoother loading
+});
+
     
 </script>
 

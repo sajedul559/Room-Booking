@@ -43,6 +43,7 @@ class RoomController extends Controller
     public function edit(Room $room)
     {
         $gellary_image = RoomImage::where('room_id', $room->id)->get();
+     
 
         return view('backend.rooms.edit', compact('room','gellary_image'));
     }
