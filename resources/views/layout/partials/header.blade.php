@@ -28,7 +28,7 @@
                         <span></span>
                     </span>
                 </a>
-                <a href="{{ url('index') }}" class="navbar-brand logo">
+                <a href="{{ route('index') }}" class="navbar-brand logo">
                     <img src="{{ URL::asset('/frontend/img/logo.svg') }}" class="img-fluid" alt="Logo">
                 </a>
             </div>

@@ -176,7 +176,8 @@
                     </a>
                     <div class="collapse" id="sidebarSetup">
                         <ul class="nav-second-level">
-                            <li><a href="#">Settings</a></li>
+                            <li><a href="{{ route('settings.general') }}">General Settings</a></li>
+
                         </ul>
                     </div>
                 </li>
