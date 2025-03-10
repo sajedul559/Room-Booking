@@ -25,16 +25,16 @@
                         <span class="appartment">Appartment</span>
                     </div> --}}
                     <div class="page-title">
-                        <h3>Modern Apartment in the City Center<span><img
+                        <h3>{{ $room->name }}<span><img
                                     src="{{ URL::asset('/frontend/img/icons/location-icon.svg') }}" alt="Image"></span>
                         </h3>
-                        <p><i class="feather-map-pin"></i> 318-330 S Oakley Blvd, Chicago, IL 60612, USA</p>
+                        <p><i class="feather-map-pin"></i> {{ isset($room->property->location) ? $room->property->location : 'Location not available' }}</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="latest-update">
                         <h5>Last Updated on : 15 Jan 2023</h5>
-                        <p>$4,000</p>
+                        <p>$ {{ $room->price }}</p>
                         {{-- <ul class="other-pages">
                             <li><a href="javascript:void(0);"><i class="feather-share-2"></i>Share</a></li>
                             <li><a href="{{ url('compare') }}"><i class="feather-git-pull-request"></i>Add to Compare</a>
@@ -88,7 +88,7 @@
                     <!-- /Slider -->
 
                     <!-- Overview -->
-                    <div class="collapse-card">
+                    {{-- <div class="collapse-card">
                         <h4 class="card-title">
                             <a class="collapsed" data-bs-toggle="collapse" href="#overview"
                                 aria-expanded="false">Overview</a>
@@ -117,7 +117,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- /Overview -->
 
                     <!-- Overview -->
@@ -128,18 +128,8 @@
                         </h4>
                         <div id="about" class="card-collapse collapse show">
                             <div class="about-agent collapse-view">
-                                <p> Good road frontage on a paved county road with utilities make it an amazing setting for
-                                    yourdream country getaway! If you like views, you must see this property!,
-                                <p>
-                                <p>This property is mostly wooded and sits high on a hilltop overlooking the Mohawk River
-                                    Valley.Located right in the heart of Upstate NYs Amish farm Country, this land is
-                                    certified organic makingit extremely rare! Good road frontage on a paved county road
-                                    with utilities make it an amazingsetting for your dream country getaway! If you like
-                                    views, you must see this property!This propertyis mostly wooded and sits high on a
-                                    hilltop overlooking the Mohawk River Valley. Located right inthe heart of Upstate NYs
-                                    Amish farm Country, this land is certified organic making it extremelyrare! Good road
-                                    frontage on a paved county road with utilities make it an amazing setting for yourdream
-                                    country getaway! If you like views, you must see this property!</p>
+                                <p> {!! $room->description !!} <p>
+
                             </div>
                         </div>
                     </div>
@@ -165,7 +155,7 @@
                     <!-- /Property Address -->
 
                     <!-- Property Details -->
-                    <div class="collapse-card">
+                    {{-- <div class="collapse-card">
                         <h4 class="card-title">
                             <a class="collapsed" data-bs-toggle="collapse" href="#details" aria-expanded="false">Property
                                 Details</a>
@@ -201,7 +191,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- /Property Details -->
 
                     <!-- Amenities -->
@@ -261,11 +251,33 @@
                         </h4>
                         <div id="video" class="card-collapse collapse show  collapse-view">
                             <div class="sample-video">
-                                <img src="{{ URL::asset('/frontend/img/video-img.jpg') }}" alt="Image">
-                                <a class="play-icon" data-fancybox="" href="https://www.youtube.com/embed/AWovHEZcpQU"><i
+                                {{-- <img src="{{ URL::asset('/frontend/img/video-img.jpg') }}" alt="Image"> --}}
+                                <img src="{{ asset('storage/' . $room->video_image) }}" alt="Video Thumbnail">
+                                <a class="play-icon" data-fancybox="" href="{{ $room->video_url }}"><i
                                         class="bx bx-play"></i></a>
                             </div>
                         </div>
+
+                        <div id="video" class="card-collapse collapse show collapse-view">
+                            <div class="sample-video">
+                                @if (!empty($room->video_image))
+                                    <img src="{{ asset('storage/' . $room->video_image) }}" alt="Video Thumbnail">
+                                @else
+                                    <img src="{{ URL::asset('/frontend/img/video-img.jpg') }}" alt="Default Image">
+                                @endif
+                        
+                                @if (!empty($room->video_url))
+                                    <a class="play-icon" data-fancybox="" href="{{ $room->video_url }}">
+                                        <i class="bx bx-play"></i>
+                                    </a>
+                                @else
+                                    <a class="play-icon" data-fancybox="" href="https://www.youtube.com/embed/AWovHEZcpQU">
+                                        <i class="bx bx-play"></i>
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                        
                     </div>
                     <!-- /Video -->
 
@@ -394,7 +406,7 @@
                                 class="bx bx-calendar"></i>Book Property</a>
 
                         <!-- Enquiry -->
-                        <div class="sidebar-card">
+                        {{-- <div class="sidebar-card">
                             <div class="sidebar-card-title">
                                 <h5>Request Info</h5>
                             </div>
@@ -431,11 +443,11 @@
                                 <li><a href="javascript:void(0);"><i class="feather-phone"></i>Call Us</a></li>
                                 <li><a href="javascript:void(0);"><i class="fa-brands fa-whatsapp"></i>Whatsapp</a></li>
                             </ul>
-                        </div>
+                        </div> --}}
                         <!-- /Enquiry -->
 
                         <!-- Listing Owner Details -->
-                        <div class="sidebar-card">
+                        {{-- <div class="sidebar-card">
                             <div class="sidebar-card-title">
                                 <h5>Listing Owner Details</h5>
                             </div>
@@ -465,7 +477,7 @@
                                 <li>Memeber on<span>15 Jan 2023</span></li>
                                 <li>Verification<span>Verified</span></li>
                             </ul>
-                        </div>
+                        </div> --}}
                         <!-- /Listing Owner Details -->
 
                         <!-- Share Property -->
@@ -491,6 +503,106 @@
                             </div>
                         </div> --}}
                         <!-- /Share Property -->
+
+                         <!-- Reviews -->
+                        <div class="collapse-card sidebar-card">
+                            <h4 class="card-title">
+                                <a class="collapsed" data-bs-toggle="collapse" href="#review" aria-expanded="false">Reviews
+                                    (25)</a>
+                            </h4>
+                            <div id="review" class="card-collapse collapse show  collapse-view">
+                                <div class="review-card">
+                                    <div class="customer-review">
+                                        <div class="customer-info">
+                                            <div class="customer-name">
+                                                <a href="javascript:void(0);"><img
+                                                        src="{{ URL::asset('/frontend/img/profiles/avatar-01.jpg') }}"
+                                                        alt="User"></a>
+                                                <div>
+                                                    <h5><a href="javascript:void(0);">Johnson</a></h5>
+                                                    <p>02 Jan 2023</p>
+                                                </div>
+                                            </div>
+                                            <div class="rating">
+                                                <span class="rating-count">
+                                                    <i class="fa-solid fa-star checked"></i>
+                                                    <i class="fa-solid fa-star checked"></i>
+                                                    <i class="fa-solid fa-star checked"></i>
+                                                    <i class="fa-solid fa-star checked"></i>
+                                                    <i class="fa-solid fa-star"></i>
+                                                </span>
+                                                <p class="rating-review"><span>4.0</span>(20 Reviews)</p>
+                                            </div>
+                                        </div>
+                                        <div class="review-para">
+                                            <p>It was popularised in the 1960s with the release of Letraset sheets containing
+                                                LoremIpsum passages, and more recently with desktop publishing software like
+                                                Aldus PageMakerincluding versions of Lorem Ipsum.It was popularised in the 1960s
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="customer-review">
+                                        <div class="customer-info">
+                                            <div class="customer-name">
+                                                <a href="javascript:void(0);"><img
+                                                        src="{{ URL::asset('/frontend/img/profiles/avatar-02.jpg') }}"
+                                                        alt="User"></a>
+                                                <div>
+                                                    <h5><a href="javascript:void(0);">Casandra</a></h5>
+                                                    <p>01 Jan 2023</p>
+                                                </div>
+                                            </div>
+                                            <div class="rating">
+                                                <span class="rating-count">
+                                                    <i class="fa-solid fa-star checked"></i>
+                                                    <i class="fa-solid fa-star checked"></i>
+                                                    <i class="fa-solid fa-star checked"></i>
+                                                    <i class="fa-solid fa-star checked"></i>
+                                                    <i class="fa-solid fa-star checked"></i>
+                                                </span>
+                                                <p class="rating-review"><span>5.0</span>(20 Reviews)</p>
+                                            </div>
+                                        </div>
+                                        <div class="review-para">
+                                            <p>It was popularised in the 1960s with the release of Letraset sheets containing
+                                                LoremIpsum passages, and more recently with desktop publishing software like
+                                                Aldus PageMakerincluding versions of Lorem Ipsum.It was popularised in the 1960s
+                                                with the elease ofLetraset sheets containing Lorem Ipsum passages, and more
+                                                recently with desktop publishingsoftware like Aldus Page Maker including
+                                                versions.</p>
+                                        </div>
+                                    </div>
+                                    <div class="property-review">
+                                        <h5 class="card-title">Property Reviews</h5>
+                                        <form action="#">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="review-form">
+                                                        <input type="text" class="form-control" placeholder="Your Name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="review-form">
+                                                        <input type="email" class="form-control" placeholder="Your Email">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="review-form">
+                                                        <textarea rows="5" placeholder="Enter Your Comments"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="review-form submit-btn">
+                                                        <button type="submit" class="btn-primary">Submit Review</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Reviews -->
 
                     </div>
                 </div>

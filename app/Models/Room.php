@@ -11,6 +11,9 @@ class Room extends Model
     protected $fillable = [
         'property_id',
         'name',
+        'slug',
+        'video_url',
+        'video_image',
         'description',
         'room_furnishings',
         'internet',

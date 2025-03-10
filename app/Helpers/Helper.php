@@ -447,3 +447,18 @@ if (!function_exists('getRooms')) {
         return User::where("type", User::USER_TYPE_USER)->get(); // Adjust the model if tenants are a separate entity.
     }
 }
+if (!function_exists('convertToEmbedUrl')) {
+    /**
+     * Fetch approved tenants.
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    function convertToEmbedUrl($url) {
+        $pattern = '/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|.+\?v=)|youtu\.be\/)([^\s&]+)/';
+        if (preg_match($pattern, $url, $matches)) {
+            return 'https://www.youtube.com/embed/' . $matches[1];
+        }
+        return $url; // Return as is if it's not a valid YouTube URL
+    }
+    
+}

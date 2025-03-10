@@ -4,14 +4,34 @@ namespace App\Services\Room;
 
 use App\Models\Room;
 use App\Models\RoomImage;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
 class RoomService
 {
     public function create(array $data, $createdBy)
     {
+        if(isset($data['name'])){
+            $data['slug'] = Str::slug($data['name']);
+        }
+        if (!empty($data['video_url'])) {
+            $data['video_url'] = convertToEmbedUrl($data['video_url']);
+        }
+        if (isset($data['video_image']) && $data['video_image']->isValid()) {
+            $file = $data['video_image'];
+        
+            // Generate a unique filename
+            $imageName = time() . '.' . $file->getClientOriginalExtension();
+        
+            // Store the file in 'storage/app/public/video_thumbnails/'
+            $path = Storage::disk('public')->putFileAs('video_thumbnails', $file, $imageName);
+        
+            // Save only the relative path to the database
+            $data['video_image'] = $path;
+        }
         $room = Room::create(array_merge($data, ['created_by' => $createdBy]));
 
+        
         if (isset($data['images'])) {
             $this->uploadImages($room, $data['images']);
         }
@@ -21,9 +41,26 @@ class RoomService
 
     public function update(Room $room, array $data, $updatedBy)
     {
+        if (isset($data['video_image']) && $data['video_image']->isValid()) {
+            $file = $data['video_image'];
+        
+            // Generate a unique filename
+            $imageName = time() . '.' . $file->getClientOriginalExtension();
+        
+            // Store the file in 'storage/app/public/video_thumbnails/'
+            $path = Storage::disk('public')->putFileAs('video_thumbnails', $file, $imageName);
+        
+            // Save only the relative path to the database
+            $data['video_image'] = $path;
+        }
+        if (!empty($data['video_url'])) {
+            $data['video_url'] = convertToEmbedUrl($data['video_url']);
+        }
         $room->update(array_merge($data, ['updated_by' => $updatedBy]));
 
-        
+      
+    // Save only the relative path to the database
+
         if (isset($data['images'])) {
              // Delete old images
              $this->galleryImageDelete($data, $room->id);

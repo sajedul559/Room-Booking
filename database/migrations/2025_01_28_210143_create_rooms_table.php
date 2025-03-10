@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->nullable();
             $table->text('description')->nullable();
+            $table->text('video_url')->nullable();
+            $table->text('video_image')->nullable();
             $table->text('room_furnishings')->nullable();
             $table->boolean('internet')->default(false);
             $table->decimal('price', 10, 2)->nullable();

@@ -26,7 +26,7 @@ use App\Http\Controllers\Admin\RentManagement\RentManagementController;
 */
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
-    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [App\Http\Controllers\Admin\HomeController::class, 'home'])->name('dashboard');
 
     Route::resource('properties', PropertyController::class);
     Route::resource('admins', UserController::class);

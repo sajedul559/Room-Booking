@@ -8,14 +8,17 @@ use App\Services\Room\RoomService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RoomFromRequest;
+use App\Services\Property\PropertyService;
 
 class RoomController extends Controller
 {
     protected $roomService;
+    protected $propertyService;
 
-    public function __construct(RoomService $roomService)
+    public function __construct(RoomService $roomService, PropertyService $propertyService)
     {
         $this->roomService = $roomService;
+        $this->propertyService = $propertyService;
     }
 
     public function index()
@@ -26,7 +29,8 @@ class RoomController extends Controller
 
     public function create()
     {
-        return view('backend.rooms.create');
+        $properties = $this->propertyService->getAllProperties();
+        return view('backend.rooms.create',compact('properties'));
     }
 
     public function store(RoomFromRequest $request)
@@ -44,8 +48,9 @@ class RoomController extends Controller
     {
         $gellary_image = RoomImage::where('room_id', $room->id)->get();
      
+        $properties = $this->propertyService->getAllProperties();
 
-        return view('backend.rooms.edit', compact('room','gellary_image'));
+        return view('backend.rooms.edit', compact('room','gellary_image','properties'));
     }
 
     public function update(RoomFromRequest $request, Room $room)

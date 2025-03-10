@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Room;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\ReferralIncomeHistory;
 
 class HomeController extends Controller
@@ -16,10 +17,10 @@ class HomeController extends Controller
 
 
 
-    public function index()
+    public function home()
     {
         $rooms = Room::with('images')->get();
-        return view('index',compact('rooms'));
+        return view('home',compact('rooms'));
     }
 
     public function roomDetails($slug)

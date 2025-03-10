@@ -60,7 +60,7 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 //     return view('index');
 // })->name('index');
 
-Route::get('/', [HomeController::class, 'home'])->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/room-details/{slug}', [HomeController::class, 'roomDetails'])->name('room.details');
 Route::get('/rent-details', function () {
     return view('rent-details');

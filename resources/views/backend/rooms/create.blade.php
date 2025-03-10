@@ -15,10 +15,19 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Property ID</label>
-                                        <input type="number" name="property_id" class="form-control" required>
+                                        <label class="form-label">Property</label>
+                                        <select name="property_id" class="form-control" required>
+                                            <option value="">Select Property</option>
+                                            @foreach ($properties as $property)
+                                                <option value="{{ $property->id }}" {{ old('property_id', $expense->property_id ?? '') == $property->id ? 'selected' : '' }}>
+                                                    {{ $property->property_name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                     </div>
+                                    
                                 </div>
+                                
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">Name</label>
@@ -31,7 +40,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">Description</label>
-                                        <textarea name="description" class="form-control"></textarea>
+                                        <textarea name="description" id="summernote" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -141,6 +150,20 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
+                                        <label class="form-label">Video URL</label>
+                                        <input type="url" name="video_url" class="form-control" placeholder="Enter video URL">
+                                    </div>
+                                </div>
+                            
+                                <!-- Video Image Input -->
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Video Thumbnail Image</label>
+                                        <input type="file" name="video_image" class="form-control" accept="image/*">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
                                         <div class="input-field">
                                             <label class="active">Service Gallery Image</label>
                                             <div class="input-images-1" style="padding-top: .5rem;"></div>
@@ -163,6 +186,7 @@
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/image-uploader.css') }}">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
 
 
 
@@ -170,13 +194,16 @@
 @push('scripts')
 <script src="{{ asset('assets/frontend/js/image-uploader.js') }}"></script>
 
+<!-- Include CKEditor Script -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
 
 <script>
     $(document).ready(function() {
         $('.input-images-1').imageUploader();
-       
+        $('#summernote').summernote();
+
     });
-    
+   
 </script>
 
 
