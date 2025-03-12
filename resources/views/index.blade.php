@@ -294,7 +294,7 @@
                                             <div class="doc-img">
                                                 <a href="{{ url('rent-details') }}" class="property-img">
                                                     <img class="img-fluid" alt="Property Image"
-                                                        src="{{ $room->images->isNotEmpty() ? asset('storage/' . $room->images->first()->image_path) : URL::asset('assets/frontend/img/product/default.jpg') }}">
+                                                        src="{{ $room->images->isNotEmpty() ? asset('storage/' . $room->room_image) : URL::asset('assets/frontend/img/product/default.jpg') }}">
                                                 </a>
                                                 <div class="featured">
                                                     <span>Featured</span>
