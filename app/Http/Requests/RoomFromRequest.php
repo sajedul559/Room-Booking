@@ -24,7 +24,8 @@ class RoomFromRequest extends FormRequest
         return [
             'property_id' => 'required|integer|exists:properties,id',
             'name' => 'required|string|max:255',
-            'video_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Accepts only images, max size 2MB
+            'room_image' => 'nullable|image|mimes:jpeg,png,jpg,gif', // Accepts only images, max size 2MB
+            'video_image' => 'nullable|image|mimes:jpeg,png,jpg,gif', // Accepts only images, max size 2MB
             'video_url' => 'nullable|url', // Ensures valid URL format
 
             'description' => 'nullable|string',
@@ -41,7 +42,7 @@ class RoomFromRequest extends FormRequest
             'is_pet_allowed' => 'nullable|boolean',
             'on_welfare_allowed' => 'nullable|boolean',
             'old'           => ['nullable'],
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ];
     }
 

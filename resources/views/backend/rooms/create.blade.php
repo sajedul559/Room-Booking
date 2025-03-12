@@ -158,14 +158,20 @@
                                 <!-- Video Image Input -->
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Video Thumbnail Image</label>
+                                        <label class="form-label">Video Thumbnail Image (805 W and 447 H)</label>
                                         <input type="file" name="video_image" class="form-control" accept="image/*">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
+                                        <label class="form-label">Room Image (416 W and 293 H)</label>
+                                        <input type="file" name="room_image" class="form-control" accept="image/*">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
                                         <div class="input-field">
-                                            <label class="active">Service Gallery Image</label>
+                                            <label class="active">Service Gallery Image (817 W and 446 H)</label>
                                             <div class="input-images-1" style="padding-top: .5rem;"></div>
                                         </div>
                                     </div>

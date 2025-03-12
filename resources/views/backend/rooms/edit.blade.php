@@ -15,7 +15,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Property</label>
+                                        <label class="form-label">Property <span class="text-danger"> *</span></label>
                                         <select name="property_id" class="form-control" required>
                                             <option value="">Select Property</option>
                                             @foreach ($properties as $property)
@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Name</label>
+                                        <label class="form-label">Name <span class="text-danger"> *</span></label>
                                         <input type="text" name="name" class="form-control" required value="{{ $room->name }}">
                                     </div>
                                 </div>
@@ -38,7 +38,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Description</label>
+                                        <label class="form-label">Description <span class="text-danger"> *</span></label>
                                         <textarea name="description" id="summernote" class="form-control">{{ $room->description }}</textarea>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Price</label>
+                                        <label class="form-label">Price <span class="text-danger"> *</span></label>
                                         <input type="number" step="0.01" name="price" class="form-control" required value="{{ $room->price }}">
                                     </div>
                                 </div>
@@ -104,13 +104,13 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Minimum Length of Stay (months)</label>
+                                        <label class="form-label">Minimum Length of Stay (months) <span class="text-danger"> *</span></label>
                                         <input type="number" name="min_length_of_stay" class="form-control" value="{{ $room->min_length_of_stay }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Maximum Length of Stay (months)</label>
+                                        <label class="form-label">Maximum Length of Stay (months) <span class="text-danger"> *</span></label>
                                         <input type="number" name="max_length_of_stay" class="form-control" value="{{ $room->max_length_of_stay }}">
                                     </div>
                                 </div>
@@ -128,7 +128,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Video URL</label>
+                                        <label class="form-label">Video URL <span class="text-danger"> *</span></label>
                                         <input type="url" name="video_url"  value="{{ $room->video_url }}" class="form-control" placeholder="Enter video URL">
                                     </div>
                                 </div>
@@ -136,14 +136,27 @@
                                 <!-- Video Image Input -->
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">Video Thumbnail Image</label>
-                                        <input type="file" name="video_image" class="form-control" accept="image/*">
+                                        <label class="form-label">Video Thumbnail Image (805 W and 447 H) <span class="text-danger"> *</span>
+                                        </label>
+                                        <input type="file" name="video_image" class="form-control mb-2" accept="image/*">
+                                        <img style="height:100px;" src="{{ asset('storage/' . $room->video_image) }}" alt="Video Thumbnail">
+
                                     </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Room Image (416 W and 293 H)<span class="text-danger"> *</span></label>
+                                        <input type="file" name="room_image" class="form-control mb-2" accept="image/*">
+                                        <img style="height:100px;" src="{{ asset('storage/' . $room->room_image) }}" alt="Room Image">
+
+                                    </div>
+
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <div class="input-field">
-                                            <label class="active">Service Gallery Image</label>
+                                            <label class="active">Service Gallery Image (817 W and 446 H) <span class="text-danger"> *</span></label>
                                             <div class="input-images-1" style="padding-top: .5rem;"></div>
                                         </div>
                                     </div>

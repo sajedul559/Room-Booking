@@ -14,6 +14,7 @@ class Room extends Model
         'slug',
         'video_url',
         'video_image',
+        'room_image',
         'description',
         'room_furnishings',
         'internet',

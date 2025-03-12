@@ -56,7 +56,7 @@ class RoomController extends Controller
     public function update(RoomFromRequest $request, Room $room)
     {
         $this->roomService->update($room, $request->validated(), Auth::id());
-        return redirect()->route('rooms.index')->with('success', 'Room updated successfully.');
+        return redirect()->back()->with('success', 'Room updated successfully.');
     }
 
     public function destroy(Room $room)

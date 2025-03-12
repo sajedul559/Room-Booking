@@ -29,6 +29,18 @@ class RoomService
             // Save only the relative path to the database
             $data['video_image'] = $path;
         }
+        if (isset($data['room_image']) && $data['room_image']->isValid()) {
+            $file = $data['room_image'];
+        
+            // Generate a unique filename
+            $imageName = time() . '.' . $file->getClientOriginalExtension();
+        
+            // Store the file in 'storage/app/public/room_image/'
+            $path = Storage::disk('public')->putFileAs('room_image', $file, $imageName);
+        
+            // Save only the relative path to the database
+            $data['room_image'] = $path;
+        }
         $room = Room::create(array_merge($data, ['created_by' => $createdBy]));
 
         
@@ -46,12 +58,32 @@ class RoomService
         
             // Generate a unique filename
             $imageName = time() . '.' . $file->getClientOriginalExtension();
-        
+            $oldImage = $room->video_image; // Assuming $room is the model instance
+            // Delete the old image if it exists
+            if ($oldImage && Storage::disk('public')->exists($oldImage)) {
+                Storage::disk('public')->delete($oldImage);
+            }
             // Store the file in 'storage/app/public/video_thumbnails/'
             $path = Storage::disk('public')->putFileAs('video_thumbnails', $file, $imageName);
         
             // Save only the relative path to the database
             $data['video_image'] = $path;
+        }
+        if (isset($data['room_image']) && $data['room_image']->isValid()) {
+            $file = $data['room_image'];
+        
+            // Generate a unique filename
+            $imageName = time() . '.' . $file->getClientOriginalExtension();
+            $oldImage = $room->room_image; // Assuming $room is the model instance
+            // Delete the old image if it exists
+            if ($oldImage && Storage::disk('public')->exists($oldImage)) {
+                Storage::disk('public')->delete($oldImage);
+            }
+            // Store the file in 'storage/app/public/room_image/'
+            $path = Storage::disk('public')->putFileAs('room_image', $file, $imageName);
+        
+            // Save only the relative path to the database
+            $data['room_image'] = $path;
         }
         if (!empty($data['video_url'])) {
             $data['video_url'] = convertToEmbedUrl($data['video_url']);

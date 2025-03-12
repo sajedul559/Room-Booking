@@ -143,12 +143,12 @@
                         </h4>
                         <div id="address" class="card-collapse collapse show  collapse-view">
                             <ul class="property-address">
-                                <li>Address : <span> Ferris Park</span></li>
-                                <li>City : <span> Jersey City </span></li>
+                                <li>Address : <span> {{ $room->property?->location }}</span></li>
+                                {{-- <li>City : <span> Jersey City </span></li>
                                 <li>State/County : <span> New Jersey State</span></li>
                                 <li>Country : <span> United States</span></li>
                                 <li>Zip : <span> 07305</span></li>
-                                <li>Area : <span> Greenville</span></li>
+                                <li>Area : <span> Greenville</span></li> --}}
                             </ul>
                         </div>
                     </div>
@@ -249,14 +249,6 @@
                             <a class="collapsed" data-bs-toggle="collapse" href="#video"
                                 aria-expanded="false">Video</a>
                         </h4>
-                        <div id="video" class="card-collapse collapse show  collapse-view">
-                            <div class="sample-video">
-                                {{-- <img src="{{ URL::asset('/frontend/img/video-img.jpg') }}" alt="Image"> --}}
-                                <img src="{{ asset('storage/' . $room->video_image) }}" alt="Video Thumbnail">
-                                <a class="play-icon" data-fancybox="" href="{{ $room->video_url }}"><i
-                                        class="bx bx-play"></i></a>
-                            </div>
-                        </div>
 
                         <div id="video" class="card-collapse collapse show collapse-view">
                             <div class="sample-video">
