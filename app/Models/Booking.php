@@ -16,6 +16,11 @@ class Booking extends Model
         'status',
     ];
 
+     // Status Constants
+     const STATUS_PENDING = 'pending';
+     const STATUS_CONFIRMED = 'confirmed';
+     const STATUS_CANCELLED = 'cancelled';
+     
     // Relationship with Room
     public function room()
     {

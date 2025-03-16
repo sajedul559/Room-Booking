@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="success-div">
-                        <span><i class="bx bx-check-circle me-1"></i>Modern apartment in the city centre is available for
+                        <span><i class="bx bx-check-circle me-1"></i>{{ $room->name }} is available for
                             rental</span>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                             <h5>Details</h5>
                             <p>Modern Apartment in the city centre</p>
                             <h5>Location </h5>
-                            <p class="mb-0">318-330 S Oakley Blvd, Chicago, IL 60612, USA</p>
+                            <p class="mb-0">{{ $room->property?->location }}</p>
                         </div>
                         <div class="details-div-price">
                             <h5>Booking Amount</h5>
@@ -36,101 +36,37 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12">
-                    <div class="details-time">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="arrival-div">
-                                    <h5>Arrival Time</h5>
-                                    <ul>
-                                        <li>
-                                            <input type="radio" id="radio1" name="Arrival">
-                                            <label for="radio1">Tue<span>21</span>Feb</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" id="radio2" name="Arrival" checked>
-                                            <label for="radio2">Wed<span>22</span>Feb</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" id="radio3" name="Arrival">
-                                            <label for="radio3">Thur<span>23</span>Feb</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" id="radio4" name="Arrival">
-                                            <label for="radio4">Feb<span>24</span>Feb</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" id="radio5" name="Arrival">
-                                            <label for="radio5">Sat<span>25</span>Feb</label>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="review-form mb-0">
-                                    <select class="select">
-                                        <option value="0">Select Time</option>
-                                        <option value="1">10 AM - 12 PM</option>
-                                        <option value="2">12 PM - 2 PM</option>
-                                        <option value="2">02 PM - 04 PM</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="arrival-div arrival-dept">
-                                    <h5>Departure Time</h5>
-                                    <ul>
-                                        <li>
-                                            <input type="radio" id="Departure1" name="Departure">
-                                            <label for="Departure1">Tue<span>21</span>Feb</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" id="Departure2" name="Departure" checked>
-                                            <label for="Departure2">Wed<span>22</span>Feb</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" id="Departure3" name="Departure">
-                                            <label for="Departure3">Thur<span>23</span>Feb</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" id="Departure4" name="Departure">
-                                            <label for="Departure4">Feb<span>24</span>Feb</label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" id="Departure5" name="Departure">
-                                            <label for="Departure5">Sat<span>25</span>Feb</label>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="review-form mb-0">
-                                    <select class="select">
-                                        <option value="0">Select Time</option>
-                                        <option value="1">10 AM - 12 PM</option>
-                                        <option value="2">12 PM - 2 PM</option>
-                                        <option value="2">02 PM - 04 PM</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="booking-details">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h4>Booking Details</h4>
-                                <ul>
-                                    <li>
+                <form action="{{ route('booking.store') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="room_id" value="{{ $room->id }}">
+                    <input type="hidden" name="amount" value="315"> <!-- Set dynamically -->
+                    
+                    <div class="col-lg-12">
+                        <div class="details-time">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="arrival-div">
                                         <h5>Arrival Time</h5>
-                                        <p>318-330 S Oakley Blvd, Chicago, IL 60612, USA</p>
-                                    </li>
-                                    <li>
+                                        <input type="date" name="start_date" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="arrival-div arrival-dept">
                                         <h5>Departure Time</h5>
-                                        <p>318-330 S Oakley Blvd, Chicago, IL 60612, USA</p>
-                                    </li>
-                                </ul>
+                                        <input type="date" name="end_date" class="form-control" required>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                
+                    <div class="col-lg-12">
+                        <div class="booking-details-btn">
+                            <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+                        </div>
+                    </div>
+                </form>
+                
                 <div class="col-lg-12">
                     <div class="booking-details-price">
                         <div class="row">

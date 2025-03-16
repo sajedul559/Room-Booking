@@ -2,41 +2,81 @@
 
 namespace App\Services\Booking;
 
-use App\Models\Property;
+use Exception;
+use Stripe\Charge;
+use Stripe\Stripe;
+use App\Models\Booking;
+use App\Models\Payment;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class BookingService
 {
-    /**
-     * Get all non-deleted properties with pagination.
-     *
-     * @param int $perPage
-     * @return \Illuminate\Pagination\LengthAwarePaginator
-     */
-    public function getAllProperties(int $perPage = 10)
+    public function checkRoomAvailability($roomId, $startDate, $endDate)
     {
-      
-      return Property::with('vendor.user')->where('is_publish','1')->get();
-
-    }
-    public function create(array $data)
-    {
-        $data['vendor_id'] = auth()->id();
-        $data['created_by'] = auth()->id();
-        $data['last_updated_by'] = auth()->id();
-
-        return Property::create($data);
+        return !Booking::where('room_id', $roomId)
+            ->where(function ($query) use ($startDate, $endDate) {
+                $query->whereBetween('start_date', [$startDate, $endDate])
+                      ->orWhereBetween('end_date', [$startDate, $endDate])
+                      ->orWhere(function ($query) use ($startDate, $endDate) {
+                          $query->where('start_date', '<=', $startDate)
+                                ->where('end_date', '>=', $endDate);
+                      });
+            })->exists();
     }
 
-    public function update(Property $property, array $data)
+    public function createBooking($request)
     {
-        $data['last_updated_by'] = auth()->id();
-        $property->update($data);
-
-        return $property;
+        if (!$this->checkRoomAvailability($request->room_id, $request->start_date, $request->end_date)) {
+            return ['success' => false, 'message' => 'Room is not available for the selected dates.'];
+        }
+    
+        DB::beginTransaction();
+        try {
+            // Set default status (if not provided, default to 'pending')
+            $status = $request->status ?? Booking::STATUS_PENDING;
+           
+    
+            // Create Booking
+            $booking = Booking::create([
+                'user_id'   => 1,
+                'room_id'   => $request->room_id,
+                'start_date'=> $request->start_date,
+                'end_date'  => $request->end_date,
+                'status'    => $status,
+            ]);
+    
+            // Process Payment via Stripe (only if stripe_token is provided)
+            if ($request->stripe_token) {
+                Stripe::setApiKey(env('STRIPE_SECRET'));
+    
+                $charge = Charge::create([
+                    'amount'   => $request->amount * 100, // Convert to cents
+                    'currency' => 'usd',
+                    'source'   => $request->stripe_token,
+                    'description' => "Payment for Booking ID: {$booking->id}",
+                ]);
+    
+                // Save Payment Details
+                Payment::create([
+                    'booking_id' => $booking->id,
+                    'user_id'    => 1,
+                    'amount'     => $request->amount,
+                    'stripe_payment_id' => $charge->id,
+                    'status'     => 'paid',
+                ]);
+    
+                // Update booking status to confirmed after successful payment
+                $booking->update(['status' => Booking::STATUS_CONFIRMED]);
+            }
+    
+            DB::commit();
+            return ['success' => true, 'message' => 'Booking successful', 'booking' => $booking];
+    
+        } catch (Exception $e) {
+            DB::rollBack();
+            return ['success' => false, 'message' => 'Payment failed: ' . $e->getMessage()];
+        }
     }
-
-    public function delete(Property $property)
-    {
-        $property->delete();
-    }
+    
 }

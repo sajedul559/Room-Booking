@@ -108,5 +108,16 @@
     </script>
     
   @endif
+  <script src="{{ asset('assets/js/toastr.min.js') }}"></script>
+  {!! Toastr::message() !!}
+  <script>
+    @if (session('success'))
+        toastr.success("{{ session('success') }}");
+    @endif
+
+    @if (session('error'))
+        toastr.error("{{ session('error') }}");
+    @endif
+</script>
 
   

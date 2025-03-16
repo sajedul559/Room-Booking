@@ -394,7 +394,7 @@
                 <!-- Sidebar -->
                 <div class="col-lg-4 theiaStickySidebar">
                     <div class="right-sidebar">
-                        <a href="{{ url('rental-order') }}" class="btn btn-primary prop-book"><i
+                        <a href="{{ route('booking.form',$room->slug) }}" class="btn btn-primary prop-book"><i
                                 class="bx bx-calendar"></i>Book Property</a>
 
                         <!-- Enquiry -->
