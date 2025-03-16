@@ -16,6 +16,8 @@ return new class extends Migration
             $table->foreignId('property_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('slug')->nullable();
+            $table->integer('capacity');
+            $table->boolean('is_available')->default(true);
             $table->text('description')->nullable();
             $table->text('image')->nullable();
             $table->text('video_url')->nullable();

@@ -12,6 +12,8 @@ class Room extends Model
         'property_id',
         'name',
         'slug',
+        'capacity',
+        'is_available',
         'video_url',
         'video_image',
         'room_image',
