@@ -91,19 +91,21 @@
                                 <label>Special Requests / Questions / Comments</label>
                                 <textarea rows="5" class="form-control" name="comments" placeholder="Enter Comments"></textarea>
                             
-                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                                {{-- <button type="submit" class="btn btn-primary mt-3">Submit</button> --}}
+                                <div class="col-lg-12">
+                                    <div class="booking-details-btn">
+                                        {{-- <a href="{{ url()->previous() }}" class="btn btn-lightred me-2">Back to Booking Details</a> --}}
+                                        <button type="submit" class="btn btn-primary mt-3">Go to Order Confirmation</button>
+
+                                    </div>
+                                </div>
                             </form>
                             
                         </div>
                     </div>
 
                 </div>
-                <div class="col-lg-12">
-                    <div class="booking-details-btn">
-                        <a href="{{ url('rental-order-step1') }}" class="btn btn-lightred me-2">Back to Booking Details</a>
-                        <a href="{{ url('rental-order-step2') }}" class="btn btn-primary">Go to Order Confirmation</a>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>

@@ -35,35 +35,40 @@ class BookingController extends Controller
             'amount'    => 'required|numeric|min:1',
             'stripe_token' => 'nullable|string',
         ]);
-    
+
         $response = $this->bookingService->createBooking($request);
-    
+
         if ($response['success']) {
             $room = Room::findOrFail($request->room_id); // Fetch the room details
             $booking = $response['booking']; // Get the booking details
-    
-            // Redirect to bookInformation route with slug and booking ID
-            return redirect()->route('booking.information', ['slug' => $room->slug, 'booking_id' => $booking->id])
-                             ->with('success', 'Room booked successfully.');
+
+            // Store booking ID in session
+            session(['booking_id' => $booking->id]);
+
+            // Redirect to bookInformation route
+            return redirect()->route('booking.information', ['slug' => $room->slug])
+                            ->with('success', 'Room booked successfully.');
         } else {
             return redirect()->back()->with('error', $response['message']);
         }
     }
+
     
-    public function bookInformation($slug, Request $request)
+    public function bookInformation($slug)
     {
         // Fetch the room by slug
         $room = Room::where('slug', $slug)->firstOrFail();
     
-        // Get booking ID from request
-        $bookingId = $request->query('booking_id');
+        // Get booking ID from session
+        $bookingId = session('booking_id');
     
-        // Retrieve the booking from the database
+        // Retrieve the booking from the database if the session has a booking ID
         $booking = $bookingId ? Booking::find($bookingId) : null;
     
         // Pass the room and booking data to the view
         return view('rental-order-step1', compact('room', 'booking'));
     }
+    
     
     public function bookInformationStore(Request $request)
     {

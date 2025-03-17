@@ -60,47 +60,50 @@
                         </div>
                     </div>
                 
-                    <div class="col-lg-12">
+                    {{-- <div class="col-lg-12">
                         <div class="booking-details-btn">
                             <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+                        </div>
+                    </div> --}}
+                    <div class="col-lg-12">
+                        <div class="booking-details-price">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <ul>
+                                        <li>
+                                            <h5>Booking Price </h5>
+                                            <h6>$300</h6>
+                                        </li>
+                                        <li>
+                                            <h5>Service Charge</h5>
+                                            <h6>$10</h6>
+                                        </li>
+                                        <li>
+                                            <h5>Tax</h5>
+                                            <h6>$5</h6>
+                                        </li>
+                                    </ul>
+                                    <ul class="booking-details-total">
+                                        <li>
+                                            <h5>Grand Total</h5>
+                                            <h6>$315</h6>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="booking-details-btn">
+                            {{-- <a href="javascript:void(0);" class="btn btn-lightred me-2">Previous</a> --}}
+                            {{-- <a href="{{ url('rental-order-step1') }}" class="btn btn-primary">Go to Details</a> --}}
+                            <button type="submit" class="btn btn-primary">Go to Details</button>
+
                         </div>
                     </div>
                 </form>
                 
-                <div class="col-lg-12">
-                    <div class="booking-details-price">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <ul>
-                                    <li>
-                                        <h5>Booking Price </h5>
-                                        <h6>$300</h6>
-                                    </li>
-                                    <li>
-                                        <h5>Service Charge</h5>
-                                        <h6>$10</h6>
-                                    </li>
-                                    <li>
-                                        <h5>Tax</h5>
-                                        <h6>$5</h6>
-                                    </li>
-                                </ul>
-                                <ul class="booking-details-total">
-                                    <li>
-                                        <h5>Grand Total</h5>
-                                        <h6>$315</h6>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="booking-details-btn">
-                        <a href="javascript:void(0);" class="btn btn-lightred me-2">Previous</a>
-                        <a href="{{ url('rental-order-step1') }}" class="btn btn-primary">Go to Details</a>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>

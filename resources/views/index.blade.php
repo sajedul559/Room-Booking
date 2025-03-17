@@ -315,7 +315,7 @@
                                                     <span class="rating-review">Excellent</span>
                                                 </div>
                                                 <h3 class="title">
-                                                    <a href="{{ url('rent-details') }}">{{ $room->name }}</a>
+                                                    <a href="{{ route('room.details',$room->slug)}}">{{ $room->name }}</a>
                                                 </h3>
                                                 <p><i class="feather-map-pin"></i> {{ isset($room->property->location) ? $room->property->location : 'Location not available' }}</p>
 
