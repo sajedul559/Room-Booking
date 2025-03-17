@@ -58,6 +58,18 @@ Route::get('/booking/information/{slug}', [BookingController::class, 'bookInform
 Route::post('/booking/information-store', [BookingController::class, 'bookInformationStore'])->name('booking.information.store');
 Route::get('/checkout', [BookingController::class, 'checkout'])->name('checkout');
 
+Route::get('/all-rooms', [HomeController::class, 'allRooms'])->name('all.room');
+
+
+
+Route::get('/booking/success', function () {
+    return view('booking-success');
+})->name('booking.success');
+
+Route::get('/booking/cancel', function () {
+    return view('booking-cancel');
+})->name('booking.cancel');
+
 
 // Route::get('/', function () {
 //     return view('index');

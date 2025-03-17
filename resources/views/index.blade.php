@@ -349,7 +349,7 @@
                     @endif
                 
                     <div class="view-property-btn d-flex justify-content-center" data-aos="fade-down" data-aos-duration="2000">
-                        <a href="{{ url('rent-property-grid') }}" class="btn-primary">View All Properties</a>
+                        <a href="{{ route('all.room')}}" class="btn-primary">View All Properties</a>
                     </div>
                 </div>
                 

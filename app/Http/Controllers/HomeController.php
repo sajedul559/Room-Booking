@@ -21,6 +21,11 @@ class HomeController extends Controller
         $rooms = Room::with('images')->get();
         return view('index',compact('rooms'));
     }
+    public function allRooms()
+    {
+        $rooms = Room::with('images')->get();
+        return view('rent-property-grid',compact('rooms'));
+    }
 
     public function roomDetails($slug)
     {
