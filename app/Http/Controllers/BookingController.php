@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\Booking;
 use Illuminate\Http\Request;
+use App\Models\BookingInformation;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Booking\BookingService;
 
@@ -23,6 +25,7 @@ class BookingController extends Controller
         // Pass the room data to the view
         return view('rental-order', compact('room'));
     }
+   
     public function bookRoom(Request $request)
     {
         $request->validate([
@@ -32,13 +35,67 @@ class BookingController extends Controller
             'amount'    => 'required|numeric|min:1',
             'stripe_token' => 'nullable|string',
         ]);
-
+    
         $response = $this->bookingService->createBooking($request);
-
+    
         if ($response['success']) {
-            return redirect()->back()->with('success', 'Room updated successfully.');
+            $room = Room::findOrFail($request->room_id); // Fetch the room details
+            $booking = $response['booking']; // Get the booking details
+    
+            // Redirect to bookInformation route with slug and booking ID
+            return redirect()->route('booking.information', ['slug' => $room->slug, 'booking_id' => $booking->id])
+                             ->with('success', 'Room booked successfully.');
         } else {
-            return response()->json(['error' => $response['message']], 400);
+            return redirect()->back()->with('error', $response['message']);
         }
     }
+    
+    public function bookInformation($slug, Request $request)
+    {
+        // Fetch the room by slug
+        $room = Room::where('slug', $slug)->firstOrFail();
+    
+        // Get booking ID from request
+        $bookingId = $request->query('booking_id');
+    
+        // Retrieve the booking from the database
+        $booking = $bookingId ? Booking::find($bookingId) : null;
+    
+        // Pass the room and booking data to the view
+        return view('rental-order-step1', compact('room', 'booking'));
+    }
+    
+    public function bookInformationStore(Request $request)
+    {
+        $request->validate([
+            'name'      => 'required|string|max:255',
+            'phone'     => 'required|string|max:20',
+            'email'     => 'nullable|email|max:255',
+            'address'   => 'nullable|string',
+            'comments'  => 'nullable|string',
+        ]);
+
+
+          
+            // Store Booking Information
+            BookingInformation::create([
+                'booking_id' => $request->booking_id,
+                'name'       => $request->name,
+                'phone'      => $request->phone,
+                'email'      => $request->email,
+                'address'    => $request->address,
+                'comments'   => $request->comments,
+            ]);
+
+            return redirect()->route('checkout');
+       
+    }
+    public function checkout(){
+
+        return view('rental-order-step3');
+
+
+    }
+
+    
 }

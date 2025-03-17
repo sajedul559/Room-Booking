@@ -54,6 +54,10 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
 Route::get('/room-booking/{slug}', [BookingController::class, 'showBookingForm'])->name('booking.form');
 Route::post('/booking/store', [BookingController::class, 'bookRoom'])->name('booking.store');
+Route::get('/booking/information/{slug}', [BookingController::class, 'bookInformation'])->name('booking.information');
+Route::post('/booking/information-store', [BookingController::class, 'bookInformationStore'])->name('booking.information.store');
+Route::get('/checkout', [BookingController::class, 'checkout'])->name('checkout');
+
 
 // Route::get('/', function () {
 //     return view('index');

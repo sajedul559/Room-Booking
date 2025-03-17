@@ -19,40 +19,40 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="success-div">
-                        <span><i class="bx bx-check-circle me-1"></i>Modern apartment in the city centre is available for
+                        <span><i class="bx bx-check-circle me-1"></i> {{ $room->name }} is available for
                             rental</span>
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="details-div">
                         <div class="details-div-content">
-                            <h5>Details</h5>
-                            <p>Modern Apartment in the city centre</p>
+                            {{-- <h5>Details</h5>
+                            <p>Modern Apartment in the city centre</p> --}}
                             <h5>Location </h5>
-                            <p class="mb-0">318-330 S Oakley Blvd, Chicago, IL 60612, USA</p>
+                            <p class="mb-0">{{ $room->property?->location }}</p>
                         </div>
                         <div class="details-div-price">
                             <h5>Booking Amount</h5>
-                            <h6>$300 <span>/ Day</span></h6>
+                            <h6>${{ $room->price }} <span>/ Day</span></h6>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="booking-details">
-                        <h4>Property Booking Details</h4>
+                        <h4> Booking Details</h4>
                         <ul>
                             <li>
                                 <h5>Arrival Time</h5>
-                                <p>318-330 S Oakley Blvd, Chicago, IL 60612, USA</p>
+                                <p>{{ $booking->start_date }}</p>
                             </li>
                             <li>
                                 <h5>Departure Time</h5>
-                                <p>318-330 S Oakley Blvd, Chicago, IL 60612, USA</p>
+                                <p>{{ $booking->end_date }}</p>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-12">
+                {{-- <div class="col-lg-12">
                     <div class="booking-details">
                         <h4>Booking Details</h4>
                         <ul>
@@ -66,43 +66,37 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-lg-12">
                     <div class="booking-details mb-0">
                         <h4>Fill out this quick form</h4>
                         <div class="row">
-                            <div class="col-lg-6 col-sm-12">
-                                <div class="review-form">
-                                    <label>Name<span class="manitory">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Enter Name">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-sm-12">
-                                <div class="review-form">
-                                    <label>Phone Number <span class="manitory">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Enter Phone Number">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-sm-12">
-                                <div class="review-form">
-                                    <label>Email Address</label>
-                                    <input type="text" class="form-control" placeholder="Enter Email">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-sm-12">
-                                <div class="review-form">
-                                    <label>Full Address</label>
-                                    <input type="text" class="form-control" placeholder="Enter Address">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="review-form mb-0">
-                                    <label>Special Requests / Questions / Comments</label>
-                                    <textarea rows="5" placeholder="Enter Comments"></textarea>
-                                </div>
-                            </div>
+                            <form action="{{ route('booking.information.store') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="room_id" value="{{ $room->id }}">
+                                <input type="hidden" name="booking_id" value="{{ $booking->id }}">
+                            
+                                <label>Name<span class="manitory">*</span></label>
+                                <input type="text" class="form-control" name="name" placeholder="Enter Name" required>
+                            
+                                <label>Phone Number <span class="manitory">*</span></label>
+                                <input type="text" class="form-control" name="phone" placeholder="Enter Phone Number" required>
+                            
+                                <label>Email Address</label>
+                                <input type="text" class="form-control" name="email" placeholder="Enter Email">
+                            
+                                <label>Full Address</label>
+                                <input type="text" class="form-control" name="address" placeholder="Enter Address">
+                            
+                                <label>Special Requests / Questions / Comments</label>
+                                <textarea rows="5" class="form-control" name="comments" placeholder="Enter Comments"></textarea>
+                            
+                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                            </form>
+                            
                         </div>
                     </div>
+
                 </div>
                 <div class="col-lg-12">
                     <div class="booking-details-btn">
