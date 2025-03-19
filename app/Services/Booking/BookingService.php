@@ -27,9 +27,9 @@ class BookingService
 
     public function createBooking($request)
     {
-        if (!$this->checkRoomAvailability($request->room_id, $request->start_date, $request->end_date)) {
-            return ['success' => false, 'message' => 'Room is not available for the selected dates.'];
-        }
+        // if (!$this->checkRoomAvailability($request->room_id, $request->start_date, $request->end_date)) {
+        //     return ['success' => false, 'message' => 'Room is not available for the selected dates.'];
+        // }
     
         DB::beginTransaction();
         try {
