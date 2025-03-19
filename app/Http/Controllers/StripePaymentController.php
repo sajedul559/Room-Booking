@@ -33,7 +33,7 @@ class StripePaymentController extends Controller
                     'product_data' => [
                         'name' => 'Room Booking',
                     ],
-                    'unit_amount' => $booking->amount * 100, // Convert to cents
+                    'unit_amount' => 100, // Convert to cents
                 ],
                 'quantity' => 1,
             ]],
@@ -41,9 +41,10 @@ class StripePaymentController extends Controller
             'success_url' => route('booking.success'), // Redirect after success
             'cancel_url' => route('booking.cancel'), // Redirect after cancel
         ]);
-
+        
         // Redirect to Stripe Checkout page
         return redirect()->away($checkoutSession->url);
+    
     }
 }
 

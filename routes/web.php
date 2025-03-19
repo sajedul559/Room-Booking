@@ -13,6 +13,7 @@ use App\Http\Controllers\PermissionController;
 
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\TenantReportController;
+use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\AssignPermissionController;
 use App\Http\Controllers\Admin\RolePermission\RoleController;
 use App\Http\Controllers\Admin\RolePermission\RolePermissionController;
@@ -56,10 +57,10 @@ Route::get('/room-booking/{slug}', [BookingController::class, 'showBookingForm']
 Route::post('/booking/store', [BookingController::class, 'bookRoom'])->name('booking.store');
 Route::get('/booking/information/{slug}', [BookingController::class, 'bookInformation'])->name('booking.information');
 Route::post('/booking/information-store', [BookingController::class, 'bookInformationStore'])->name('booking.information.store');
-Route::get('/checkout', [BookingController::class, 'checkout'])->name('checkout');
 
 Route::get('/all-rooms', [HomeController::class, 'allRooms'])->name('all.room');
 
+Route::get('/checkout', [StripePaymentController::class, 'checkout'])->name('checkout');
 
 
 Route::get('/booking/success', function () {
