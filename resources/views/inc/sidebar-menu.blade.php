@@ -162,6 +162,8 @@
                           <ul class="nav-second-level">
                               <li><a href="{{ route('rent_managements.index') }}">Lists</a></li>
                               <li><a href="{{ route('rent_managements.create') }}">Create</a></li>
+                              <li><a href="{{ route('rent.calender') }}">Rent Calender</a></li>
+
                           </ul>
                       </div>
                   </li>
