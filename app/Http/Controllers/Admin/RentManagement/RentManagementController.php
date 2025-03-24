@@ -69,10 +69,24 @@ class RentManagementController extends Controller
         $events = [];
     
         foreach ($rents as $rent) {
+            $dueDate = Carbon::parse($rent->date);
+            $statusColor = '';
+            if ($dueDate->isPast()) {
+                $statusColor = '#dc3545'; // Overdue (Red)
+                $text= 'Overdue';
+            } elseif ($dueDate->diffInDays(Carbon::today()) <= 2) {
+                $statusColor = '#ffc107'; // Due Soon (Yellow)
+                $text= 'Due Soon';
+
+            } else {
+                $statusColor = '#28a745'; // Upcoming (Green)
+                $text= 'Upcoming';
+
+            }
             $events[] = [
-                'title' => 'Rent Due: $' . number_format($rent->amount, 2),
+                'title' => $text.': $' . number_format($rent->amount, 2),
                 'start' => $rent->date,
-                'color' => '#28a745',
+                'color' => $statusColor,
                 'amount' => $rent->amount
             ];
         }
