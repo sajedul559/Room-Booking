@@ -31,7 +31,6 @@ protected function redirectTo()
         
         // Check if the user has any roles
         if ($user && $user->role_id) {
-            dd('working');
             // Check if the user has the 'doctor' role
             // if ($user->roles->contains('name', 'doctor')) {
             //     return route('doctor.dashboard'); // Redirect to doctor dashboard

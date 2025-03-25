@@ -20,6 +20,7 @@ class Todo extends Model
     ];
 
     public const TODO_PENDING = 'Pending';
+    public const TODO_ACTIVE = 'Active';
     public const TODO_DONE = 'Done';
     public const TODO_DUE = 'Due';
 
@@ -28,6 +29,7 @@ class Todo extends Model
     {
         return [
             self::TODO_PENDING => 'Pending',
+            self::TODO_ACTIVE => 'Active',
             self::TODO_DONE => 'Done',
             self::TODO_DUE => 'Due',
         ];

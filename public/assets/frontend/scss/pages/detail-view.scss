@@ -134,10 +134,18 @@
     }
 }
 .collapse-card {
+<<<<<<< HEAD
     // box-shadow: $__lightgray__shadow;
     border-radius: 5px;
     position: $__relative;
     // @include margin-padding(0 0 24px, 24px 24px 10px);
+=======
+    background: $__white;
+    box-shadow: $__lightgray__shadow;
+    border-radius: 5px;
+    position: $__relative;
+    @include margin-padding(0 0 24px, 24px 24px 10px);
+>>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
     .card-title {
         padding-bottom: 14px;
         a {
