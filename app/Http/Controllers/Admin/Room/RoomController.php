@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Room;
 
 use App\Models\Room;
 use App\Models\RoomImage;
+use Illuminate\Http\Request;
 use App\Services\Room\RoomService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -63,5 +64,10 @@ class RoomController extends Controller
     {
         $this->roomService->delete($room);
         return redirect()->route('rooms.index')->with('success', 'Room deleted successfully.');
+    }
+    public function getRoomsByProperty(Request $request)
+    {
+        $rooms = Room::where('property_id', $request->property_id)->get();
+        return response()->json($rooms);
     }
 }

@@ -39,6 +39,8 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/rent-calendar/events', [RentManagementController::class, 'getRentEvents'])->name('rent_calendar.events');
 
     Route::resource('rooms', RoomController::class);
+    Route::get('/get-rooms-by-property', [RoomController::class, 'getRoomsByProperty'])->name('get.rooms.by.property');
+
 });
 
 
