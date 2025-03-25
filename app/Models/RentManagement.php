@@ -47,4 +47,8 @@ class RentManagement extends Model
     {
        return $this->belongsTo(user::class,'payment_collect_by','id');
     }
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
 }
