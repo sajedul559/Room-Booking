@@ -31,7 +31,7 @@ class RentManagementService
 
     public function getRentManagementById($id)
     {
-        return RentManagement::findOrFail($id);
+        return RentManagement::with('room')->findOrFail($id);
     }
 
     public function updateRentManagement($id, array $data)

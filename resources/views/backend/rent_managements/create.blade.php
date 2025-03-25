@@ -25,22 +25,34 @@
 @endsection
 
 @push('scripts')
-{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+
 <script>
     $(document).ready(function () {
+        let selectedRoomId = "{{ old('room_id', $rent->room_id ?? '') }}";
+        let propertyId = "{{ old('property_id', $rent->property_id ?? '') }}";
+
+        if (propertyId) {
+            fetchRooms(propertyId, selectedRoomId);
+        }
+
         $('#property_id').change(function () {
-            let property_id = $(this).val();
+            let propertyId = $(this).val();
+            fetchRooms(propertyId, null);
+        });
+
+        function fetchRooms(propertyId, selectedRoomId) {
             $('#room_id').html('<option value="">Loading...</option>');
 
-            if (property_id) {
+            if (propertyId) {
                 $.ajax({
                     url: "{{ route('get.rooms.by.property') }}",
                     type: "GET",
-                    data: { property_id: property_id },
+                    data: { property_id: propertyId },
                     success: function (data) {
                         let options = '<option value="">Select Room</option>';
                         data.forEach(room => {
-                            options += `<option value="${room.id}">${room.name}</option>`;
+                            let isSelected = (selectedRoomId && selectedRoomId == room.id) ? 'selected' : '';
+                            options += `<option value="${room.id}" ${isSelected}>${room.name}</option>`;
                         });
                         $('#room_id').html(options);
                     }
@@ -48,8 +60,7 @@
             } else {
                 $('#room_id').html('<option value="">Select Room</option>');
             }
-        });
+        }
     });
 </script>
-
 @endpush

@@ -26,6 +26,9 @@
     <x-common.label title="Room" isRequired="true" />
     <x-common.select2 name="room_id" id="room_id">
         <option value="">Select Room</option>
+        @if (isset($rent->room_id))
+            <option value="{{ $rent->room_id }}" selected>{{ $rent->room->name }}</option>
+        @endif
     </x-common.select2>
 </div>
 
