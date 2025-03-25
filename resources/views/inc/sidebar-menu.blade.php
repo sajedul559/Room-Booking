@@ -162,6 +162,8 @@
                           <ul class="nav-second-level">
                               <li><a href="{{ route('rent_managements.index') }}">Lists</a></li>
                               <li><a href="{{ route('rent_managements.create') }}">Create</a></li>
+                              <li><a href="{{ route('rent.calender') }}">Rent Calender</a></li>
+
                           </ul>
                       </div>
                   </li>
@@ -189,7 +191,8 @@
                     </a>
                     <div class="collapse" id="sidebarSetup">
                         <ul class="nav-second-level">
-                            <li><a href="#">Settings</a></li>
+                            <li><a href="{{ route('settings.general') }}">General Settings</a></li>
+
                         </ul>
                     </div>
                 </li>

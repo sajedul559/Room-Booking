@@ -25,14 +25,31 @@
 @endsection
 
 @push('scripts')
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 <script>
-    @if (session('success'))
-        toastr.success("{{ session('success') }}");
-    @endif
+    $(document).ready(function () {
+        $('#property_id').change(function () {
+            let property_id = $(this).val();
+            $('#room_id').html('<option value="">Loading...</option>');
 
-    @if (session('error'))
-        toastr.error("{{ session('error') }}");
-    @endif
+            if (property_id) {
+                $.ajax({
+                    url: "{{ route('get.rooms.by.property') }}",
+                    type: "GET",
+                    data: { property_id: property_id },
+                    success: function (data) {
+                        let options = '<option value="">Select Room</option>';
+                        data.forEach(room => {
+                            options += `<option value="${room.id}">${room.name}</option>`;
+                        });
+                        $('#room_id').html(options);
+                    }
+                });
+            } else {
+                $('#room_id').html('<option value="">Select Room</option>');
+            }
+        });
+    });
 </script>
 
 @endpush

@@ -2,15 +2,18 @@
 
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\PermissionController;
-use App\Http\Controllers\SuperAdminController;
 
+use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\TenantReportController;
+use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\AssignPermissionController;
 use App\Http\Controllers\Admin\RolePermission\RoleController;
 use App\Http\Controllers\Admin\RolePermission\RolePermissionController;
@@ -50,13 +53,41 @@ Route::get('register', [CustomAuthController::class, 'registration'])->name('reg
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/room-booking/{slug}', [BookingController::class, 'showBookingForm'])->name('booking.form');
+Route::post('/booking/store', [BookingController::class, 'bookRoom'])->name('booking.store');
+Route::get('/booking/information/{slug}', [BookingController::class, 'bookInformation'])->name('booking.information');
+Route::post('/booking/information-store', [BookingController::class, 'bookInformationStore'])->name('booking.information.store');
 
-Route::get('/index', function () {
-    return view('index');
-})->name('index');
+Route::get('/all-rooms', [HomeController::class, 'allRooms'])->name('all.room');
+
+Route::get('/checkout', [StripePaymentController::class, 'checkout'])->name('checkout');
+
+
+Route::get('/booking/success', function () {
+    return view('booking-success');
+})->name('booking.success');
+
+Route::get('/booking/cancel', function () {
+    return view('booking-cancel');
+})->name('booking.cancel');
+
+
+// Route::get('/', function () {
+//     return view('index');
+// })->name('index');
+
+
+// Route::get('/index', function () {
+//     return view('index');
+// })->name('index');
+
+Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/room-details/{slug}', [HomeController::class, 'roomDetails'])->name('room.details');
+Route::get('/rent-details', function () {
+    return view('rent-details');
+})->name('rent-details');Route::get('/rent-details', function () {
+    return view('rent-details');
+})->name('rent-details');
 
 Route::get('/rent-property-grid', function () {
     return view('rent-property-grid');

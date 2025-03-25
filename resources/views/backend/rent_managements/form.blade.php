@@ -12,7 +12,7 @@
 
 <div class="mb-3">
     <x-common.label title="Property" isRequired="true" />
-    <x-common.select2 name="property_id">
+    <x-common.select2 name="property_id" id="property_id">
         <option value="">Select Property</option>
         @foreach ($data['properties'] as $property)
             <option value="{{ $property->id }}" {{ old('property_id', $rent->property_id ?? '') == $property->id ? 'selected' : '' }}>
@@ -24,13 +24,8 @@
 
 <div class="mb-3">
     <x-common.label title="Room" isRequired="true" />
-    <x-common.select2 name="room_id">
+    <x-common.select2 name="room_id" id="room_id">
         <option value="">Select Room</option>
-        @foreach ($data['rooms'] as $room)
-            <option value="{{ $room->id }}" {{ old('room_id', $rent->room_id ?? '') == $room->id ? 'selected' : '' }}>
-                {{ $room->name }}
-            </option>
-        @endforeach
     </x-common.select2>
 </div>
 

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin\RentManagement;
 
+use Carbon\Carbon;
 use App\Models\RentManagement;
 use Illuminate\Http\Request;
-
 use App\Http\Controllers\Controller;
 use App\Services\Vendor\VendorService;
 use App\Services\RentManagement\RentManagementService;
@@ -42,7 +42,58 @@ class RentManagementController extends Controller
         $data = $this->rentManagementService->create();
         return view('backend.rent_managements.create',compact('data'));
     }
+    public function calender(Request $request)
+    {
+        $month = $request->query('month', date('m'));
 
+        $rents = RentManagement::whereMonth('created_at', $month)
+                    ->orderBy('created_at', 'asc')
+                    ->get();
+    
+        return view('backend.rent_managements.calender', compact('rents'));
+    }
+    public function getRentEvents(Request $request)
+    {
+        // Extract month from the 'start' parameter
+        $month = $request->query('month'); // Default to current month if not provided
+
+        $startDate = $request->query('start', now()->toIso8601String());
+        // $month = Carbon::parse($startDate)->month; // Extract month
+        $year = Carbon::parse($startDate)->year; // Extract year
+    
+        \Log::info("Fetching rent events for: Month - $month, Year - $year");
+    
+        $rents = RentManagement::whereMonth('date', $month)
+                               ->get();
+    
+        $events = [];
+    
+        foreach ($rents as $rent) {
+            $dueDate = Carbon::parse($rent->date);
+            $statusColor = '';
+            if ($dueDate->isPast()) {
+                $statusColor = '#dc3545'; // Overdue (Red)
+                $text= 'Overdue';
+            } elseif ($dueDate->diffInDays(Carbon::today()) <= 2) {
+                $statusColor = '#ffc107'; // Due Soon (Yellow)
+                $text= 'Due Soon';
+
+            } else {
+                $statusColor = '#28a745'; // Upcoming (Green)
+                $text= 'Upcoming';
+
+            }
+            $events[] = [
+                'title' => $text.': $' . number_format($rent->amount, 2),
+                'start' => $rent->date,
+                'color' => $statusColor,
+                'amount' => $rent->amount
+            ];
+        }
+    
+        return response()->json($events);
+    }
+    
     public function store(RentManagementFormRequest $request)
     {
         // dd("workng",$request->all());

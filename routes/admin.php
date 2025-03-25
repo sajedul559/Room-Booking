@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\Todo\TodoController;
+use App\Http\Controllers\GeneralSettingsController;
 use App\Http\Controllers\Admin\Vendor\VendorController;
 use App\Http\Controllers\Admin\Expense\ExpenseController;
 use App\Http\Controllers\Admin\Property\PropertyController;
@@ -23,13 +24,31 @@ use App\Http\Controllers\Admin\RentManagement\RentManagementController;
 |
 */
 
-Route::resource('properties', PropertyController::class);
-Route::resource('admins', UserController::class);
-Route::resource('vendors', VendorController::class);
-Route::resource('house_chores', HouseChoreController::class);
-Route::resource('todos', TodoController::class);
-Route::resource('expenses', ExpenseController::class);
-Route::resource('rent_managements', RentManagementController::class);
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\Admin\HomeController::class, 'home'])->name('dashboard');
+
+    Route::resource('properties', PropertyController::class);
+    Route::resource('admins', UserController::class);
+    Route::resource('vendors', VendorController::class);
+    Route::resource('house_chores', HouseChoreController::class);
+    Route::resource('todos', TodoController::class);
+    Route::resource('expenses', ExpenseController::class);
+    Route::resource('rent_managements', RentManagementController::class);
+    Route::get('rent-managements/calender',[RentManagementController::class, 'calender'])->name('rent.calender');
+    Route::get('/rent-calendar/events', [RentManagementController::class, 'getRentEvents'])->name('rent_calendar.events');
+
+    Route::resource('rooms', RoomController::class);
+    Route::get('/get-rooms-by-property', [RoomController::class, 'getRoomsByProperty'])->name('get.rooms.by.property');
+
+});
+
+
+Route::group(['as'=>'settings.', 'prefix'=>'settings'], function(){
+    
+    Route::get('/general', [GeneralSettingsController::class, 'index'])->name('general');
+    Route::post('/general', [GeneralSettingsController::class, 'store'])->name('general.store');
+   
+});
 
 
 

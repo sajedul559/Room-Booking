@@ -87,3 +87,4 @@
 
 <!-- Main CSS -->
 <link rel="stylesheet" href="{{ url('assets/frontend/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/toastr.min.css') }}">
