@@ -110,7 +110,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     incomeChart.data.datasets = [{
                         label: 'Income',
                         data: response.data,
-                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        backgroundColor: 'rgba(54, 162, 235, 0.8)', // Matching color from the image
+
                         borderColor: 'rgba(54, 162, 235, 1)',
                         borderWidth: 2,
                         fill: true
