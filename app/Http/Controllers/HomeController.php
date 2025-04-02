@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Models\ReferralIncomeHistory;
 
@@ -19,7 +20,8 @@ class HomeController extends Controller
     public function index()
     {
         $rooms = Room::with('images')->get();
-        return view('index',compact('rooms'));
+        $properties = Property::where('is_publish','1')->get();
+        return view('index',compact('rooms','properties'));
     }
     public function allRoom()
     {

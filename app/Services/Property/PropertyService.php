@@ -43,10 +43,25 @@ class PropertyService
     public function update(Property $property, array $data)
     {
         $data['last_updated_by'] = auth()->id();
+    
+        if (isset($data['image']) && $data['image']->isValid()) {
+            // Delete old image if it exists
+            if ($property->image_path && Storage::disk('public')->exists($property->image_path)) {
+                Storage::disk('public')->delete($property->image_path);
+            }
+    
+            $file = $data['image'];
+            $imageName = time() . '.' . $file->getClientOriginalExtension();
+            $path = Storage::disk('public')->putFileAs('image', $file, $imageName);
+    
+            $data['image_path'] = $path;
+        }
+    
         $property->update($data);
-
+    
         return $property;
     }
+    
 
     public function delete(Property $property)
     {

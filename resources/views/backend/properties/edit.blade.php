@@ -6,7 +6,7 @@
         <div class="col-12">
             <div class="card p-4 border-0 shadow-sm">
                 <div class="row">
-                        <form action="{{ route('properties.update', $property) }}" method="POST">
+                        <form action="{{ route('properties.update', $property) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             @include('backend.properties.form', ['property' => $property])

@@ -285,16 +285,16 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-12">
-                    @if ($rooms->count() > 0)
+                    @if ($properties->count() > 0)
                         <div class="feature-slider owl-carousel">
-                            @foreach ($rooms as $room)
+                            @foreach ($properties as $room)
                                 <div class="slider-col">
                                     <div class="product-custom" data-aos="fade-down" data-aos-duration="2000">
                                         <div class="profile-widget">
                                             <div class="doc-img">
                                                 <a href="{{ url('rent-details') }}" class="property-img">
                                                     <img class="img-fluid" alt="Property Image"
-                                                    src="{{ get_image_path($room->room_image) }}">
+                                                    src="{{ get_image_path($room->image_path) }}">
                                                    
                                                 </a>
                                                 <div class="featured">
@@ -316,9 +316,9 @@
                                                     <span class="rating-review">Excellent</span>
                                                 </div>
                                                 <h3 class="title">
-                                                    <a href="{{ route('room.details',$room->slug)}}">{{ $room->name }}</a>
+                                                    <a href="{{ route('room.details',$room->slug)}}">{{ $room->property_name }}</a>
                                                 </h3>
-                                                <p><i class="feather-map-pin"></i> {{ isset($room->property->location) ? $room->property->location : 'Location not available' }}</p>
+                                                <p><i class="feather-map-pin"></i> {{ isset($room->location) ? $room->location : 'Location not available' }}</p>
 
                                                 {{-- <ul class="d-flex details">
                                                     <li>
