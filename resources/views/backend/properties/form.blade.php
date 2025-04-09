@@ -33,6 +33,13 @@
     @enderror
 </div>
 
+<div class="col-md-6">
+    <div class="mb-3">
+        <label class="form-label">Property Image (416 W and 293 H)</label>
+        <input type="file" name="image" class="form-control" accept="image/*">
+    </div>
+</div>
+
 
  
 

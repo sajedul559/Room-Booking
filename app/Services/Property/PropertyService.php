@@ -3,6 +3,7 @@
 namespace App\Services\Property;
 
 use App\Models\Property;
+use Illuminate\Support\Facades\Storage;
 
 class PropertyService
 {
@@ -23,6 +24,18 @@ class PropertyService
         $data['vendor_id'] = auth()->id();
         $data['created_by'] = auth()->id();
         $data['last_updated_by'] = auth()->id();
+        if (isset($data['image']) && $data['image']->isValid()) {
+            $file = $data['image'];
+        
+            // Generate a unique filename
+            $imageName = time() . '.' . $file->getClientOriginalExtension();
+        
+            // Store the file in 'storage/app/public/image/'
+            $path = Storage::disk('public')->putFileAs('image', $file, $imageName);
+        
+            // Save only the relative path to the database
+            $data['image_path'] = $path;
+        }
 
         return Property::create($data);
     }

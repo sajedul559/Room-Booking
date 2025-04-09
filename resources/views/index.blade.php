@@ -294,7 +294,8 @@
                                             <div class="doc-img">
                                                 <a href="{{ url('rent-details') }}" class="property-img">
                                                     <img class="img-fluid" alt="Property Image"
-                                                        src="{{ $room->images->isNotEmpty() ? asset('storage/' . $room->room_image) : URL::asset('assets/frontend/img/product/default.jpg') }}">
+                                                    src="{{ get_image_path($room->room_image) }}">
+                                                   
                                                 </a>
                                                 <div class="featured">
                                                     <span>Featured</span>
@@ -319,7 +320,7 @@
                                                 </h3>
                                                 <p><i class="feather-map-pin"></i> {{ isset($room->property->location) ? $room->property->location : 'Location not available' }}</p>
 
-                                                <ul class="d-flex details">
+                                                {{-- <ul class="d-flex details">
                                                     <li>
                                                         <img src="{{ URL::asset('assets/frontend/img/icons/bed-icon.svg') }}" alt="bed-icon">
                                                         Min Stay: {{ $room->min_length_of_stay }} 
@@ -327,12 +328,8 @@
                                                     <li>
                                                         <img src="{{ URL::asset('assets/frontend/img/icons/bath-icon.svg') }}" alt="bath-icon">
                                                         Max Stay:  {{ $room->max_length_of_stay }} 
-                                                    </li>
-                                                    {{-- <li>
-                                                        <img src="{{ URL::asset('assets/frontend/img/icons/building-icon.svg') }}" alt="building-icon">
-                                                        {{ $room->available_date }} Available Date
-                                                    </li> --}}
-                                                </ul>
+                                                    
+                                                </ul> --}}
                                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                                     <li>
                                                         <a href="{{ route('room.details',$room->slug)}}" class="btn-primary">View Rooms</a>

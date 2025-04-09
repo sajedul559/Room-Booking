@@ -23,7 +23,7 @@
 @endif
 @component('components.loader')
 @endcomponent
-{{-- <!-- Main Wrapper -->
+<!-- Main Wrapper -->
 @if (!Route::is(['reset-password', 'forgot-password', 'login', 'register', 'about-us']))
     <div class="main-wrapper">
 @endif
@@ -36,7 +36,7 @@
 @endif
 @if (Route::is(['coming-soon', 'error-404', 'error-500', 'maintenance']))
     <div class="container">
-@endif --}}
+@endif
 @include('layout.partials.header')
 @yield('content')
 @if (

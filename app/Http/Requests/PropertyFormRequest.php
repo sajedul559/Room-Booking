@@ -26,6 +26,7 @@ class PropertyFormRequest extends FormRequest
             'property_name' => 'required|string|max:255',
             'location' => 'required|string|max:255',
             'property_type' => 'required|in:Flat,Student Accommodation,Homestay',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'is_publish' => 'sometimes|boolean',
         ];
     }

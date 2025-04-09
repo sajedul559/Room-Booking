@@ -15,6 +15,7 @@ class Property extends Model
         'slug',
         'location',
         'property_type',
+        'image_path',
         'created_by',
         'last_updated_by',
         'vendor_id',
