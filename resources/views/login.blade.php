@@ -1,8 +1,12 @@
 <?php $page = 'login'; ?>
 @extends('layout.mainlayout')
 @section('content')
+ 
     <div class="login-wrapper">
+        
         <div class="loginbox">
+            <a href="{{ url('index') }}"><img class=""
+                src="{{ URL::asset('/frontend/img/logo.svg') }}" alt="Logo"></a>
             <div class="login-auth">
                 <div class="login-auth-wrap">
                     <h1>Hey There!!! Welcome Back.</h1>

@@ -2,8 +2,6 @@
     !Route::is([
         'reset-password',
         'forgot-password',
-        'login',
-        'register',
         'coming-soon',
         'error-404',
         'error-500',
@@ -110,8 +108,6 @@
 @if (Route::is([
         'reset-password',
         'forgot-password',
-        'login',
-        'register',
         'coming-soon',
         'error-404',
         'error-500',

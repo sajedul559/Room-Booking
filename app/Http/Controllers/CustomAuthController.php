@@ -40,7 +40,7 @@ class CustomAuthController extends Controller
             if ($user->type === 'admin') {
                 return redirect()->intended('/dashboard')->withSuccess('Signed in');
             } else {
-                return redirect()->intended('/index')->withSuccess('Signed in');
+                return redirect()->intended('/')->withSuccess('Signed in');
             }
         }
     
