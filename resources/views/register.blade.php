@@ -12,7 +12,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="form-label">Name <span>*</span></label>
-                                <input  type="text" class="form-control" placeholder="Enter Name" name="name" id="name">
+                                <input style="background-color: #fff;"  type="text" class="form-control" placeholder="Enter Name" name="name" id="name">
                                 <div class="text-danger pt-2">
                                     @error('name') {{ $message }} @enderror
                                 </div>
@@ -43,20 +43,22 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-label">Confirm Password <span>*</span></label>
-                            <div class="pass-group position-relative">
-                                <input type="password" 
-                                       class="form-control pass-new-input" 
-                                       style="background-color: #fff;" 
-                                       placeholder="Enter Confirm Password" 
-                                       name="confirm_password" 
-                                       id="confirm_password">
-                                <span class="fas fa-eye toggle-password1 feather-eye-off" 
-                                      style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"></span>
-                            </div>
-                            <div class="text-danger pt-2">
-                                @error('confirm_password') {{ $message }} @enderror
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Confirm Password <span>*</span></label>
+                                <div class="pass-group position-relative">
+                                    <input type="password" 
+                                           class="form-control pass-new-input" 
+                                           style="background-color: #fff;" 
+                                           placeholder="Enter Confirm Password" 
+                                           name="confirm_password" 
+                                           id="confirm_password">
+                                    <span class="fas fa-eye toggle-password1 feather-eye-off" 
+                                          style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"></span>
+                                </div>
+                                <div class="text-danger pt-2">
+                                    @error('confirm_password') {{ $message }} @enderror
+                                </div>
                             </div>
                         </div>
                         
