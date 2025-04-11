@@ -119,365 +119,72 @@
                 </div>
     
                 <div class="feature-property-sec for-rent for-rent p-0 bg-transparent">
-                    <div class="row">                    
-                         <!-- Rent grid -->
-                         <div class=" offset-lg-1 offset-md-1 col-lg-5 col-md-5">
-                            <div class="product-custom">
-                                <div class="profile-widget">
-                                    <div class="doc-img">
-                                        <!-- Slider -->
-                                        <div class="buy-details-col">
-                                            <div class="rental-card">
-                                                <div class="slider rental-slider">
-                                                    <div class="product-img">
-                                                        <img src="{{ URL::asset('assets/frontend/img/product/room4.jpg') }}" alt="Slider">
+                    <div class="row">
+                        @forelse($rooms as $room)
+                        <div class="offset-lg-1 offset-md-1 col-lg-5 col-md-5 mb-4">
+                                <div class="product-custom">
+                                    <div class="profile-widget">
+                                        <div class="doc-img">
+                                            <!-- Slider -->
+                                            <div class="buy-details-col">
+                                                <div class="rental-card">
+                                                    <div class="slider rental-slider">
+                                                        @foreach($room->images as $image)
+                                                            <div class="product-img">
+                                                                <img  src="{{ get_image_path($image->image_path) }}" alt="Room Image">
+                                                            </div>
+                                                        @endforeach
                                                     </div>
-                                                    <div class="product-img">
-                                                        <img src="{{ URL::asset('assets/frontend/img/product/room1.jpg') }}" alt="Slider">
+                                                    <div class="slider slider-nav-thumbnails">
+                                                        @foreach($room->images as $image)
+                                                            <div>
+                                                                <img src="{{ get_image_path($image->image_path) }}" alt="Thumbnail">
+                                                            </div>
+                                                        @endforeach
                                                     </div>
-                                                    <div class="product-img">
-                                                        <img src="{{ URL::asset('assets/frontend/img/product/room5.jpg') }}" alt="Slider">
-                                                    </div>
-                                                    <div class="product-img">
-                                                        <img src="{{ URL::asset('assets/frontend/img/product/room4.jpg') }}" alt="Slider">
-                                                    </div>
-                                                   
-                                                </div>
-                                                <div class="slider slider-nav-thumbnails">
-                                                    <div><img src="{{ URL::asset('assets/frontend/img/product/room4.jpg') }}" alt="product image">
-                                                    </div>
-                                                    <div><img src="{{ URL::asset('assets/frontend/img/product/room1.jpg') }}" alt="product image">
-                                                    </div>
-                                                    <div><img src="{{ URL::asset('assets/frontend/img/product/room5.jpg') }}" alt="product image">
-                                                    </div>
-                                                    <div><img src="{{ URL::asset('assets/frontend/img/product/room4.jpg') }}"
-                                                            alt="product image"></div>
-                                                   
                                                 </div>
                                             </div>
+                                            <!-- /Slider -->
                                         </div>
-                                        <!-- /Slider -->
-                                       
-                                    </div>
-                                    <div class="pro-content">
-                                        {{-- <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                            </span>
-                                            <span class="rating-review">Excellent</span>
-                                        </div> --}}
-                                        <h3 class="title">
-                                            <a href="{{ url('rent-details') }}">Beautiful Condo Room</a>
-                                        </h3>
-                                        <p><i class="feather-map-pin"></i> 318-S Oakley Blvd, Chicago, IL 60612, USA</p>
-                                        <div class="decription">
-                                            <p>Looking for more space? Our standard rooms feature a single bed, study desk, study chair, 
-                                                storage cupboards, and wardrobe. Each room includes a full private ensuite.</p>
-                                            <p>Note: Drawings are not to scale; images are artistic impressions only.
-                                            </p>
-                                            <p class="description-p"><b>lease options available until 30th of June 2025 or 31st of January 2026 </b></p>
-                                        </div>
-                                        
-                                        {{-- <ul class="d-flex details">
-                                            <li>
-                                                <img src="{{ URL::asset('assets/frontend/img/icons/bed-icon.svg') }}"
-                                                    alt="bed-icon">
-                                                4 Beds
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('assets/frontend/img/icons/bath-icon.svg') }}"
-                                                    alt="bath-icon">
-                                                4 Baths
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('assets/frontend/img/icons/building-icon.svg') }}"
-                                                    alt="building-icon">
-                                                35000 Sqft
-                                            </li>
-                                        </ul> --}}
-                                        <ul class="property-category d-flex justify-content-between align-items-center">
-                                            {{-- <li class="user-info">
-                                                <a href="{{ url('rent-details') }}"><img
-                                                        src="{{ URL::asset('assets/frontend/img/profiles/avatar-01.jpg') }}"
-                                                        class="img-fluid avatar" alt="User"></a>
-                                                <div class="user-name">
-                                                    <h6><a href="{{ url('rent-details') }}">Marc Silva</a></h6>
-                                                    <p>Newyork</p>
+                
+                                        <div class="pro-content">
+                                            <div class="rating">
+                                                    <span class="rating-count">
+                                                        <i class="fa-solid fa-star checked"></i>
+                                                        <i class="fa-solid fa-star checked"></i>
+                                                        <i class="fa-solid fa-star checked"></i>
+                                                        <i class="fa-solid fa-star checked"></i>
+                                                        <i class="fa-solid fa-star checked"></i>
+                                                    </span>
+                                                    <span class="rating-review">Excellent</span>
                                                 </div>
-                                            </li> --}}
-                                            <li>
-                                                <a href="{{ url('rent-details') }}" class="btn-primary">View Rooms</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Rent grid -->
-                         <!-- Rent grid -->
-                         <div class="col-lg-5 col-md-5">
-                            <div class="product-custom">
-                                <div class="profile-widget">
-                                    <div class="doc-img">
-                                        <!-- Slider -->
-                                        <div class="buy-details-col">
-                                            <div class="rental-card">
-                                                <div class="slider rental-slider">
-                                                    <div class="product-img">
-                                                        <img src="{{ URL::asset('assets/frontend/img/product/room5.jpg') }}" alt="Slider">
-                                                    </div>
-                                                    <div class="product-img">
-                                                        <img src="{{ URL::asset('assets/frontend/img/product/room1.jpg') }}" alt="Slider">
-                                                    </div>
-                                                    <div class="product-img">
-                                                        <img src="{{ URL::asset('assets/frontend/img/product/room5.jpg') }}" alt="Slider">
-                                                    </div>
-                                                    <div class="product-img">
-                                                        <img src="{{ URL::asset('assets/frontend/img/product/room4.jpg') }}" alt="Slider">
-                                                    </div>
-                                                   
-                                                </div>
-                                                <div class="slider slider-nav-thumbnails">
-                                                    <div><img src="{{ URL::asset('assets/frontend/img/product/room5.jpg') }}" alt="product image">
-                                                    </div>
-                                                    <div><img src="{{ URL::asset('assets/frontend/img/product/room1.jpg') }}" alt="product image">
-                                                    </div>
-                                                    <div><img src="{{ URL::asset('assets/frontend/img/product/room5.jpg') }}" alt="product image">
-                                                    </div>
-                                                    <div><img src="{{ URL::asset('assets/frontend/img/product/room4.jpg') }}"
-                                                            alt="product image"></div>
-                                                   
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /Slider -->
-                                       
-                                    </div>
-                                    <div class="pro-content">
-                                        {{-- <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                            </span>
-                                            <span class="rating-review">Excellent</span>
-                                        </div> --}}
                                             <h3 class="title">
-                                                <a href="{{ url('rent-details') }}">Beautiful Condo Room</a>
+                                                <a href="{{ route('room.details',$room->slug)}}">{{ $room->name ?? 'Room Title' }}</a>
                                             </h3>
-                                            <p><i class="feather-map-pin"></i> 318-S Oakley Blvd, Chicago, IL 60612, USA</p>
+                                            <p><i class="feather-map-pin"></i> {{ $room->property->location ?? 'No address' }}</p>
                                             <div class="decription">
-                                                <p>Looking for more space? Our standard rooms feature a single bed, study desk, study chair, 
-                                                    storage cupboards, and wardrobe. Each room includes a full private ensuite.</p>
-                                                <p>Note: Drawings are not to scale; images are artistic impressions only.
-                                                </p>
-                                                <p class="description-p"><b>lease options available until 30th of June 2025 or 31st of January 2026 </b></p>
+                                                <p>{!! $room->description !!}</p>
+                                                {{-- <p class="description-p">
+                                                    <b> {{ $room->description ?? 'N/A' }}</b>
+                                                </p> --}}
                                             </div>
-                                        <ul class="property-category d-flex justify-content-between align-items-center">
-                                            {{-- <li class="user-info">
-                                                <a href="{{ url('rent-details') }}"><img
-                                                        src="{{ URL::asset('assets/frontend/img/profiles/avatar-01.jpg') }}"
-                                                        class="img-fluid avatar" alt="User"></a>
-                                                <div class="user-name">
-                                                    <h6><a href="{{ url('rent-details') }}">Marc Silva</a></h6>
-                                                    <p>Newyork</p>
-                                                </div>
-                                            </li> --}}
-                                            <li>
-                                                <a href="{{ url('rent-details') }}" class="btn-primary">View Rooms</a>
-                                            </li>
-                                        </ul>
+                                            <ul class="property-category d-flex justify-content-between align-items-center">
+                                                <li>
+                                                    <a href="{{ route('room.details',$room->slug)}}" class="btn-primary">View Rooms</a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- /Rent grid --> 
-                        <!-- Rent grid -->
-                        <div class=" offset-lg-1 offset-md-1 col-lg-5 col-md-5">
-                            <div class="product-custom">
-                                <div class="profile-widget">
-                                    <div class="doc-img">
-                                        <!-- Slider -->
-                                        <div class="buy-details-col">
-                                            <div class="rental-card">
-                                                <div class="slider rental-slider">
-                                                    <div class="product-img">
-                                                        <img src="{{ URL::asset('assets/frontend/img/product/room4.jpg') }}" alt="Slider">
-                                                    </div>
-                                                    <div class="product-img">
-                                                        <img src="{{ URL::asset('assets/frontend/img/product/room1.jpg') }}" alt="Slider">
-                                                    </div>
-                                                    <div class="product-img">
-                                                        <img src="{{ URL::asset('assets/frontend/img/product/room5.jpg') }}" alt="Slider">
-                                                    </div>
-                                                    <div class="product-img">
-                                                        <img src="{{ URL::asset('assets/frontend/img/product/room4.jpg') }}" alt="Slider">
-                                                    </div>
-                                                   
-                                                </div>
-                                                <div class="slider slider-nav-thumbnails">
-                                                    <div><img src="{{ URL::asset('assets/frontend/img/product/room4.jpg') }}" alt="product image">
-                                                    </div>
-                                                    <div><img src="{{ URL::asset('assets/frontend/img/product/room1.jpg') }}" alt="product image">
-                                                    </div>
-                                                    <div><img src="{{ URL::asset('assets/frontend/img/product/room5.jpg') }}" alt="product image">
-                                                    </div>
-                                                    <div><img src="{{ URL::asset('assets/frontend/img/product/room4.jpg') }}"
-                                                            alt="product image"></div>
-                                                   
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /Slider -->
-                                       
-                                    </div>
-                                    <div class="pro-content">
-                                        {{-- <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                            </span>
-                                            <span class="rating-review">Excellent</span>
-                                        </div> --}}
-                                        <h3 class="title">
-                                            <a href="{{ url('rent-details') }}">Beautiful Condo Room</a>
-                                        </h3>
-                                        <p><i class="feather-map-pin"></i> 318-S Oakley Blvd, Chicago, IL 60612, USA</p>
-                                        <div class="decription">
-                                            <p>Looking for more space? Our standard rooms feature a single bed, study desk, study chair, 
-                                                storage cupboards, and wardrobe. Each room includes a full private ensuite.</p>
-                                            <p>Note: Drawings are not to scale; images are artistic impressions only.
-                                            </p>
-                                            <p class="description-p"><b>lease options available until 30th of June 2025 or 31st of January 2026 </b></p>
-                                        </div>
-                                        
-                                        {{-- <ul class="d-flex details">
-                                            <li>
-                                                <img src="{{ URL::asset('assets/frontend/img/icons/bed-icon.svg') }}"
-                                                    alt="bed-icon">
-                                                4 Beds
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('assets/frontend/img/icons/bath-icon.svg') }}"
-                                                    alt="bath-icon">
-                                                4 Baths
-                                            </li>
-                                            <li>
-                                                <img src="{{ URL::asset('assets/frontend/img/icons/building-icon.svg') }}"
-                                                    alt="building-icon">
-                                                35000 Sqft
-                                            </li>
-                                        </ul> --}}
-                                        <ul class="property-category d-flex justify-content-between align-items-center">
-                                            {{-- <li class="user-info">
-                                                <a href="{{ url('rent-details') }}"><img
-                                                        src="{{ URL::asset('assets/frontend/img/profiles/avatar-01.jpg') }}"
-                                                        class="img-fluid avatar" alt="User"></a>
-                                                <div class="user-name">
-                                                    <h6><a href="{{ url('rent-details') }}">Marc Silva</a></h6>
-                                                    <p>Newyork</p>
-                                                </div>
-                                            </li> --}}
-                                            <li>
-                                                <a href="{{ url('rent-details') }}" class="btn-primary">View Rooms</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                            @empty
+                            <div class="col-12 text-center my-5">
+                                <h4 class="text-muted">We couldn't find any rooms matching your search criteria.</h4>
                             </div>
-                        </div>
-                        <!-- /Rent grid -->
-                         <!-- Rent grid -->
-                         <div class="col-lg-5 col-md-5">
-                            <div class="product-custom">
-                                <div class="profile-widget">
-                                    <div class="doc-img">
-                                        <!-- Slider -->
-                                        <div class="buy-details-col">
-                                            <div class="rental-card">
-                                                <div class="slider rental-slider">
-                                                    <div class="product-img">
-                                                        <img src="{{ URL::asset('assets/frontend/img/product/room5.jpg') }}" alt="Slider">
-                                                    </div>
-                                                    <div class="product-img">
-                                                        <img src="{{ URL::asset('assets/frontend/img/product/room1.jpg') }}" alt="Slider">
-                                                    </div>
-                                                    <div class="product-img">
-                                                        <img src="{{ URL::asset('assets/frontend/img/product/room5.jpg') }}" alt="Slider">
-                                                    </div>
-                                                    <div class="product-img">
-                                                        <img src="{{ URL::asset('assets/frontend/img/product/room4.jpg') }}" alt="Slider">
-                                                    </div>
-                                                   
-                                                </div>
-                                                <div class="slider slider-nav-thumbnails">
-                                                    <div><img src="{{ URL::asset('assets/frontend/img/product/room5.jpg') }}" alt="product image">
-                                                    </div>
-                                                    <div><img src="{{ URL::asset('assets/frontend/img/product/room1.jpg') }}" alt="product image">
-                                                    </div>
-                                                    <div><img src="{{ URL::asset('assets/frontend/img/product/room5.jpg') }}" alt="product image">
-                                                    </div>
-                                                    <div><img src="{{ URL::asset('assets/frontend/img/product/room4.jpg') }}"
-                                                            alt="product image"></div>
-                                                   
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- /Slider -->
-                                       
-                                    </div>
-                                    <div class="pro-content">
-                                        {{-- <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                            </span>
-                                            <span class="rating-review">Excellent</span>
-                                        </div> --}}
-                                            <h3 class="title">
-                                                <a href="{{ url('rent-details') }}">Beautiful Condo Room</a>
-                                            </h3>
-                                            <p><i class="feather-map-pin"></i> 318-S Oakley Blvd, Chicago, IL 60612, USA</p>
-                                            <div class="decription">
-                                                <p>Looking for more space? Our standard rooms feature a single bed, study desk, study chair, 
-                                                    storage cupboards, and wardrobe. Each room includes a full private ensuite.</p>
-                                                <p>Note: Drawings are not to scale; images are artistic impressions only.
-                                                </p>
-                                                <p class="description-p"><b>lease options available until 30th of June 2025 or 31st of January 2026 </b></p>
-                                            </div>
-                                        <ul class="property-category d-flex justify-content-between align-items-center">
-                                            {{-- <li class="user-info">
-                                                <a href="{{ url('rent-details') }}"><img
-                                                        src="{{ URL::asset('assets/frontend/img/profiles/avatar-01.jpg') }}"
-                                                        class="img-fluid avatar" alt="User"></a>
-                                                <div class="user-name">
-                                                    <h6><a href="{{ url('rent-details') }}">Marc Silva</a></h6>
-                                                    <p>Newyork</p>
-                                                </div>
-                                            </li> --}}
-                                            <li>
-                                                <a href="{{ url('rent-details') }}" class="btn-primary">View Rooms</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Rent grid -->   
+                        @endforelse
                     </div>
                 </div>
+                
             </div>
         </div>
     </section>
@@ -859,7 +566,7 @@
  <section class="room-blog">
     <div class="container">
         <div class="section-heading text-center pt-5">
-            <h2><span style="color: #fdfdfd">RoomingKos Dudley</span> </h2>
+            <h2><span style="color: #fdfdfd"> Rooming  {{ $location ?? "Rooming Houses" }}</span> </h2>
             {{-- <div class="sec-line">
                 <span class="sec-line1"></span>
                 <span class="sec-line2"></span>

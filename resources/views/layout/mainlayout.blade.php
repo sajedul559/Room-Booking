@@ -30,7 +30,7 @@
 @if (Route::is(['about-us']))
     <div class="main-wrapper aboutus-page">
 @endif
-@if (Route::is(['reset-password', 'forgot-password', 'login', 'register']))
+@if (Route::is(['reset-password', 'forgot-password']))
     <div class="main-wrapper login-body">
         <div class="container">
 @endif
@@ -43,8 +43,6 @@
     !Route::is([
         'reset-password',
         'forgot-password',
-        'login',
-        'register',
         'coming-soon',
         'error-404',
         'error-500',
@@ -61,7 +59,6 @@
         'reset-password',
         'forgot-password',
         'login',
-        'register',
         'coming-soon',
         'error-404',
         'error-500',

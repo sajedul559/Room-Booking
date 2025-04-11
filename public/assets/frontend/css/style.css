@@ -139,11 +139,7 @@ Version      : 1.0
   display: inline-flex;
 }
 
-<<<<<<< HEAD
-.blog-banner .post-author, .our-agent, .details-wrap .detail-user-wrap .detail-user-info p, .details-wrap .detail-user-wrap, .agent-list.agency .agent-content .agency-user .agency-user-info p, .agency-user, .agent-card.agency .agency-user .agency-user-info p, .agent-card.agency .agency-user, .advanced-search .review-form-btn, .booking-details-btn, .booking-details-price ul li, .booking-details ul, .arrival-div ul, .details-div, .more a, .less a, .price-filter .caption, .profile-widget.rent-list-view .pro-content .list-head p, .grid-list-view ul, .grid-head, .calender ul li, .calender ul, .list-details li, .connect-us, .user-active .user-name .rating.star-rate, .user-active, .sidebar-card .contact-btn a, .sidebar-card .contact-btn, .inside-collapse-card ul, .collapse-card .review-card .customer-review .customer-info .customer-name, .collapse-card .review-card .customer-review .customer-info, .collapse-card ul.amenities-list li, .latest-update .other-pages li a, .latest-update .other-pages, .page-title p, .rating .rating-count, .rating, .agent-card .agent-content p, .property-category .user-info, .pro-content .details li, .price-card .price-features ul li, .price-section .pricing-tab, .privacy-section .terms-policy ul li, .header .header-navbar-rht, .footer-widget-list ul li {
-=======
 .blog-banner .post-author, .our-agent, .details-wrap .detail-user-wrap .detail-user-info p, .details-wrap .detail-user-wrap, .agent-list.agency .agent-content .agency-user .agency-user-info p, .agency-user, .agent-card.agency .agency-user .agency-user-info p, .agent-card.agency .agency-user, .advanced-search .review-form-btn, .booking-details-btn, .booking-details-price ul li, .booking-details ul, .arrival-div ul, .details-div, .more a, .less a, .price-filter .caption, .profile-widget.rent-list-view .pro-content .list-head p, .grid-list-view ul, .grid-head, .calender ul li, .calender ul, .list-details li, .connect-us, .user-active .user-name .rating.star-rate, .user-active, .sidebar-card .contact-btn a, .sidebar-card .contact-btn, .inside-collapse-card ul, .collapse-card .review-card .customer-review .customer-info .customer-name, .collapse-card .review-card .customer-review .customer-info, .collapse-card ul.amenities-list li, .latest-update .other-pages li a, .latest-update .other-pages, .page-title p, .rating .rating-count, .rating, .agent-card .agent-content p, .property-category .user-info, .pro-content .details li, .price-card .price-features ul li, .price-section .pricing-tab, .privacy-section .terms-policy ul li, .header .header-navbar-rht, .footer-bottom-content .company-logo, .footer-bottom-content, .footer-widget-list ul li {
->>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2101,7 +2097,7 @@ label span {
 }
 .header .main-menu-wrapper .main-nav li a {
   font-weight: 600;
-  color: #8A909A;
+  color: #FFF;
   display: block;
   font-size: 15px;
 }
@@ -2141,10 +2137,14 @@ label span {
     visibility: hidden;
     z-index: 1000;
 <<<<<<< HEAD
+<<<<<<< HEAD
     border-top: 1px solid #DA1F43;
 =======
     border-top: 1px solid #6C60FE;
 >>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
+=======
+    border-top: 1px solid #FFF;
+>>>>>>> Production
   }
 }
 @media (min-width: 992px) {
@@ -2169,15 +2169,20 @@ label span {
   width: 182px;
   padding: 5px 10px;
 <<<<<<< HEAD
+<<<<<<< HEAD
   border: 1px solid #DA1F43;
 =======
   border: 1px solid #6C60FE;
 >>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
+=======
+  border: 1px solid #FFF;
+>>>>>>> Production
   outline: none;
   height: 39px;
   border-radius: 5px 0 0 5px;
 }
 .header .main-menu-wrapper .main-nav li.searchbar .togglesearch button {
+<<<<<<< HEAD
 <<<<<<< HEAD
   background: #DA1F43;
   color: #FFF;
@@ -2187,6 +2192,11 @@ label span {
   color: #FFF;
   border: 1px solid #6C60FE;
 >>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
+=======
+  background: #FFF;
+  color: #FFF;
+  border: 1px solid #FFF;
+>>>>>>> Production
   outline: none;
   cursor: pointer;
   border-radius: 0 5px 5px 0;
@@ -2194,10 +2204,14 @@ label span {
 }
 .header .main-menu-wrapper .main-nav li.searchbar .togglesearch button:hover {
 <<<<<<< HEAD
+<<<<<<< HEAD
   color: #DA1F43;
 =======
   color: #6C60FE;
 >>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
+=======
+  color: #FFF;
+>>>>>>> Production
 }
 @media (min-width: 992px) {
   .header .main-menu-wrapper .main-nav > li {
@@ -2247,20 +2261,28 @@ label span {
 }
 .header .main-menu-wrapper .main-nav > li.active > a {
 <<<<<<< HEAD
+<<<<<<< HEAD
   color: #DA1F43;
 =======
   color: #6C60FE;
 >>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
+=======
+  color: #0185FF;
+>>>>>>> Production
 }
 .header .main-menu-wrapper .main-nav > li > a {
   position: relative;
 }
 .header .main-menu-wrapper .main-nav > li > a:hover {
 <<<<<<< HEAD
+<<<<<<< HEAD
   color: #DA1F43;
 =======
   color: #6C60FE;
 >>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
+=======
+  color: #0185FF;
+>>>>>>> Production
 }
 @media (min-width: 992px) {
   .header .main-menu-wrapper .main-nav > li > a {
@@ -2307,10 +2329,14 @@ label span {
     margin-top: -20px;
     margin-right: 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
     border-top: 1px solid #DA1F43;
 =======
     border-top: 1px solid #6C60FE;
 >>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
+=======
+    border-top: 1px solid #FFF;
+>>>>>>> Production
   }
 }
 .header .main-menu-wrapper .main-nav > li .submenu li {
@@ -2332,10 +2358,14 @@ label span {
 }
 .header .main-menu-wrapper .main-nav > li .submenu li a.active {
 <<<<<<< HEAD
+<<<<<<< HEAD
   color: #DA1F43;
 =======
   color: #6C60FE;
 >>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
+=======
+  color: #FFF;
+>>>>>>> Production
 }
 @media (max-width: 991.98px) {
   .header .main-menu-wrapper .main-nav > li .submenu li a.active {
@@ -2345,10 +2375,14 @@ label span {
 @media (min-width: 992px) {
   .header .main-menu-wrapper .main-nav > li .submenu li a:hover {
 <<<<<<< HEAD
+<<<<<<< HEAD
     color: #DA1F43;
 =======
     color: #6C60FE;
 >>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
+=======
+    color: #FFF;
+>>>>>>> Production
   }
 }
 @media (max-width: 991.98px) {
@@ -2421,10 +2455,14 @@ label span {
     -webkit-transform: translateX(-260px);
     -ms-transform: translateX(-260px);
 <<<<<<< HEAD
+<<<<<<< HEAD
     background-color: #DA1F43;
 =======
     background-color: #6C60FE;
 >>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
+=======
+    background-color: #FFF;
+>>>>>>> Production
   }
 }
 .header .logo {
@@ -2497,16 +2535,21 @@ label span {
   border: 1px solid #F6F6F9;
   color: #8A909A;
 <<<<<<< HEAD
+<<<<<<< HEAD
   box-shadow: inset 0 0 0 0 #DA1F43;
 =======
   box-shadow: inset 0 0 0 0 #6C60FE;
 >>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
+=======
+  box-shadow: inset 0 0 0 0 #FFF;
+>>>>>>> Production
   -webkit-transition: 0.5s;
   -ms-transition: 0.5s;
   transition: 0.5s;
 }
 .header .header-navbar-rht li .btn.sign-btn:hover {
   color: #FFF;
+<<<<<<< HEAD
 <<<<<<< HEAD
   background-color: #DA1F43;
   border-color: #DA1F43;
@@ -2516,6 +2559,11 @@ label span {
   border-color: #6C60FE;
   box-shadow: inset 0 50px 0 0 #6C60FE;
 >>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
+=======
+  background-color: #FFF;
+  border-color: #FFF;
+  box-shadow: inset 0 50px 0 0 #FFF;
+>>>>>>> Production
   -webkit-transition: 0.5s;
   -ms-transition: 0.5s;
   transition: 0.5s;
@@ -2534,19 +2582,27 @@ label span {
 }
 .header .header-navbar-rht li.new-property-btn a:hover {
 <<<<<<< HEAD
-  color: #DA1F43;
-=======
-  color: #6C60FE;
->>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
-}
-.header .header-navbar-rht li.new-property-btn a i {
-  font-size: 20px;
-  margin-right: 4px;
 <<<<<<< HEAD
   color: #DA1F43;
 =======
   color: #6C60FE;
 >>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
+=======
+  color: #FFF;
+>>>>>>> Production
+}
+.header .header-navbar-rht li.new-property-btn a i {
+  font-size: 20px;
+  margin-right: 4px;
+<<<<<<< HEAD
+<<<<<<< HEAD
+  color: #DA1F43;
+=======
+  color: #6C60FE;
+>>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
+=======
+  color: #FFF;
+>>>>>>> Production
 }
 @media (max-width: 1399.98px) {
   .header .header-navbar-rht li.new-property-btn a {
@@ -2555,10 +2611,14 @@ label span {
 }
 .header .header-navbar-rht li.new-property-btn a.active {
 <<<<<<< HEAD
+<<<<<<< HEAD
   color: #DA1F43;
 =======
   color: #6C60FE;
 >>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
+=======
+  color: #FFF;
+>>>>>>> Production
 }
 @media (max-width: 1199.98px) {
   .header .header-navbar-rht li.new-property-btn {
@@ -2656,6 +2716,7 @@ label span {
   color: #DA1F43;
 }
 .header .menu-header .menu-close i:hover {
+<<<<<<< HEAD
   color: #DA1F43;
 =======
   color: #1E1D85;
@@ -2663,6 +2724,9 @@ label span {
 .header .menu-header .menu-close i:hover {
   color: #6C60FE;
 >>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
+=======
+  color: #FFF;
+>>>>>>> Production
 }
 @media (max-width: 991.98px) {
   .header .menu-header {

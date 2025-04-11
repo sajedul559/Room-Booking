@@ -2,8 +2,6 @@
     !Route::is([
         'reset-password',
         'forgot-password',
-        'login',
-        'register',
         'coming-soon',
         'error-404',
         'error-500',
@@ -47,38 +45,45 @@
                    
                    
                     <li
-                        class="has-submenu  {{ Request::is('agent-grid', 'agent-list', 'agent-grid-sidebar', 'agent-list-sidebar', 'agent-details') ? 'active' : '' }}">
-                        <a style="color: white" href="javascript:void(0);">Student Accommodation <i class="fas fa-chevron-down"></i></a>
+                        class="has-submenu {{ in_array(Route::currentRouteName(), ['agent-grid', 'agent-list', 'agent-grid-sidebar', 'agent-list-sidebar', 'agent-details']) ? 'active' : '' }}">
+                        <a  href="javascript:void(0);">Student Accommodation <i class="fas fa-chevron-down"></i></a>
                         <ul style="background-color: #DA1F43" class="submenu">
-                            <li><a style="color: white" href="{{ route('room')}}"
+                            <li><a  href="{{ route('rooms.location', ['location' => 'Dudley']) }}"
                                     class="{{ Request::is('agent-grid') ? 'active' : '' }}">RoomingKos Dudley</a></li>
-                            <li><a style="color: white" href="{{ route('room')}}"
+                            <li><a  href="{{ route('rooms.location', ['location' => 'Swanston']) }}"
                                     class="{{ Request::is('agent-list') ? 'active' : '' }}">RoomingKos Swanston</a></li>
+                            <li>
+                                <a href="{{ route('rooms.location', ['location' => 'springfield']) }}"
+                                    class="{{ Request::is('springfield') ? 'active' : '' }}">
+                                    RoomingKos Springfield
+                                </a>
+                            </li>
                         </ul>
                     </li>
-                    <li  class="{{ Request::is('room', '/') ? 'active' : '' }}">
-                        <a style="color: white" href="{{ route('room')}}">Rooming House</a>
+                    <li  class="{{ Route::currentRouteName() == 'room' ? 'active' : '' }}">
+                        <a  href="{{ route('rooming.houses')}}">Rooming House</a>
                     </li>
-                    <li><a style="color: white" href="{{ url('about-us') }}"
-                        class="{{ Request::is('about-us') ? 'active' : '' }}">About</a></li>
-                    <li class="login-link"><a style="color: white" href="{{ url('login') }}">Sign Up</a></li>
-                    <li class="login-link"><a style="color: white" href="{{ url('register') }}">Sign In</a></li>
+                    
+                    <li class=" {{ Route::currentRouteName() == 'about-us' ? 'active' : '' }}"><a href="{{ route('about-us') }}"
+                        >About</a></li>
+                    <li class="login-link"><a  href="{{ url('login') }}">Sign Up</a></li>
+                    <li class="login-link"><a  href="{{ url('register') }}">Sign In</a></li>
                 </ul>
             </div>
             <ul class="nav header-navbar-rht">
                 @auth
                 @if(auth()->user()->type == "user")
                     <li class="new-property-btn">
-                        <a style="color: white" href="{{ route('tenant-reports.create') }}" 
+                        <a  href="{{ route('tenant-reports.create') }}" 
                             class="{{ Request::is('add-new-property') ? 'active' : '' }}">
-                            <i style="color: white" class="bx bxs-plus-circle"></i> Create Report
+                            <i  class="bx bxs-plus-circle"></i> Create Report
                         </a>
                     </li>
                      <!-- Logout Button -->
                 <li class="new-property-btn">
-                    <a style="color: white" href="{{ route('logout') }}"
+                    <a  href="{{ route('logout') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i style="color: white" class="bx bx-log-out"></i> Logout
+                        <i  class="bx bx-log-out"></i> Logout
                     </a>
                 </li>
                 @endif
@@ -110,8 +115,6 @@
 @if (Route::is([
         'reset-password',
         'forgot-password',
-        'login',
-        'register',
         'coming-soon',
         'error-404',
         'error-500',

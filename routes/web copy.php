@@ -71,7 +71,7 @@ Route::get('/booking/cancel', function () {
     return view('booking-cancel');
 })->name('booking.cancel');
 
-Route::get('rooms/{location}', [HomeController::class, 'locationWiseRoom'])->name('rooms.location');
+Route::get('/{location}', [HomeController::class, 'locationWiseRoom'])->name('rooms.location');
 Route::get('/rooming-houses', [HomeController::class, 'allRoom'])->name('rooming.houses');
 
 

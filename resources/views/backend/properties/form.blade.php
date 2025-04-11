@@ -8,10 +8,26 @@
 </div>
 
 <div class="mb-3">
-    <x-common.label title="Location" isRequired="true" />
-    <x-common.input name="location" placeholder="Enter location" 
+    <x-common.label title="Full Address" isRequired="true" />
+    <x-common.input name="location" placeholder="Ex: 123 Main Street, Springfield NSW 2000, Sydney" 
                     value="{{ old('location', $property->location ?? '') }}" required />
     @error('location')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
+<div class="mb-3">
+    <x-common.label title="City" isRequired="true" />
+    <x-common.input name="city" placeholder="Ex: Springfield" 
+                    value="{{ old('city', $property->city ?? '') }}" required />
+    @error('city')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
+<div class="mb-3">
+    <x-common.label title="State" isRequired="true" />
+    <x-common.input name="state" placeholder="Ex: NSW " 
+                    value="{{ old('state', $property->state ?? '') }}" required />
+    @error('state')
         <span class="text-danger">{{ $message }}</span>
     @enderror
 </div>
@@ -31,6 +47,13 @@
     @error('property_type')
         <span class="text-danger">{{ $message }}</span>
     @enderror
+</div>
+
+<div class="col-md-6">
+    <div class="mb-3">
+        <label class="form-label">Property Image (416 W and 293 H)</label>
+        <input type="file" name="image" class="form-control" accept="image/*">
+    </div>
 </div>
 
 

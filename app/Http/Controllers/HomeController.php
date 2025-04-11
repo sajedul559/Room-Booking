@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Models\ReferralIncomeHistory;
 
@@ -19,8 +20,19 @@ class HomeController extends Controller
     public function index()
     {
         $rooms = Room::with('images')->get();
-        return view('index',compact('rooms'));
+        $properties = Property::where('is_publish','1')->get();
+        return view('index',compact('rooms','properties'));
     }
+    public function allRoom()
+    {
+       
+            $rooms = Room::with('images')->get();
+
+
+       
+        return view('room',compact('rooms'));
+    }
+
     public function allRooms()
     {
         $rooms = Room::with('images')->get();
@@ -42,4 +54,21 @@ class HomeController extends Controller
     //     $data['referral_income'] = ReferralIncomeHistory::where('referral_id', userId())->sum('amount');
     //     return $data;
     // }
+    public function locationWiseRoom($location){
+
+        if(isset($location))
+        {
+            $rooms = Room::with(['images', 'property'])
+            ->when($location, function ($query) use ($location) {
+                $query->whereHas('property', function ($q) use ($location) {
+                    $q->where('city', 'LIKE', "%{$location}%");
+                });
+            })
+            ->get();
+            return view('room',compact('rooms','location'));
+
+        }
+
+    }
+
 }
