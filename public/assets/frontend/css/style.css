@@ -1866,7 +1866,7 @@ label span {
 }
 .header .main-menu-wrapper .main-nav li a {
   font-weight: 600;
-  color: #8A909A;
+  color: #FFF;
   display: block;
   font-size: 15px;
 }
@@ -1905,7 +1905,7 @@ label span {
     -ms-transform: translateY(20px);
     visibility: hidden;
     z-index: 1000;
-    border-top: 1px solid #DA1F43;
+    border-top: 1px solid #FFF;
   }
 }
 @media (min-width: 992px) {
@@ -1929,22 +1929,22 @@ label span {
 .header .main-menu-wrapper .main-nav li.searchbar .togglesearch input[type=text] {
   width: 182px;
   padding: 5px 10px;
-  border: 1px solid #DA1F43;
+  border: 1px solid #FFF;
   outline: none;
   height: 39px;
   border-radius: 5px 0 0 5px;
 }
 .header .main-menu-wrapper .main-nav li.searchbar .togglesearch button {
-  background: #DA1F43;
+  background: #FFF;
   color: #FFF;
-  border: 1px solid #DA1F43;
+  border: 1px solid #FFF;
   outline: none;
   cursor: pointer;
   border-radius: 0 5px 5px 0;
   min-width: auto;
 }
 .header .main-menu-wrapper .main-nav li.searchbar .togglesearch button:hover {
-  color: #DA1F43;
+  color: #FFF;
 }
 @media (min-width: 992px) {
   .header .main-menu-wrapper .main-nav > li {
@@ -1993,13 +1993,13 @@ label span {
   margin-right: 0;
 }
 .header .main-menu-wrapper .main-nav > li.active > a {
-  color: #DA1F43;
+  color: #0185FF;
 }
 .header .main-menu-wrapper .main-nav > li > a {
   position: relative;
 }
 .header .main-menu-wrapper .main-nav > li > a:hover {
-  color: #DA1F43;
+  color: #0185FF;
 }
 @media (min-width: 992px) {
   .header .main-menu-wrapper .main-nav > li > a {
@@ -2045,7 +2045,7 @@ label span {
     opacity: 1;
     margin-top: -20px;
     margin-right: 0;
-    border-top: 1px solid #DA1F43;
+    border-top: 1px solid #FFF;
   }
 }
 .header .main-menu-wrapper .main-nav > li .submenu li {
@@ -2066,7 +2066,7 @@ label span {
   text-transform: capitalize;
 }
 .header .main-menu-wrapper .main-nav > li .submenu li a.active {
-  color: #DA1F43;
+  color: #FFF;
 }
 @media (max-width: 991.98px) {
   .header .main-menu-wrapper .main-nav > li .submenu li a.active {
@@ -2075,7 +2075,7 @@ label span {
 }
 @media (min-width: 992px) {
   .header .main-menu-wrapper .main-nav > li .submenu li a:hover {
-    color: #DA1F43;
+    color: #FFF;
   }
 }
 @media (max-width: 991.98px) {
@@ -2147,7 +2147,7 @@ label span {
     transform: translateX(-260px);
     -webkit-transform: translateX(-260px);
     -ms-transform: translateX(-260px);
-    background-color: #DA1F43;
+    background-color: #FFF;
   }
 }
 .header .logo {
@@ -2219,16 +2219,16 @@ label span {
   background-color: #F6F6F9;
   border: 1px solid #F6F6F9;
   color: #8A909A;
-  box-shadow: inset 0 0 0 0 #DA1F43;
+  box-shadow: inset 0 0 0 0 #FFF;
   -webkit-transition: 0.5s;
   -ms-transition: 0.5s;
   transition: 0.5s;
 }
 .header .header-navbar-rht li .btn.sign-btn:hover {
   color: #FFF;
-  background-color: #DA1F43;
-  border-color: #DA1F43;
-  box-shadow: inset 0 50px 0 0 #DA1F43;
+  background-color: #FFF;
+  border-color: #FFF;
+  box-shadow: inset 0 50px 0 0 #FFF;
   -webkit-transition: 0.5s;
   -ms-transition: 0.5s;
   transition: 0.5s;
@@ -2246,12 +2246,12 @@ label span {
   line-height: 40px;
 }
 .header .header-navbar-rht li.new-property-btn a:hover {
-  color: #DA1F43;
+  color: #FFF;
 }
 .header .header-navbar-rht li.new-property-btn a i {
   font-size: 20px;
   margin-right: 4px;
-  color: #DA1F43;
+  color: #FFF;
 }
 @media (max-width: 1399.98px) {
   .header .header-navbar-rht li.new-property-btn a {
@@ -2259,7 +2259,7 @@ label span {
   }
 }
 .header .header-navbar-rht li.new-property-btn a.active {
-  color: #DA1F43;
+  color: #FFF;
 }
 @media (max-width: 1199.98px) {
   .header .header-navbar-rht li.new-property-btn {
@@ -2356,7 +2356,7 @@ label span {
   color: #DA1F43;
 }
 .header .menu-header .menu-close i:hover {
-  color: #DA1F43;
+  color: #FFF;
 }
 @media (max-width: 991.98px) {
   .header .menu-header {

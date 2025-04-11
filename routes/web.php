@@ -71,6 +71,7 @@ Route::get('/booking/cancel', function () {
     return view('booking-cancel');
 })->name('booking.cancel');
 
+// Route::get('/all-rooms', [HomeController::class, 'allRooms'])->name('all.room');
 
 // Route::get('/', function () {
 //     return view('index');

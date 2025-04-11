@@ -45,7 +45,7 @@
                    
                    
                     <li
-                        class="has-submenu {{ in_array(Route::currentRouteName(), ['agent-grid', 'agent-list', 'agent-grid-sidebar', 'agent-list-sidebar', 'agent-details']) ? 'active' : '' }}">
+                        class="has-submenu  {{ Request::is('agent-grid', 'agent-list', 'agent-grid-sidebar', 'agent-list-sidebar', 'agent-details') ? 'active' : '' }}">
                         <a  href="javascript:void(0);">Student Accommodation <i class="fas fa-chevron-down"></i></a>
                         <ul style="background-color: #DA1F43" class="submenu">
                             <li><a  href="{{ route('room')}}"
@@ -54,12 +54,12 @@
                                     class="{{ Request::is('agent-list') ? 'active' : '' }}">RoomingKos Swanston</a></li>
                         </ul>
                     </li>
-                    <li  class="{{ Route::currentRouteName() == 'room' ? 'active' : '' }}">
+                    <li  class="{{ Request::is('room', '/') ? 'active' : '' }}">
                         <a  href="{{ route('room')}}">Rooming House</a>
                     </li>
                     
-                    <li class=" {{ Route::currentRouteName() == 'about-us' ? 'active' : '' }}"><a href="{{ route('about-us') }}"
-                        >About</a></li>
+                    <li><a href="{{ route('about-us') }}"
+                        class="{{ Route::currentRouteName() == 'about-us' ? 'active' : '' }}">About</a></li>
                     <li class="login-link"><a  href="{{ url('login') }}">Sign Up</a></li>
                     <li class="login-link"><a  href="{{ url('register') }}">Sign In</a></li>
                 </ul>
