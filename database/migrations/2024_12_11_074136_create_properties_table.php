@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('property_name');
             $table->string('slug')->nullable();
             $table->string('location');
+            $table->string('city');
+            $table->string('state');
             $table->enum('property_type', ['Flat', 'Student Accommodation', 'Homestay']);
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('last_updated_by')->nullable();

@@ -64,9 +64,9 @@
                         </div>
                         <ul>
                             <li style="color: white">Student Accommodation</li>
-                            <li ><a style="padding-left: 20px;" href="{{ route('room') }}">RoomingKos Dudley</a></li>
-                            <li><a style="padding-left: 20px;" href="{{ route('room')}}">RoomingKos Swanston</a></li>
-                            <div style="padding-right:20px;"><li><a href="{{ route('room')}}">Rooming Houses</a></li></div>
+                            <li ><a style="padding-left: 20px;" href="{{ route('rooming.houses') }}">RoomingKos Dudley</a></li>
+                            <li><a style="padding-left: 20px;" href="{{ route('rooming.houses')}}">RoomingKos Swanston</a></li>
+                            <div style="padding-right:20px;"><li><a href="{{ route('rooming.houses')}}">Rooming Houses</a></li></div>
                         </ul>
                     </div>
                 </div>

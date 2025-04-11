@@ -1,5 +1,5 @@
 @extends('layouts.layouts')
-@section('title', 'Rooms')
+@section('title', 'Properties')
 @section('content')
     <x-common.bread-crum />
     <div class="row">
@@ -34,70 +34,69 @@
                         </thead>
                         <tbody>
                             @foreach ($rooms as $data)
-                                <tr>
-                                    <td>{{ $data->id }}</td>
-                                    <td>{{ $data->property ? $data->property->property_name : ' ' }}</td>
-                                    <td>{{ $data->name }}</td>
-                                    <td>{{ $data->price }}</td>
-                                    <td>{{ $data->weekly_rent }}</td>
-                                    <td>{{ $data->available_date }}</td>
-                                    <td>
-                                        <span class="badge {{ $data->internet ? 'bg-success' : 'bg-danger' }}">
-                                            {{ $data->internet ? 'Yes' : 'No' }}
-                                        </span>
-                                    </td>
-                                    <!-- Badge for Included Rent -->
-                                    <td>
-                                        <span class="badge {{ $data->is_bill_included_rent ? 'bg-success' : 'bg-danger' }}">
-                                            {{ $data->is_bill_included_rent ? 'Yes' : 'No' }}
-                                        </span>
-                                    </td>
-                    
-                                    <td>{{ $data->min_length_of_stay }}</td>
-                                    <td>{{ $data->max_length_of_stay }}</td>
-                    
-                                    <!-- Badge for Smoking Allowed -->
-                                    <td>
-                                        <span class="badge {{ $data->is_smoking_allowed ? 'bg-success' : 'bg-danger' }}">
-                                            {{ $data->is_smoking_allowed ? 'Yes' : 'No' }}
-                                        </span>
-                                    </td>
-                    
-                                    <!-- Badge for Pet Allowed -->
-                                    <td>
-                                        <span class="badge {{ $data->is_pet_allowed ? 'bg-success' : 'bg-danger' }}">
-                                            {{ $data->is_pet_allowed ? 'Yes' : 'No' }}
-                                        </span>
-                                    </td>
-                    
-                                    <!-- Badge for Welfare Allowed -->
-                                    <td>
-                                        <span class="badge {{ $data->on_welfare_allowed ? 'bg-success' : 'bg-danger' }}">
-                                            {{ $data->on_welfare_allowed ? 'Yes' : 'No' }}
-                                        </span>
-                                    </td>
-                    
-                                    <td class="text-start">
-                                        <x-common.action-drop-down>
-                                            <!-- Edit Button -->
-                                            <a class="dropdown-item edit-item-btn" href="{{ route('rooms.edit', $data->id) }}">
-                                                <i class="mdi mdi-pencil me-2 text-muted vertical-middle"></i>Edit
-                                            </a>
-                                            <!-- Delete Button -->
-                                            <button type="button" class="dropdown-item delete-item-btn" data-id="{{ $data->id }}">
-                                                <i class="mdi mdi-delete me-2 text-muted vertical-middle"></i>Delete
-                                            </button>
-                                        </x-common.action-drop-down>
-                                        <form id="delete-form-{{ $data->id }}" action="{{ route('rooms.destroy', $data->id) }}" method="POST" style="display: none;">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
+                            <tr>
+                                <td>{{ $data->id }}</td>
+                                <td>{{ $data->property ? $data->property->property_name : ' ' }}</td>
+                                <td>{{ $data->name }}</td>
+                                <td>{{ $data->price }}</td>
+                                <td>{{ $data->weekly_rent }}</td>
+                                <td>{{ $data->available_date }}</td>
+                                <td>
+                                    <span class="badge {{ $data->internet ? 'bg-success' : 'bg-danger' }}">
+                                        {{ $data->internet ? 'Yes' : 'No' }}
+                                    </span>
+                                </td>
+                                <!-- Badge for Included Rent -->
+                                <td>
+                                    <span class="badge {{ $data->is_bill_included_rent ? 'bg-success' : 'bg-danger' }}">
+                                        {{ $data->is_bill_included_rent ? 'Yes' : 'No' }}
+                                    </span>
+                                </td>
+                
+                                <td>{{ $data->min_length_of_stay }}</td>
+                                <td>{{ $data->max_length_of_stay }}</td>
+                
+                                <!-- Badge for Smoking Allowed -->
+                                <td>
+                                    <span class="badge {{ $data->is_smoking_allowed ? 'bg-success' : 'bg-danger' }}">
+                                        {{ $data->is_smoking_allowed ? 'Yes' : 'No' }}
+                                    </span>
+                                </td>
+                
+                                <!-- Badge for Pet Allowed -->
+                                <td>
+                                    <span class="badge {{ $data->is_pet_allowed ? 'bg-success' : 'bg-danger' }}">
+                                        {{ $data->is_pet_allowed ? 'Yes' : 'No' }}
+                                    </span>
+                                </td>
+                
+                                <!-- Badge for Welfare Allowed -->
+                                <td>
+                                    <span class="badge {{ $data->on_welfare_allowed ? 'bg-success' : 'bg-danger' }}">
+                                        {{ $data->on_welfare_allowed ? 'Yes' : 'No' }}
+                                    </span>
+                                </td>
+                
+                                <td class="text-start">
+                                    <x-common.action-drop-down>
+                                        <!-- Edit Button -->
+                                        <a class="dropdown-item edit-item-btn" href="{{ route('rooms.edit', $data->id) }}">
+                                            <i class="mdi mdi-pencil me-2 text-muted vertical-middle"></i>Edit
+                                        </a>
+                                        <!-- Delete Button -->
+                                        <button type="button" class="dropdown-item delete-item-btn" data-id="{{ $data->id }}">
+                                            <i class="mdi mdi-delete me-2 text-muted vertical-middle"></i>Delete
+                                        </button>
+                                    </x-common.action-drop-down>
+                                    <form id="delete-form-{{ $data->id }}" action="{{ route('rooms.destroy', $data->id) }}" method="POST" style="display: none;">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
-                    
                     
                 </div>
             </div>
@@ -111,3 +110,9 @@
         display:none;
     }
 </style>
+@endpush
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+@endpush

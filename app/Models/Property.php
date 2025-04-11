@@ -14,6 +14,8 @@ class Property extends Model
         'property_name',
         'slug',
         'location',
+        'city',
+        'state',
         'property_type',
         'image_path',
         'created_by',

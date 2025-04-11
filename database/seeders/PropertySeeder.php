@@ -16,6 +16,8 @@ class PropertySeeder extends Seeder
             [
                 'property_name' => 'Sunny Apartment',
                 'location' => '123 Main Street, Springfield',
+                'city' => 'Springfield',
+                'state' => 'NSW',
                 'property_type' => 'Flat',
                 'created_by' => 1,
                 'last_updated_by' => 1,
@@ -26,6 +28,8 @@ class PropertySeeder extends Seeder
             [
                 'property_name' => 'Student House',
                 'location' => '45 College Lane, Springfield',
+                'city' => 'Springfield',
+                'state' => 'NSW',
                 'property_type' => 'Student Accommodation',
                 'created_by' => 1,
                 'last_updated_by' => 1,
@@ -36,6 +40,8 @@ class PropertySeeder extends Seeder
             [
                 'property_name' => 'Cozy Homestay',
                 'location' => '78 Suburb Drive, Springfield',
+                'city' => 'Springfield',
+                'state' => 'NSW',
                 'property_type' => 'Homestay',
                 'created_by' => 1,
                 'last_updated_by' => 1,

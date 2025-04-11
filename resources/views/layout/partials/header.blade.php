@@ -48,14 +48,20 @@
                         class="has-submenu {{ in_array(Route::currentRouteName(), ['agent-grid', 'agent-list', 'agent-grid-sidebar', 'agent-list-sidebar', 'agent-details']) ? 'active' : '' }}">
                         <a  href="javascript:void(0);">Student Accommodation <i class="fas fa-chevron-down"></i></a>
                         <ul style="background-color: #DA1F43" class="submenu">
-                            <li><a  href="{{ route('room')}}"
+                            <li><a  href="{{ route('rooms.location', ['location' => 'Dudley']) }}"
                                     class="{{ Request::is('agent-grid') ? 'active' : '' }}">RoomingKos Dudley</a></li>
-                            <li><a  href="{{ route('room')}}"
+                            <li><a  href="{{ route('rooms.location', ['location' => 'Swanston']) }}"
                                     class="{{ Request::is('agent-list') ? 'active' : '' }}">RoomingKos Swanston</a></li>
+                            <li>
+                                <a href="{{ route('rooms.location', ['location' => 'springfield']) }}"
+                                    class="{{ Request::is('springfield') ? 'active' : '' }}">
+                                    RoomingKos Springfield
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li  class="{{ Route::currentRouteName() == 'room' ? 'active' : '' }}">
-                        <a  href="{{ route('room')}}">Rooming House</a>
+                        <a  href="{{ route('rooming.houses')}}">Rooming House</a>
                     </li>
                     
                     <li class=" {{ Route::currentRouteName() == 'about-us' ? 'active' : '' }}"><a href="{{ route('about-us') }}"
