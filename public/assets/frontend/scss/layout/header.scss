@@ -461,6 +461,8 @@
         font-weight: $__semibold;
         margin-right: 0;
         margin-left: $__auto;
+        margin-top: 9px;
+
         @extend %flex-center;
         li {
             margin-right: 10px;
@@ -507,22 +509,22 @@
                 a {
                     font-weight: $__semibold;
                     font-size: $__font__size__15;
-                    color: $__body__color;
+                    color: $__primarycolor;
                     @extend %flex-inline-center;
                     line-height: 40px;
                     &:hover {
-                        color: $__white;
+                        color: $__light__blue;
                     }
                     i {
                         font-size: $__font__size__20;
                         margin-right: 4px;
-                        color: $__white;
+                        color: $__light__blue;
                     }
                     @include respond-below(custom1399) {
                         font-size: $__font__size__13;
                     }
                     &.active  {
-                        color: $__white;
+                        color: $__light__blue;
                     }
                 }
                 @include respond-below(custom1199) {

@@ -58,6 +58,8 @@ Route::post('/booking/store', [BookingController::class, 'bookRoom'])->name('boo
 Route::get('/booking/information/{slug}', [BookingController::class, 'bookInformation'])->name('booking.information');
 Route::post('/booking/information-store', [BookingController::class, 'bookInformationStore'])->name('booking.information.store');
 
+Route::get('/user/bookings', [BookingController::class, 'userBookigLists'])->name('user.bookingList');
+
 Route::get('/all-property', [HomeController::class, 'allProperty'])->name('all.property'); 
 
 Route::get('/checkout', [StripePaymentController::class, 'checkout'])->name('checkout');

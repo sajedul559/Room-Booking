@@ -17,6 +17,15 @@ class BookingController extends Controller
     {
         $this->bookingService = $bookingService;
     }
+    public function userBookigLists ()
+    {
+        $bookings = Booking::with('room') // assuming you have a relationship
+            ->where('user_id', Auth::id())
+            ->latest()
+            ->paginate(10);
+
+        return view('frontend.user.booking_list', compact('bookings'));
+    }
     public function showBookingForm($slug)
     {
         // Fetch the room by slug

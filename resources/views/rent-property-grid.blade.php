@@ -9,7 +9,7 @@
             Home
         @endslot
         @slot('li_2')
-            Rooms
+            Property
         @endslot
     @endcomponent
 

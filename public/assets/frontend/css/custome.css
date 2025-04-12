@@ -208,4 +208,8 @@
     background: #0185FF;
 
 }
+.logout:hover {
+    color: #0185FF !important;
+}
+
 
