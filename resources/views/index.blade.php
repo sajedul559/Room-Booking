@@ -43,33 +43,33 @@
                             <div class="tab-pane fade show active" id="buy_property" role="tabpanel"
                                 aria-labelledby="buy-property">
                                 <div class="banner-tab-property">
-                                    <form action="#">
+                                    <form action="{{ route('rooms.search') }}" method="GET">
+
                                         <div class="banner-property-info">
                                             <div class="banner-property-grid">
-                                                <input type="text" class="form-control" placeholder="Enter Keyword">
+                                                <input type="text" class="form-control" name="room_name" placeholder="Enter Keyword">
                                             </div>
+                                    
                                             <div class="banner-property-grid">
-                                                <select class="select">
-                                                    <option value="0">Property Type</option>
-                                                    <option value="1">Buy Property</option>
-                                                    <option value="2">Rent Property</option>
-                                                </select>
+                                                <input type="text" class="form-control" name="property_city" placeholder="Enter Address">
                                             </div>
+                                    
                                             <div class="banner-property-grid">
-                                                <input type="email" class="form-control" placeholder="Enter Address">
+                                                <input type="text" class="form-control" name="min_price" placeholder="Min Price">
                                             </div>
+                                    
                                             <div class="banner-property-grid">
-                                                <input type="text" class="form-control" placeholder="Min Price">
+                                                <input type="text" class="form-control" name="max_price" placeholder="Max Price">
                                             </div>
+                                    
                                             <div class="banner-property-grid">
-                                                <input type="text" class="form-control" placeholder="Max Price">
-                                            </div>
-                                            <div class="banner-property-grid">
-                                                <a href="{{ url('buy-property-grid') }}" class="btn-primary"><span><i
-                                                            class='feather-search'></i></span></a>
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class='feather-search'></i>
+                                                </button>
                                             </div>
                                         </div>
                                     </form>
+                                    
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="rent_property" role="tabpanel" aria-labelledby="rent-property">
@@ -287,14 +287,14 @@
                 <div class="col-md-12">
                     @if ($properties->count() > 0)
                         <div class="feature-slider owl-carousel">
-                            @foreach ($properties as $room)
+                            @foreach ($properties as $data)
                                 <div class="slider-col">
                                     <div class="product-custom" data-aos="fade-down" data-aos-duration="2000">
                                         <div class="profile-widget">
                                             <div class="doc-img">
                                                 <a href="{{ url('rent-details') }}" class="property-img">
                                                     <img class="img-fluid" alt="Property Image"
-                                                    src="{{ get_image_path($room->image_path) }}">
+                                                    src="{{ get_image_path($data->image_path) }}">
                                                    
                                                 </a>
                                                 <div class="featured">
@@ -316,23 +316,23 @@
                                                     <span class="rating-review">Excellent</span>
                                                 </div>
                                                 <h3 class="title">
-                                                    <a href="{{ route('room.details',$room->slug)}}">{{ $room->property_name }}</a>
+                                                    <a href="{{ route('room.details',$data->slug)}}">{{ $data->property_name }}</a>
                                                 </h3>
-                                                <p><i class="feather-map-pin"></i> {{ isset($room->location) ? $room->location : 'Location not available' }}</p>
+                                                <p><i class="feather-map-pin"></i> {{ isset($data->location) ? $data->location : 'Location not available' }}</p>
 
                                                 {{-- <ul class="d-flex details">
                                                     <li>
                                                         <img src="{{ URL::asset('assets/frontend/img/icons/bed-icon.svg') }}" alt="bed-icon">
-                                                        Min Stay: {{ $room->min_length_of_stay }} 
+                                                        Min Stay: {{ $data->min_length_of_stay }} 
                                                     </li>
                                                     <li>
                                                         <img src="{{ URL::asset('assets/frontend/img/icons/bath-icon.svg') }}" alt="bath-icon">
-                                                        Max Stay:  {{ $room->max_length_of_stay }} 
+                                                        Max Stay:  {{ $data->max_length_of_stay }} 
                                                     
                                                 </ul> --}}
                                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                                     <li>
-                                                        <a href="{{ route('rooms.location', ['location' => $room->city]) }}" class="btn-primary">View Rooms</a>
+                                                        {{-- <a href="{{ route('rooms.location', ['location' => $data->city]) }}" class="btn-primary">View Rooms</a> --}}
                                                         
                                                     </li>
                                                 </ul>
@@ -347,7 +347,7 @@
                     @endif
                 
                     <div class="view-property-btn d-flex justify-content-center" data-aos="fade-down" data-aos-duration="2000">
-                        <a href="{{ route('all.room')}}" class="btn-primary">View All Properties</a>
+                        <a href="{{ route('all.property')}}" class="btn-primary">View All Properties</a>
                     </div>
                 </div>
                 

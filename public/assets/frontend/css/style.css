@@ -2502,6 +2502,7 @@ label span {
   font-weight: 600;
   margin-right: 0;
   margin-left: auto;
+  margin-top: 9px;
 }
 .header .header-navbar-rht li {
   margin-right: 10px;
@@ -2577,32 +2578,15 @@ label span {
 .header .header-navbar-rht li.new-property-btn a {
   font-weight: 600;
   font-size: 15px;
-  color: #8A909A;
-  line-height: 40px;
+  color: #DA1F43;
 }
 .header .header-navbar-rht li.new-property-btn a:hover {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  color: #DA1F43;
-=======
-  color: #6C60FE;
->>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
-=======
-  color: #FFF;
->>>>>>> Production
+  color: #0185FF;
 }
 .header .header-navbar-rht li.new-property-btn a i {
   font-size: 20px;
   margin-right: 4px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-  color: #DA1F43;
-=======
-  color: #6C60FE;
->>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
-=======
   color: #FFF;
->>>>>>> Production
 }
 @media (max-width: 1399.98px) {
   .header .header-navbar-rht li.new-property-btn a {
@@ -2610,15 +2594,7 @@ label span {
   }
 }
 .header .header-navbar-rht li.new-property-btn a.active {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  color: #DA1F43;
-=======
-  color: #6C60FE;
->>>>>>> 2cb30b1d11cdc5145c3b57e9b92b3506d4137e20
-=======
   color: #FFF;
->>>>>>> Production
 }
 @media (max-width: 1199.98px) {
   .header .header-navbar-rht li.new-property-btn {

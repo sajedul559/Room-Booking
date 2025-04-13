@@ -7,10 +7,11 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\CustomAuthController;
-use App\Http\Controllers\PermissionController;
 
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\TenantReportController;
 use App\Http\Controllers\StripePaymentController;
@@ -58,7 +59,9 @@ Route::post('/booking/store', [BookingController::class, 'bookRoom'])->name('boo
 Route::get('/booking/information/{slug}', [BookingController::class, 'bookInformation'])->name('booking.information');
 Route::post('/booking/information-store', [BookingController::class, 'bookInformationStore'])->name('booking.information.store');
 
-Route::get('/all-rooms', [HomeController::class, 'allRooms'])->name('all.room');
+Route::get('/user/bookings', [BookingController::class, 'userBookigLists'])->name('user.bookingList');
+
+Route::get('/all-property', [HomeController::class, 'allProperty'])->name('all.property'); 
 
 Route::get('/checkout', [StripePaymentController::class, 'checkout'])->name('checkout');
 
@@ -72,7 +75,9 @@ Route::get('/booking/cancel', function () {
 })->name('booking.cancel');
 
 Route::get('rooms/{location}', [HomeController::class, 'locationWiseRoom'])->name('rooms.location');
+
 Route::get('/rooming-houses', [HomeController::class, 'allRoom'])->name('rooming.houses');
+Route::get('/search-rooms', [HomeController::class, 'searchRooms'])->name('rooms.search');
 
 
 // Route::get('/', function () {
@@ -358,6 +363,10 @@ Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->nam
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('tenant-reports', TenantReportController::class);
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::post('/profile/update-avatar', [ProfileController::class, 'updateAvatar'])->name('profile.updateAvatar');
+    Route::post('/profile/change-password', [ProfileController::class, 'changePassword'])->name('profile.changePassword');
 });
 
 

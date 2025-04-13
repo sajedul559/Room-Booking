@@ -208,4 +208,19 @@
     background: #0185FF;
 
 }
+.logout:hover {
+    color: #0185FF !important;
+}
+.dropdown-menu.dropdown-menu-end {
+    margin-top: 11px !important;
+    background-color: #DA1F43;
+    border: none;
+}
+.dropdown-menu.dropdown-menu-end li a {
+   color: white !important;
+}
+.dropdown-menu.dropdown-menu-end li a:hover {
+    background-color:  #DA1F43 !important;
+    color:  #0185FF !important;
+ }
 
