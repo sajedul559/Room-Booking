@@ -7,10 +7,11 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\CustomAuthController;
-use App\Http\Controllers\PermissionController;
 
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\TenantReportController;
 use App\Http\Controllers\StripePaymentController;
@@ -360,6 +361,10 @@ Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->nam
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('tenant-reports', TenantReportController::class);
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::post('/profile/update-avatar', [ProfileController::class, 'updateAvatar'])->name('profile.updateAvatar');
+    Route::post('/profile/change-password', [ProfileController::class, 'changePassword'])->name('profile.changePassword');
 });
 
 

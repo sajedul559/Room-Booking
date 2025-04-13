@@ -1,10 +1,11 @@
 @extends('layout.mainlayout')
 
 @section('content')
-<div class="container py-4">
+
+<div class="container py-4  ">
     <div class="row justify-content-center">
         <div class="col-sm-12 col-md-10 col-lg-8">
-            <h2 class="mb-4 text-center">My Booking List</h2>
+            <h2 class="mb-4 text-center"> {{ ucfirst( auth()->user()->name) }} Your Booking History</h2>
 
             @if($bookings->count())
                 <div class="table-responsive">

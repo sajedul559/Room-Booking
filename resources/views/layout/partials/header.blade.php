@@ -77,6 +77,8 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                                 <li><a class="dropdown-item" href="{{ route('tenant-reports.create') }}">Create Report</a></li>
                                 <li><a class="dropdown-item" href="{{ route('index') }}">Profile</a></li>
+                                <li><a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a></li>
+
                                 <li><a class="dropdown-item" href="{{ route('user.bookingList') }}">Booking List</a></li>
                                 <li><a class="dropdown-item" href="{{ route('index') }}">Change Password</a></li>
                                 <li>
