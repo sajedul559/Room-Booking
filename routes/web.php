@@ -59,6 +59,11 @@ Route::post('/booking/store', [BookingController::class, 'bookRoom'])->name('boo
 Route::get('/booking/information/{slug}', [BookingController::class, 'bookInformation'])->name('booking.information');
 Route::post('/booking/information-store', [BookingController::class, 'bookInformationStore'])->name('booking.information.store');
 
+Route::get('/booking/details', [BookingController::class, 'bookDetails'])->name('booking.details');
+
+
+
+
 Route::get('/user/bookings', [BookingController::class, 'userBookigLists'])->name('user.bookingList');
 
 Route::get('/all-property', [HomeController::class, 'allProperty'])->name('all.property'); 
@@ -129,7 +134,7 @@ Route::get('/rental-order-step1', function () {
     return view('rental-order-step1');
 })->name('rental-order-step1');
 
-Route::get('/rental-order-step2', function () {
+Route::get('/rental-order-step2/{$slug}', function () {
     return view('rental-order-step2');
 })->name('rental-order-step2');
 

@@ -100,14 +100,21 @@ class BookingController extends Controller
                 'address'    => $request->address,
                 'comments'   => $request->comments,
             ]);
+            $booking = Booking::where('id',$request->booking_id)->first();
 
-            return redirect()->route('checkout');
+            dd("boking",$booking);
+
+            return redirect()->route('rental-order-step2');
        
+    }
+    public function bookDetails(){
+
+        return view('rental-order-step2');
+
     }
     public function checkout(){
 
         return view('rental-order-step3');
-
 
     }
 
