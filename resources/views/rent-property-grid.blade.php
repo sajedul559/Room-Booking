@@ -89,5 +89,4 @@
 
         </div>
     </div>
-    <!-- /Feature Property For Rent -->
 @endsection
