@@ -68,7 +68,8 @@
                                     </ul> --}}
                                     <ul class="property-category d-flex justify-content-between align-items-center">
                                         <li>
-                                            <a href="{{ route('room.details',$data->slug)}}" class="btn-primary">View Rooms</a>
+                                            <a href="{{ route('rooms.location', ['location' => $data->city]) }}" class="btn-primary">View Rooms</a>
+
                                         </li>
                                     </ul>
                                 </div>
