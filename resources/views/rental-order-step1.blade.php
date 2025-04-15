@@ -77,13 +77,13 @@
                                 <input type="hidden" name="booking_id" value="{{ $booking->id }}">
                             
                                 <label>Name<span class="manitory">*</span></label>
-                                <input type="text" class="form-control" name="name" placeholder="Enter Name" required>
+                                <input type="text" class="form-control" name="name" value="{{ $user->name ?? '' }}" placeholder="Enter Name" required>
                             
                                 <label>Phone Number <span class="manitory">*</span></label>
-                                <input type="text" class="form-control" name="phone" placeholder="Enter Phone Number" required>
+                                <input type="text" class="form-control" name="phone" value="{{ $user->phone ?? '' }}" placeholder="Enter Phone Number" required>
                             
                                 <label>Email Address</label>
-                                <input type="text" class="form-control" name="email" placeholder="Enter Email">
+                                <input type="text" class="form-control" name="email" value="{{ $user->email ?? '' }}" placeholder="Enter Email">
                             
                                 <label>Full Address</label>
                                 <input type="text" class="form-control" name="address" placeholder="Enter Address">
