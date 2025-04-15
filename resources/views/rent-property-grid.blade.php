@@ -84,8 +84,7 @@
                     </div>
                     
                 </div> <!-- Close row here -->
-            </div>
-            
+            </div>       
 
         </div>
     </div>
