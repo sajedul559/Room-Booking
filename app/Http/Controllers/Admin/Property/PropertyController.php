@@ -6,6 +6,7 @@ use App\Http\Requests\PropertyFormRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Property;
 use App\Services\Property\PropertyService;
+use Barryvdh\Debugbar\Middleware\DebugbarEnabled;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
@@ -35,13 +36,15 @@ class PropertyController extends Controller
 
     public function store(PropertyFormRequest $request)
     {
+        //dd($request);
         $this->propertyService->create($request->payloadsData());
 
         return redirect()->route('properties.index')->with('success', 'Property created successfully.');
     }
 
     public function edit(Property $property)
-    {
+    {  
+        $property->accessibility = explode(',', $property->accessibility);
         return view('backend.properties.edit', compact('property'));
     }
 

@@ -25,7 +25,16 @@ class PropertyFormRequest extends FormRequest
         return [
             'property_name' => 'required|string|max:255',
             'location' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'state' => 'required|string|max:255',
             'property_type' => 'required|in:Flat,Student Accommodation,Homestay',
+            'total_bedroom' => 'required|integer',
+            'total_bathroom' => 'required|integer',
+            'total_people_live' => 'required|integer',
+            'parking' => 'required|string|max:255',
+            'internet' => 'required|string|max:255',
+            'accessibility' => ['required', 'array'],
+            'accessibility.*' => ['required', 'string', 'max:255'],
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'is_publish' => 'sometimes|boolean',
         ];

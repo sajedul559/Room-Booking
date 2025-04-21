@@ -36,7 +36,8 @@ class PropertyService
             // Save only the relative path to the database
             $data['image_path'] = $path;
         }
-
+        
+        $data['accessibility'] = implode(',', $data['accessibility']);
         return Property::create($data);
     }
 
