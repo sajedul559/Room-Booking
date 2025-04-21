@@ -17,9 +17,10 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Vendor</th>
+                                <th>Assign</th>
                                 <th>Name</th>
                                 <th>Status</th>
+                                <th>Due Date</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -30,6 +31,7 @@
                                     <td>{{ $data->vendor ? $data->vendor->user->name ?? 'No User Assigned' : 'No Vendor Assigned' }}</td>
                                     <td>{{ $data->name }}</td>
                                     <td>{{ $data->status }}</td>
+                                    <td>{{ $data->due_date }}</td>
                                     <td class="text-start">
                                         <x-common.action-drop-down>
                                             <!-- Edit Button -->
@@ -66,19 +68,5 @@
 @endpush
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-  
-
-</script>
-
-<script>
-    @if (session('success'))
-        toastr.success("{{ session('success') }}");
-    @endif
-
-    @if (session('error'))
-        toastr.error("{{ session('error') }}");
-    @endif
-</script>
 
 @endpush

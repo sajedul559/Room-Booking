@@ -44,7 +44,7 @@ class TodoController extends Controller
     public function store(TodoFormRequest $request)
     {
         $this->todoService->createTodo($request->payloadsData());
-        return redirect()->route('todos.index')->with('success', 'TODO created successfully.');
+        return redirect()->route('todos.index')->with('success', 'Todo created successfully.');
     }
 
     public function edit($id)
@@ -58,12 +58,12 @@ class TodoController extends Controller
     public function update(TodoFormRequest $request, $id)
     {
         $this->todoService->updateTodo($id, $request->payloadsData());
-        return redirect()->route('todos.index')->with('success', 'TODO updated successfully.');
+        return redirect()->route('todos.index')->with('success', 'Todo updated successfully.');
     }
 
     public function destroy($id)
     {
         $this->todoService->deleteTodo($id);
-        return redirect()->route('todos.index')->with('success', 'TODO deleted successfully.');
+        return redirect()->route('todos.index')->with('success', 'Todo deleted successfully.');
     }
 }

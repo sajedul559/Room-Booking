@@ -6,14 +6,7 @@
         <div class="col-12">
             <div class="card p-4 border-0 shadow-sm">
                 <div class="row">
-
-                    {{-- <form action="{{ route('properties.store') }}" method="POST">
-                        @csrf
-                        @include('backend.properties.form')
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </form> --}}
                     <form method="POST" action="{{ route('todos.store') }}" enctype="multipart/form-data">
-
                         @csrf
                         @include('backend.todos.form', ['submitButtonText' => 'Add'])
                     </form>
@@ -23,16 +16,3 @@
         </div> <!-- Col-12 -->
     </div>
 @endsection
-
-@push('scripts')
-<script>
-    @if (session('success'))
-        toastr.success("{{ session('success') }}");
-    @endif
-
-    @if (session('error'))
-        toastr.error("{{ session('error') }}");
-    @endif
-</script>
-
-@endpush
