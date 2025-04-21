@@ -1,6 +1,3 @@
-
-
-
 @extends('layouts.layouts')
 
 @section('content')
@@ -10,19 +7,19 @@
     <div class="row mb-4">
         <div class="col-md-4">
             <div class="card bg-light p-3 shadow-sm">
-                <h5>Total Earn</h5>
+                <h4>Total Earn</h4>
                 <p class="text-success fw-bold">{{ number_format($totalCredit, 2) }} $</p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card bg-light p-3 shadow-sm">
-                <h5>Total Spend</h5>
+                <h4>Total Spend</h4>
                 <p class="text-danger fw-bold">{{ number_format($totalDebit, 2) }} $</p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card bg-light p-3 shadow-sm">
-                <h5>Profit</h5>
+                <h4>Profit</h4>
                 <p class="fw-bold">{{ number_format($profit, 2) }} $</p>
             </div>
         </div>
