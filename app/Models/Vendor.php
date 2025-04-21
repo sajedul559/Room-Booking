@@ -14,7 +14,7 @@ class Vendor extends Model
     protected $fillable = [
         'id','slug', 'user_id', 'address', 'city', 'state', 'country', 
         'postcode', 'phone', 'email', 'status', 'approved_by', 
-        'last_approved_by', 'approved_date', 'last_update_date'
+        'last_approved_by', 'approved_date', 'last_update_date','id_verification'
     ];
 
     protected $casts = [
@@ -22,17 +22,17 @@ class Vendor extends Model
         'last_update_date' => 'datetime',
     ];
 
-    public const VENDOR_STATUS_APPROVE = 'Approve';
-    public const VENDOR_STATUS_REJECTED = 'Rejected';
-    public const VENDOR_STATUS_PENDING = 'Pending';
+    public const VENDOR_STATUS_APPROVE = 'approve';
+    public const VENDOR_STATUS_REJECTED = 'rejected';
+    public const VENDOR_STATUS_PENDING = 'pending';
 
     // Return property types as an associative array
     public static function getVendorStatus(): array
     {
         return [
-            self::VENDOR_STATUS_APPROVE => 'Approve',
-            self::VENDOR_STATUS_REJECTED => 'Rejected',
-            self::VENDOR_STATUS_PENDING => 'Pending',
+            self::VENDOR_STATUS_APPROVE => 'approve',
+            self::VENDOR_STATUS_REJECTED => 'rejected',
+            self::VENDOR_STATUS_PENDING => 'pending',
         ];
     }
     public function user()

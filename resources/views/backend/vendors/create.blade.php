@@ -6,13 +6,7 @@
         <div class="col-12">
             <div class="card p-4 border-0 shadow-sm">
                 <div class="row">
-
-                    {{-- <form action="{{ route('properties.store') }}" method="POST">
-                        @csrf
-                        @include('backend.properties.form')
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </form> --}}
-                    <form action="{{ route('vendors.store') }}" method="POST">
+                    <form action="{{ route('vendors.store') }}" method="POST"  enctype="multipart/form-data">
                         @csrf
                         @include('backend.vendors.form', ['submitButtonText' => 'Create Vendor'])
                     </form>
@@ -24,14 +18,23 @@
 @endsection
 
 @push('scripts')
+{{-- JavaScript for Preview --}}
 <script>
-    @if (session('success'))
-        toastr.success("{{ session('success') }}");
-    @endif
-
-    @if (session('error'))
-        toastr.error("{{ session('error') }}");
-    @endif
+    function previewImage(event) {
+        const input = event.target;
+        const preview = document.getElementById('preview');
+        
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 </script>
 
 @endpush
