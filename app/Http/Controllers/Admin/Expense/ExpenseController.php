@@ -64,7 +64,12 @@ class ExpenseController extends Controller
         $this->expenseService->updateExpense($id, $request->payloadsData());
         return redirect()->route('expenses.index')->with('success', 'TODO updated successfully.');
     }
+    public function userExpenseDetails($userId)
+    {
+        $data = $this->expenseService->getUserExpenseDetails($userId);
 
+        return view('backend.expenses.details', $data);
+    }
     public function destroy($id)
     {
         $this->expenseService->deleteExpense($id);

@@ -17,10 +17,11 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Vendor Name</th>
+                                <th>User Name</th>
                                 <th>Property</th>
                                 <th>Type</th>
                                 <th>Is Creadit</th>
+                                <th>Created By</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -32,13 +33,26 @@
                                     <td>{{ $data->property ? $data->property->property_name : 'No Vendor Assigned' }}</td>
                                     <td>{{ $data->expense_type }}</td>
                                     <td>{{ $data->is_credit ? 'Yes' : 'No' }}</td>
+                                    <td>{{ $data->createdBy?->name?:'' }}</td>
+
                                     <td class="text-start">
                                         <x-common.action-drop-down>
                                             <!-- Edit Button -->
                                             <a class="dropdown-item edit-item-btn" href="{{ route('expenses.edit', $data->id) }}">
                                                 <i class="mdi mdi-pencil me-2 text-muted vertical-middle"></i>Edit
                                             </a>
-                                            <!-- Delete Button -->
+                                            <!-- View Details Button -->
+                                            @if ($data->created_by)
+                                                <a class="dropdown-item" href="{{ route('expense.details', $data->created_by) }}">
+                                                    <i class="mdi mdi-eye me-2 text-muted vertical-middle"></i>View Details
+                                                </a>
+                                            @else
+                                                <span class="dropdown-item text-muted">
+                                                    <i class="mdi mdi-eye-off me-2 text-muted vertical-middle"></i>No Details
+                                                </span>
+                                            @endif
+                                        
+                                                                                        <!-- Delete Button -->
                                             <button type="button" class="dropdown-item delete-item-btn" data-id="{{ $data->id }}">
                                                 <i class="mdi mdi-delete me-2 text-muted vertical-middle"></i>Delete
                                             </button>
@@ -68,19 +82,4 @@
 @endpush
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-  
-
-</script>
-
-<script>
-    @if (session('success'))
-        toastr.success("{{ session('success') }}");
-    @endif
-
-    @if (session('error'))
-        toastr.error("{{ session('error') }}");
-    @endif
-</script>
-
 @endpush

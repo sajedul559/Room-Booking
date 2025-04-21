@@ -1,13 +1,15 @@
 
 
    <div class="mb-3">
-    <x-common.label title="Vendor" isRequired="true" />
+    <x-common.label title="User" isRequired="true" />
     <x-common.select2 name="vendor_id">
-        <option value="">Select Vendor</option>
+        <option value="">Select User</option>
         @foreach ($vendors as $vendor)
-            <option value="{{ $vendor->id }}" {{ old('vendor_id', $expense->vendor_id ?? '') == $vendor->id ? 'selected' : '' }}>
-                {{ $vendor->user->name }}
-            </option>
+        <option 
+            value="{{ $vendor->id }}" 
+            {{ old('vendor_id', $expense->vendor_id ?? auth()->id()) == $vendor->id ? 'selected' : '' }}>
+            {{ $vendor->user->name }}
+        </option>
         @endforeach
     </x-common.select2>
    </div>
@@ -28,7 +30,7 @@
     </div>
 
     <div class="mb-3">
-        <x-common.label title="Status" isRequired="true" />
+        <x-common.label title="Expens Type" isRequired="true" />
     
         <x-common.select2 name="expense_type" id="expense-type-select">
             <option value="">Select Expense Type</option>
