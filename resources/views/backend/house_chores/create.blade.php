@@ -9,7 +9,7 @@
                     <form method="POST" action="{{ route('house_chores.store') }}" enctype="multipart/form-data">
 
                         @csrf
-                        @include('backend.house_chores.form', ['submitButtonText' => 'Create Vendor'])
+                        @include('backend.house_chores.form', ['submitButtonText' => 'Add'])
                     </form>
 
                 </div> <!-- Row -->

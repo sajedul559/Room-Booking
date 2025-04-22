@@ -7,7 +7,7 @@
                 <div class="card" id="orderList">
                     <div class="card-header" >
                         <div class="d-flex justify-content-between align-items-center mb-1">
-                            <h4 class="header-title mb-0">Property List</h4>
+                            <h4 class="header-title mb-0">House Chorse List</h4>
                             <a class="btn btn-success" href="{{ route('house_chores.create') }}" class="btn btn-primary"> <i class="mdi mdi-plus-circle me-2"></i>New House Chore</a>
 
                         </div>
@@ -20,12 +20,11 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Vendor</th>
                                 <th>Property</th>
-                                <th>Date</th>
                                 <th>Expected Complete Date</th>
                                 <th>Task Type</th>
                                 <th>Status</th>
+                                <th>Created Date</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -34,10 +33,7 @@
                             <tr>
                                 <td>{{ $data->id }}</td>
                                 <td>{{ $data->name }}</td>
-                                <td>{{ $data->vendor ? $data->vendor->user->name ?? 'No User Assigned' : 'No Vendor Assigned' }}</td>
-                                <td>{{ $data->property ? $data->property->property_name : 'No Vendor Assigned' }}</td>
-
-                                <td>{{ $data->date }}</td>
+                                <td>{{ $data->property ? $data->property->property_name : 'No Property Assigned' }}</td>
                                 <td>{{ $data->expected_date_to_complete }}</td>
                                 <td>{{ $data->task_type }}</td>
                                 @php
@@ -57,7 +53,8 @@
                                     </span>
                                 </td>
                                 
-                                                    
+                                <td>{{ \Carbon\Carbon::parse($data->created_at)->format('Y-m-d') }}</td>
+     
                                 <td class="text-start">
                                     <x-common.action-drop-down>
                                         <!-- Edit Button -->
