@@ -23,6 +23,7 @@
                                 <th>Address</th>
                                 <th>Email</th>
                                 <th>Phone</th>
+                                <th>Verification Id</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -35,6 +36,22 @@
                                 <td>{{ $vendor->address }}</td>
                                 <td>{{ $vendor->email }}</td>
                                 <td>{{ $vendor->phone }}</td>
+                                <td>
+                                    @if(isset($vendor) && $vendor->id_verification)
+                                        <a href="{{ asset('storage/'.$vendor->id_verification) }}" target="_blank">
+                                            <img id="preview" 
+                                                  src="{{ get_image_path($vendor->id_verification) }}"
+                                                 alt="ID Verification" 
+                                                 style="max-width: 100px;">
+                                        </a>
+                                    @else
+                                        <img id="preview" 
+                                             src="" 
+                                             alt="ID Verification" 
+                                             style="max-width: 100px; display: none;">
+                                    @endif
+                                </td>
+                                
                                 <td>{{ ucfirst($vendor->status) }}</td>
                                 {{-- <td>
                                     <a href="{{ route('vendors.edit', $vendor->id) }}" class="btn btn-warning">Edit</a>
