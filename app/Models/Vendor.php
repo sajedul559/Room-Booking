@@ -30,9 +30,9 @@ class Vendor extends Model
     public static function getVendorStatus(): array
     {
         return [
-            self::VENDOR_STATUS_APPROVE => 'approve',
-            self::VENDOR_STATUS_REJECTED => 'rejected',
-            self::VENDOR_STATUS_PENDING => 'pending',
+            self::VENDOR_STATUS_APPROVE => 'Approve',
+            self::VENDOR_STATUS_REJECTED => 'Rejected',
+            self::VENDOR_STATUS_PENDING => 'Pending',
         ];
     }
     public function user()

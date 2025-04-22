@@ -24,16 +24,16 @@ class HouseChoreFormRequest extends FormRequest
     {
         return [
             // 'vendor_id' => 'required|exists:vendors,id',
-             'vendor_id' => 'required',
+            //  'vendor_id' => 'required',
             // 'property_id' => 'required|exists:properties,id',
             'property_id' => 'required',
-            'date' => 'required|date',
+            // 'date' => 'required|date',
             'expected_date_to_complete' => 'nullable|date|after_or_equal:date',
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'task_type' => 'nullable|string',
             'comments' => 'nullable|string',
-            'cleaner_booked' => 'nullable|string',
+            'cleaner_booked' => 'nullable',
             'status' => 'required|string',
         ];
     }

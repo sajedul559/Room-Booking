@@ -2,20 +2,24 @@
 
 namespace App\Http\Controllers\Admin\HouseChore;
 
-use App\Http\Requests\HouseChoreFormRequest;
-use App\Http\Controllers\Controller;
-
 use App\Models\HouseChore;
-use App\Services\HouseChore\HouseChoreService;
 use Illuminate\Http\Request;
+
+use App\Http\Controllers\Controller;
+use App\Services\Property\PropertyService;
+use App\Http\Requests\HouseChoreFormRequest;
+use App\Services\HouseChore\HouseChoreService;
 
 class HouseChoreController extends Controller
 {
     private $houseChoreService;
+    protected $propertyService;
 
-    public function __construct(HouseChoreService $houseChoreService)
+
+    public function __construct(HouseChoreService $houseChoreService, PropertyService $propertyService)
     {
         $this->houseChoreService = $houseChoreService;
+        $this->propertyService = $propertyService;
          // Apply permission checks globally for these actions
          $this->middleware('can:Create House Chore')->only('create', 'store');
          $this->middleware('can:Edit House Chore')->only('edit', 'update');
@@ -26,14 +30,16 @@ class HouseChoreController extends Controller
     public function index()
     {
         $chores = $this->houseChoreService->getAll();
+
         return view('backend.house_chores.list', compact('chores'));
     }
 
     public function create()
     {
         $data = $this->houseChoreService->create();
+        $properties = $this->propertyService->getAllProperties();
 
-        return view('backend.house_chores.create',$data);
+        return view('backend.house_chores.create',compact('data','properties'));
     }
 
     public function store(HouseChoreFormRequest $request)
@@ -45,7 +51,8 @@ class HouseChoreController extends Controller
     public function edit($id)
     {
         $chore = $this->houseChoreService->getById($id);
-        return view('backend.house_chores.edit', compact('chore'));
+        $properties = $this->propertyService->getAllProperties();
+        return view('backend.house_chores.edit', compact('chore','properties'));
     }
 
     public function update(HouseChoreFormRequest $request, $id)

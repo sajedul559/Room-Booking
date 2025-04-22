@@ -40,8 +40,24 @@
                                 <td>{{ $data->date }}</td>
                                 <td>{{ $data->expected_date_to_complete }}</td>
                                 <td>{{ $data->task_type }}</td>
-                                <td>{{ ucfirst($data->status) }}</td>
-                               
+                                @php
+                                $badgeColors = [
+                                    'complete' => 'bg-success',     // Green
+                                    'cancel' => 'bg-danger',        // Red
+                                    'in-progress' => 'bg-warning',  // Yellow
+                                    'pending' => 'orange-badge',    // Custom class for orange
+                                ];
+                                
+                                $statusKey = strtolower($data->status);
+                                $badgeClass = $badgeColors[$statusKey] ?? 'bg-secondary';  // Default to secondary if no match
+                                @endphp
+                                <td>
+                                    <span class="badge {{ $badgeClass }}">
+                                        {{ ucfirst($data->status) }}
+                                    </span>
+                                </td>
+                                
+                                                    
                                 <td class="text-start">
                                     <x-common.action-drop-down>
                                         <!-- Edit Button -->
@@ -74,23 +90,29 @@
     .dt-buttons{
         display:none;
     }
+    .badge.orange-badge {
+        background-color: orange;
+        color: white;
+    }
+
+    /* Bootstrap already provides bg-success, bg-danger, bg-warning, so you don't need these */
+    .badge.bg-success {
+        background-color: rgb(34, 169, 10) !important;
+        color: white !important;
+    }
+
+    .badge.bg-danger {
+        background-color: #dc3545; /* Red */
+    }
+
+    .badge.bg-warning {
+        background-color: rgb(255, 193, 7); /* Yellow */
+    }
 </style>
+
+
 @endpush
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-  
-
-</script>
-
-<script>
-    @if (session('success'))
-        toastr.success("{{ session('success') }}");
-    @endif
-
-    @if (session('error'))
-        toastr.error("{{ session('error') }}");
-    @endif
-</script>
 
 @endpush
