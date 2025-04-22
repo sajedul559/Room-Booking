@@ -39,17 +39,22 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($expenses as $expense)
+            @forelse ($expenses as $expense)
                 <tr>
                     <td>{{ $expense->id }}</td>
-                    <td>{{ $expense->property->property_name ?? 'N/A' }}</td>
-                    <td>{{ $expense->vendor->user->name ?? 'N/A' }}</td>
+                    <td>{{ $expense->property?->property_name ?? 'N/A' }}</td>
+                    <td>{{ $expense->createdBy?->name ?? 'N/A' }}</td>
                     <td>{{ $expense->date }}</td>
                     <td>{{ $expense->expense_type }}</td>
                     <td>{{ $expense->is_credit ? 'Yes' : 'No' }}</td>
                     <td>{{ number_format($expense->amount, 2) }} $</td>
                 </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td colspan="7" class="text-center text-danger">No expenses found.</td>
+                </tr>
+            @endforelse
+        
         </tbody>
     </table>
 </div>
