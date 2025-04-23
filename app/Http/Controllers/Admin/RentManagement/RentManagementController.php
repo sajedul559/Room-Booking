@@ -117,7 +117,24 @@ class RentManagementController extends Controller
         $this->rentManagementService->updateRentManagement($id, $request->payloadsData());
         return redirect()->route('rent_managements.index')->with('success', 'Rent updated successfully.');
     }
+    public function filter(Request $request)
+    {
+        $query = RentManagement::with(['room', 'property']);
 
+        if ($request->filled('year')) {
+            $query->whereYear('date', $request->year);
+        }
+
+        if ($request->filled('month')) {
+            $query->whereMonth('date', $request->month);
+        }
+
+        $rentManagements = $query->latest()->get();
+
+        $html = view('backend.rent_managements.rows', compact('rentManagements'))->render();
+
+        return response()->json(['html' => $html]);
+    }
     public function destroy($id)
     {
         $this->rentManagementService->deleteRentManagement($id);

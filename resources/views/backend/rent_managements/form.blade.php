@@ -72,7 +72,22 @@
     </x-common.select2>
 </div>
 
+<div class="mb-3">
+    <x-common.label title="Rent Type" isRequired="true" />
 
+    <x-common.select2 name="rent_type" id="">
+        <option value="">Select Rent Type</option>
+        @foreach (\App\Models\RentManagement::getRentTypes() as $type => $label)
+            <option value="{{ $type }}" {{ old('rent_type', $todo->rent_type ?? '') == $type ? 'selected' : '' }}>
+                {{ $label }}
+            </option>
+        @endforeach
+    </x-common.select2>
+    
+    @error('rent_type')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
 <div class="mb-3">
     <x-common.label title="Notes" />
     <x-common.textarea name="notes">{{ old('notes', $rent->notes ?? '') }}</x-common.textarea>
