@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Admin\RentManagement;
 
 use Carbon\Carbon;
-use App\Models\RentManagement;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\RentManagement;
 use App\Http\Controllers\Controller;
 use App\Services\Vendor\VendorService;
-use App\Services\RentManagement\RentManagementService;
-use App\Http\Requests\RentManagementFormRequest;
 use App\Services\Property\PropertyService;
+use App\Http\Requests\RentManagementFormRequest;
+use App\Services\RentManagement\RentManagementService;
 
 class RentManagementController extends Controller
 {
@@ -54,16 +55,14 @@ class RentManagementController extends Controller
     }
     public function getRentEvents(Request $request)
     {
-        // Extract month from the 'start' parameter
-        $month = $request->query('month'); // Default to current month if not provided
-
-        $startDate = $request->query('start', now()->toIso8601String());
-        // $month = Carbon::parse($startDate)->month; // Extract month
-        $year = Carbon::parse($startDate)->year; // Extract year
+        $month = $request->query('month', now()->month);
+        $year = $request->query('year', now()->year);
     
         \Log::info("Fetching rent events for: Month - $month, Year - $year");
     
-        $rents = RentManagement::whereMonth('date', $month)
+        $rents = RentManagement::with(['user', 'property', 'room']) // eager load relationships
+                               ->whereMonth('date', $month)
+                               ->whereYear('date', $year)
                                ->get();
     
         $events = [];
@@ -71,28 +70,37 @@ class RentManagementController extends Controller
         foreach ($rents as $rent) {
             $dueDate = Carbon::parse($rent->date);
             $statusColor = '';
+            $text = Str::limit(optional($rent->user)->name ?? 'Unknown', 15);
+    
             if ($dueDate->isPast()) {
-                $statusColor = '#dc3545'; // Overdue (Red)
-                $text= 'Overdue';
+                $statusColor = '#dc3545'; // Overdue
             } elseif ($dueDate->diffInDays(Carbon::today()) <= 2) {
-                $statusColor = '#ffc107'; // Due Soon (Yellow)
-                $text= 'Due Soon';
-
+                $statusColor = '#ffc107'; // Due Soon
             } else {
-                $statusColor = '#28a745'; // Upcoming (Green)
-                $text= 'Upcoming';
-
+                $statusColor = '#28a745'; // Upcoming
             }
+    
+            $propertyName = optional($rent->property)->property_name ?? 'N/A';
+            $propertyAddress = optional($rent->property)->location ?? 'N/A';
+            $roomName = optional($rent->room)->name ?? 'N/A';
+    
+            $tooltipText = "{$text} – {$propertyName}, {$propertyAddress}, {$roomName}. "
+                         . "Total Rent: " . number_format($rent->total_rent, 2)
+                         . ". Current Rent: " . number_format($rent->amount, 2)
+                         . ". Due Rent: " . number_format($rent->total_rent - $rent->amount, 2);
+    
             $events[] = [
-                'title' => $text.': $' . number_format($rent->amount, 2),
+                'title' => $text . ': $' . number_format($rent->amount, 2),
                 'start' => $rent->date,
                 'color' => $statusColor,
-                'amount' => $rent->amount
+                'amount' => $rent->amount,
+                'tooltip' => $tooltipText
             ];
         }
     
         return response()->json($events);
     }
+    
     
     public function store(RentManagementFormRequest $request)
     {
