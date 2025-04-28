@@ -25,7 +25,9 @@ class RoomController extends Controller
     public function index()
     {
         $rooms = Room::with('images')->get();
-        return view('backend.rooms.list', compact('rooms'));
+        $properties = $this->propertyService->getAllProperties();
+        
+        return view('backend.rooms.list', compact('rooms', 'properties'));
     }
 
     public function create()

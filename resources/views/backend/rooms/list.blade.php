@@ -7,16 +7,28 @@
                 <div class="card" id="orderList">
                     <div class="card-header" >
                         <div class="d-flex justify-content-between align-items-center mb-1">
-                            <h4 class="header-title mb-0">Room List</h4>
-                            <a class="btn btn-success" href="{{ route('rooms.create') }}" class="btn btn-primary"> <i class="mdi mdi-plus-circle me-2"></i>New Room</a>
+                            
+                            <div class="col-md-6" style="margin-left:-5px;">
+                               
+                                <select id="selected_property" class="form-control">
+                                    <option value="all">All Properties</option>
+                                    @foreach ($properties as $property)
+                                        <option value="{{ $property->id }}" {{ request('property_id') == $property->id ? 'selected' : '' }}>
+                                            {{ $property->property_name }}
+                                        </option>
+                                    @endforeach
+                                </select>
 
+                            </div>
+                            <a class="btn btn-success" href="{{ route('rooms.create') }}" class="btn btn-primary"> <i class="mdi mdi-plus-circle me-2"></i>New Room</a>
                         </div>
                     </div>
                 <div class="card-body">
-                    <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
+                    <table id="datatable-room" class="table table-striped dt-responsive nowrap w-100">
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th class="d-none">Property ID</th> <!-- Hidden column -->
                                 <th>Property</th>
                                 <th>Name</th>
                                 <th>Price</th>
@@ -36,6 +48,7 @@
                             @foreach ($rooms as $data)
                             <tr>
                                 <td>{{ $data->id }}</td>
+                                <td class="d-none">{{ $data->property_id }}</td> <!-- Hidden data -->
                                 <td>{{ $data->property ? $data->property->property_name : ' ' }}</td>
                                 <td>{{ $data->name }}</td>
                                 <td>{{ $data->price }}</td>
@@ -113,6 +126,38 @@
 @endpush
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    var table = $("#datatable-room").DataTable({
+        lengthChange: !1,
+        buttons: [
+            { extend: "copy", className: "btn-light" },
+            { extend: "print", className: "btn-light" },
+            { extend: "pdf", className: "btn-light" },
+            { extend: "excel", className: "btn-light" },
+        ],
+        language: {
+            paginate: {
+                previous: "<i class='mdi mdi-chevron-left'>",
+                next: "<i class='mdi mdi-chevron-right'>",
+            },
+        },
+        drawCallback: function () {
+            $(".dataTables_paginate > .pagination").addClass(
+                "pagination-rounded"
+            );
+        },
+    });
 
+    $('#selected_property').on('change', function () {
+        let selectedProperty = $(this).val();
+
+        if (selectedProperty === 'all') {
+            table.column(1).search('').draw(); // Clear filter
+        } else {
+            let selectedPropertyName = $("#selected_property option:selected").val();
+            table.column(1).search(selectedPropertyName).draw(); // Filter by property name column
+        }
+    });
+</script>
 
 @endpush
