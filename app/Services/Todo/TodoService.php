@@ -8,7 +8,7 @@ class TodoService
 {
     public function getAllTodos()
     {
-        return Todo::all();
+        return Todo::latest('id')->get();
     }
 
     public function createTodo(array $data)

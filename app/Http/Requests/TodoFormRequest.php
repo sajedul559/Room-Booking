@@ -25,6 +25,7 @@ class TodoFormRequest extends FormRequest
             'vendor_id' => 'required|integer',
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'due_date' => 'required|date',
             'status' => 'required|String',
             'assigned_to' => 'nullable|integer',
         ];

@@ -395,10 +395,10 @@
                 <div class="col-lg-4 theiaStickySidebar">
                     <div class="right-sidebar">
                         <a href="{{ route('booking.form',$room->slug) }}" class="btn btn-primary prop-book"><i
-                                class="bx bx-calendar"></i>Book Property</a>
+                                class="bx bx-calendar"></i>Book Room</a>
 
                         <!-- Enquiry -->
-                        {{-- <div class="sidebar-card">
+                        <div class="sidebar-card">
                             <div class="sidebar-card-title">
                                 <h5>Request Info</h5>
                             </div>
@@ -435,11 +435,11 @@
                                 <li><a href="javascript:void(0);"><i class="feather-phone"></i>Call Us</a></li>
                                 <li><a href="javascript:void(0);"><i class="fa-brands fa-whatsapp"></i>Whatsapp</a></li>
                             </ul>
-                        </div> --}}
+                        </div>
                         <!-- /Enquiry -->
 
                         <!-- Listing Owner Details -->
-                        {{-- <div class="sidebar-card">
+                        <div class="sidebar-card">
                             <div class="sidebar-card-title">
                                 <h5>Listing Owner Details</h5>
                             </div>
@@ -469,11 +469,11 @@
                                 <li>Memeber on<span>15 Jan 2023</span></li>
                                 <li>Verification<span>Verified</span></li>
                             </ul>
-                        </div> --}}
+                        </div>
                         <!-- /Listing Owner Details -->
 
                         <!-- Share Property -->
-                        {{-- <div class="sidebar-card">
+                        <div class="sidebar-card">
                             <div class="sidebar-card-title">
                                 <h5>Share Property</h5>
                             </div>
@@ -493,11 +493,11 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div> --}}
+                        </div>
                         <!-- /Share Property -->
 
                          <!-- Reviews -->
-                        <div class="collapse-card sidebar-card">
+                        {{-- <div class="collapse-card sidebar-card">
                             <h4 class="card-title">
                                 <a class="collapsed" data-bs-toggle="collapse" href="#review" aria-expanded="false">Reviews
                                     (25)</a>
@@ -593,7 +593,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- /Reviews -->
 
                     </div>

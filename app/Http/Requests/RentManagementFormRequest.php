@@ -22,7 +22,7 @@ class RentManagementFormRequest extends FormRequest
     public function rules(): array
     {
         return [ 
-            'vendor_id' => 'required|exists:vendors,id',
+            'vendor_id' => 'nullable|exists:vendors,id',
             'property_id' => 'required|exists:properties,id',
             'room_id' => 'required|integer',
             'amount' => 'required|numeric|min:0',
@@ -32,6 +32,7 @@ class RentManagementFormRequest extends FormRequest
             'payment_type' => 'nullable|in:Cash,Card',
             'payment_collection_type' => 'nullable|in:Online,Offline',
             'notes' => 'nullable|string',
+            'rent_type' => 'nullable|string',
         ];
     }
     public function payloadsData()

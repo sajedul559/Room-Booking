@@ -13,6 +13,32 @@
                         </div>
                     </div>
                 <div class="card-body">
+                    <form id="rentForm" class="row mb-3">
+                        <div class="col-md-3">
+                            <label for="year" class="form-label">Filter by Year</label>
+                            <select name="year" id="year" class="form-select">
+                                <option value="">All Years</option>
+                                @foreach (range(date('Y'), 2020) as $year)
+                                    <option value="{{ $year }}">{{ $year }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    
+                        <div class="col-md-3">
+                            <label for="month" class="form-label">Filter by Month</label>
+                            <select name="month" id="month" class="form-select">
+                                <option value="">All Months</option>
+                                @foreach (range(1, 12) as $m)
+                                    <option value="{{ $m }}">{{ \Carbon\Carbon::create()->month($m)->format('F') }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    
+                        <div class="col-md-3 align-self-end">
+                            <button type="submit" class="btn btn-primary">Filter</button>
+                            <button type="button" id="clearFilterBtn" class="btn btn-secondary">Clear</button>
+                        </div>
+                    </form>
                     <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
                         <thead>
                             <tr>
@@ -31,14 +57,14 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="rentTableBody">
                             @foreach ($rentManagements as $data)
                                 <tr>
                                     <td>{{ $data->id }}</td>
                                     <td>{{ $data->vendor ? $data->vendor->user->name ?? 'No User Assigned' : 'No Vendor Assigned' }}</td>
                                     <td>{{ $data->property ? $data->property->property_name : 'No Vendor Assigned' }}</td>
                                     <td>{{ $data->user ? $data->user->name : 'No User Assigned' }}</td>
-                                    <td>Will Add</td>
+                                    <td>{{ $data->room?->name ?? '' }}</td>
                                     <td>{{ $data->amount }}</td>
                                     <td>{{ $data->payment_type }}</td>
                                     <td>{{ $data->payment_collection_type }}</td>
@@ -82,5 +108,36 @@
 @endpush
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function () {
+        $('#rentForm').on('submit', function (e) {
+            e.preventDefault();
+
+            let year = $('#year').val();
+            let month = $('#month').val();
+
+            $.ajax({
+                url: "{{ route('rent.filter') }}",
+                method: "GET",
+                data: {
+                    year: year,
+                    month: month
+                },
+                success: function (response) {
+                    $('#rentTableBody').html(response.html);
+                },
+                error: function (xhr) {
+                    alert('Something went wrong while fetching data.');
+                }
+            });
+        });
+        //Clear filter
+        $('#clearFilterBtn').on('click', function() {
+            $('#year').val('');
+            $('#month').val('');
+            $('#rentForm').submit(); 
+        });
+    });
+</script>
 
 @endpush

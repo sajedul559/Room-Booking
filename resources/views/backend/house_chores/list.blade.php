@@ -7,7 +7,7 @@
                 <div class="card" id="orderList">
                     <div class="card-header" >
                         <div class="d-flex justify-content-between align-items-center mb-1">
-                            <h4 class="header-title mb-0">Property List</h4>
+                            <h4 class="header-title mb-0">House Chorse List</h4>
                             <a class="btn btn-success" href="{{ route('house_chores.create') }}" class="btn btn-primary"> <i class="mdi mdi-plus-circle me-2"></i>New House Chore</a>
 
                         </div>
@@ -20,12 +20,11 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Vendor</th>
                                 <th>Property</th>
-                                <th>Date</th>
                                 <th>Expected Complete Date</th>
                                 <th>Task Type</th>
                                 <th>Status</th>
+                                <th>Created Date</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -34,14 +33,28 @@
                             <tr>
                                 <td>{{ $data->id }}</td>
                                 <td>{{ $data->name }}</td>
-                                <td>{{ $data->vendor ? $data->vendor->user->name ?? 'No User Assigned' : 'No Vendor Assigned' }}</td>
-                                <td>{{ $data->property ? $data->property->property_name : 'No Vendor Assigned' }}</td>
-
-                                <td>{{ $data->date }}</td>
+                                <td>{{ $data->property ? $data->property->property_name : 'No Property Assigned' }}</td>
                                 <td>{{ $data->expected_date_to_complete }}</td>
                                 <td>{{ $data->task_type }}</td>
-                                <td>{{ ucfirst($data->status) }}</td>
-                               
+                                @php
+                                $badgeColors = [
+                                    'complete' => 'bg-success',     // Green
+                                    'cancel' => 'bg-danger',        // Red
+                                    'in-progress' => 'bg-warning',  // Yellow
+                                    'pending' => 'orange-badge',    // Custom class for orange
+                                ];
+                                
+                                $statusKey = strtolower($data->status);
+                                $badgeClass = $badgeColors[$statusKey] ?? 'bg-secondary';  // Default to secondary if no match
+                                @endphp
+                                <td>
+                                    <span class="badge {{ $badgeClass }}">
+                                        {{ ucfirst($data->status) }}
+                                    </span>
+                                </td>
+                                
+                                <td>{{ \Carbon\Carbon::parse($data->created_at)->format('Y-m-d') }}</td>
+     
                                 <td class="text-start">
                                     <x-common.action-drop-down>
                                         <!-- Edit Button -->
@@ -74,23 +87,29 @@
     .dt-buttons{
         display:none;
     }
+    .badge.orange-badge {
+        background-color: orange;
+        color: white;
+    }
+
+    /* Bootstrap already provides bg-success, bg-danger, bg-warning, so you don't need these */
+    .badge.bg-success {
+        background-color: rgb(34, 169, 10) !important;
+        color: white !important;
+    }
+
+    .badge.bg-danger {
+        background-color: #dc3545; /* Red */
+    }
+
+    .badge.bg-warning {
+        background-color: rgb(255, 193, 7); /* Yellow */
+    }
 </style>
+
+
 @endpush
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-  
-
-</script>
-
-<script>
-    @if (session('success'))
-        toastr.success("{{ session('success') }}");
-    @endif
-
-    @if (session('error'))
-        toastr.error("{{ session('error') }}");
-    @endif
-</script>
 
 @endpush

@@ -21,8 +21,20 @@ class RentManagement extends Model
         'payment_collect_by',
         'created_by',
         'notes',
+        'rent_type',
     ];
 
+    public const RENT= 'rent';
+    public const BOND = 'bond';
+
+    // Return property types as an associative array
+    public static function getRentTypes(): array
+    {
+        return [
+            self::RENT => 'Rent',
+            self::BOND => 'Bond',
+        ];
+    }
     public function vendor()
     {
        return $this->belongsTo(Vendor::class,'vendor_id','id');

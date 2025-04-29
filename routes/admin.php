@@ -45,6 +45,12 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
     Route::get('/api/expense-data/{month}', [HomeController::class, 'getExpenseData']);
     Route::get('/api/income-data/{month}', [HomeController::class, 'getIncomeData']);
+    //GET USER EXPENSE DETAILS
+    Route::get('/expense/details/{user_id}', [ExpenseController::class, 'userExpenseDetails'])->name('expense.details');
+    Route::get('expense/filter', [ExpenseController::class, 'filter'])->name('expense.filter');
+    Route::get('data/filter', [ExpenseController::class, 'filter'])->name('data.filter');
+
+    Route::get('rent/filter', [RentManagementController::class, 'filter'])->name('rent.filter');
 
     Route::get('/fetch-chart-data', [HomeController::class, 'fetchData'])->name('fetch.chart.data');
 

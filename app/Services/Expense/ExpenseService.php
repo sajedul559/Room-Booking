@@ -2,6 +2,7 @@
 
 namespace App\Services\Expense;
 
+use App\Models\User;
 use App\Models\Expense;
 
 class ExpenseService
@@ -38,5 +39,23 @@ class ExpenseService
     {
         $expense = Expense::findOrFail($id);
         $expense->delete();
+    }
+    public function getUserExpenseDetails($userId)
+    {
+        $user = User::findOrFail($userId);
+
+        $expenses = Expense::where('created_by', $userId)->get();
+
+        $totalCredit = $expenses->where('is_credit', true)->sum('amount');
+        $totalDebit  = $expenses->where('is_credit', false)->sum('amount');
+        $profit      = $totalCredit - $totalDebit;
+
+        return [
+            'user' => $user,
+            'expenses' => $expenses,
+            'totalCredit' => $totalCredit,
+            'totalDebit' => $totalDebit,
+            'profit' => $profit,
+        ];
     }
 }

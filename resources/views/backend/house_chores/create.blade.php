@@ -6,16 +6,10 @@
         <div class="col-12">
             <div class="card p-4 border-0 shadow-sm">
                 <div class="row">
-
-                    {{-- <form action="{{ route('properties.store') }}" method="POST">
-                        @csrf
-                        @include('backend.properties.form')
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </form> --}}
                     <form method="POST" action="{{ route('house_chores.store') }}" enctype="multipart/form-data">
 
                         @csrf
-                        @include('backend.house_chores.form', ['submitButtonText' => 'Create Vendor'])
+                        @include('backend.house_chores.form', ['submitButtonText' => 'Add'])
                     </form>
 
                 </div> <!-- Row -->

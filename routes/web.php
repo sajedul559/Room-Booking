@@ -55,9 +55,15 @@ Route::post('custom-registration', [CustomAuthController::class, 'customRegistra
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 Route::get('/room-booking/{slug}', [BookingController::class, 'showBookingForm'])->name('booking.form');
+
 Route::post('/booking/store', [BookingController::class, 'bookRoom'])->name('booking.store');
 Route::get('/booking/information/{slug}', [BookingController::class, 'bookInformation'])->name('booking.information');
 Route::post('/booking/information-store', [BookingController::class, 'bookInformationStore'])->name('booking.information.store');
+
+Route::get('/booking/details', [BookingController::class, 'bookDetails'])->name('booking.details');
+
+
+
 
 Route::get('/user/bookings', [BookingController::class, 'userBookigLists'])->name('user.bookingList');
 
@@ -78,7 +84,10 @@ Route::get('rooms/{location}', [HomeController::class, 'locationWiseRoom'])->nam
 
 Route::get('/rooming-houses', [HomeController::class, 'allRoom'])->name('rooming.houses');
 Route::get('/search-rooms', [HomeController::class, 'searchRooms'])->name('rooms.search');
-
+Route::get('/rental-order-step2/{$slug}', [HomeController::class, 'bookingStep2'])->name('rental-order-step2');
+// Route::get('/rental-order-step2/{$slug}', function () {
+//     return view('rental-order-step2');
+// })->name('rental-order-step2');
 
 // Route::get('/', function () {
 //     return view('index');
@@ -129,9 +138,7 @@ Route::get('/rental-order-step1', function () {
     return view('rental-order-step1');
 })->name('rental-order-step1');
 
-Route::get('/rental-order-step2', function () {
-    return view('rental-order-step2');
-})->name('rental-order-step2');
+
 
 Route::get('/rental-order-step3', function () {
     return view('rental-order-step3');

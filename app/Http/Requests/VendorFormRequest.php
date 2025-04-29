@@ -23,15 +23,16 @@ class VendorFormRequest extends FormRequest
     public function rules(): array
     {
         return [ 
-            'user_id' => 'required|exists:users,id',
-            'address' => 'required|string|max:255',
-            'city' => 'required|string|max:100',
-            'state' => 'required|string|max:100',
-            'country' => 'required|string|max:100',
-            'postcode' => 'required|string|max:20',
-            'phone' => 'required|string|max:20',
-            'email' => 'required|email',
-            'status' => 'nullable|string|max:50',
+            'user_id'           => 'required|exists:users,id',
+            'address'           => 'required|string|max:255',
+            'city'              => 'required|string|max:100',
+            'state'             => 'required|string|max:100',
+            'country'           => 'required|string|max:100',
+            'postcode'          => 'required|string|max:20',
+            'phone'             => 'required|string|max:20',
+            'email'             => 'required|email',
+            'id_verification'   => 'nullable|image|mimes:jpeg,png,jpg',
+            'status'            => 'nullable|string|max:50',
         ];
     }
     public function payloadsData()

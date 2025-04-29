@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('house_chores', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('vendor_id');
+            $table->unsignedBigInteger('vendor_id')->nullable();
             $table->unsignedBigInteger('property_id');
-            $table->date('date');
+            $table->date('date')->nullable();
             $table->date('expected_date_to_complete')->nullable();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->text('description')->nullable();
             $table->string('task_type')->nullable(); // Enum can be decided later
             $table->text('comments')->nullable();
             $table->string('cleaner_booked')->nullable();
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('last_updated_by')->nullable();
             $table->timestamps();

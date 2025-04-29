@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\User;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 use App\Models\BookingInformation;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Services\Booking\BookingService;
 
 class BookingController extends Controller
@@ -55,8 +57,7 @@ class BookingController extends Controller
             session(['booking_id' => $booking->id]);
 
             // Redirect to bookInformation route
-            return redirect()->route('booking.information', ['slug' => $room->slug])
-                            ->with('success', 'Room booked successfully.');
+            return redirect()->route('booking.information', ['slug' => $room->slug]);
         } else {
             return redirect()->back()->with('error', $response['message']);
         }
@@ -67,7 +68,7 @@ class BookingController extends Controller
     {
         // Fetch the room by slug
         $room = Room::where('slug', $slug)->firstOrFail();
-    
+        $user = auth()->user();
         // Get booking ID from session
         $bookingId = session('booking_id');
     
@@ -75,7 +76,8 @@ class BookingController extends Controller
         $booking = $bookingId ? Booking::find($bookingId) : null;
     
         // Pass the room and booking data to the view
-        return view('rental-order-step1', compact('room', 'booking'));
+        $user = auth()->user();
+        return view('rental-order-step1', compact('room', 'booking','user'));
     }
     
     
@@ -88,26 +90,53 @@ class BookingController extends Controller
             'address'   => 'nullable|string',
             'comments'  => 'nullable|string',
         ]);
-
-
-          
-            // Store Booking Information
-            BookingInformation::create([
-                'booking_id' => $request->booking_id,
-                'name'       => $request->name,
-                'phone'      => $request->phone,
-                'email'      => $request->email,
-                'address'    => $request->address,
-                'comments'   => $request->comments,
+    
+        // Store Booking Information
+        $bookingUserInformation = BookingInformation::create([
+            'booking_id' => $request->booking_id,
+            'name'       => $request->name,
+            'phone'      => $request->phone,
+            'email'      => $request->email,
+            'address'    => $request->address,
+            'comments'   => $request->comments,
+        ]);
+    
+        // Check if user exists by email
+        $user = User::where('email', $request->email)->first();
+    
+        // If user doesn't exist, create and login
+        if (!$user) {
+            $user = User::create([
+                'name'     => $request->name,
+                'email'    => $request->email,
+                'type'     => User::USER_TYPE_USER,
+                'phone'    => $request->phone,
+                'password' => Hash::make('12345678'), 
             ]);
+        }
+    
+        $booking = Booking::where('id',$request->booking_id)->first();
+        if($booking){
+            $booking->user_id = $user->id;
+            $booking->save();
+        }
+        // Login the user (if not already logged in)
+        if (!Auth::check()) {
+            Auth::login($user);
+        }
+        session()->flash('success', 'Booking information saved successfully!');
+        return $this->bookDetails($request, $bookingUserInformation);
+    }
+    
+    public function bookDetails($request, $bookingInformation){
 
-            return redirect()->route('checkout');
-       
+        $booking = Booking::where('id',$request->booking_id)->first();
+        return view('rental-order-step2',compact('booking','bookingInformation'));
+
     }
     public function checkout(){
 
         return view('rental-order-step3');
-
 
     }
 

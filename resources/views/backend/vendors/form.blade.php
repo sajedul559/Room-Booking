@@ -4,7 +4,7 @@
     <x-common.select2 name="user_id">
         <option value="">Select User</option>
         @foreach ($users as $user)
-            <option value="{{ $user->id }}" {{ old('user_id', $expense->user_id ?? '') == $user->id ? 'selected' : '' }}>
+            <option value="{{ $user->id }}" {{ old('user_id', $vendor->user_id ?? '') == $user->id ? 'selected' : '' }}>
                 {{ $user->name }}
             </option>
         @endforeach
@@ -88,6 +88,20 @@
         <span class="text-danger">{{ $message }}</span>
     @enderror
 </div>
+<div class="col-md-6">
+    <div class="mb-3">
+        <label class="form-label">ID Verification</label>
+        <input type="file" name="id_verification" class="form-control" accept="image/*" onchange="previewImage(event)">
+    </div>
+
+    {{-- Preview New Image or Show Old One --}}
+    <div class="mb-3">
+        <img id="preview" 
+             src="{{ isset($vendor) && $vendor->id_verification ? asset('storage/'.$vendor->id_verification) : '' }}" 
+             alt="ID Verification" 
+             style="max-width: 200px; {{ isset($vendor) && $vendor->id_verification ? '' : 'display:none;' }}">
+    </div>
+</div>
 {{-- <div class="mb-3">
     <x-common.label title="Property Type" isRequired="true" />
 
@@ -116,3 +130,24 @@
     <a href="{{ route('vendors.index') }}" class="btn btn-secondary">Cancel</a>
 
 </div>
+@push('scripts')
+{{-- JavaScript for Preview --}}
+<script>
+    function previewImage(event) {
+        const input = event.target;
+        const preview = document.getElementById('preview');
+        
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+@endpush

@@ -464,7 +464,7 @@ if (!function_exists('convertToEmbedUrl')) {
 }
 
 if (!function_exists('get_image_path')) {
-    function get_image_path($imagePath, $default = 'assets/frontend/img/product/default.jpg')
+    function get_image_path($imagePath, $default = 'assets/frontend/img/product/default.png')
     {
         if (!empty($imagePath) && Storage::disk('public')->exists($imagePath)) {
             return asset('storage/' . $imagePath);

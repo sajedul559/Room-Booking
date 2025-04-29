@@ -19,6 +19,7 @@ class HomeController extends Controller
 
     public function index()
     {
+        $user = auth()->user();
         $rooms = Room::with('images')->get();
         $properties = Property::where('is_publish','1')->get();
         return view('index',compact('rooms','properties'));

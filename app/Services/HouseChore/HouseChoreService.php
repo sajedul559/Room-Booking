@@ -37,6 +37,11 @@ class HouseChoreService
     public function store(array $data)
     {
         $data['created_by'] = auth()->id();
+        if(isset($data['cleaner_booked'])){
+            $data['cleaner_booked'] = 1;
+        }else{
+            $data['cleaner_booked'] = 0;
+        }
         return HouseChore::create($data);
     }
 
@@ -44,6 +49,12 @@ class HouseChoreService
     {
         $chore = HouseChore::findOrFail($id);
         $data['last_updated_by'] = auth()->id();
+        if(isset($data['cleaner_booked'])){
+            $data['cleaner_booked'] = 1;
+        }else{
+            $data['cleaner_booked'] = 0;
+        }
+        
         $chore->update($data);
         return $chore;
     }

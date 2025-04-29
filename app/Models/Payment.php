@@ -16,6 +16,26 @@ class Payment extends Model
         'status',
     ];
 
+    public const PAYMENT_STATUS_PENDING   = 'pending';
+    public const PAYMENT_STATUS_SUCCESS   = 'success';
+    public const PAYMENT_STATUS_FAILED    = 'failed';
+    public const PAYMENT_STATUS_CANCELLED = 'cancelled';
+    public const PAYMENT_STATUS_REFUNDED  = 'refunded';
+    public const PAYMENT_STATUS_PARTIAL   = 'partial';
+
+    public static function paymentStatusList(): array
+    {
+        return [
+            self::PAYMENT_STATUS_PENDING   => 'Pending',
+            self::PAYMENT_STATUS_SUCCESS   => 'Success',
+            self::PAYMENT_STATUS_FAILED    => 'Failed',
+            self::PAYMENT_STATUS_CANCELLED => 'Cancelled',
+            self::PAYMENT_STATUS_REFUNDED  => 'Refunded',
+            self::PAYMENT_STATUS_PARTIAL   => 'Partial',
+        ];
+    }
+
+
     // Relationship with Booking
     public function booking()
     {

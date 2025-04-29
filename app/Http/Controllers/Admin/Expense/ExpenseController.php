@@ -64,10 +64,34 @@ class ExpenseController extends Controller
         $this->expenseService->updateExpense($id, $request->payloadsData());
         return redirect()->route('expenses.index')->with('success', 'TODO updated successfully.');
     }
+    public function userExpenseDetails($userId)
+    {
+        $data = $this->expenseService->getUserExpenseDetails($userId);
+
+        return view('backend.expenses.details', $data);
+    }
+    public function filter(Request $request)
+    {
+        $query = Expense::with(['vendor.user', 'property', 'createdBy']);
+
+        if ($request->filled('year')) {
+            $query->whereYear('date', $request->year);
+        }
+
+        if ($request->filled('month')) {
+            $query->whereMonth('date', $request->month);
+        }
+
+        $expenses = $query->latest()->get();
+
+        $html = view('backend.expenses.rows', compact('expenses'))->render();
+
+        return response()->json(['html' => $html]);
+    }
 
     public function destroy($id)
     {
         $this->expenseService->deleteExpense($id);
-        return redirect()->route('expenses.index')->with('success', 'TODO deleted successfully.');
+        return redirect()->route('expenses.index')->with('success', 'Todo deleted successfully.');
     }
 }

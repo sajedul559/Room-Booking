@@ -13,6 +13,7 @@ class Todo extends Model
         'name',
         'description',
         'status',
+        'due_date',
         'assigned_to',
         'created_by',
         'updated_by',

@@ -223,4 +223,10 @@
     background-color:  #DA1F43 !important;
     color:  #0185FF !important;
  }
-
+ /**Home page partner slider**/
+.partner-section-slider{
+    background: #F3F0F0;
+}
+.partners-sec .section-heading h2 span  {
+   color:#DA1F43 !important;
+}

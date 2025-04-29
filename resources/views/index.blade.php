@@ -33,7 +33,7 @@
                                 {{-- <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="rent-property" data-bs-toggle="tab" href="#rent_property"
                                         role="tab" aria-controls="rent_property" aria-selected="false">
-                                        <img src="{{ URL::asset('assets/frontend/img/icons/rent-icon.svg') }}" alt="icon"> Rent
+                                        <img src="{{ asset('assets/frontend/img/icons/rent-icon.svg') }}" alt="icon"> Rent
                                         a Property
                                     </a>
                                 </li> --}}
@@ -127,7 +127,7 @@
                     <div class="howit-work-card" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="100">
                         <div class="work-card-icon">
                             <span>
-                                <img src="{{ URL::asset('assets/frontend/img/icons/work-icon-1.svg') }}" alt="icon">
+                                <img src="{{ asset('assets/frontend/img/icons/work-icon-1.svg') }}" alt="icon">
                             </span>
                         </div>
                         <h4>Search for Location</h4>
@@ -139,7 +139,7 @@
                     <div class="howit-work-card" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="200">
                         <div class="work-card-icon">
                             <span>
-                                <img src="{{ URL::asset('assets/frontend/img/icons/work-icon-2.svg') }}" alt="icon">
+                                <img src="{{ asset('assets/frontend/img/icons/work-icon-2.svg') }}" alt="icon">
                             </span>
                         </div>
                         <h4>Select Property Type</h4>
@@ -151,7 +151,7 @@
                     <div class="howit-work-card" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="300">
                         <div class="work-card-icon">
                             <span>
-                                <img src="{{ URL::asset('assets/frontend/img/icons/work-icon-3.svg') }}" alt="icon">
+                                <img src="{{ asset('assets/frontend/img/icons/work-icon-3.svg') }}" alt="icon">
                             </span>
                         </div>
                         <h4>Rental Validation</h4>
@@ -163,7 +163,7 @@
                     <div class="howit-work-card" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="300">
                         <div class="work-card-icon">
                             <span>
-                                <img src="{{ URL::asset('assets/frontend/img/icons/work-icon-3.svg') }}" alt="icon">
+                                <img src="{{ asset('assets/frontend/img/icons/work-icon-3.svg') }}" alt="icon">
                             </span>
                         </div>
                         <h4>03. Book Your Property</h4>
@@ -178,11 +178,11 @@
     <!-- Property Type -->
     <section class="property-type-sec">
         <div class="section-shape-imgs">
-            <img src="{{ URL::asset('assets/frontend/img/shapes/property-sec-bg-1.png') }}" class="rectangle-left"
+            <img src="{{ asset('assets/frontend/img/shapes/property-sec-bg-1.png') }}" class="rectangle-left"
                 alt="icon">
-            <img src="{{ URL::asset('assets/frontend/img/shapes/property-sec-bg-2.png') }}" class="rectangle-right"
+            <img src="{{ asset('assets/frontend/img/shapes/property-sec-bg-2.png') }}" class="rectangle-right"
                 alt="icon">
-            <img src="{{ URL::asset('assets/frontend/img/icons/red-circle.svg') }}" class="bg-09" alt="Image">
+            <img src="{{ asset('assets/frontend/img/icons/red-circle.svg') }}" class="bg-09" alt="Image">
         </div>
         <div class="container">
             <div class="row">
@@ -203,7 +203,7 @@
                     <div class="property-type-slider owl-carousel">
                         <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
-                                <img src="{{ URL::asset('assets/frontend/img/icons/property-icon-1.svg') }}" alt="icon">
+                                <img src="{{ asset('assets/frontend/img/icons/property-icon-1.svg') }}" alt="icon">
                             </div>
                             <div class="property-name">
                                 <h4>Houses</h4>
@@ -212,7 +212,7 @@
                         </div>
                         {{-- <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
-                                <img src="{{ URL::asset('assets/frontend/img/icons/property-icon-2.svg') }}" alt="icon">
+                                <img src="{{ asset('assets/frontend/img/icons/property-icon-2.svg') }}" alt="icon">
                             </div>
                             <div class="property-name">
                                 <h4>Offices</h4>
@@ -221,7 +221,7 @@
                         </div> --}}
                         <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
-                                <img src="{{ URL::asset('assets/frontend/img/icons/property-icon-3.svg') }}" alt="icon">
+                                <img src="{{ asset('assets/frontend/img/icons/property-icon-3.svg') }}" alt="icon">
                             </div>
                             <div class="property-name">
                                 <h4>Villas</h4>
@@ -230,7 +230,7 @@
                         </div>
                         <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
-                                <img src="{{ URL::asset('assets/frontend/img/icons/property-icon-4.svg') }}" alt="icon">
+                                <img src="{{ asset('assets/frontend/img/icons/property-icon-4.svg') }}" alt="icon">
                             </div>
                             <div class="property-name">
                                 <h4>Apartment</h4>
@@ -239,7 +239,7 @@
                         </div>
                         <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
-                                <img src="{{ URL::asset('assets/frontend/img/icons/property-icon-3.svg') }}" alt="icon">
+                                <img src="{{ asset('assets/frontend/img/icons/property-icon-3.svg') }}" alt="icon">
                             </div>
                             <div class="property-name">
                                 <h4>Villas</h4>
@@ -248,7 +248,7 @@
                         </div>
                         <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
-                                <img src="{{ URL::asset('assets/frontend/img/icons/property-icon-1.svg') }}" alt="icon">
+                                <img src="{{ asset('assets/frontend/img/icons/property-icon-1.svg') }}" alt="icon">
                             </div>
                             <div class="property-name">
                                 <h4>Houses</h4>
@@ -257,7 +257,7 @@
                         </div>
                         <div class="property-card" data-aos="fade-down" data-aos-duration="1000">
                             <div class="property-img">
-                                <img src="{{ URL::asset('assets/frontend/img/icons/property-icon-4.svg') }}" alt="icon">
+                                <img src="{{ asset('assets/frontend/img/icons/property-icon-4.svg') }}" alt="icon">
                             </div>
                             <div class="property-name">
                                 <h4>Apartment</h4>
@@ -322,17 +322,17 @@
 
                                                 {{-- <ul class="d-flex details">
                                                     <li>
-                                                        <img src="{{ URL::asset('assets/frontend/img/icons/bed-icon.svg') }}" alt="bed-icon">
+                                                        <img src="{{ asset('assets/frontend/img/icons/bed-icon.svg') }}" alt="bed-icon">
                                                         Min Stay: {{ $data->min_length_of_stay }} 
                                                     </li>
                                                     <li>
-                                                        <img src="{{ URL::asset('assets/frontend/img/icons/bath-icon.svg') }}" alt="bath-icon">
+                                                        <img src="{{ asset('assets/frontend/img/icons/bath-icon.svg') }}" alt="bath-icon">
                                                         Max Stay:  {{ $data->max_length_of_stay }} 
                                                     
                                                 </ul> --}}
                                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                                     <li>
-                                                        {{-- <a href="{{ route('rooms.location', ['location' => $data->city]) }}" class="btn-primary">View Rooms</a> --}}
+                                                        <a href="{{ route('rooms.location', ['location' => $data->city]) }}" class="btn-primary">View Rooms</a>
                                                         
                                                     </li>
                                                 </ul>
@@ -354,12 +354,13 @@
             </div>
         </div>
         <div class="bg-imgs">
-            <img src="{{ URL::asset('assets/frontend/img/bg/price-bg.png') }}" class="bg-04" alt="Image">
+            <img src="{{ asset('assets/frontend/img/bg/price-bg.png') }}" class="bg-04" alt="Image">
         </div>
     </section>
     
     <!-- /Feature Property For Rent -->
 
+  
 
     <!-- Testimonial -->
     <section class="testimonial-sec py-5">
@@ -378,7 +379,7 @@
                         <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="user-icon">
                                 <a href="javascript:void(0);"><img
-                                        src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}"
+                                        src="{{ asset('assets/frontend/img/profiles/user1.jpg') }}"
                                         alt="User"></a>
                             </div>
                             <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
@@ -397,7 +398,7 @@
                         <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="user-icon">
                                 <a href="javascript:void(0);"><img
-                                        src="{{ URL::asset('assets/frontend/img/profiles/user2.jpg') }}"
+                                        src="{{ asset('assets/frontend/img/profiles/user2.jpg') }}"
                                         alt="User"></a>
                             </div>
                             <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
@@ -416,7 +417,7 @@
                         <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="user-icon">
                                 <a href="javascript:void(0);"><img
-                                        src="{{ URL::asset('assets/frontend/img/profiles/user3.jpg') }}"
+                                        src="{{ asset('assets/frontend/img/profiles/user3.jpg') }}"
                                         alt="User"></a>
                             </div>
                             <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
@@ -435,7 +436,7 @@
                         <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="user-icon">
                                 <a href="javascript:void(0);"><img
-                                        src="{{ URL::asset('assets/frontend/img/profiles/user2.jpg') }}"
+                                        src="{{ asset('assets/frontend/img/profiles/user2.jpg') }}"
                                         alt="User"></a>
                             </div>
                             <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
@@ -454,7 +455,7 @@
                         <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="user-icon">
                                 <a href="javascript:void(0);"><img
-                                        src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}"
+                                        src="{{ asset('assets/frontend/img/profiles/user1.jpg') }}"
                                         alt="User"></a>
                             </div>
                             <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
@@ -476,7 +477,90 @@
         </div>
     </section>
     <!-- /Testimonial -->
+    <!-- /Partners -->
+    <section  class="partner-section-slider">
+        <div class="container">
+            <div class="partners-sec">
+                <div class="section-heading text-center">
+                    <h2>Conveniently Located Near These  <span class="uk-text-primary">Universities</span>  </h2>
+                    
+                    <div class="sec-line">
+                        <span class="sec-line1"></span>
+                        <span class="sec-line2"></span>
+                    </div>
+                    <p> Every day, we build trust through  communication, transparency, and results.</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="partners-slider owl-carousel">
+                            <div class="partner-icon">
+                                <img src="{{ asset('assets/frontend/img/slider/slider1.jpg') }}" alt="Partners">
+                            </div>
+                            <div class="partner-icon">
+                                <img src="{{ asset('assets/frontend/img/slider/slider2.jpg') }}" alt="Partners">
+                            </div>
+                            <div class="partner-icon">
+                                <img src="{{ asset('assets/frontend/img/slider/slider3.jpg') }}" alt="Partners">
+                            </div>
+                            <div class="partner-icon">
+                                <img src="{{ asset('assets/frontend/img/slider/slider4.jpg') }}" alt="Partners">
+                            </div>
+                            <div class="partner-icon">
+                                <img src="{{ asset('assets/frontend/img/slider/slider5.jpg') }}" alt="Partners">
+                            </div>
+                            <div class="partner-icon">
+                                <img src="{{ asset('assets/frontend/img/slider/slider6.jpg') }}" alt="Partners">
+                            </div>
+                            <div class="partner-icon">
+                                <img src="{{ asset('assets/frontend/img/slider/slider7.jpg') }}" alt="Partners">
+                            </div>
+                            <div class="partner-icon">
+                                <img src="{{ asset('assets/frontend/img/slider/slider8.jpg') }}" alt="Partners">
+                            </div>
+                            <div class="partner-icon">
+                                <img src="{{ asset('assets/frontend/img/slider/slider9.jpg') }}" alt="Partners">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center pb-5">
+                    <a class="btn view-rooms-btn1" id="buy-property" href="#available-room"
+                       role="tab" aria-controls="available-room" aria-selected="true">
+                       VIEW AVAILABLE ROOMS
+                    </a>
 
+                </div>
+            </div>
+        </div>
+    </section>
+       <!-- Agent Register -->
+       <section class="agent-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="section-heading" data-aos="fade-down" data-aos-duration="2000">
+                        <h2>Become a Real Estate Agent</h2>
+                        <div class="sec-line">
+                            <span class="sec-line1"></span>
+                            <span class="sec-line2"></span>
+                        </div>
+                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+                            magni dolores eos qui ratione voluptatem sequi nesciunt</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="register-btn" data-aos="fade-down" data-aos-duration="2000">
+                        <a href="{{ url('register') }}" class="btn-primary">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-imgs">
+            <img src="{{ asset('assets/frontend/img/icons/blue-circle.svg') }}" class="bg-06" alt="icon">
+            <img src="{{ asset('assets/frontend/img/icons/red-circle.svg') }}" class="bg-07" alt="icon">
+        </div>
+    </section>
+    <!-- /Agent Register -->
     <!-- Pricing -->
      <!-- Note remove this section for unwanted error handle -->
     <section class="price-section d-none">
@@ -508,7 +592,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="faq-img">
-                        <img src="{{ URL::asset('assets/frontend/img/faq-img.jpg') }}" alt="icon">
+                        <img src="{{ asset('assets/frontend/img/faq-img.jpg') }}" alt="icon">
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -587,35 +671,6 @@
     </section>
     <!-- /Faq -->
 
-    <!-- Agent Register -->
-    <section class="agent-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <div class="section-heading" data-aos="fade-down" data-aos-duration="2000">
-                        <h2>Become a Real Estate Agent</h2>
-                        <div class="sec-line">
-                            <span class="sec-line1"></span>
-                            <span class="sec-line2"></span>
-                        </div>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-                            magni dolores eos qui ratione voluptatem sequi nesciunt</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="register-btn" data-aos="fade-down" data-aos-duration="2000">
-                        <a href="{{ url('register') }}" class="btn-primary">Register Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="bg-imgs">
-            <img src="{{ URL::asset('assets/frontend/img/icons/blue-circle.svg') }}" class="bg-06" alt="icon">
-            <img src="{{ URL::asset('assets/frontend/img/icons/red-circle.svg') }}" class="bg-07" alt="icon">
-        </div>
-    </section>
-    <!-- /Agent Register -->
-
     <!-- Latest Blog -->
     <section class="latest-blog-sec">
         <div class="container">
@@ -639,7 +694,7 @@
                         <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ URL::asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -653,7 +708,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}"
+                                                src="{{ asset('assets/frontend/img/profiles/user1.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <h6><a href="javascript:void(0);">Doe John</a></h6>
@@ -673,7 +728,7 @@
                         <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ URL::asset('assets/frontend/img/blog/blog2.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ asset('assets/frontend/img/blog/blog2.jpg') }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -687,7 +742,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('assets/frontend/img/profiles/user3.jpg') }}"
+                                                src="{{ asset('assets/frontend/img/profiles/user3.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <h6><a href="javascript:void(0);">John</a></h6>
@@ -707,7 +762,7 @@
                         <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ URL::asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -722,7 +777,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}"
+                                                src="{{ asset('assets/frontend/img/profiles/user1.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <h6><a href="javascript:void(0);">Eric Krok</a></h6>
@@ -742,7 +797,7 @@
                         <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ URL::asset('assets/frontend/img/blog/blog2.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ asset('assets/frontend/img/blog/blog2.jpg') }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -756,7 +811,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('assets/frontend/img/profiles/user2.jpg') }}"
+                                                src="{{ asset('assets/frontend/img/profiles/user2.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <h6><a href="javascript:void(0);">Francis</a></h6>
@@ -776,7 +831,7 @@
                         <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ URL::asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -790,7 +845,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('assets/frontend/img/profiles/user3.jpg') }}"
+                                                src="{{ asset('assets/frontend/img/profiles/user3.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <h6><a href="javascript:void(0);">Rafael</a></h6>
@@ -836,3 +891,5 @@
     </section>
     <!-- News Letter -->
 @endsection
+
+

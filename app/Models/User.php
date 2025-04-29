@@ -19,6 +19,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'type',
         'password',
         'phone',
         'is_active',
@@ -36,9 +37,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public const USER_TYPE_VENDOR = 'Vendor';
-    public const USER_TYPE_ADMIN  = 'Admin';
-    public const USER_TYPE_USER  = 'User';
+    public const USER_TYPE_VENDOR = 'vendor';
+    public const USER_TYPE_ADMIN  = 'admin';
+    public const USER_TYPE_USER  = 'user';
    
    
     public function role()

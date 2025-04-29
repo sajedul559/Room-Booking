@@ -26,13 +26,13 @@
                     <div class="details-div">
                         <div class="details-div-content">
                             <h5>Details</h5>
-                            <p>Modern Apartment in the city centre</p>
+                            <p>{!! $room->description !!}</p>
                             <h5>Location </h5>
                             <p class="mb-0">{{ $room->property?->location }}</p>
                         </div>
                         <div class="details-div-price">
-                            <h5>Booking Amount</h5>
-                            <h6>$300 <span>/ Day</span></h6>
+                            <h5> Amount</h5>
+                            <h6>$ {{ $room->price }}</h6>
                         </div>
                     </div>
                 </div>
@@ -72,21 +72,21 @@
                                     <ul>
                                         <li>
                                             <h5>Booking Price </h5>
-                                            <h6>$300</h6>
+                                            <h6>${{ $room->price }}</h6>
                                         </li>
                                         <li>
                                             <h5>Service Charge</h5>
-                                            <h6>$10</h6>
+                                            <h6>$00</h6>
                                         </li>
                                         <li>
                                             <h5>Tax</h5>
-                                            <h6>$5</h6>
+                                            <h6>$00</h6>
                                         </li>
                                     </ul>
                                     <ul class="booking-details-total">
                                         <li>
                                             <h5>Grand Total</h5>
-                                            <h6>$315</h6>
+                                            <h6>${{ $room->price }}</h6>
                                         </li>
                                     </ul>
                                 </div>

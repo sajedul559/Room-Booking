@@ -59,7 +59,8 @@ class VendorController extends Controller
     public function edit($id)
     {
         $vendor = $this->vendorService->findVendorById($id);
-        return view('backend.vendors.edit', compact('vendor'));
+        $users = User::all();
+        return view('backend.vendors.edit', compact('vendor','users'));
     }
 
     /**
