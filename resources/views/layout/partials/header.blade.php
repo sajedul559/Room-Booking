@@ -99,6 +99,11 @@
             
                 @guest
                     <li class="{{ Request::is('register') ? 'active' : '' }}">
+                        <a href="{{ url('register-vendor') }}" class="btn btn-primary">
+                            <i class="feather-user-plus"></i> Sign Up For Vendor
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('register') ? 'active' : '' }}">
                         <a href="{{ url('register') }}" class="btn btn-primary">
                             <i class="feather-user-plus"></i> Sign Up
                         </a>

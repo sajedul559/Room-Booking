@@ -5,12 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VendorController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserRoleController;
-use App\Http\Controllers\CustomAuthController;
 
+use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\TenantReportController;
@@ -53,6 +54,12 @@ Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name(
 Route::get('register', [CustomAuthController::class, 'registration'])->name('register');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+
+
+//Vendor Route Frontend
+
+Route::get('register-vendor', [VendorController::class, 'registerVendor'])->name('register.vendor');
+Route::post('store-vendor', [VendorController::class, 'storeVendor'])->name('store.vendor');
 
 Route::get('/room-booking/{slug}', [BookingController::class, 'showBookingForm'])->name('booking.form');
 
