@@ -95,6 +95,31 @@
                             @csrf
                         </form>
                     @endif
+                    @if(auth()->user()->type == "vendor")
+                    <li class="nav-item dropdown new-property-btn">
+                        <a style="color:white" class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i style="color:white"  class="bx bxs-user"></i> {{ auth()->user()->name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end " aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="{{ route('tenant-reports.create') }}">Create Report</a></li>
+                            {{-- <li><a class="dropdown-item" href="{{ route('index') }}">Profile</a></li> --}}
+                            {{-- <li><a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a></li> --}}
+
+                            <li><a class="dropdown-item" href="{{ route('user.bookingList') }}">Vendor</a></li>
+                            <li>
+                                <a class="dropdown-item text-danger logout" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+        
+                    <!-- Hidden Logout Form -->
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                @endif
                 @endauth
             
                 @guest
