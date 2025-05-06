@@ -29,6 +29,11 @@ class Property extends Model
         'vendor_id',
         'is_publish',
         'is_delete',
+        'nearby_places',
+    ];
+
+    protected $casts = [
+        'nearby_places' => 'array',
     ];
 
      // Define property types as constants

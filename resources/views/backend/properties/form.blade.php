@@ -112,6 +112,31 @@
     </x-common.select2>
 </div>
 
+@php
+    $places = old('nearby_places', $property->nearby_places ?? [['name' => '', 'distance' => '']]);
+@endphp
+
+<label class="form-label">Nearby Locations</label>
+<div id="nearby-wrapper">
+    @foreach ($places as $index => $place)
+    <div class="mb-3">
+        <div>
+            <div class="nearby-item mb-2 d-flex gap-2">
+                <input type="text"  name="nearby_places[{{ $index }}][name]" value="{{ $place['name'] }}" placeholder="Location Name" class="form-control">
+                <input type="text" name="nearby_places[{{ $index }}][distance]" value="{{ $place['distance'] }}" placeholder="Distance (e.g. 100 m)" class="form-control">
+                
+                @if ($index == 0)
+                    <button type="button" class="btn btn-primary" id="add-nearby">+</button>
+                @endif
+                @if ($index > 0)
+                    <button type="button" class="btn btn-danger remove-item">×</button>
+                @endif
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div>
+
 
 <div class="row">
     <div class="col-md-6">
@@ -141,4 +166,26 @@
     <x-common.checkbox name="is_publish" value="1" 
                        :checked="old('is_publish', $property->is_publish ?? false)" />
 </div>
+
+@push('scripts')
+<script>
+    let nearbyIndex = $('#nearby-wrapper .nearby-item').length;
+
+    $('#add-nearby').on('click', function () {
+        $('#nearby-wrapper').append(`
+            <div class="nearby-item mb-2 d-flex gap-2">
+                <input type="text" name="nearby_places[${nearbyIndex}][name]" placeholder="Location Name" class="form-control">
+                <input type="text" name="nearby_places[${nearbyIndex}][distance]" placeholder="Distance (e.g. 100 m)" class="form-control">
+                <button type="button" class="btn btn-danger remove-item">×</button>
+            </div>
+        `);
+        nearbyIndex++;
+    });
+
+    $(document).on('click', '.remove-item', function () {
+        $(this).closest('.nearby-item').remove();
+    });
+</script>
+@endpush
+    
 

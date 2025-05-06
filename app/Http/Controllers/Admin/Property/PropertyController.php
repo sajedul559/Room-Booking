@@ -33,10 +33,7 @@ class PropertyController extends Controller
 
     public function create()
     {
-        $furnishFeatureEnums = FurnishFeaturesEnum::cases();
-        $tenantAcceptionOptions = TenantAcceptingOptions::cases();
-
-        return view('backend.properties.create', compact('furnishFeatureEnums', 'tenantAcceptionOptions'));
+        return view('backend.properties.create');
     }
 
     public function store(PropertyFormRequest $request)
