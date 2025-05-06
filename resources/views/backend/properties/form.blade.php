@@ -102,7 +102,7 @@
     <x-common.label title="Select accessibility features"/>
 
     <x-common.select2 name="accessibility[]" id="accessibility-features-select" multiple="multiple" placeholder="Select">
-        <option value="" disabled hidden>Select Property Type</option>
+        <option value="" disabled>Select Accessibility Features</option>
         
         @foreach (\App\Models\Property::getAccessibilityFeatures() as $type => $label)
             <option value="{{ $type }}" {{ in_array($label, old('accessibility', $property->accessibility ?? [])) ? 'selected' : '' }}>

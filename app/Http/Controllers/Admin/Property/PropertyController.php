@@ -8,6 +8,8 @@ use App\Models\Property;
 use App\Services\Property\PropertyService;
 use Barryvdh\Debugbar\Middleware\DebugbarEnabled;
 use Illuminate\Http\Request;
+use App\Models\Enums\TenantAcceptingOptions;
+use App\Models\Enums\FurnishFeaturesEnum;
 
 class PropertyController extends Controller
 {
@@ -31,12 +33,14 @@ class PropertyController extends Controller
 
     public function create()
     {
-        return view('backend.properties.create');
+        $furnishFeatureEnums = FurnishFeaturesEnum::cases();
+        $tenantAcceptionOptions = TenantAcceptingOptions::cases();
+
+        return view('backend.properties.create', compact('furnishFeatureEnums', 'tenantAcceptionOptions'));
     }
 
     public function store(PropertyFormRequest $request)
     {
-        //dd($request);
         $this->propertyService->create($request->payloadsData());
 
         return redirect()->route('properties.index')->with('success', 'Property created successfully.');
