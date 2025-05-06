@@ -253,6 +253,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="mb-3">
+                                <x-common.label title="Publish" />
+                                <x-common.checkbox name="is_publish" value="1" 
+                                                :checked="old('is_publish', false)" />
+                            </div>
                     
                             <button type="submit" class="btn btn-success">Save Room</button>
                         </form>

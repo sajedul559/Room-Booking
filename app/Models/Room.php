@@ -37,6 +37,7 @@ class Room extends Model
         'is_smoking_allowed',
         'is_pet_allowed',
         'on_welfare_allowed',
+        'is_publish',
         'created_by',
         'updated_by',
     ];

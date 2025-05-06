@@ -259,6 +259,12 @@
                                 </div>
                             </div>
 
+                            <div class="mb-3">
+                                <x-common.label title="Publish" />
+                                <x-common.checkbox name="is_publish" value="1" 
+                                                :checked="old('is_publish', $room->is_publish == 1 ?? false)" />
+                            </div>
+
                             <div class="row">
                                 <div class="col-md-12 text-end">
                                     <button type="submit" class="btn btn-primary">Update Room</button>

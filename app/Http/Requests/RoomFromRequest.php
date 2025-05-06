@@ -48,6 +48,7 @@ class RoomFromRequest extends FormRequest
             'is_women_only' => 'nullable|boolean',
             'accepting_options' => ['required', 'array'],
             'accepting_options.*' => ['required', 'string', 'max:255'],
+            'is_publish' => 'nullable|boolean',
 
             'is_smoking_allowed' => 'nullable|boolean',
             'is_pet_allowed' => 'nullable|boolean',
