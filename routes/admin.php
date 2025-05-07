@@ -32,6 +32,8 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('properties', PropertyController::class);
     Route::resource('admins', UserController::class);
     Route::resource('vendors', VendorController::class);
+    Route::post('/vendors/change-status', [VendorController::class, 'changeStatus'])->name('vendor.changeStatus');
+
     Route::resource('house_chores', HouseChoreController::class);
     Route::resource('todos', TodoController::class);
     Route::resource('expenses', ExpenseController::class);
