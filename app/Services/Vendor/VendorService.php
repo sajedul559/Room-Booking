@@ -2,7 +2,10 @@
 
 namespace App\Services\Vendor;
 
+use App\Models\User;
 use App\Models\Vendor;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class VendorService
@@ -61,5 +64,46 @@ class VendorService
     {
         $vendor = $this->findVendorById($id);
         return $vendor->delete();
+    }
+
+    //Register Vendor From Frontend
+    public function registerVendor(array $data)
+    {
+        DB::beginTransaction();
+
+        try {
+            // 1. Create User
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'phone' => $data['phone'],
+                'password' => Hash::make($data['password']),
+                'type' => User::USER_TYPE_VENDOR,
+                'is_active' => true,
+            ]);
+
+            // 2. Handle ID Verification Upload
+            $idVerificationPath = null;
+            if (isset($data['id_verification'])) {
+                $idVerificationPath = $data['id_verification']->store('id_verifications', 'public');
+            }
+
+            // 3. Create Vendor
+            Vendor::create([
+                'user_id' => $user->id,
+                'phone' => $data['phone'],
+                'email' => $data['email'],
+                'status' => Vendor::VENDOR_STATUS_PENDING,
+                'id_verification' => $idVerificationPath,
+            ]);
+
+            DB::commit();
+
+            return ['success' => true];
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return ['success' => false, 'message' => $e->getMessage()];
+        }
     }
 }

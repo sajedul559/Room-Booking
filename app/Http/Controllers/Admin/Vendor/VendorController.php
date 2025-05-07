@@ -39,7 +39,7 @@ class VendorController extends Controller
      */
     public function create()
     {
-        $users = User::all();
+        $users = User::where("type",User::USER_TYPE_USER)->get();
 
         return view('backend.vendors.create',compact('users'));
     }

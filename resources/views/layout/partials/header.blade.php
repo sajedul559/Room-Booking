@@ -101,11 +101,11 @@
                             <i style="color:white"  class="bx bxs-user"></i> {{ auth()->user()->name }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end " aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="{{ route('tenant-reports.create') }}">Create Report</a></li>
+                            {{-- <li><a class="dropdown-item" href="{{ route('tenant-reports.create') }}">Create Report</a></li> --}}
                             {{-- <li><a class="dropdown-item" href="{{ route('index') }}">Profile</a></li> --}}
                             {{-- <li><a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a></li> --}}
 
-                            <li><a class="dropdown-item" href="{{ route('user.bookingList') }}">Vendor</a></li>
+                            {{-- <li><a class="dropdown-item" href="{{ route('user.bookingList') }}">Vendor</a></li> --}}
                             <li>
                                 <a class="dropdown-item text-danger logout" href="{{ route('logout') }}"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

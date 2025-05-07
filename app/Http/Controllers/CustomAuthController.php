@@ -26,6 +26,11 @@ class CustomAuthController extends Controller
             'password.required' => 'Password is required',
         ]);
     
+        $checkUser = User::where("email",$request->email)->first();
+        if($checkUser && $checkUser->type == User::USER_TYPE_VENDOR){
+
+
+        }
         $credentials = $request->only('email', 'password');
     
         // Hardcoded admin login
