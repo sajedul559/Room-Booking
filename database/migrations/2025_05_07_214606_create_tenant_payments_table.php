@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tenant_rents', function (Blueprint $table) {
+        Schema::create('tenant_payments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('vendor_id');
             $table->unsignedBigInteger('user_id');
             $table->decimal('amount', 10, 2);
-            $table->decimal('paid_amount', 10, 2)->default(0);
-            $table->enum('status', ['pending', 'partial', 'paid'])->default('pending');
-            $table->date('due_date');
+            $table->date('payment_date');
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('last_updated_by')->nullable();
             $table->timestamps();
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tenant_rents');
+        Schema::dropIfExists('tenant_payments');
     }
 };

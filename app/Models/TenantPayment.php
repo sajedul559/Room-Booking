@@ -5,20 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TenantRent extends Model
+class TenantPayment extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-      'vendor_id',
-      'user_id',
-      'amount',
-      'paid_amount',
-      'status',
-      'due_date',
-      'created_by',
-      'last_updated_by',
-  ];
+        'vendor_id',
+        'user_id',
+        'rent_management_id',
+        'amount',
+        'payment_date',
+        'created_by',
+        'last_updated_by',
+    ];
 
     public function vendor()
     {
@@ -27,11 +26,12 @@ class TenantRent extends Model
 
     public function user()
     {
-       return $this->belongsTo(user::class,'user_id','id');
+       return $this->belongsTo(User::class,'user_id','id');
     }
 
-    public function tenantPayments() {
-        return $this->hasMany(TenantRentPayment::class);
+    public function rentManagementId()
+    {
+       return $this->belongsTo(RentManagement::class,'rent_management_id','id');
     }
 
     public function createdBy()
@@ -41,5 +41,9 @@ class TenantRent extends Model
     public function updatedBy()
     {
        return $this->belongsTo(user::class,'last_updated_by','id');
+    }
+
+    public function tenantRents() {
+        return $this->hasMany(TenantRentPayment::class);
     }
 }

@@ -33,16 +33,6 @@
 </div>
 
 <div class="mb-3">
-    <x-common.label title="Amount" isRequired="true" />
-    <x-common.input name="amount" type="number" step="0.01" :value="old('amount', $rent->amount ?? '')" required />
-</div>
-
-<div class="mb-3">
-    <x-common.label title="Date" isRequired="true" />
-    <x-common.input name="date" type="date" :value="old('date', $rent->date ?? '')" required />
-</div>
-
-<div class="mb-3">
     <x-common.label title="Tenant" isRequired="true" />
     <x-common.select2 name="user_id">
         <option value="">Select Tenant</option>
@@ -55,11 +45,23 @@
 </div>
 
 <div class="mb-3">
+    <x-common.label title="Amount" isRequired="true" />
+    <x-common.input name="amount" type="number" min="1"  :value="old('amount', $rent->amount ?? '')" required />
+</div>
+
+<div class="mb-3">
+    <x-common.label title="Date" isRequired="true" />
+    <x-common.input name="date" type="date" :value="old('date', $rent->date ?? '')" required />
+</div>
+
+<div class="mb-3">
     <x-common.label title="Payment Type" isRequired="true" />
     <x-common.select2 name="payment_type">
         <option value="">Select Payment Type</option>
         <option value="Cash" {{ old('payment_type', $rent->payment_type ?? '') == 'Cash' ? 'selected' : '' }}>Cash</option>
         <option value="Card" {{ old('payment_type', $rent->payment_type ?? '') == 'Card' ? 'selected' : '' }}>Card</option>
+        <option value="BankTransfer" {{ old('payment_type', $rent->payment_type ?? '') == 'BankTransfer' ? 'selected' : '' }}>Bank Transfer </option>
+        <option value="Online" {{ old('payment_type', $rent->payment_type ?? '') == 'Online' ? 'selected' : '' }}>Online </option>
     </x-common.select2>
 </div>
 
