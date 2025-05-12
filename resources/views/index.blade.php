@@ -495,12 +495,14 @@
                         <div class="partners-slider owl-carousel">
                             @forelse ($partners as $data)
                                  <div class="partner-icon">
-                                <img src="{{ asset('storage/' . $partner->image_path) }}" alt="Partner Image" >
+                                <img src="{{ asset('storage/' . $data->image_path) }}" alt="Partner Image" >
 
                             </div>
 
                             @empty
-                                
+                                 <div class="text-center py-4">
+                                    <p class="text-muted">No partners available at the moment.</p>
+                                </div>
                             @endforelse
                            
                         </div>

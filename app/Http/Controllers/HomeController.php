@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\Partner;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use App\Models\ReferralIncomeHistory;
@@ -22,8 +23,14 @@ class HomeController extends Controller
         $user = auth()->user();
         $rooms = Room::with('images')->get();
         $properties = Property::where('is_publish','1')->get();
-        $partners = Partners::where('status','1')->get();
+        $partners = Partner::where('status','1')->get();
         return view('index',compact('rooms','properties','partners'));
+    }
+    public function aboutUs()
+    {
+        // dd("workiing");
+        $partners = Partner::where('status','1')->get();
+        return view('about-us',compact('partners'));
     }
     public function allRoom()
     {

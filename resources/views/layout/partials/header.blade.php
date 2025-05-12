@@ -12,7 +12,7 @@
         {{-- @if (Route::is(['index']))
             <div class="header-top">
                 <div class="template-ad">
-                    <img src="{{ URL::asset('/frontend/img/icons/badge-icon.svg') }}" alt="icon">
+                    <img src="{{ URL::asset('/assets/frontend/img/icons/badge-icon.svg') }}" alt="icon">
                     <h5>No 1, Realestate Website to Buy / Sell Your Place <span>First Listing Free!!!</span></h5>
                 </div>
             </div>
@@ -27,13 +27,13 @@
                     </span>
                 </a>
                 <a href="{{ route('index') }}" class="navbar-brand logo">
-                    <img src="{{ URL::asset('/frontend/img/logo.svg') }}" class="img-fluid" alt="Logo">
+                    <img src="{{ URL::asset('/assets/frontend/img/logo.png') }}" class="img-fluid" alt="Logo">
                 </a>
             </div>
             <div class="main-menu-wrapper">
                 <div class="menu-header">
                     <a href="{{ url('index') }}" class="menu-logo">
-                        <img src="{{ URL::asset('/frontend/img/logo.svg') }}" class="img-fluid" alt="Logo">
+                        <img src="{{ URL::asset('/assets/frontend/img/logo.png') }}" class="img-fluid" alt="Logo">
                     </a>
 
                     <a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -157,7 +157,7 @@
     <!-- Header -->
     <header class="log-header">
         <a href="{{ url('index') }}"><img class="img-fluid logo-dark"
-                src="{{ URL::asset('/frontend/img/logo.svg') }}" alt="Logo"></a>
+                src="{{ URL::asset('/assets/frontend/img/logo.svg') }}" alt="Logo"></a>
     </header>
     <!-- /Header -->
 @endif

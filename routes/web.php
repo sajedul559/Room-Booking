@@ -106,6 +106,10 @@ Route::get('/rental-order-step2/{$slug}', [HomeController::class, 'bookingStep2'
 // })->name('index');
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about-us');
+Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about-us');
+
+
 Route::get('/room-details/{slug}', [HomeController::class, 'roomDetails'])->name('room.details');
 Route::get('/rent-details', function () {
     return view('rent-details');
@@ -234,9 +238,9 @@ Route::get('/contact-us', function () {
 // Route::get('/blog-grid', function () {
 //     return view('blog-grid');
 // })->name('blog-grid');
-// Route::get('/blog-details', function () {
-//     return view('blog-details');
-// })->name('blog-details');
+Route::get('/blog-details', function () {
+    return view('blog-details');
+})->name('blog-details');
 // Route::get('/agency-details', function () {
 //     return view('agency-details');
 // })->name('agency-details');
@@ -309,9 +313,7 @@ Route::get('/testimonial', function () {
     return view('testimonial');
 })->name('testimonial');
 
-Route::get('/about-us', function () {
-    return view('about-us');
-})->name('about-us');
+
 
 Route::get('/add-new-property-rental', function () {
     return view('add-new-property-rental');
