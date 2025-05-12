@@ -1,11 +1,13 @@
 <?php
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Hash;
 use Session;
 use App\Models\User;
+use App\Models\Vendor;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class CustomAuthController extends Controller
 {
 
@@ -28,24 +30,28 @@ class CustomAuthController extends Controller
     
         $credentials = $request->only('email', 'password');
     
-        // Hardcoded admin login
-        // if ($credentials['email'] == 'admin@example.com' && $credentials['password'] == '123456') {
-        //     return redirect()->intended('/dashboard')->withSuccess('Signed in');
-        // }
-    
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
     
-            // Check user type and redirect accordingly
-            if ($user->type === 'admin') {
-                return redirect()->intended('/dashboard')->withSuccess('Signed in');
-            } else {
-                return redirect()->intended('/')->withSuccess('Signed in');
+            // Check if user is vendor
+            if ($user->type === User::USER_TYPE_VENDOR) {
+                $vendor = Vendor::where('user_id', $user->id)->first();
+    
+                if (!$vendor || $vendor->status !== Vendor::VENDOR_STATUS_APPROVE) {
+                    Auth::logout();
+                    return redirect()->back()->with('error', 'Your account is currently disabled. Please contact the administrator.');
+                }
             }
+    
+            // Redirect based on user type
+            return $user->type === User::USER_TYPE_ADMIN
+                ? redirect()->intended('/dashboard')->with('success', 'Signed in success.')
+                : redirect()->intended('/')->with('success', 'Signed in success.');
         }
     
-        return redirect("login")->withErrors('These credentials do not match our records.');
+        return redirect()->back()->withErrors(['email' => 'These credentials do not match our records.']);
     }
+    
     
     public function registration()
     {

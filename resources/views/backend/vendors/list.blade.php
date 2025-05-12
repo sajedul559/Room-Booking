@@ -42,25 +42,24 @@
                                             <img id="preview" 
                                                   src="{{ get_image_path($vendor->id_verification) }}"
                                                  alt="ID Verification" 
-                                                 style="max-width: 100px;">
+                                                 style="max-width: 50px;">
                                         </a>
                                     @else
                                         <img id="preview" 
                                              src="" 
                                              alt="ID Verification" 
-                                             style="max-width: 100px; display: none;">
+                                             style="max-width: 50px; display: none;">
                                     @endif
                                 </td>
                                 
-                                <td>{{ ucfirst($vendor->status) }}</td>
-                                {{-- <td>
-                                    <a href="{{ route('vendors.edit', $vendor->id) }}" class="btn btn-warning">Edit</a>
-                                    <form action="{{ route('vendors.destroy', $vendor->id) }}" method="POST" style="display:inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                                    </form>
-                                </td> --}}
+                                <td>
+                                    <select class="form-select status-change" data-id="{{ $vendor->id }}">
+                                        <option value="pending" {{ $vendor->status === 'pending' ? 'selected' : '' }}>Pending</option>
+                                        <option value="approve" {{ $vendor->status === 'approve' ? 'selected' : '' }}>Approved</option>
+                                        <option value="rejected" {{ $vendor->status === 'rejected' ? 'selected' : '' }}>Rejected</option>
+                                    </select>
+                                </td>
+                              
                                 <td class="text-start">
                                     <x-common.action-drop-down>
                                         <!-- Edit Button -->
@@ -96,5 +95,30 @@
 @endpush
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function () {
+        $('.status-change').change(function () {
+            let vendorId = $(this).data('id');
+            let newStatus = $(this).val();
+
+            $.ajax({
+                url: "{{ route('vendor.changeStatus') }}",
+                method: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    vendor_id: vendorId,
+                    status: newStatus
+                },
+                success: function (response) {
+                    toastr.success(response.message);
+                },
+                error: function (xhr) {
+                    toastr.error('Status update failed.');
+                }
+            });
+        });
+    });
+</script>
+
 
 @endpush

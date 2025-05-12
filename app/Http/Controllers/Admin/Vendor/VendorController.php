@@ -39,7 +39,7 @@ class VendorController extends Controller
      */
     public function create()
     {
-        $users = User::all();
+        $users = User::where("type",User::USER_TYPE_USER)->get();
 
         return view('backend.vendors.create',compact('users'));
     }
@@ -80,4 +80,18 @@ class VendorController extends Controller
         $this->vendorService->deleteVendor($id);
         return redirect()->route('vendors.index')->with('success', 'Vendor deleted successfully.');
     }
+    public function changeStatus(Request $request)
+    {
+        $request->validate([
+            'vendor_id' => 'required|exists:vendors,id',
+            'status' => 'required|in:pending,approve,rejected',
+        ]);
+
+        $vendor = Vendor::findOrFail($request->vendor_id);
+        $vendor->status = $request->status;
+        $vendor->save();
+
+        return response()->json(['message' => 'Vendor status updated successfully.']);
+    }
+
 }
