@@ -164,7 +164,9 @@
                                             </h3>
                                             <p><i class="feather-map-pin"></i> {{ $room->property->location ?? 'No address' }}</p>
                                             <div class="decription">
-                                                <p>{!! $room->description !!}</p>
+                                                {{-- <p>{!! $room->description !!}</p> --}}
+                                                <p>{{ \Illuminate\Support\Str::limit(strip_tags($room->description), 150) }}</p>
+
                                                 {{-- <p class="description-p">
                                                     <b> {{ $room->description ?? 'N/A' }}</b>
                                                 </p> --}}

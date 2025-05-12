@@ -103,7 +103,19 @@
                     </div>
                 </li>
                 {{-- @endcan --}}
-            
+             <li>
+                    <a href="#sidebarPartner" data-bs-toggle="collapse">
+                        <i class="fas  fa-parachute-box"></i>
+                        <span>Partners </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarPartner">
+                        <ul class="nav-second-level">
+                            <li><a href="{{ route('partners.index') }}">Lists</a></li>
+                            <li><a href="{{ route('partners.create') }}">Create</a></li>
+                        </ul>
+                    </div>
+                </li>
                 <!-- Vendor Section -->
                 @can('Vendors')
                 <li>

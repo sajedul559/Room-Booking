@@ -22,7 +22,8 @@ class HomeController extends Controller
         $user = auth()->user();
         $rooms = Room::with('images')->get();
         $properties = Property::where('is_publish','1')->get();
-        return view('index',compact('rooms','properties'));
+        $partners = Partners::where('status','1')->get();
+        return view('index',compact('rooms','properties','partners'));
     }
     public function allRoom()
     {

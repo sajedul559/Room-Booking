@@ -493,33 +493,16 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="partners-slider owl-carousel">
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider1.jpg') }}" alt="Partners">
+                            @forelse ($partners as $data)
+                                 <div class="partner-icon">
+                                <img src="{{ asset('storage/' . $partner->image_path) }}" alt="Partner Image" >
+
                             </div>
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider2.jpg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider3.jpg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider4.jpg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider5.jpg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider6.jpg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider7.jpg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider8.jpg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider9.jpg') }}" alt="Partners">
-                            </div>
+
+                            @empty
+                                
+                            @endforelse
+                           
                         </div>
                     </div>
                 </div>

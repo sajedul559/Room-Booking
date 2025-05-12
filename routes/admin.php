@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\Todo\TodoController;
 use App\Http\Controllers\GeneralSettingsController;
 use App\Http\Controllers\Admin\Vendor\VendorController;
 use App\Http\Controllers\Admin\Expense\ExpenseController;
+use App\Http\Controllers\Admin\Partner\PartnerController;
 use App\Http\Controllers\Admin\Property\PropertyController;
 use App\Http\Controllers\Admin\HouseChore\HouseChoreController;
 use App\Http\Controllers\Admin\RentManagement\RentManagementController;
@@ -30,6 +31,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\HomeController::class, 'home'])->name('dashboard');
 
     Route::resource('properties', PropertyController::class);
+    Route::resource('partners', PartnerController::class);
     Route::resource('admins', UserController::class);
     Route::resource('vendors', VendorController::class);
     Route::post('/vendors/change-status', [VendorController::class, 'changeStatus'])->name('vendor.changeStatus');
