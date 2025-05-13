@@ -195,7 +195,7 @@
                     <!-- /Property Details -->
 
                     <!-- Amenities -->
-                    <div class="collapse-card">
+                    {{-- <div class="collapse-card">
                         <h4 class="card-title">
                             <a class="collapsed" data-bs-toggle="collapse" href="#amenities"
                                 aria-expanded="false">Amenities</a>
@@ -240,7 +240,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- /Amenities -->
 
                     <!-- Video -->
@@ -398,7 +398,7 @@
                                 class="bx bx-calendar"></i>Book Room</a>
 
                         <!-- Enquiry -->
-                        <div class="sidebar-card">
+                        {{-- <div class="sidebar-card">
                             <div class="sidebar-card-title">
                                 <h5>Request Info</h5>
                             </div>
@@ -435,11 +435,11 @@
                                 <li><a href="javascript:void(0);"><i class="feather-phone"></i>Call Us</a></li>
                                 <li><a href="javascript:void(0);"><i class="fa-brands fa-whatsapp"></i>Whatsapp</a></li>
                             </ul>
-                        </div>
+                        </div> --}}
                         <!-- /Enquiry -->
 
                         <!-- Listing Owner Details -->
-                        <div class="sidebar-card">
+                        {{-- <div class="sidebar-card">
                             <div class="sidebar-card-title">
                                 <h5>Listing Owner Details</h5>
                             </div>
@@ -469,11 +469,11 @@
                                 <li>Memeber on<span>15 Jan 2023</span></li>
                                 <li>Verification<span>Verified</span></li>
                             </ul>
-                        </div>
+                        </div> --}}
                         <!-- /Listing Owner Details -->
 
                         <!-- Share Property -->
-                        <div class="sidebar-card">
+                        {{-- <div class="sidebar-card">
                             <div class="sidebar-card-title">
                                 <h5>Share Property</h5>
                             </div>
@@ -493,7 +493,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- /Share Property -->
 
                          <!-- Reviews -->

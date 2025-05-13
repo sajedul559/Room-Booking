@@ -17,7 +17,7 @@
         <div class="container">
             <!-- About Content -->
             <div class="about-content">
-                <h6>About AUSIS ACCOMMODATION AUSTRALIA</h6>
+                <h6>About  Ausis Accommodation Australia</h6>
                 <h1>We connect building with people</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis ligula eu lectus vulputate
                     porttitor sed feugiat nunc. Mauris ac consectetur ante,</p>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-12 col-sm-12">
                         <div class="about-listing">
-                            <img src="{{ URL::asset('assets/frontend/img/about-us/about1.jpg') }}" alt="aboutus-03">
+                            <img src="{{ URL::asset('assets/frontend/img/about-us/about5.jpg') }}" alt="aboutus-03">
                         </div>
                     </div>
                 </div>
