@@ -41,6 +41,10 @@ class RoomService
             // Save only the relative path to the database
             $data['room_image'] = $path;
         }
+
+        $data['furnishFeatures'] = implode(',', $data['furnishFeatures']);
+        $data['accepting_options'] = implode(',', $data['accepting_options']);
+
         $room = Room::create(array_merge($data, ['created_by' => $createdBy]));
 
         
@@ -88,6 +92,10 @@ class RoomService
         if (!empty($data['video_url'])) {
             $data['video_url'] = convertToEmbedUrl($data['video_url']);
         }
+
+        $data['furnishFeatures'] = implode(',', $data['furnishFeatures']);
+        $data['accepting_options'] = implode(',', $data['accepting_options']);
+
         $room->update(array_merge($data, ['updated_by' => $updatedBy]));
 
       

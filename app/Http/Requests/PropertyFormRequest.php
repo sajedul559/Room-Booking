@@ -25,7 +25,16 @@ class PropertyFormRequest extends FormRequest
         return [
             'property_name' => 'required|string|max:255',
             'location' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'state' => 'required|string|max:255',
             'property_type' => 'required|in:Flat,Student Accommodation,Homestay',
+            'total_bedroom' => 'required|integer',
+            'total_bathroom' => 'required|integer',
+            'total_people_live' => 'required|integer',
+            'parking' => 'required|string|max:255',
+            'internet' => 'required|string|max:255',
+            'accessibility' => ['required', 'array'],
+            'accessibility.*' => ['required', 'string', 'max:255'],
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'is_publish' => 'sometimes|boolean',
         ];
@@ -34,6 +43,21 @@ class PropertyFormRequest extends FormRequest
     {
         $data = $this->validated();
         $data['slug']= (new SlugNormalizer())->normalize($this->property_name);
+
+        $validated = $this->validate([
+            'nearby_places' => 'nullable|array',
+            'nearby_places.*.name' => 'nullable|string|max:255',
+            'nearby_places.*.distance' => 'nullable|string|max:50',
+        ]);
+
+        // Filter out entries with missing name or distance
+        $filteredNearby = collect($validated['nearby_places'] ?? [])
+        ->filter(fn($item) => !empty($item['name']) && !empty($item['distance']))
+        ->values() // Re-index
+        ->all();
+
+        $data['nearby_places'] = $filteredNearby;
+
         return $data;
     }
 }

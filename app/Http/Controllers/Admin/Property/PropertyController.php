@@ -6,7 +6,10 @@ use App\Http\Requests\PropertyFormRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Property;
 use App\Services\Property\PropertyService;
+use Barryvdh\Debugbar\Middleware\DebugbarEnabled;
 use Illuminate\Http\Request;
+use App\Models\Enums\TenantAcceptingOptions;
+use App\Models\Enums\FurnishFeaturesEnum;
 
 class PropertyController extends Controller
 {
@@ -41,7 +44,8 @@ class PropertyController extends Controller
     }
 
     public function edit(Property $property)
-    {
+    {  
+        $property->accessibility = explode(',', $property->accessibility);
         return view('backend.properties.edit', compact('property'));
     }
 

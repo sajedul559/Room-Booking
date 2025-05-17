@@ -105,8 +105,15 @@ class RentManagementController extends Controller
     public function store(RentManagementFormRequest $request)
     {
         // dd("workng",$request->all());
-        $this->rentManagementService->createRentManagement($request->payloadsData());
-        return redirect()->route('rent_managements.index')->with('success', 'Rent created successfully.');
+        try
+        {
+            $this->rentManagementService->createRentManagement($request->payloadsData());
+            return redirect()->route('rent_managements.index')->with('success', 'Rent created successfully.');
+        }
+        catch (\Exception $e) 
+        {
+            return redirect()->route('rent_managements.create')->with('error', 'Something went wrong, message: ' . $e->getMessage());
+        }
     }
 
     public function edit($id)
@@ -122,8 +129,22 @@ class RentManagementController extends Controller
 
     public function update(RentManagementFormRequest $request, $id)
     {
-        $this->rentManagementService->updateRentManagement($id, $request->payloadsData());
-        return redirect()->route('rent_managements.index')->with('success', 'Rent updated successfully.');
+        try
+        {
+            $this->rentManagementService->updateRentManagement($id, $request->payloadsData());
+            return redirect()->route('rent_managements.index')->with('success', 'Rent updated successfully.');
+        }
+        catch (\Exception $e)
+        {
+            $rentManagement = $this->rentManagementService->getRentManagementById($id);
+            $vendors = $this->vendorService->getAllVendors();
+            $data = $this->rentManagementService->create();
+            $properties = $this->propertyService->getAllProperties();
+
+            return redirect()->route('rent_managements.index')
+                ->with('error', 'Something went wrong, message: '. $e->getMessage());
+        }
+        
     }
     public function filter(Request $request)
     {
@@ -145,7 +166,15 @@ class RentManagementController extends Controller
     }
     public function destroy($id)
     {
-        $this->rentManagementService->deleteRentManagement($id);
-        return redirect()->route('rent_managements.index')->with('success', 'Rent deleted successfully.');
+        try
+        {
+            dd($id);
+            $this->rentManagementService->deleteRentManagement($id);
+            return redirect()->route('rent_managements.index')->with('success', 'Rent deleted successfully.');
+        }
+        catch (\Exception $e)
+        {
+            return redirect()->route('rent_managements.index')->with('error', 'Something went wrong!, message: '. $e->getMessage());
+        }
     }
 }
