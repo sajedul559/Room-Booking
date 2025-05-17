@@ -198,8 +198,11 @@
                     aria-expanded="false">
                     <img src="{{ asset('assets/images/users/user-1.jpg')}}" alt="user-image" class="rounded-circle">
                     <span class="pro-user-name ms-1">
-                        Geneva <i class="mdi mdi-chevron-down"></i>
-                    </span>
+                    @if(auth()->check())
+                        {{ auth()->user()->name }} <i class="mdi mdi-chevron-down"></i>
+                    @else
+                        Guest <i class="mdi mdi-chevron-down"></i>
+                    @endif                    </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                     <!-- item-->
@@ -208,22 +211,22 @@
                     </div>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                    {{-- <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <i class="fe-user"></i>
                         <span>My Account</span>
-                    </a>
+                    </a> --}}
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                    {{-- <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <i class="fe-settings"></i>
                         <span>Settings</span>
-                    </a>
+                    </a> --}}
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                    {{-- <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <i class="fe-lock"></i>
                         <span>Lock Screen</span>
-                    </a>
+                    </a> --}}
 
                     <div class="dropdown-divider"></div>
 
