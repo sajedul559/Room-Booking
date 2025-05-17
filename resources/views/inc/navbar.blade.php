@@ -11,7 +11,7 @@
                                 <i class="fe-search"></i>
                             </button>
                         </div>
-                        <div class="dropdown-menu dropdown-lg" id="search-dropdown">
+                        {{-- <div class="dropdown-menu dropdown-lg" id="search-dropdown">
                             <!-- item-->
                             <div class="dropdown-header noti-title">
                                 <h5 class="text-overflow mb-2">Found 22 results</h5>
@@ -68,12 +68,12 @@
                                 </a>
                             </div>
 
-                        </div>
+                        </div> --}}
                     </div>
                 </form>
             </li>
 
-            <li class="dropdown d-inline-block d-lg-none">
+            {{-- <li class="dropdown d-inline-block d-lg-none">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light"
                     data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                     aria-expanded="false">
@@ -85,17 +85,17 @@
                             aria-label="Recipient's username">
                     </form>
                 </div>
-            </li>
+            </li> --}}
 
-            <li class="dropdown d-none d-lg-inline-block">
+            {{-- <li class="dropdown d-none d-lg-inline-block">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light"
                     data-toggle="fullscreen" href="#">
                     <i class="fe-maximize noti-icon"></i>
                 </a>
-            </li>
+            </li> --}}
 
 
-            <li class="dropdown notification-list topbar-dropdown">
+            {{-- <li class="dropdown notification-list topbar-dropdown">
                 <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown"
                     href="#" role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="fe-bell noti-icon"></i>
@@ -190,15 +190,18 @@
                     </a>
 
                 </div>
-            </li>
-
+            </li> --}}
             <li class="dropdown notification-list topbar-dropdown">
                 <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light"
                     data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                     aria-expanded="false">
-                    <img src="{{ asset('assets/images/users/user-1.jpg')}}" alt="user-image" class="rounded-circle">
+                    <img src="{{ auth()->user()->photo ? asset('storage/' . auth()->user()->photo) : asset('assets/images/users/avatar.jpg') }}" alt="user-image" class="rounded-circle">
                     <span class="pro-user-name ms-1">
-git                    </span>
+                    @if(auth()->check())
+                        {{ auth()->user()->name }} <i class="mdi mdi-chevron-down"></i>
+                    @else
+                        Guest <i class="mdi mdi-chevron-down"></i>
+                    @endif                    </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                     <!-- item-->
