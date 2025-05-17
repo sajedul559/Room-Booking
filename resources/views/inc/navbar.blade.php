@@ -198,11 +198,7 @@
                     aria-expanded="false">
                     <img src="{{ asset('assets/images/users/user-1.jpg')}}" alt="user-image" class="rounded-circle">
                     <span class="pro-user-name ms-1">
-                    @if(auth()->check())
-                        {{ auth()->user()->name }} <i class="mdi mdi-chevron-down"></i>
-                    @else
-                        Guest <i class="mdi mdi-chevron-down"></i>
-                    @endif                    </span>
+git                    </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                     <!-- item-->
