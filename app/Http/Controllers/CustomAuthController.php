@@ -44,9 +44,9 @@ class CustomAuthController extends Controller
             }
     
             // Redirect based on user type
-            return $user->type === User::USER_TYPE_ADMIN
-                ? redirect()->intended('/dashboard')->with('success', 'Signed in success.')
-                : redirect()->intended('/')->with('success', 'Signed in success.');
+            return in_array($user->type, [User::USER_TYPE_ADMIN, User::USER_TYPE_VENDOR])
+            ? redirect()->intended('/dashboard')->with('success', 'Signed in success.')
+            : redirect()->intended('/')->with('success', 'Signed in success.');
         }
     
         return redirect()->back()->withErrors(['email' => 'These credentials do not match our records.']);

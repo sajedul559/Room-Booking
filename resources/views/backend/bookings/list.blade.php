@@ -43,7 +43,7 @@
                                                 default => 'warning',
                                             };
                                         @endphp
-                                        <span class="badge bg-{{ $statusClass }}">
+                                        <span class="mt-2 badge bg-{{ $statusClass }}">
                                             {{ ucfirst($booking->status) }}
                                         </span>
                                     </td>                                    

@@ -18,14 +18,14 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             // RoleSeeder::class, // Seed roles first
-            UserSeeder::class, // Then seed users
-            SystemSettingSeeder::class,
+            // UserSeeder::class, // Then seed users
+            // SystemSettingSeeder::class,
             RolesAndPermissionsSeeder::class,
-            PropertySeeder::class,
-            VendorSeeder::class,
-            HouseChoreSeeder::class,
-            TodoSeeder::class,
-            ExpenseSeeder::class,
+            // PropertySeeder::class,
+            // VendorSeeder::class,
+            // HouseChoreSeeder::class,
+            // TodoSeeder::class,
+            // ExpenseSeeder::class,
         ]);
     }
 }
