@@ -34,13 +34,13 @@
                         <textarea class="form-control" id="address" name="types[contact_address]" rows="3">{!! getSetting('contact_address') !!}</textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="logo" class="form-label">White Logo <x-common.required /></label>
-                        <input type="file" class="form-control" name="systemFiles[white_logo]"
+                        <label for="logo" class="form-label">Large Logo <x-common.required /></label>
+                        <input type="file" class="form-control" name="systemFiles[large_logo]"
                             id="logo">
                     </div>
                     <div class="mb-3">
-                        <label for="dark_logo" class="form-label">Dark Logo </label>
-                        <input type="file" class="form-control" name="systemFiles[dark_logo]"
+                        <label for="dark_logo" class="form-label">Small Logo </label>
+                        <input type="file" class="form-control" name="systemFiles[small_logo]"
                             id="dark_logo">
                     </div>
                     <div class="mb-3">
