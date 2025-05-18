@@ -46,7 +46,8 @@
                                         <span class="badge bg-{{ $statusClass }}">
                                             {{ ucfirst($booking->status) }}
                                         </span>
-                                    </td>                                    <td>
+                                    </td>                                    
+                                    <td>
                                         <select class="form-select status-change" data-id="{{ $booking->id }}">
                                             <option value="pending" {{ $booking->status === 'pending' ? 'selected' : '' }}>Pending</option>
                                             <option value="confirmed" {{ $booking->status === 'confirmed' ? 'selected' : '' }}>Confirmed</option>
