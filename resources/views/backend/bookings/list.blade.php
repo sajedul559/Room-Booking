@@ -7,8 +7,8 @@
                 <div class="card" id="orderList">
                     <div class="card-header" >
                         <div class="d-flex justify-content-between align-items-center mb-1">
-                            <h4 class="header-title mb-0">Property List</h4>
-                            <a class="btn btn-success" href="{{ route('vendors.create') }}" class="btn btn-primary"> <i class="mdi mdi-plus-circle me-2"></i>New Vendor</a>
+                            <h4 class="header-title mb-0">Booking Lists</h4>
+                            {{-- <a class="btn btn-success" href="{{ route('vendors.create') }}" class="btn btn-primary"> <i class="mdi mdi-plus-circle me-2"></i>New Vendor</a> --}}
 
                         </div>
                     </div>
