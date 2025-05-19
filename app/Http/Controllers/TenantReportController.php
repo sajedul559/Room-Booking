@@ -27,9 +27,13 @@ class TenantReportController extends Controller
             'property_id' => 'required|exists:properties,id',
             'report_details' => 'required|string',
         ]);
+        // Fetch the property to get its associated vendor_id
+        $property = Property::findOrFail($request->property_id);
+        $vendorId = $property->vendor_id;
 
         TenantReport::create([
-            'property_id' => $request->property_id,
+            'vendor_id' => $vendorId,
+            'property_id' => $property->id,
             'report_details' => $request->report_details,
             'status' => 'Pending',
             'created_by' => auth()->id(),
