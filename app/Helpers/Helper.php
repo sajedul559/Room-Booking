@@ -35,8 +35,8 @@ if (!function_exists('user')) {
       return auth()->user() ?? null;
     }
 }
-if (!function_exists('userId')) {
-    function userId()
+if (!function_exists('authId')) {
+    function authId()
     {
       return  auth()->user() ? user()->id : null ;
     }

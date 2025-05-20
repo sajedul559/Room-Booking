@@ -17,6 +17,7 @@
                         <thead>
                             <tr>
                                 <th>User Name</th>
+                                <th>User Email</th>
                                 <th>Property </th>
                                 <th>Report</th>
                                 <th>Actions</th>
@@ -25,7 +26,8 @@
                         <tbody>
                             @foreach ($reports as $data)
                                 <tr>
-                                    <td>{{ $data->name }}</td>
+                                    <td>{{ $data->user->name }}</td>
+                                    <td>{{ $data->user->email }}</td>
                                     <td>{{ $data->property->property_name }}</td>
                                     <td>{{ $data->report_details }}</td>
                                    

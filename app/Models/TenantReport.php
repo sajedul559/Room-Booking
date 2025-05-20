@@ -10,6 +10,7 @@ class TenantReport extends Model
     use HasFactory;
     protected $fillable = [
         'vendor_id',
+        'user_id',
         'property_id',
         'report_details',
         'status',
@@ -35,5 +36,9 @@ class TenantReport extends Model
     public function lastUpdatedBy()
     {
         return $this->belongsTo(User::class, 'last_updated_by');
+    }
+    public function user()
+    {
+       return $this->belongsTo(user::class,'user_id','id');
     }
 }
