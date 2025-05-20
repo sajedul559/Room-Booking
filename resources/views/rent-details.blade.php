@@ -293,142 +293,99 @@
                     <div class="collapse-card sidebar-card">
                         <h4 class="card-title">
                             <a class="collapsed" data-bs-toggle="collapse" href="#review" aria-expanded="false">Reviews
-                                (25)</a>
+                             ({{ $roomReviewCount}}) </a>
                         </h4>
                         <div id="review" class="card-collapse collapse show  collapse-view">
                             <div class="review-card">
-                                <div class="customer-review">
-                                    <div class="customer-info">
-                                        <div class="customer-name">
-                                            <a href="javascript:void(0);"><img
-                                                    src="{{ URL::asset('/frontend/img/profiles/avatar-01.jpg') }}"
-                                                    alt="User"></a>
-                                            <div>
-                                                <h5><a href="javascript:void(0);">Johnson</a></h5>
-                                                <p>02 Jan 2023</p>
-                                            </div>
-                                        </div>
-                                        <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </span>
-                                            <p class="rating-review"><span>4.0</span>(20 Reviews)</p>
-                                        </div>
-                                    </div>
-                                    <div class="review-para">
-                                        <p>It was popularised in the 1960s with the release of Letraset sheets containing
-                                            LoremIpsum passages, and more recently with desktop publishing software like
-                                            Aldus PageMakerincluding versions of Lorem Ipsum.It was popularised in the 1960s
-                                        </p>
-                                    </div>
-                                </div>
-                               
-                                    <div class="customer-review">
-                                        <div class="customer-info">
-                                            <div class="customer-name">
-                                                <a href="javascript:void(0);"><img
-                                                        src="{{ URL::asset('/frontend/img/profiles/avatar-02.jpg') }}"
-                                                        alt="User"></a>
-                                                <div>
-                                                    <h5><a href="javascript:void(0);">Casandra</a></h5>
-                                                    <p>01 Jan 2023</p>
-                                                </div>
-                                            </div>
-                                            <div class="rating">
-                                                <span class="rating-count">
-                                                    <i class="fa-solid fa-star checked"></i>
-                                                    <i class="fa-solid fa-star checked"></i>
-                                                    <i class="fa-solid fa-star checked"></i>
-                                                    <i class="fa-solid fa-star checked"></i>
-                                                    <i class="fa-solid fa-star checked"></i>
-                                                </span>
-                                                <p class="rating-review"><span>5.0</span>(20 Reviews)</p>
-                                            </div>
-                                        </div>
-                                        <div class="review-para">
-                                            <p>It was popularised in the 1960s with the release of Letraset sheets containing
-                                                LoremIpsum passages, and more recently with desktop publishing software like
-                                                Aldus PageMakerincluding versions of Lorem Ipsum.It was popularised in the 1960s
-                                                with the elease ofLetraset sheets containing Lorem Ipsum passages, and more
-                                                recently with desktop publishingsoftware like Aldus Page Maker including
-                                                versions.</p>
-                                        </div>
-                                    </div>
-                                @auth                              
-                                    @if($canReview)
+                                <div id="review-list"> 
+                                   @include('partials._review', ['reviews' => $reviews])
+   
+                                                         
+                                    @auth                              
+                                        @if($canReview)
 
-                                        <div class="property-review">
-                                            <h5 class="card-title">Property Reviews</h5>
-                                           <form action="{{ route('room.review.store') }}" method="POST">
-                                                @csrf
-                                                <input type="hidden" name="room_id" value="{{ $room->id }}">
-                                                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                                                <input type="hidden" name="star" id="star-rating">
+                                            <div class="property-review">
+                                                <h5 class="card-title">Property Reviews</h5>
+                                            <form action="{{ route('room.review.store') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="room_id" value="{{ $room->id }}">
+                                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                                    <input type="hidden" name="star" id="star-rating">
 
-                                                <div class="row">
-                                                    {{-- Name --}}
-                                                    <div class="col-md-6">
-                                                        <div class="review-form">
-                                                            <input type="text" name="name" value="{{ auth()->user()->name }}" readonly class="form-control" placeholder="Your Name">
-                                                            @error('name')
-                                                                <small class="text-danger">{{ $message }}</small>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-
-                                                    {{-- Email --}}
-                                                    <div class="col-md-6">
-                                                        <div class="review-form">
-                                                            <input type="email" name="email" value="{{ auth()->user()->email }}" readonly class="form-control" placeholder="Your Email">
-                                                            @error('email')
-                                                                <small class="text-danger">{{ $message }}</small>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-
-                                                    {{-- Comment --}}
-                                                    <div class="col-md-12">
-                                                        <div class="review-form">
-                                                            <textarea rows="5" name="comment" class="form-control" placeholder="Enter Your Comments">{{ old('comment') }}</textarea>
-                                                            @error('comment')
-                                                                <small class="text-danger">{{ $message }}</small>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-
-                                                    {{-- Star Rating --}}
-                                                    <div class="col-md-12 mt-3">
-                                                        <div class="review-form">
-                                                            <label>Rating</label>
-                                                            <div class="star-rating" id="star-wrapper">
-                                                                @for ($i = 1; $i <= 5; $i++)
-                                                                    <i class="fas fa-star star" data-value="{{ $i }}"></i>
-                                                                @endfor
+                                                    <div class="row">
+                                                        {{-- Name --}}
+                                                        <div class="col-md-6">
+                                                            <div class="review-form">
+                                                                <input type="text" name="name" value="{{ auth()->user()->name }}" readonly class="form-control" placeholder="Your Name">
+                                                                @error('name')
+                                                                    <small class="text-danger">{{ $message }}</small>
+                                                                @enderror
                                                             </div>
-                                                            @error('star')
-                                                                <small class="text-danger">{{ $message }}</small>
-                                                            @enderror
+                                                        </div>
+
+                                                        {{-- Email --}}
+                                                        <div class="col-md-6">
+                                                            <div class="review-form">
+                                                                <input type="email" name="email" value="{{ auth()->user()->email }}" readonly class="form-control" placeholder="Your Email">
+                                                                @error('email')
+                                                                    <small class="text-danger">{{ $message }}</small>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        {{-- Comment --}}
+                                                        <div class="col-md-12">
+                                                            <div class="review-form">
+                                                                <textarea rows="5" name="comment" class="form-control" placeholder="Enter Your Comments">{{ old('comment') }}</textarea>
+                                                                @error('comment')
+                                                                    <small class="text-danger">{{ $message }}</small>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        {{-- Star Rating --}}
+                                                        <div class="col-md-12 mt-3">
+                                                            <div class="review-form">
+                                                                <label>Rating</label>
+                                                                <div class="star-rating" id="star-wrapper">
+                                                                    @for ($i = 1; $i <= 5; $i++)
+                                                                        <i class="fas fa-star star" data-value="{{ $i }}"></i>
+                                                                    @endfor
+                                                                </div>
+                                                                @error('star')
+                                                                    <small class="text-danger">{{ $message }}</small>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        {{-- Submit --}}
+                                                        <div class="col-md-12">
+                                                            <div class="review-form submit-btn">
+                                                                <button type="submit" class="btn btn-primary">Submit Review</button>
+                                                            </div>
                                                         </div>
                                                     </div>
+                                                </form>
 
-                                                    {{-- Submit --}}
-                                                    <div class="col-md-12">
-                                                        <div class="review-form submit-btn">
-                                                            <button type="submit" class="btn btn-primary">Submit Review</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-
-                                        </div>
-                                    @else
-                                     <p class="text-danger">You have already submitted reviews for all your bookings of this room.</p>
+                                            </div>
+                                        @else
+                                        <p class="text-danger">You have already submitted reviews for all your bookings of this room.</p>
+                                        @endif
+                                    @endauth
+                                </div>
+                               <div class="pagination-wrapper mt-3 text-center">
+                                    @if ($reviews->hasMorePages())
+                                        <button
+                                            class="btn btn-primary"
+                                            id="load-more-btn"
+                                            data-page="2"
+                                            data-url="{{ route('room.details', $room->slug) }}">
+                                            Load More
+                                        </button>
                                     @endif
-                                 @endauth
+                                </div>
+ 
+                               
                                  @guest
                                     <div class="alert alert-warning mt-3">
                                         <p >Please <a href="{{ route('login', ['redirect_to' => request()->url()]) }}">login</a> to submit a review.</p>
@@ -808,5 +765,32 @@
         }
     });
 </script>
+<script>
+    $(document).on('click', '#load-more-btn', function () {
+        let button = $(this);
+        let page = button.data('page');
+        let url = button.data('url') + '?page=' + page;
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (res) {
+                $('#review-list').append(res);
+                button.data('page', page + 1); // increment next page
+
+                // Check if there's more content (optional improvement)
+                if ($(res).filter('.customer-review').length === 0) {
+                    button.remove(); // hide button if no more data
+                }
+            },
+            error: function () {
+                alert('Could not load more reviews. Try again.');
+            }
+        });
+    });
+</script>
+
+
+
 @endpush
 

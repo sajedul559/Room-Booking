@@ -49,9 +49,10 @@ class HomeController extends Controller
         return view('rent-property-grid',compact('rooms','properties'));
     }
 
-   public function roomDetails($slug)
-    {
-        $room = Room::with('images','reviews','averageRating')->where('slug', $slug)->firstOrFail();
+  public function roomDetails($slug)
+  {
+        $room = Room::with('images', 'reviews')->where('slug', $slug)->firstOrFail();
+        $roomReviewCount = $room->reviews->count();
 
         $bookingCount = 0;
         $reviewCount = 0;
@@ -60,26 +61,29 @@ class HomeController extends Controller
         if (auth()->check()) {
             $user = auth()->user();
 
-            // Count confirmed bookings
             $bookingCount = Booking::where('room_id', $room->id)
                 ->where('user_id', $user->id)
                 ->where('status', Booking::STATUS_CONFIRMED)
                 ->count();
 
-            // Count how many reviews the user already submitted
             $reviewCount = RoomReview::where('room_id', $room->id)
                 ->where('user_id', $user->id)
                 ->count();
 
-            // Can review if booking count > review count
             $canReview = $bookingCount > $reviewCount;
         }
 
-        return view('rent-details', compact('room', 'canReview'));
-    }
+        // Load different perPage value depending on AJAX or not
+        $perPage = request()->ajax() ? 3 : 3;
 
+        $reviews = RoomReview::where('room_id', $room->id)->latest()->paginate($perPage);
 
-    
+        if (request()->ajax()) {
+            return view('partials._review', compact('reviews'))->render();
+        }
+
+        return view('rent-details', compact('room', 'canReview', 'reviews','roomReviewCount'));
+  }
 
     // private function dashboardData()
     // {

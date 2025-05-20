@@ -119,7 +119,7 @@ class Room extends Model
 
     public function averageRating()
     {
-        return $this->reviews()->avg('star');
+      return $this->reviews()->avg('star') ?? 0;
     }
 
 }
