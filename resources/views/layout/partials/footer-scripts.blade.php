@@ -109,6 +109,8 @@
     
   @endif
   <script src="{{ asset('assets/js/toastr.min.js') }}"></script>
+  @stack('scripts')
+
   {!! Toastr::message() !!}
   <script>
     @if (session('success'))

@@ -12,6 +12,7 @@
                     <h1>Hey There!!! Welcome Back.</h1>
                     <form action="{{ url('custom-login') }}" method="POST">
                         @csrf
+                        <input type="hidden" name="redirect_to" value="{{ request('redirect_to') }}">
                         <div class="form-group">
                             <label class="form-label">Email <span>*</span></label>
                             <input type="email" class="form-control" placeholder="Enter Email" name="email" id="email"

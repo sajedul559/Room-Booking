@@ -42,7 +42,10 @@ class CustomAuthController extends Controller
                     return redirect()->back()->with('error', 'Your account is currently disabled. Please contact the administrator.');
                 }
             }
-    
+            // If redirect_to is set (e.g., from room review form), redirect there
+            if ($request->filled('redirect_to')) {
+                return redirect($request->input('redirect_to'))->with('success', 'Signed in success.');
+            }
             // Redirect based on user type
             return in_array($user->type, [User::USER_TYPE_ADMIN, User::USER_TYPE_VENDOR])
             ? redirect()->intended('/dashboard')->with('success', 'Signed in success.')

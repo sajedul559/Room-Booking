@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\Booking;
 use App\Models\Partner;
 use App\Models\Property;
+use App\Models\RoomReview;
 use Illuminate\Http\Request;
 use App\Models\ReferralIncomeHistory;
 
@@ -47,13 +49,36 @@ class HomeController extends Controller
         return view('rent-property-grid',compact('rooms','properties'));
     }
 
-    public function roomDetails($slug)
+   public function roomDetails($slug)
     {
-        // Retrieve the room using the slug
-        $room = Room::with('images')->where('slug', $slug)->firstOrFail();
-    
-        return view('rent-details', compact('room'));
+        $room = Room::with('images','reviews','averageRating')->where('slug', $slug)->firstOrFail();
+
+        $bookingCount = 0;
+        $reviewCount = 0;
+        $canReview = false;
+
+        if (auth()->check()) {
+            $user = auth()->user();
+
+            // Count confirmed bookings
+            $bookingCount = Booking::where('room_id', $room->id)
+                ->where('user_id', $user->id)
+                ->where('status', Booking::STATUS_CONFIRMED)
+                ->count();
+
+            // Count how many reviews the user already submitted
+            $reviewCount = RoomReview::where('room_id', $room->id)
+                ->where('user_id', $user->id)
+                ->count();
+
+            // Can review if booking count > review count
+            $canReview = $bookingCount > $reviewCount;
+        }
+
+        return view('rent-details', compact('room', 'canReview'));
     }
+
+
     
 
     // private function dashboardData()
@@ -77,28 +102,43 @@ class HomeController extends Controller
         return view('room', compact('rooms', 'location'));
     }
     public function searchRooms(Request $request)
-{
-    // dd($request->all());
-    $rooms = Room::with(['images', 'property'])
-        ->when($request->room_name, function ($query) use ($request) {
-            $query->where('name', 'LIKE', '%' . $request->room_name . '%');
-        })
+    {
+        // dd($request->all());
+        $rooms = Room::with(['images', 'property'])
+            ->when($request->room_name, function ($query) use ($request) {
+                $query->where('name', 'LIKE', '%' . $request->room_name . '%');
+            })
 
-        ->when($request->property_city, function ($query) use ($request) {
-            $query->whereHas('property', function ($q) use ($request) {
-                $q->where('city', 'LIKE', '%' . $request->property_city . '%');
-            });
-        })
-        ->when($request->min_price, function ($query) use ($request) {
-            $query->where('price', '>=', $request->min_price);
-        })
-        ->when($request->max_price, function ($query) use ($request) {
-            $query->where('price', '<=', $request->max_price);
-        })
-        ->get();
+            ->when($request->property_city, function ($query) use ($request) {
+                $query->whereHas('property', function ($q) use ($request) {
+                    $q->where('city', 'LIKE', '%' . $request->property_city . '%');
+                });
+            })
+            ->when($request->min_price, function ($query) use ($request) {
+                $query->where('price', '>=', $request->min_price);
+            })
+            ->when($request->max_price, function ($query) use ($request) {
+                $query->where('price', '<=', $request->max_price);
+            })
+            ->get();
 
-    return view('search_room', compact('rooms'));
-}
+        return view('search_room', compact('rooms'));
+    }
+    public function storeReview(Request $request)
+    {
+        $validated = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'room_id' => 'required|exists:rooms,id',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'comment' => 'required|string',
+            'star' => 'required|integer|min:1|max:5',
+        ]);
+
+        RoomReview::create($validated);
+
+        return back()->with('success', 'Review submitted successfully!');
+    }
 
     
 

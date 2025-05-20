@@ -122,6 +122,9 @@ Route::get('/rent-property-grid', function () {
     return view('rent-property-grid');
 })->name('rent-property-grid');
 
+Route::post('/room-review', [HomeController::class, 'storeReview'])->name('room.review.store');
+
+
 // Route::get('/rent-property-list', function () {
 //     return view('rent-property-list');
 // })->name('rent-property-list');

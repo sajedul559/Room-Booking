@@ -112,4 +112,14 @@ class Room extends Model
             self::ONWELFARE => 'On welfare',
         ];
     }
+    public function reviews()
+    {
+        return $this->hasMany(RoomReview::class);
+    }
+
+    public function averageRating()
+    {
+        return $this->reviews()->avg('star');
+    }
+
 }
