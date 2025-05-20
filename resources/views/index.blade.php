@@ -577,7 +577,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="faq-img">
-                        <img src="{{ asset('assets/frontend/img/faq-img.jpg') }}" alt="icon">
+                        <img src="{{ asset('assets/frontend/img/faq-home.jpg') }}" alt="icon">
                     </div>
                 </div>
                 <div class="col-lg-8">
