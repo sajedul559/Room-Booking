@@ -74,7 +74,7 @@ class HomeController extends Controller
         }
 
         // Load different perPage value depending on AJAX or not
-        $perPage = request()->ajax() ? 3 : 3;
+        $perPage = request()->ajax() ? 4 : 4;
 
         $reviews = RoomReview::where('room_id', $room->id) ->where('status', RoomReview::STATUS_CONFIRMED)->latest()->paginate($perPage);
 
