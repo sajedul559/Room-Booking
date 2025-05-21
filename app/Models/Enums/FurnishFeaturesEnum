@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Enums\Models;
+
+enum FurnishFeaturesEnum: string
+{
+    case BedSideTable = 'Bed side table';
+    case Wardrobe = 'Wardrobe';
+    case Drawers = 'Drawers';
+    case AirConditioner = 'Air conditioner';
+    case Heater = 'Heater';
+    case Desk = 'Desk';
+    case Lamp = 'Lamp';
+    case Chair = 'Chair';
+    case Couch = 'Couch';
+    case TV = 'TV';
+    case Balcony = 'Balcony';
+    case DoorLock = 'Door lock';
+    case Kitchenette = 'Kitchenette';
+
+}

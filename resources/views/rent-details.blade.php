@@ -195,7 +195,7 @@
                     <!-- /Property Details -->
 
                     <!-- Amenities -->
-                    <div class="collapse-card">
+                    {{-- <div class="collapse-card">
                         <h4 class="card-title">
                             <a class="collapsed" data-bs-toggle="collapse" href="#amenities"
                                 aria-expanded="false">Amenities</a>
@@ -240,7 +240,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- /Amenities -->
 
                     <!-- Video -->
@@ -293,97 +293,104 @@
                     <div class="collapse-card sidebar-card">
                         <h4 class="card-title">
                             <a class="collapsed" data-bs-toggle="collapse" href="#review" aria-expanded="false">Reviews
-                                (25)</a>
+                             ({{ $roomReviewCount}}) </a>
                         </h4>
                         <div id="review" class="card-collapse collapse show  collapse-view">
                             <div class="review-card">
-                                <div class="customer-review">
-                                    <div class="customer-info">
-                                        <div class="customer-name">
-                                            <a href="javascript:void(0);"><img
-                                                    src="{{ URL::asset('/frontend/img/profiles/avatar-01.jpg') }}"
-                                                    alt="User"></a>
-                                            <div>
-                                                <h5><a href="javascript:void(0);">Johnson</a></h5>
-                                                <p>02 Jan 2023</p>
-                                            </div>
-                                        </div>
-                                        <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </span>
-                                            <p class="rating-review"><span>4.0</span>(20 Reviews)</p>
-                                        </div>
-                                    </div>
-                                    <div class="review-para">
-                                        <p>It was popularised in the 1960s with the release of Letraset sheets containing
-                                            LoremIpsum passages, and more recently with desktop publishing software like
-                                            Aldus PageMakerincluding versions of Lorem Ipsum.It was popularised in the 1960s
-                                        </p>
-                                    </div>
+                                <div id="review-list"> 
+                                    @include('partials._review', ['reviews' => $reviews])
                                 </div>
-                                <div class="customer-review">
-                                    <div class="customer-info">
-                                        <div class="customer-name">
-                                            <a href="javascript:void(0);"><img
-                                                    src="{{ URL::asset('/frontend/img/profiles/avatar-02.jpg') }}"
-                                                    alt="User"></a>
-                                            <div>
-                                                <h5><a href="javascript:void(0);">Casandra</a></h5>
-                                                <p>01 Jan 2023</p>
+   
+                                                         
+                                    @auth                              
+                                        @if($canReview)
+
+                                            <div class="property-review">
+                                                <h5 class="card-title">Property Reviews</h5>
+                                            <form action="{{ route('room.review.store') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="room_id" value="{{ $room->id }}">
+                                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                                    <input type="hidden" name="star" id="star-rating">
+
+                                                    <div class="row">
+                                                        {{-- Name --}}
+                                                        <div class="col-md-6">
+                                                            <div class="review-form">
+                                                                <input type="text" name="name" value="{{ auth()->user()->name }}" readonly class="form-control" placeholder="Your Name">
+                                                                @error('name')
+                                                                    <small class="text-danger">{{ $message }}</small>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        {{-- Email --}}
+                                                        <div class="col-md-6">
+                                                            <div class="review-form">
+                                                                <input type="email" name="email" value="{{ auth()->user()->email }}" readonly class="form-control" placeholder="Your Email">
+                                                                @error('email')
+                                                                    <small class="text-danger">{{ $message }}</small>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        {{-- Comment --}}
+                                                        <div class="col-md-12">
+                                                            <div class="review-form">
+                                                                <textarea rows="5" name="comment" class="form-control" placeholder="Enter Your Comments">{{ old('comment') }}</textarea>
+                                                                @error('comment')
+                                                                    <small class="text-danger">{{ $message }}</small>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        {{-- Star Rating --}}
+                                                        <div class="col-md-12 mt-3">
+                                                            <div class="review-form">
+                                                                <label>Rating</label>
+                                                                <div class="star-rating" id="star-wrapper">
+                                                                    @for ($i = 1; $i <= 5; $i++)
+                                                                        <i class="fas fa-star star" data-value="{{ $i }}"></i>
+                                                                    @endfor
+                                                                </div>
+                                                                @error('star')
+                                                                    <small class="text-danger">{{ $message }}</small>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        {{-- Submit --}}
+                                                        <div class="col-md-12">
+                                                            <div class="review-form submit-btn">
+                                                                <button type="submit" class="btn btn-primary">Submit Review</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
                                             </div>
-                                        </div>
-                                        <div class="rating">
-                                            <span class="rating-count">
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                                <i class="fa-solid fa-star checked"></i>
-                                            </span>
-                                            <p class="rating-review"><span>5.0</span>(20 Reviews)</p>
-                                        </div>
-                                    </div>
-                                    <div class="review-para">
-                                        <p>It was popularised in the 1960s with the release of Letraset sheets containing
-                                            LoremIpsum passages, and more recently with desktop publishing software like
-                                            Aldus PageMakerincluding versions of Lorem Ipsum.It was popularised in the 1960s
-                                            with the elease ofLetraset sheets containing Lorem Ipsum passages, and more
-                                            recently with desktop publishingsoftware like Aldus Page Maker including
-                                            versions.</p>
-                                    </div>
+                                        @else
+                                        <p class="text-danger">You have already submitted reviews for all your bookings of this room.</p>
+                                        @endif
+                                    @endauth
+                               <div class="pagination-wrapper mt-3 text-center">
+                                    @if ($reviews->hasMorePages())
+                                        <button
+                                            class="btn btn-primary"
+                                            id="load-more-btn"
+                                            data-page="2"
+                                            data-url="{{ route('room.details', $room->slug) }}">
+                                            Load More
+                                        </button>
+                                    @endif
                                 </div>
-                                <div class="property-review">
-                                    <h5 class="card-title">Property Reviews</h5>
-                                    <form action="#">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="review-form">
-                                                    <input type="text" class="form-control" placeholder="Your Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="review-form">
-                                                    <input type="email" class="form-control" placeholder="Your Email">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="review-form">
-                                                    <textarea rows="5" placeholder="Enter Your Comments"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="review-form submit-btn">
-                                                    <button type="submit" class="btn-primary">Submit Review</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+ 
+                               
+                                 @guest
+                                    <div class="alert alert-warning mt-3">
+                                        <p >Please <a href="{{ route('login', ['redirect_to' => request()->url()]) }}">login</a> to submit a review.</p>
+                                    </div>
+                                @endguest
                             </div>
                         </div>
                     </div>
@@ -397,204 +404,7 @@
                         <a href="{{ route('booking.form',$room->slug) }}" class="btn btn-primary prop-book"><i
                                 class="bx bx-calendar"></i>Book Room</a>
 
-                        <!-- Enquiry -->
-                        <div class="sidebar-card">
-                            <div class="sidebar-card-title">
-                                <h5>Request Info</h5>
-                            </div>
-                            <div class="user-active">
-                                <div class="user-img">
-                                    <a href="javascript:void(0);"><img class="avatar"
-                                            src="{{ URL::asset('/frontend/img/profiles/avatar-03.jpg') }}"
-                                            alt="Image"></a>
-                                    <span class="avatar-online"></span>
-                                </div>
-                                <div class="user-name">
-                                    <h4><a href="javascript:void(0);">John Collins</a></h4>
-                                    <p> Company Agent</p>
-                                </div>
-                            </div>
-                            <form action="#">
-                                <div class="review-form">
-                                    <input type="text" class="form-control" placeholder="Your Name">
-                                </div>
-                                <div class="review-form">
-                                    <input type="email" class="form-control" placeholder="Your Email">
-                                </div>
-                                <div class="review-form">
-                                    <input type="text" class="form-control" placeholder="Your Phone Number">
-                                </div>
-                                <div class="review-form">
-                                    <textarea rows="5" placeholder="Yes, I'm Interested"></textarea>
-                                </div>
-                                <div class="review-form submit-btn">
-                                    <button type="submit" class="btn-primary">Send Email</button>
-                                </div>
-                            </form>
-                            <ul class="connect-us">
-                                <li><a href="javascript:void(0);"><i class="feather-phone"></i>Call Us</a></li>
-                                <li><a href="javascript:void(0);"><i class="fa-brands fa-whatsapp"></i>Whatsapp</a></li>
-                            </ul>
-                        </div>
-                        <!-- /Enquiry -->
-
-                        <!-- Listing Owner Details -->
-                        <div class="sidebar-card">
-                            <div class="sidebar-card-title">
-                                <h5>Listing Owner Details</h5>
-                            </div>
-                            <div class="user-active bg-white p-0">
-                                <div class="user-img">
-                                    <a href="javascript:void(0);"><img class="avatar"
-                                            src="{{ URL::asset('/frontend/img/profiles/avatar-03.jpg') }}"
-                                            alt="Image"></a>
-                                </div>
-                                <div class="user-name">
-                                    <h4><a href="javascript:void(0);">John Collins</a></h4>
-                                    <div class="rating">
-                                        <span class="rating-count d-inline-flex">
-                                            <i class="fa-solid fa-star checked"></i>
-                                            <i class="fa-solid fa-star checked"></i>
-                                            <i class="fa-solid fa-star checked"></i>
-                                            <i class="fa-solid fa-star checked"></i>
-                                            <i class="fa-solid fa-star checked"></i>
-                                        </span>
-                                        <span class="rating-review">5.0 (20 Reviews)</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <ul class="list-details">
-                                <li>No of Listings <span>05</span></li>
-                                <li>No of Bookings<span>225</span></li>
-                                <li>Memeber on<span>15 Jan 2023</span></li>
-                                <li>Verification<span>Verified</span></li>
-                            </ul>
-                        </div>
-                        <!-- /Listing Owner Details -->
-
-                        <!-- Share Property -->
-                        <div class="sidebar-card">
-                            <div class="sidebar-card-title">
-                                <h5>Share Property</h5>
-                            </div>
-                            <div class="social-links">
-                                <ul class="sidebar-social-links">
-                                    <li><a href="javascript:void(0);" class="fb-icon"><i
-                                                class="fa-brands fa-facebook-f hi-icon"></i></a></li>
-                                    <li><a href="javascript:void(0);" class="ins-icon"><i
-                                                class="fa-brands fa-instagram hi-icon"></i></a></li>
-                                    <li><a href="javascript:void(0);"><i class="fa-brands fa-behance hi-icon"></i></a>
-                                    </li>
-                                    <li><a href="javascript:void(0);" class="twitter-icon"><i
-                                                class="fa-brands fa-twitter hi-icon"></i></a></li>
-                                    <li><a href="javascript:void(0);" class="ins-icon"><i
-                                                class="fa-brands fa-pinterest-p hi-icon"></i></a></li>
-                                    <li><a href="javascript:void(0);"><i class="fa-brands fa-linkedin hi-icon"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- /Share Property -->
-
-                         <!-- Reviews -->
-                        {{-- <div class="collapse-card sidebar-card">
-                            <h4 class="card-title">
-                                <a class="collapsed" data-bs-toggle="collapse" href="#review" aria-expanded="false">Reviews
-                                    (25)</a>
-                            </h4>
-                            <div id="review" class="card-collapse collapse show  collapse-view">
-                                <div class="review-card">
-                                    <div class="customer-review">
-                                        <div class="customer-info">
-                                            <div class="customer-name">
-                                                <a href="javascript:void(0);"><img
-                                                        src="{{ URL::asset('/frontend/img/profiles/avatar-01.jpg') }}"
-                                                        alt="User"></a>
-                                                <div>
-                                                    <h5><a href="javascript:void(0);">Johnson</a></h5>
-                                                    <p>02 Jan 2023</p>
-                                                </div>
-                                            </div>
-                                            <div class="rating">
-                                                <span class="rating-count">
-                                                    <i class="fa-solid fa-star checked"></i>
-                                                    <i class="fa-solid fa-star checked"></i>
-                                                    <i class="fa-solid fa-star checked"></i>
-                                                    <i class="fa-solid fa-star checked"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </span>
-                                                <p class="rating-review"><span>4.0</span>(20 Reviews)</p>
-                                            </div>
-                                        </div>
-                                        <div class="review-para">
-                                            <p>It was popularised in the 1960s with the release of Letraset sheets containing
-                                                LoremIpsum passages, and more recently with desktop publishing software like
-                                                Aldus PageMakerincluding versions of Lorem Ipsum.It was popularised in the 1960s
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="customer-review">
-                                        <div class="customer-info">
-                                            <div class="customer-name">
-                                                <a href="javascript:void(0);"><img
-                                                        src="{{ URL::asset('/frontend/img/profiles/avatar-02.jpg') }}"
-                                                        alt="User"></a>
-                                                <div>
-                                                    <h5><a href="javascript:void(0);">Casandra</a></h5>
-                                                    <p>01 Jan 2023</p>
-                                                </div>
-                                            </div>
-                                            <div class="rating">
-                                                <span class="rating-count">
-                                                    <i class="fa-solid fa-star checked"></i>
-                                                    <i class="fa-solid fa-star checked"></i>
-                                                    <i class="fa-solid fa-star checked"></i>
-                                                    <i class="fa-solid fa-star checked"></i>
-                                                    <i class="fa-solid fa-star checked"></i>
-                                                </span>
-                                                <p class="rating-review"><span>5.0</span>(20 Reviews)</p>
-                                            </div>
-                                        </div>
-                                        <div class="review-para">
-                                            <p>It was popularised in the 1960s with the release of Letraset sheets containing
-                                                LoremIpsum passages, and more recently with desktop publishing software like
-                                                Aldus PageMakerincluding versions of Lorem Ipsum.It was popularised in the 1960s
-                                                with the elease ofLetraset sheets containing Lorem Ipsum passages, and more
-                                                recently with desktop publishingsoftware like Aldus Page Maker including
-                                                versions.</p>
-                                        </div>
-                                    </div>
-                                    <div class="property-review">
-                                        <h5 class="card-title">Property Reviews</h5>
-                                        <form action="#">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="review-form">
-                                                        <input type="text" class="form-control" placeholder="Your Name">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="review-form">
-                                                        <input type="email" class="form-control" placeholder="Your Email">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="review-form">
-                                                        <textarea rows="5" placeholder="Enter Your Comments"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="review-form submit-btn">
-                                                        <button type="submit" class="btn-primary">Submit Review</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-                        <!-- /Reviews -->
+                        
 
                     </div>
                 </div>
@@ -908,3 +718,79 @@
     </section>
     <!-- /Detail View Section -->
 @endsection
+@push('styles')
+    <style>
+        .star-rating {
+            direction: ltr;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .star-rating .star {
+            color: #ccc;
+            transition: color 0.2s ease-in-out;
+        }
+        .star-rating .star.hover,
+        .star-rating .star.selected {
+            color: #FCAF3D;
+        }
+    </style>
+@endpush
+
+@push('scripts')
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const stars = document.querySelectorAll('.star');
+        const ratingInput = document.getElementById('star-rating');
+        let selectedRating = 0;
+
+        stars.forEach((star, index) => {
+            star.addEventListener('mouseover', () => {
+                highlightStars(index);
+            });
+
+            star.addEventListener('mouseout', () => {
+                highlightStars(selectedRating - 1);
+            });
+
+            star.addEventListener('click', () => {
+                selectedRating = index + 1;
+                ratingInput.value = selectedRating;
+            });
+        });
+
+        function highlightStars(index) {
+            stars.forEach((star, i) => {
+                star.classList.toggle('selected', i <= index);
+            });
+        }
+    });
+</script>
+<script>
+    $(document).on('click', '#load-more-btn', function () {
+        let button = $(this);
+        let page = button.data('page');
+        let url = button.data('url') + '?page=' + page;
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            success: function (res) {
+                $('#review-list').append(res);
+                button.data('page', page + 1); // increment next page
+
+                // Check if there's more content (optional improvement)
+                if ($(res).filter('.customer-review').length === 0) {
+                    button.remove(); // hide button if no more data
+                }
+            },
+            error: function () {
+                alert('Could not load more reviews. Try again.');
+            }
+        });
+    });
+</script>
+
+
+
+@endpush
+

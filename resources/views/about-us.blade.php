@@ -17,7 +17,7 @@
         <div class="container">
             <!-- About Content -->
             <div class="about-content">
-                <h6>About DreamsEstate</h6>
+                <h6>About  Ausis Accommodation Australia</h6>
                 <h1>We connect building with people</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis ligula eu lectus vulputate
                     porttitor sed feugiat nunc. Mauris ac consectetur ante,</p>
@@ -39,17 +39,17 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-12 col-sm-12">
                         <div class="about-listing">
-                            <img src="{{ URL::asset('/frontend/img/about-us/about-us-01.jpg') }}" alt="aboutus-01">
+                            <img src="{{ URL::asset('assets/frontend/img/about-us/about.jpg') }}" alt="aboutus-01">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-12 col-sm-12">
                         <div class="about-listing">
-                            <img src="{{ URL::asset('/frontend/img/about-us/about-us-02.jpg') }}" alt="aboutus-02">
+                            <img src="{{ URL::asset('assets/frontend/img/about-us/about1.jpg') }}" alt="aboutus-02">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-12 col-sm-12">
                         <div class="about-listing">
-                            <img src="{{ URL::asset('/frontend/img/about-us/about-us-03.jpg') }}" alt="aboutus-03">
+                            <img src="{{ URL::asset('assets/frontend/img/about-us/about5.jpg') }}" alt="aboutus-03">
                         </div>
                     </div>
                 </div>
@@ -117,7 +117,8 @@
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                     <div class="book-listing">
                         <h2>Ready to Book a Place?</h2>
-                        <img src="{{ URL::asset('/frontend/img/about-us/about-us-04.jpg') }}" alt="aboutus-03">
+                        <img src="{{ URL::asset('assets/frontend/img/about-us/about4.jpg') }}"  alt="aboutus-03">
+
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12">
@@ -148,45 +149,49 @@
     <!-- /Book Place -->
 
     <!-- Partners -->
-    <section class="section partners-sec">
+    <section  class="partner-section-slider">
         <div class="container">
-            <div class="section-heading text-center">
-                <h2>Hundreds of Partners Around the World</h2>
-                <div class="sec-line">
-                    <span class="sec-line1"></span>
-                    <span class="sec-line2"></span>
+            <div class="partners-sec">
+                <div class="section-heading text-center">
+                    <h2>Conveniently Located Near These  <span class="uk-text-primary">Universities</span>  </h2>
+                    
+                    <div class="sec-line">
+                        <span class="sec-line1"></span>
+                        <span class="sec-line2"></span>
+                    </div>
+                    <p> Every day, we build trust through  communication, transparency, and results.</p>
                 </div>
-                <p> Every day, we build trust through communication, transparency, and results.</p>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="partners-slider owl-carousel">
-                        <div class="partner-icon">
-                            <img src="{{ URL::asset('/frontend/img/icons/partner-icon-1.svg') }}" alt="Partners">
-                        </div>
-                        <div class="partner-icon">
-                            <img src="{{ URL::asset('/frontend/img/icons/partner-icon-2.svg') }}" alt="Partners">
-                        </div>
-                        <div class="partner-icon">
-                            <img src="{{ URL::asset('/frontend/img/icons/partner-icon-3.svg') }}" alt="Partners">
-                        </div>
-                        <div class="partner-icon">
-                            <img src="{{ URL::asset('/frontend/img/icons/partner-icon-4.svg') }}" alt="Partners">
-                        </div>
-                        <div class="partner-icon">
-                            <img src="{{ URL::asset('/frontend/img/icons/partner-icon-5.svg') }}" alt="Partners">
-                        </div>
-                        <div class="partner-icon">
-                            <img src="{{ URL::asset('/frontend/img/icons/partner-icon-6.svg') }}" alt="Partners">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="partners-slider owl-carousel">
+                            @forelse ($partners as $data)
+                                 <div class="partner-icon">
+                                <img src="{{ asset('storage/' . $data->image_path) }}" alt="Partner Image" >
+
+                            </div>
+
+                            @empty
+                                 <div class="text-center py-4">
+                                    <p class="text-muted">No partners available at the moment.</p>
+                                </div>
+                            @endforelse
+                           
                         </div>
                     </div>
                 </div>
+                {{-- <div class="text-center pb-5">
+                    <a class="btn view-rooms-btn1" id="buy-property" href="#available-room"
+                       role="tab" aria-controls="available-room" aria-selected="true">
+                       VIEW AVAILABLE ROOMS
+                    </a>
+
+                </div> --}}
             </div>
         </div>
     </section>
     <!-- /Partners -->
      <!-- Testimonial -->
-     <section class="testimonial-sec">
+     <section class="testimonial-sec py-5">
         <div class="container">
             <div class="section-heading">
                 <h2>Testimonials</h2>
@@ -301,7 +306,7 @@
     </section>
     <!-- /Testimonial -->
        <!-- Latest Blog -->
-       <section class="latest-blog-sec">
+     <section class="latest-blog-sec">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto">
@@ -323,7 +328,7 @@
                         <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ URL::asset('/frontend/img/blog/blog-1.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -337,7 +342,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('/frontend/img/profiles/avatar-01.jpg') }}"
+                                                src="{{ asset('assets/frontend/img/profiles/user1.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <h6><a href="javascript:void(0);">Doe John</a></h6>
@@ -357,7 +362,7 @@
                         <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ URL::asset('/frontend/img/blog/blog-2.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ asset('assets/frontend/img/blog/blog2.jpg') }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -371,7 +376,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('/frontend/img/profiles/avatar-03.jpg') }}"
+                                                src="{{ asset('assets/frontend/img/profiles/user3.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <h6><a href="javascript:void(0);">John</a></h6>
@@ -391,7 +396,7 @@
                         <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ URL::asset('/frontend/img/blog/blog-3.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -406,7 +411,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('/frontend/img/profiles/avatar-05.jpg') }}"
+                                                src="{{ asset('assets/frontend/img/profiles/user1.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <h6><a href="javascript:void(0);">Eric Krok</a></h6>
@@ -426,7 +431,7 @@
                         <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ URL::asset('/frontend/img/blog/blog-2.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ asset('assets/frontend/img/blog/blog2.jpg') }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -440,7 +445,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('/frontend/img/profiles/avatar-07.jpg') }}"
+                                                src="{{ asset('assets/frontend/img/profiles/user2.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <h6><a href="javascript:void(0);">Francis</a></h6>
@@ -460,7 +465,7 @@
                         <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ URL::asset('/frontend/img/blog/blog-1.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -474,7 +479,7 @@
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
                                         <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('/frontend/img/profiles/avatar-03.jpg') }}"
+                                                src="{{ asset('assets/frontend/img/profiles/user3.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
                                             <h6><a href="javascript:void(0);">Rafael</a></h6>

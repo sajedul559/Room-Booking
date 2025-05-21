@@ -19,7 +19,7 @@
                 </li>
             
                 <!-- Role-Permission Section -->
-                @can('All Roles')
+                {{-- @can('All Roles') --}}
                 <li>
                     <a href="#sidebarCrm" data-bs-toggle="collapse">
                         <i class="fas fa-lock"></i>
@@ -33,7 +33,7 @@
                         </ul>
                     </div>
                 </li>
-                @endcan
+                {{-- @endcan --}}
             
                 <!-- Users Section -->
                 @can('All Users')
@@ -88,7 +88,7 @@
                 @endcan
             
                 <!-- Properties Section -->
-                {{-- @can('Properties') --}}
+                @can('Properties')
                 <li>
                     <a href="#sidebarProperty" data-bs-toggle="collapse">
                         <i class="fas  fa-parachute-box"></i>
@@ -102,8 +102,24 @@
                         </ul>
                     </div>
                 </li>
-                {{-- @endcan --}}
-            
+                @endcan
+             @can('Partners')
+
+             <li>
+                    <a href="#sidebarPartner" data-bs-toggle="collapse">
+                        <i class="fas  fa-parachute-box"></i>
+                        <span>Partners </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarPartner">
+                        <ul class="nav-second-level">
+                            <li><a href="{{ route('partners.index') }}">Lists</a></li>
+                            <li><a href="{{ route('partners.create') }}">Create</a></li>
+                        </ul>
+                    </div>
+                </li>
+             @endcan
+
                 <!-- Vendor Section -->
                 @can('Vendors')
                 <li>
@@ -137,6 +153,7 @@
                     </div>
                 </li>
                 @endcan
+                 @can('Rooms')
                 <li>
                     <a href="#sidebarRoom" data-bs-toggle="collapse">
                         <i class="fas fa-landmark"></i>
@@ -150,9 +167,9 @@
                         </ul>
                     </div>
                 </li>
-            
+                @endcan
                   <!-- Rent Management Section -->
-                  {{-- @can('House Chores') --}}
+                  @can('RentManagements')
                   <li>
                       <a href="#sidebarRent" data-bs-toggle="collapse">
                           <i class="fas fa-landmark"></i>
@@ -168,6 +185,36 @@
                           </ul>
                       </div>
                   </li>
+                    @endcan
+                     <!-- Rent Management Section -->
+                  @can('Bookings')
+                   <li>
+                      <a href="#sidebarBooking" data-bs-toggle="collapse">
+                          <i class="fas fa-landmark"></i>
+                          <span>Bookings  </span>
+                          <span class="menu-arrow"></span>
+                      </a>
+                      <div class="collapse" id="sidebarBooking">
+                          <ul class="nav-second-level">
+                              <li><a href="{{ route('bookings.index') }}">Lists</a></li>
+                          </ul>
+                      </div>
+                   </li>
+                 @endcan
+                  {{-- @can('Reviews') --}}
+                  <li>
+                      <a href="#sidebarReview" data-bs-toggle="collapse">
+                          <i class="fas fa-landmark"></i>
+                          <span>Reviews  </span>
+                          <span class="menu-arrow"></span>
+                      </a>
+                      <div class="collapse" id="sidebarReview">
+                          <ul class="nav-second-level">
+                              <li><a href="{{ route('reviews.index') }}">Lists</a></li>
+                          </ul>
+                      </div>
+                  </li>
+                    {{-- @endcan --}}
                   <li>
                     <a href="{{ route('tenant-reports.index') }}">
                         <i class="fas fa-desktop"></i>

@@ -10,7 +10,7 @@ class TenantReportController extends Controller
 {
     public function index()
     {
-        $reports = TenantReport::with('vendor', 'property', 'createdBy', 'lastUpdatedBy')->get();
+        $reports = TenantReport::with('vendor','property', 'createdBy', 'lastUpdatedBy')->get();
         return view('backend.tenant_reports.index', compact('reports'));
     }
 
@@ -20,21 +20,29 @@ class TenantReportController extends Controller
         return view('tenant-report',compact('properties'));
     }
 
-    public function store(Request $request)
+   public function store(Request $request)
     {
         $request->validate([
-            'vendor_id' => 'nullable|exists:vendors,id',
             'property_id' => 'required|exists:properties,id',
             'report_details' => 'required|string',
         ]);
 
-        TenantReport::create([
-            'property_id' => $request->property_id,
-            'report_details' => $request->report_details,
-            'status' => 'Pending',
-            'created_by' => auth()->id(),
-            'last_updated_by' => auth()->id(),
-        ]);
+        $property = Property::find($request->property_id);
+
+        if (!$property) {
+            return redirect()->back()->with('error', 'Property not found.');
+        }
+
+        
+       $tenantReport = new TenantReport();
+        $tenantReport->vendor_id = $property->vendor_id;
+        $tenantReport->user_id = auth()->id();
+        $tenantReport->property_id = $property->id;
+        $tenantReport->report_details = $request->report_details;
+        $tenantReport->status = 'Pending';
+        $tenantReport->created_by = auth()->id();
+        $tenantReport->save();
+
 
         return redirect()->back()->with('success', 'Tenant Report Created Successfully');
     }
@@ -53,6 +61,7 @@ class TenantReportController extends Controller
     {
         $request->validate([
             'vendor_id' => 'required|exists:vendors,id',
+            'user_id' => auth()->id(),
             'property_id' => 'required|exists:properties,id',
             'report_details' => 'required|string',
             'status' => 'required|in:Pending,Approved,Rejected',
@@ -60,6 +69,7 @@ class TenantReportController extends Controller
 
         $tenantReport->update([
             'vendor_id' => $request->vendor_id,
+            'user_id' => auth()->id(),
             'property_id' => $request->property_id,
             'report_details' => $request->report_details,
             'status' => $request->status,

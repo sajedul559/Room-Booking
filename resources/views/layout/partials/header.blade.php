@@ -12,7 +12,7 @@
         {{-- @if (Route::is(['index']))
             <div class="header-top">
                 <div class="template-ad">
-                    <img src="{{ URL::asset('/frontend/img/icons/badge-icon.svg') }}" alt="icon">
+                    <img src="{{ URL::asset('/assets/frontend/img/icons/badge-icon.svg') }}" alt="icon">
                     <h5>No 1, Realestate Website to Buy / Sell Your Place <span>First Listing Free!!!</span></h5>
                 </div>
             </div>
@@ -27,13 +27,13 @@
                     </span>
                 </a>
                 <a href="{{ route('index') }}" class="navbar-brand logo">
-                    <img src="{{ URL::asset('/frontend/img/logo.svg') }}" class="img-fluid" alt="Logo">
+                    <img src="{{ URL::asset('/assets/frontend/img/logo.png') }}" class="img-fluid" alt="Logo">
                 </a>
             </div>
             <div class="main-menu-wrapper">
                 <div class="menu-header">
                     <a href="{{ url('index') }}" class="menu-logo">
-                        <img src="{{ URL::asset('/frontend/img/logo.svg') }}" class="img-fluid" alt="Logo">
+                        <img src="{{ URL::asset('/assets/frontend/img/logo.png') }}" class="img-fluid" alt="Logo">
                     </a>
 
                     <a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -45,12 +45,12 @@
                         class="has-submenu {{ in_array(Route::currentRouteName(), ['agent-grid', 'agent-list', 'agent-grid-sidebar', 'agent-list-sidebar', 'agent-details']) ? 'active' : '' }}">
                         <a  href="javascript:void(0);">Student Accommodation <i class="fas fa-chevron-down"></i></a>
                         <ul style="background-color: #DA1F43" class="submenu">
-                            <li><a  href="{{ route('rooms.location', ['location' => 'Dudley']) }}"
+                            <li><a  href="{{ route('room.location', ['location' => 'Dudley']) }}"
                                     class="{{ Request::is('agent-grid') ? 'active' : '' }}">RoomingKos Dudley</a></li>
-                            <li><a  href="{{ route('rooms.location', ['location' => 'Swanston']) }}"
+                            <li><a  href="{{ route('room.location', ['location' => 'Swanston']) }}"
                                     class="{{ Request::is('agent-list') ? 'active' : '' }}">RoomingKos Swanston</a></li>
                             <li>
-                                <a href="{{ route('rooms.location', ['location' => 'springfield']) }}"
+                                <a href="{{ route('room.location', ['location' => 'springfield']) }}"
                                     class="{{ Request::is('springfield') ? 'active' : '' }}">
                                     RoomingKos Springfield
                                 </a>
@@ -157,7 +157,7 @@
     <!-- Header -->
     <header class="log-header">
         <a href="{{ url('index') }}"><img class="img-fluid logo-dark"
-                src="{{ URL::asset('/frontend/img/logo.svg') }}" alt="Logo"></a>
+                src="{{ URL::asset('/assets/frontend/img/logo.svg') }}" alt="Logo"></a>
     </header>
     <!-- /Header -->
 @endif

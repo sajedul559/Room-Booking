@@ -332,7 +332,7 @@
                                                 </ul> --}}
                                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                                     <li>
-                                                        <a href="{{ route('rooms.location', ['location' => $data->city]) }}" class="btn-primary">View Rooms</a>
+<a href="{{ route('room.location', ['location' => isset($data) && $data->city ? $data->city : 'testing']) }}" class="btn-primary">View Rooms</a>
                                                         
                                                     </li>
                                                 </ul>
@@ -493,33 +493,18 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="partners-slider owl-carousel">
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider1.jpg') }}" alt="Partners">
+                            @forelse ($partners as $data)
+                                 <div class="partner-icon">
+                                <img src="{{ asset('storage/' . $data->image_path) }}" alt="Partner Image" >
+
                             </div>
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider2.jpg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider3.jpg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider4.jpg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider5.jpg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider6.jpg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider7.jpg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider8.jpg') }}" alt="Partners">
-                            </div>
-                            <div class="partner-icon">
-                                <img src="{{ asset('assets/frontend/img/slider/slider9.jpg') }}" alt="Partners">
-                            </div>
+
+                            @empty
+                                 <div class="text-center py-4">
+                                    <p class="text-muted">No partners available at the moment.</p>
+                                </div>
+                            @endforelse
+                           
                         </div>
                     </div>
                 </div>
@@ -592,7 +577,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="faq-img">
-                        <img src="{{ asset('assets/frontend/img/faq-img.jpg') }}" alt="icon">
+                        <img src="{{ asset('assets/frontend/img/faq-home.jpg') }}" alt="icon">
                     </div>
                 </div>
                 <div class="col-lg-8">

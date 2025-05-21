@@ -25,7 +25,9 @@ class RoomController extends Controller
     public function index()
     {
         $rooms = Room::with('images')->get();
-        return view('backend.rooms.list', compact('rooms'));
+        $properties = $this->propertyService->getAllProperties();
+        
+        return view('backend.rooms.list', compact('rooms', 'properties'));
     }
 
     public function create()
@@ -47,6 +49,9 @@ class RoomController extends Controller
 
     public function edit(Room $room)
     {
+        $room->furnishFeatures = explode(',', $room->furnishFeatures);
+        $room->accepting_options = explode(',', $room->accepting_options);
+
         $gellary_image = RoomImage::where('room_id', $room->id)->get();
      
         $properties = $this->propertyService->getAllProperties();

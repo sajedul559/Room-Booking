@@ -25,6 +25,7 @@
                                 <th>Phone</th>
                                 <th>Verification Id</th>
                                 <th>Status</th>
+                                <th>Change Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -51,7 +52,18 @@
                                              style="max-width: 50px; display: none;">
                                     @endif
                                 </td>
-                                
+                                 <td>
+                                        @php
+                                            $statusClass = match($vendor->status) {
+                                                'approve' => 'success',
+                                                'rejected' => 'danger',
+                                                default => 'warning',
+                                            };
+                                        @endphp
+                                        <span class="mt-2 badge bg-{{ $statusClass }}">
+                                            {{ ucfirst($vendor->status) }}
+                                        </span>
+                                </td>  
                                 <td>
                                     <select class="form-select status-change" data-id="{{ $vendor->id }}">
                                         <option value="pending" {{ $vendor->status === 'pending' ? 'selected' : '' }}>Pending</option>
@@ -97,26 +109,41 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     $(document).ready(function () {
-        $('.status-change').change(function () {
-            let vendorId = $(this).data('id');
-            let newStatus = $(this).val();
+      $('.status-change').change(function () {
+    let vendorId = $(this).data('id');
+    let newStatus = $(this).val();
 
-            $.ajax({
-                url: "{{ route('vendor.changeStatus') }}",
-                method: "POST",
-                data: {
-                    _token: "{{ csrf_token() }}",
-                    vendor_id: vendorId,
-                    status: newStatus
-                },
-                success: function (response) {
-                    toastr.success(response.message);
-                },
-                error: function (xhr) {
-                    toastr.error('Status update failed.');
-                }
-            });
-        });
+    $.ajax({
+        url: "{{ route('vendor.changeStatus') }}",
+        method: "POST",
+        data: {
+            _token: "{{ csrf_token() }}",
+            vendor_id: vendorId,
+            status: newStatus
+        },
+        success: function (response) {
+            toastr.success(response.message);
+
+            let $row = $(`select[data-id="${vendorId}"]`).closest('tr');
+
+            let badgeClass = {
+                approve: 'success',
+                rejected: 'danger',
+                pending: 'warning'
+            }[newStatus];
+
+            $row.find('td:eq(6)').html(`
+                <span class="badge bg-${badgeClass}">
+                    ${newStatus.charAt(0).toUpperCase() + newStatus.slice(1)}
+                </span>
+            `);
+        },
+        error: function (xhr) {
+            toastr.error('Status update failed.');
+        }
+    });
+});
+
     });
 </script>
 
