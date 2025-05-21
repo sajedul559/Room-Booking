@@ -99,36 +99,55 @@ class RoomService
         $room->update(array_merge($data, ['updated_by' => $updatedBy]));
 
       
-    // Save only the relative path to the database
+        if (isset($data['old'])) {
+            // Delete the images that are NOT in the 'old' list
+            $this->galleryImageDelete($data, $room->id);
+        }
 
         if (isset($data['images'])) {
-             // Delete old images
-             $this->galleryImageDelete($data, $room->id);
-
+            // Upload new images if any
             $this->uploadImages($room, $data['images']);
         }
+        
+
 
         return $room;
     }
-    public function galleryImageDelete($data, $roomId)
-    {
-        // If 'old' images exist, keep them, otherwise delete all images for the room
-        $query = RoomImage::where('room_id', $roomId);
+    // public function galleryImageDelete($data, $roomId)
+    // {
+    //     // If 'old' images exist, keep them, otherwise delete all images for the room
+    //     $query = RoomImage::where('room_id', $roomId);
         
-        if (isset($data['old'])) {
-            $query->whereNotIn('id', $data['old']);
-        }
+    //     if (isset($data['old'])) {
+    //         $query->whereNotIn('id', $data['old']);
+    //     }
     
-        $roomImages = $query->get();
+    //     $roomImages = $query->get();
     
-        foreach ($roomImages as $roomImage) {
-            // Delete the image file from storage
-            Storage::disk('public')->delete($roomImage->image_path);
+    //     foreach ($roomImages as $roomImage) {
+    //         // Delete the image file from storage
+    //         Storage::disk('public')->delete($roomImage->image_path);
     
-            // Delete the database record
-            $roomImage->delete();
-        }
+    //         // Delete the database record
+    //         $roomImage->delete();
+    //     }
+    // }
+    public function galleryImageDelete($data, $roomId)
+{
+    $query = RoomImage::where('room_id', $roomId);
+
+    if (isset($data['old']) && is_array($data['old'])) {
+        $query->whereNotIn('id', $data['old']);
     }
+
+    $roomImages = $query->get();
+
+    foreach ($roomImages as $roomImage) {
+        Storage::disk('public')->delete($roomImage->image_path);
+        $roomImage->delete();
+    }
+}
+
     public function delete(Room $room)
     {
         foreach ($room->images as $image) {
