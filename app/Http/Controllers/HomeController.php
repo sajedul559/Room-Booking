@@ -52,7 +52,7 @@ class HomeController extends Controller
   public function roomDetails($slug)
   {
         $room = Room::with('images', 'reviews')->where('slug', $slug)->firstOrFail();
-        $roomReviewCount = $room->reviews->count();
+        $roomReviewCount = $room->reviews->where('status',RoomReview::STATUS_CONFIRMED)->count();
 
         $bookingCount = 0;
         $reviewCount = 0;
@@ -76,7 +76,8 @@ class HomeController extends Controller
         // Load different perPage value depending on AJAX or not
         $perPage = request()->ajax() ? 3 : 3;
 
-        $reviews = RoomReview::where('room_id', $room->id)->latest()->paginate($perPage);
+        $reviews = RoomReview::where('room_id', $room->id) ->where('status', RoomReview::STATUS_CONFIRMED)->latest()->paginate($perPage);
+
 
         if (request()->ajax()) {
             return view('partials._review', compact('reviews'))->render();

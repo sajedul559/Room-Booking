@@ -297,7 +297,6 @@
                         </h4>
                         <div id="review" class="card-collapse collapse show  collapse-view">
                             <div class="review-card">
-                                <div id="review-list"> 
                                    @include('partials._review', ['reviews' => $reviews])
    
                                                          
@@ -372,6 +371,8 @@
                                         <p class="text-danger">You have already submitted reviews for all your bookings of this room.</p>
                                         @endif
                                     @endauth
+                                <div id="review-list"> 
+
                                 </div>
                                <div class="pagination-wrapper mt-3 text-center">
                                     @if ($reviews->hasMorePages())
