@@ -188,7 +188,7 @@
                     @endcan
                      <!-- Rent Management Section -->
                   @can('Bookings')
-                  <li>
+                   <li>
                       <a href="#sidebarBooking" data-bs-toggle="collapse">
                           <i class="fas fa-landmark"></i>
                           <span>Bookings  </span>
@@ -199,8 +199,22 @@
                               <li><a href="{{ route('bookings.index') }}">Lists</a></li>
                           </ul>
                       </div>
+                   </li>
+                 @endcan
+                  {{-- @can('Reviews') --}}
+                  <li>
+                      <a href="#sidebarReview" data-bs-toggle="collapse">
+                          <i class="fas fa-landmark"></i>
+                          <span>Reviews  </span>
+                          <span class="menu-arrow"></span>
+                      </a>
+                      <div class="collapse" id="sidebarReview">
+                          <ul class="nav-second-level">
+                              <li><a href="{{ route('reviews.index') }}">Lists</a></li>
+                          </ul>
+                      </div>
                   </li>
-                    @endcan
+                    {{-- @endcan --}}
                   <li>
                     <a href="{{ route('tenant-reports.index') }}">
                         <i class="fas fa-desktop"></i>

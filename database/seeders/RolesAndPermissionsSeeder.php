@@ -52,6 +52,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'Partners' => ['Index Partners', 'Create Partner', 'Edit Partner', 'Show Partner', 'Delete Partner'],
             'Rooms' => ['Index Rooms', 'Create Room', 'Edit Room', 'Show Room', 'Delete Room'],
             'RentManagements' => ['Index RentManagements', 'Create RentManagement', 'Edit RentManagement', 'Show RentManagement', 'Delete RentManagement'],
+            'Reviews' => ['Index Reviews', 'Create Review', 'Edit Review', 'Show Review', 'Delete Review'],
         ];
 
         // Create permissions

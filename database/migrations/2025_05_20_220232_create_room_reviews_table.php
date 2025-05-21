@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->text('comment')->nullable();
             $table->tinyInteger('star')->comment('1 to 5')->nullable();
+            $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
             $table->timestamps();
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
         });
