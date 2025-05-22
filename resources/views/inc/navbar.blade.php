@@ -253,15 +253,15 @@
         <div class="logo-box">
              <a href="{{ route('dashboard') }}"class="logo logo-dark text-center">
                 <span class="logo-sm">
-                    {{-- <img src="{{ asset('assets/images/logo-sm.png')}}" alt="" height="22"> --}}
-                    <img src="{{ asset( $system_settings['small_logo']) }}" alt="Logo" height="22">
+                    {{-- <img src="{{ asset('assets/images/logo-sm.png')}}" alt="" height="35"> --}}
+                    <img src="{{ asset( $system_settings['small_logo']) }}" alt="Logo" height="35">
 
 
                     <!-- <span class="logo-lg-text-light">UBold</span> -->
                 </span>
                 <span class="logo-lg">
                     {{-- <img src="{{ asset('assets/images/logo-dark.png')}}" alt="" height="20"> --}}
-                    <img src="{{ asset( $system_settings['large_logo']) }}" alt="Logo" height="22">
+                    <img src="{{ asset( $system_settings['large_logo']) }}" alt="Logo" height="35">
 
                     <!-- <span class="logo-lg-text-light">U</span> -->
                 </span>
@@ -269,13 +269,13 @@
 
              <a href="{{ route('dashboard') }}"class="logo logo-light text-center">
                 <span class="logo-sm">
-                    {{-- <img src="{{ asset('assets/images/logo-sm.png')}}" alt="" height="22"> --}}
-                    <img src="{{ asset( $system_settings['small_logo']) }}" alt="Logo" height="22">
+                    {{-- <img src="{{ asset('assets/images/logo-sm.png')}}" alt="" height="35"> --}}
+                    <img src="{{ asset( $system_settings['small_logo']) }}" alt="Logo" height="35">
 
                 </span>
                 <span class="logo-lg">
                     {{-- <img src="{{ asset('assets/images/logo-light.png')}}" alt="" height="20"> --}}
-                    <img src="{{ asset( $system_settings['large_logo']) }}" alt="Logo" height="22">
+                    <img src="{{ asset( $system_settings['large_logo']) }}" alt="Logo" height="35">
 
                 </span>
             </a>

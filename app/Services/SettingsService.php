@@ -18,14 +18,14 @@ class SettingsService
     }
     public function saveSettings($request)
     {
-        $types = $request->types;
-        foreach ($types as $key => $value) {
-            SystemSetting::updateOrCreate([
-                'key' => $key
-            ], [
-                'value' => $value
-            ]);
-        }
+        // $types = $request->types;
+        // foreach ($types as $key => $value) {
+        //     SystemSetting::updateOrCreate([
+        //         'key' => $key
+        //     ], [
+        //         'value' => $value
+        //     ]);
+        // }
         if ($request->systemFiles) {
             $path = 'public/uploads/';
             foreach ($request->systemFiles as $key => $file) {

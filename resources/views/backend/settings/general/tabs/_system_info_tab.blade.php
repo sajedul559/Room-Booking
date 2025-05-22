@@ -9,54 +9,54 @@
                 <div class="card-body">
 
                     {{-- System Title --}}
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label class="form-label" for="title">System Title <x-common.required /></label>
                         <input type="text" class="form-control" value="{{ getSetting('title') }}"
                             name="types[title]" id="title">
-                    </div>
+                    </div> --}}
 
                     {{-- Browser Title Separator --}}
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label class="form-label" for="separator">Browser Tab Title Separator <x-common.required /></label>
                         <input type="text" class="form-control" value="{{ getSetting('separator') }}"
                             name="types[separator]" id="separator">
-                    </div>
+                    </div> --}}
 
                     {{-- Contact Email --}}
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label class="form-label" for="contact_email">Contact Email <x-common.required /></label>
                         <input type="text" class="form-control" value="{{ getSetting('contact_email') }}"
                             name="types[contact_email]" id="contact_email">
-                    </div>
+                    </div> --}}
 
                     {{-- Contact Phone --}}
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label class="form-label" for="contact_phone">Contact Phone <x-common.required /></label>
                         <input type="text" class="form-control" value="{{ getSetting('contact_phone') }}"
                             name="types[contact_phone]" id="contact_phone">
-                    </div>
+                    </div> --}}
 
                     {{-- Address --}}
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label class="form-label" for="address">Address <x-common.required /></label>
                         <textarea class="form-control" id="address" name="types[contact_address]" rows="3">{!! getSetting('contact_address') !!}</textarea>
-                    </div>
+                    </div> --}}
 
-                    {{-- Large Logo White --}}
+                    {{-- Large Logo --}}
                     <div class="mb-3">
-                        <label class="form-label" for="large_logo_white">Large Logo White <x-common.required /></label>
-                        @if(getSetting('large_logo_white'))
+                        <label class="form-label" for="large_logo">Large Logo <x-common.required /></label>
+                        @if(getSetting('large_logo'))
                             <div class="mb-2">
-                                <img id="preview_large_logo_white" src="{{ asset(getSetting('large_logo_white')) }}" alt="Large Logo White" height="80">
+                                <img id="preview_large_logo" src="{{ asset(getSetting('large_logo')) }}" alt="Large Logo" height="80">
                             </div>
                         @else
-                            <img id="preview_large_logo_white" src="#" alt="Preview" style="display:none;" height="80">
+                            <img id="preview_large_logo" src="#" alt="Preview" style="display:none;" height="80">
                         @endif
-                        <input type="file" accept="image/*" class="form-control" name="systemFiles[large_logo_white]" id="large_logo_white" onchange="previewImage(this, 'preview_large_logo_white')">
+                        <input type="file" accept="image/*" class="form-control" name="systemFiles[large_logo]" id="large_logo" onchange="previewImage(this, 'preview_large_logo')">
                     </div>
 
                     {{-- Large Logo Dark --}}
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label class="form-label" for="large_logo_dark">Large Logo Dark <x-common.required /></label>
                         @if(getSetting('large_logo_dark'))
                             <div class="mb-2">
@@ -66,7 +66,7 @@
                             <img id="preview_large_logo_dark" src="#" alt="Preview" style="display:none;" height="80">
                         @endif
                         <input type="file" accept="image/*" class="form-control" name="systemFiles[large_logo_dark]" id="large_logo_dark" onchange="previewImage(this, 'preview_large_logo_dark')">
-                    </div>
+                    </div> --}}
 
                     {{-- Small Logo --}}
                     <div class="mb-3">
