@@ -1,5 +1,5 @@
 @extends('layouts.layouts')
-@section('title', 'Contacts')
+@section('title', 'Reviews')
 @section('content')
     <x-common.bread-crum />
     <div class="row">
@@ -18,7 +18,7 @@
                             <tr>
                                 <th>User Name</th>
                                 <th>Email</th>
-                                <th>comment</th>
+                                {{-- <th>comment</th> --}}
                                 <th>Star</th>
                                 <th>Status</th>
                                 <th>Change Status</th>
@@ -30,7 +30,7 @@
                                 <tr>
                                     <td>{{ $data->name }}</td>
                                     <td>{{ $data->email }}</td>
-                                    <td>{{ $data->comment }}</td>
+                                    {{-- <td>{{ $data->comment }}</td> --}}
                                     <td>{{ $data->star }}</td>
                                    <td>
                                         @php
@@ -53,12 +53,12 @@
                                     </td>
                                    
                     
-                                    <td class="text-start">
+                                  <td class="text-start">
                                         <x-common.action-drop-down>
                                             <!-- Edit Button -->
-                                            {{-- <a class="dropdown-item edit-item-btn" href="{{ route('contacts.edit', $data->id) }}">
-                                                <i class="mdi mdi-pencil me-2 text-muted vertical-middle"></i>Edit
-                                            </a> --}}
+                                            <a class="dropdown-item edit-item-btn" href="{{ route('reviews.show', $data->id) }}">
+                                                <i class="mdi mdi-pencil me-2 text-muted vertical-middle"></i>Show
+                                            </a>
                                             <!-- Delete Button -->
                                             <button type="button" class="dropdown-item delete-item-btn" data-id="{{ $data->id }}">
                                                 <i class="mdi mdi-delete me-2 text-muted vertical-middle"></i>Delete
@@ -105,21 +105,21 @@
                     status: newStatus
                 },
                 success: function (response) {
-    toastr.success(response.message);
+                    toastr.success(response.message);
 
-    let $row = $(`select[data-id="${reviewId}"]`).closest('tr');
+                    let $row = $(`select[data-id="${reviewId}"]`).closest('tr');
 
-    let badgeClass = {
-        confirmed: 'success',
-        rejected: 'danger',
-        pending: 'warning'
-    }[newStatus];
+                    let badgeClass = {
+                        confirmed: 'success',
+                        rejected: 'danger',
+                        pending: 'warning'
+                    }[newStatus];
 
-    $row.find('td:eq(4) span')
-        .removeClass()
-        .addClass(`mt-2 badge bg-${badgeClass}`)
-        .text(newStatus.charAt(0).toUpperCase() + newStatus.slice(1));
-},
+                    $row.find('td:eq(4) span')
+                        .removeClass()
+                        .addClass(`mt-2 badge bg-${badgeClass}`)
+                        .text(newStatus.charAt(0).toUpperCase() + newStatus.slice(1));
+                },
 
                 error: function (xhr) {
                     toastr.error('Status update failed.');
