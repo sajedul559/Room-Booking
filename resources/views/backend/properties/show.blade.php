@@ -30,10 +30,6 @@
                                 <td>{{ $property->property_name }}</td>
                             </tr>
                             <tr>
-                                <th>Slug:</th>
-                                <td>{{ $property->slug }}</td>
-                            </tr>
-                            <tr>
                                 <th>Type:</th>
                                 <td>{{ $property->property_type }}</td>
                             </tr>
@@ -63,7 +59,11 @@
                             </tr>
                             <tr>
                                 <th>Accessibility:</th>
-                                <td>{{ $property->accessibility ? 'Accessible' : 'Not Accessible' }}</td>
+                                <td>
+                                    @foreach (json_decode($property->accessibility, true) ?? [] as $data)
+                                        {{ $data }}{{ !$loop->last ? ', ' : '' }}
+                                    @endforeach
+                                </td>
                             </tr>
                           <tr>
                                 <th>Nearby Places:</th>

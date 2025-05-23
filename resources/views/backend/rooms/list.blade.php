@@ -1,5 +1,5 @@
 @extends('layouts.layouts')
-@section('title', 'Properties')
+@section('title', 'Roomes')
 @section('content')
     <x-common.bread-crum />
     <div class="row">
@@ -29,15 +29,15 @@
                             <tr>
                                 <th>ID</th>
                                 <th class="d-none">Property ID</th> <!-- Hidden column -->
-                                <th>Property</th>
+                                {{-- <th>Property</th> --}}
                                 <th>Name</th>
-                                <th>Price</th>
-                                <th>Weekly Rent</th>
+                                {{-- <th>Price</th> --}}
+                                {{-- <th>Weekly Rent</th> --}}
                                 <th>Available Date</th>
                                 <th>Internet Available</th>
                                 <th>Included Rent</th>
-                                <th>Min Length Of Stay</th>
-                                <th>Max Length Of Stay</th>
+                                {{-- <th>Min Length Of Stay</th>
+                                <th>Max Length Of Stay</th> --}}
                                 <th>Smoking Allowed</th>
                                 <th>Pet Allowed</th>
                                 <th>Welfare Allowed</th>
@@ -49,10 +49,10 @@
                             <tr>
                                 <td>{{ $data->id }}</td>
                                 <td class="d-none">{{ $data->property_id }}</td> <!-- Hidden data -->
-                                <td>{{ $data->property ? $data->property->property_name : ' ' }}</td>
+                                {{-- <td>{{ $data->property ? $data->property->property_name : ' ' }}</td> --}}
                                 <td>{{ $data->name }}</td>
-                                <td>{{ $data->price }}</td>
-                                <td>{{ $data->weekly_rent }}</td>
+                                {{-- <td>{{ $data->price }}</td> --}}
+                                {{-- <td>{{ $data->weekly_rent }}</td> --}}
                                 <td>{{ $data->available_date }}</td>
                                 <td>
                                     <span class="badge {{ $data->internet ? 'bg-success' : 'bg-danger' }}">
@@ -66,8 +66,8 @@
                                     </span>
                                 </td>
                 
-                                <td>{{ $data->min_length_of_stay }}</td>
-                                <td>{{ $data->max_length_of_stay }}</td>
+                                {{-- <td>{{ $data->min_length_of_stay }}</td>
+                                <td>{{ $data->max_length_of_stay }}</td> --}}
                 
                                 <!-- Badge for Smoking Allowed -->
                                 <td>
