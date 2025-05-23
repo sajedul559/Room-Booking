@@ -377,7 +377,7 @@ Route::get('/contacts/create', [ContactController::class, 'create'])->name('cont
 Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
 Route::get('/contacts/{contact}/edit', [ContactController::class, 'edit'])->name('contacts.edit');
 Route::put('/contacts/{contact}', [ContactController::class, 'update'])->name('contacts.update');
-Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
+// Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
 
 
 

@@ -14,4 +14,9 @@ class RoomReview extends Model
      const STATUS_CONFIRMED = 'confirmed';
      const STATUS_REJECTED = 'rejected';
 
+     public function room()
+    {
+        return $this->belongsTo(Room::class);
+    }
+
 }

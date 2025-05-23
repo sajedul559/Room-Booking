@@ -74,6 +74,10 @@
                               
                                 <td class="text-start">
                                     <x-common.action-drop-down>
+                                        <!-- Show Button -->
+                                        <a class="dropdown-item show-item-btn" href="{{ route('vendors.show', $vendor->id) }}">
+                                            <i class="mdi mdi-eye me-2 text-muted vertical-middle"></i>Show
+                                        </a>
                                         <!-- Edit Button -->
                                         <a class="dropdown-item edit-item-btn" href="{{ route('vendors.edit', $vendor->id) }}">
                                             <i class="mdi mdi-pencil me-2 text-muted vertical-middle"></i>Edit

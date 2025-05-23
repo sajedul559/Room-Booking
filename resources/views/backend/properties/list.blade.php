@@ -50,6 +50,10 @@
                                     <td class="text-start">
                                         <x-common.action-drop-down>
                                             <!-- Edit Button -->
+                                            <a class="dropdown-item edit-item-btn" href="{{ route('properties.show', $property->id) }}">
+                                                <i class="mdi mdi-eye me-2 text-muted vertical-middle"></i>Show
+                                            </a>
+                                             <!-- Edit Button -->
                                             <a class="dropdown-item edit-item-btn" href="{{ route('properties.edit', $property->id) }}">
                                                 <i class="mdi mdi-pencil me-2 text-muted vertical-middle"></i>Edit
                                             </a>

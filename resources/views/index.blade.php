@@ -166,7 +166,7 @@
                                 <img src="{{ asset('assets/frontend/img/icons/work-icon-3.svg') }}" alt="icon">
                             </span>
                         </div>
-                        <h4>03. Book Your Property</h4>
+                        <h4>Book Your Property</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis et sem sed sollicitudin.
                             Donec non odio…</p>
                     </div>
@@ -292,7 +292,7 @@
                                     <div class="product-custom" data-aos="fade-down" data-aos-duration="2000">
                                         <div class="profile-widget">
                                             <div class="doc-img">
-                                                <a href="{{ url('rent-details') }}" class="property-img">
+                                                <a href="{{ route('room.location', ['location' => isset($data) && $data->city ? $data->city : 'no location']) }}" class="property-img">
                                                     <img class="img-fluid" alt="Property Image"
                                                     src="{{ get_image_path($data->image_path) }}">
                                                    
@@ -316,7 +316,7 @@
                                                     <span class="rating-review">Excellent</span>
                                                 </div>
                                                 <h3 class="title">
-                                                    <a href="{{ route('room.details',$data->slug)}}">{{ $data->property_name }}</a>
+                                                    <a href="{{ route('room.location', ['location' => isset($data) && $data->city ? $data->city : 'no location']) }}">{{ $data->property_name }}</a>
                                                 </h3>
                                                 <p><i class="feather-map-pin"></i> {{ isset($data->location) ? $data->location : 'Location not available' }}</p>
 
@@ -332,7 +332,7 @@
                                                 </ul> --}}
                                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                                     <li>
-<a href="{{ route('room.location', ['location' => isset($data) && $data->city ? $data->city : 'testing']) }}" class="btn-primary">View Rooms</a>
+                                                        <a href="{{ route('room.location', ['location' => isset($data) && $data->city ? $data->city : 'no location']) }}" class="btn-primary">View Rooms</a>
                                                         
                                                     </li>
                                                 </ul>

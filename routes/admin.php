@@ -35,6 +35,9 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('properties', PropertyController::class);
     Route::resource('partners', PartnerController::class);
     Route::resource('admins', UserController::class);
+    Route::get('/user-profile', [UserController::class, 'profile'])->name('user.profile');
+    Route::put('/profile-update', [UserController::class, 'profileUpdate'])->name('profile.update');
+
     Route::resource('vendors', VendorController::class);
     Route::resource('bookings', BookingController::class);
     Route::post('/booking/change-status', [BookingController::class, 'changeStatus'])->name('booking.changeStatus');

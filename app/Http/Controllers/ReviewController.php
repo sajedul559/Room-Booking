@@ -12,11 +12,15 @@ class ReviewController extends Controller
         $reviews = RoomReview::all();
         return view('backend.reviews.index', compact('reviews'));
     }
-
-    public function destroy(Contact $contact)
+    public function show($id)
     {
-        $contact->delete();
-        return redirect()->route('contacts.index')->with('success', 'Contact deleted successfully.');
+        $review = RoomReview::findOrFail($id);
+        return view('backend.reviews.show', compact('review'));
+    }
+    public function destroy(RoomReview $review)
+    {
+        $review->delete();
+        return redirect()->route('reviews.index')->with('success', 'Review deleted successfully.');
     }
     public function changeStatus(Request $request)
     {

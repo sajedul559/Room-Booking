@@ -52,6 +52,12 @@ class VendorController extends Controller
         $this->vendorService->createVendor($request->validated());
         return redirect()->route('vendors.index')->with('success', 'Vendor created successfully.');
     }
+      public function show($id)
+    {
+        $vendor = $this->vendorService->findVendorById($id);
+        $users = User::all();
+        return view('backend.vendors.show', compact('vendor','users'));
+    }
 
     /**
      * Show the form for editing the specified vendor.
