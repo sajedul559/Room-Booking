@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\Expense\ExpenseController;
 use App\Http\Controllers\Admin\Partner\PartnerController;
 use App\Http\Controllers\Admin\Property\PropertyController;
 use App\Http\Controllers\Admin\HouseChore\HouseChoreController;
+use App\Http\Controllers\Admin\BlogCategory\BlogCategoryController;
 use App\Http\Controllers\Admin\RentManagement\RentManagementController;
 
 
@@ -58,6 +59,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('rooms', RoomController::class);
     Route::get('/get-rooms-by-property', [RoomController::class, 'getRoomsByProperty'])->name('get.rooms.by.property');
 
+    Route::resource('blog-categories', BlogCategoryController::class);
 
     Route::get('/api/expense-data/{month}', [HomeController::class, 'getExpenseData']);
     Route::get('/api/income-data/{month}', [HomeController::class, 'getIncomeData']);
