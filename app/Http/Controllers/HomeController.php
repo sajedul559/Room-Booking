@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Room;
 use App\Models\Booking;
 use App\Models\Partner;
@@ -26,7 +27,8 @@ class HomeController extends Controller
         $rooms = Room::with('images')->get();
         $properties = Property::where('is_publish','1')->get();
         $partners = Partner::where('status','1')->get();
-        return view('index',compact('rooms','properties','partners'));
+        $blogs = Blog::all();
+        return view('index',compact('rooms','properties','partners','blogs'));
     }
     public function aboutUs()
     {

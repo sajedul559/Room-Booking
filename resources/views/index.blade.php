@@ -676,7 +676,8 @@
                     <div class="blog-slider owl-carousel">
 
                         <!-- Blog -->
-                        <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
+                        @foreach ($blogs as $data)
+                            <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
                                         src="{{ asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
@@ -707,10 +708,12 @@
                                 </ul>
                             </div>
                         </div>
+                        @endforeach
+                        
                         <!-- /Blog -->
 
                         <!-- Blog -->
-                        <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
+                        {{-- <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
                                         src="{{ asset('assets/frontend/img/blog/blog2.jpg') }}" alt="Blog Image"></a>
@@ -740,11 +743,11 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- /Blog -->
 
                         <!-- Blog -->
-                        <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
+                        {{-- <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
                                         src="{{ asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
@@ -775,11 +778,11 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- /Blog -->
 
                         <!-- Blog -->
-                        <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
+                        {{-- <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
                                         src="{{ asset('assets/frontend/img/blog/blog2.jpg') }}" alt="Blog Image"></a>
@@ -809,11 +812,11 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- /Blog -->
 
                         <!-- Blog -->
-                        <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
+                        {{-- <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
                                         src="{{ asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
@@ -843,7 +846,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- /Blog -->
 
                     </div>
