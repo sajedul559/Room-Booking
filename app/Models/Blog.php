@@ -16,6 +16,7 @@ class Blog extends Model
         'content',
         'image',
         'status',
+        'created_by','updated_by'
     ];
     public function category()
     {

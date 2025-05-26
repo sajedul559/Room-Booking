@@ -1,18 +1,18 @@
 @extends('layouts.layouts')
 
-@section('title', 'Blog Categories')
+@section('title', 'Blogs')
 
 @section('content')
     <x-common.bread-crum />
 
     <div class="row">
         <div class="col-12">
-            <div class="card" id="categoryList">
+            <div class="card" id="blogList">
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center mb-1">
-                        <h4 class="header-title mb-0">Blog Category List</h4>
-                        <a class="btn btn-success" href="{{ route('blog-categories.create') }}">
-                            <i class="mdi mdi-plus-circle me-2"></i>New Category
+                        <h4 class="header-title mb-0">Blog List</h4>
+                        <a class="btn btn-success" href="{{ route('blogs.create') }}">
+                            <i class="mdi mdi-plus-circle me-2"></i>New Blog
                         </a>
                     </div>
                 </div>
@@ -22,33 +22,43 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
+                                <th>Title</th>
+                                <th>Category</th>
                                 <th>Status</th>
+                                <th>Image</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categories as $category)
+                            @foreach ($blogs as $blog)
                                 <tr>
-                                    <td>{{ $category->id }}</td>
-                                    <td>{{ $category->name }}</td>
+                                    <td>{{ $blog->id }}</td>
+                                    <td>{{ $blog->title }}</td>
+                                    <td>{{ $blog->category->name ?? 'N/A' }}</td>
                                     <td>
-                                        <span class="badge bg-{{ $category->status ? 'success' : 'danger' }}">
-                                            {{ $category->status ? 'Active' : 'Inactive' }}
+                                        <span class="badge bg-{{ $blog->status === 'active' ? 'success' : 'danger' }}">
+                                            {{ ucfirst($blog->status) }}
                                         </span>
+                                    </td>
+                                    <td>
+                                        @if ($blog->image)
+                                            <img src="{{ asset('storage/' . $blog->image) }}" alt="Blog Image" width="60">
+                                        @else
+                                            <span class="text-muted">No Image</span>
+                                        @endif
                                     </td>
                                     <td class="text-start">
                                         <x-common.action-drop-down>
-                                            <a class="dropdown-item edit-item-btn" href="{{ route('blog-categories.edit', $category->id) }}">
+                                            <a class="dropdown-item edit-item-btn" href="{{ route('blogs.edit', $blog->id) }}">
                                                 <i class="mdi mdi-pencil me-2 text-muted vertical-middle"></i>Edit
                                             </a>
 
-                                            <button type="button" class="dropdown-item delete-item-btn" data-id="{{ $category->id }}">
+                                            <button type="button" class="dropdown-item delete-item-btn" data-id="{{ $blog->id }}">
                                                 <i class="mdi mdi-delete me-2 text-muted vertical-middle"></i>Delete
                                             </button>
                                         </x-common.action-drop-down>
 
-                                        <form id="delete-form-{{ $category->id }}" action="{{ route('blog-categories.destroy', $category->id) }}" method="POST" style="display: none;">
+                                        <form id="delete-form-{{ $blog->id }}" action="{{ route('blogs.destroy', $blog->id) }}" method="POST" style="display: none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>

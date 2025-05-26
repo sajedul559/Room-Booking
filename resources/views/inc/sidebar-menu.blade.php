@@ -201,6 +201,7 @@
                       </div>
                    </li>
                  @endcan
+                 
                   @can('Bookings')
                    <li>
                       <a href="#sidebarBlogCategory" data-bs-toggle="collapse">
@@ -211,6 +212,20 @@
                       <div class="collapse" id="sidebarBlogCategory">
                           <ul class="nav-second-level">
                               <li><a href="{{ route('blog-categories.index') }}">Lists</a></li>
+                          </ul>
+                      </div>
+                   </li>
+                 @endcan
+                  @can('Bookings')
+                   <li>
+                      <a href="#sidebarBlo" data-bs-toggle="collapse">
+                          <i class="fas fa-landmark"></i>
+                          <span>Blog  </span>
+                          <span class="menu-arrow"></span>
+                      </a>
+                      <div class="collapse" id="sidebarBlo">
+                          <ul class="nav-second-level">
+                              <li><a href="{{ route('blogs.index') }}">Lists</a></li>
                           </ul>
                       </div>
                    </li>

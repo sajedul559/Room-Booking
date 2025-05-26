@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\Blog\BlogController;
 use App\Http\Controllers\Admin\Room\RoomController;
 use App\Http\Controllers\Admin\Todo\TodoController;
 use App\Http\Controllers\GeneralSettingsController;
@@ -60,6 +61,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/get-rooms-by-property', [RoomController::class, 'getRoomsByProperty'])->name('get.rooms.by.property');
 
     Route::resource('blog-categories', BlogCategoryController::class);
+    Route::resource('blogs', BlogController::class);
 
     Route::get('/api/expense-data/{month}', [HomeController::class, 'getExpenseData']);
     Route::get('/api/income-data/{month}', [HomeController::class, 'getIncomeData']);

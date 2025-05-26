@@ -2,12 +2,22 @@
 
 namespace App\Http\Controllers\Admin\Blog;
 
+use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Http\Requests\BlogRequest;
+use App\Services\Blog\BlogService;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\BlogCategoryRequest;
+use Illuminate\Support\Facades\Storage;
 
 class BlogController extends Controller
 {
+    protected $blogService;
+
+    public function __construct(BlogService $blogService)
+    {
+        $this->blogService = $blogService;
+    }
+
     public function index()
     {
         $blogs = Blog::with('category')->latest()->get();
@@ -22,15 +32,7 @@ class BlogController extends Controller
 
     public function store(BlogRequest $request)
     {
-        $data = $request->validated();
-        $data['slug'] = Str::slug($data['title']);
-
-        if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('blogs');
-        }
-
-        Blog::create($data);
-
+        $this->blogService->store($request->validated());
         return redirect()->route('blogs.index')->with('success', 'Blog created successfully.');
     }
 
@@ -42,23 +44,13 @@ class BlogController extends Controller
 
     public function update(BlogRequest $request, Blog $blog)
     {
-        $data = $request->validated();
-        $data['slug'] = Str::slug($data['title']);
-
-        if ($request->hasFile('image')) {
-            Storage::delete($blog->image);
-            $data['image'] = $request->file('image')->store('blogs');
-        }
-
-        $blog->update($data);
-
+        $this->blogService->update($blog, $request->validated());
         return redirect()->route('blogs.index')->with('success', 'Blog updated successfully.');
     }
 
     public function destroy(Blog $blog)
     {
-        Storage::delete($blog->image);
-        $blog->delete();
+        $this->blogService->delete($blog);
         return redirect()->route('blogs.index')->with('success', 'Blog deleted successfully.');
     }
 }
