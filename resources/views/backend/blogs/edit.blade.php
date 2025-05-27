@@ -12,7 +12,7 @@
                             @include('backend.properties.form', ['property' => $property])
                             <button type="submit" class="btn btn-success">Update</button>
                         </form> --}}
-                        <form action="{{ route('blogs.update', $blog->id) }}" method="POST">
+                        <form action="{{ route('blogs.update', $blog->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
                             @include('backend.blogs.form', ['submitButtonText' => 'Update', 'blog' => $blog])

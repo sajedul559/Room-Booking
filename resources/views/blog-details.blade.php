@@ -29,8 +29,12 @@
                             <div class="blog-detailset">
                                 <div class="post-author">
                                     <div class="post-author-img">
-                                        <img src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}" alt="author">
+                                    <img 
+                                                src="{{ asset('storage/' . $blog->createdBy?->photo) }}" 
+                                                onerror="this.onerror=null;this.src='{{ asset('assets/images/users/avatar.jpg') }}';"
+                                                alt="author">
                                     </div>
+                                     
                                     <a href="javascript:void(0)"> <span> {{ $blog->createdBy?->name }}</span></a>
                                 </div>
                                 <i class="fa-solid fa-calendar-days"></i> <span class="ms-2">{{ $blog->created_at->format('M j, Y') }}</span>
@@ -63,25 +67,33 @@
                         @foreach ($relatedBlogs as $data)
                               <div class="blog-card">
                             <div class="blog-img">
-                                <a href="javascript:void(0);"><img src="{{ URL::asset('assets/frontend/img/blog/blog1.jpg') }}"
+                                <a href="{{ route('blog-details',$data->slug)}}"><img src="{{ get_image_path($data->image) }}"
                                         alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
-                                    <span>{{ $blog->category?->name }}</span>
+                                    <span>{{ $data->category?->name }}</span>
                                 </div>
                                 <div class="blog-title">
-                                    <h3><a href="javascript:void(0);">{{ $blog->title }}</a></h3>
-                                    <p>{{ $blog->description }}</p>
+                                    <h3><a href="{{ route('blog-details',$data->slug)}}">{{ $data->title }}</a></h3>
+                                    <p>{{ $data->description }}</p>
                                 </div>
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
-                                        <a href="javascript:void(0);"><img
+                                        {{-- <a href="javascript:void(0);"><img
                                                 src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}"
-                                                class="img-fluid avatar" alt="User"></a>
+                                                class="img-fluid avatar" alt="User"></a> --}}
+                                        <a href="javascript:void(0);">
+                                            <img 
+                                                src="{{ asset('storage/' . $data->createdBy?->photo) }}" 
+                                                onerror="this.onerror=null;this.src='{{ asset('assets/images/users/avatar.jpg') }}';"
+                                                class="img-fluid avatar" 
+                                                alt="User">
+                                        </a>
+                                                
                                         <div class="user-name">
-                                            <a href="javascript:void(0);">{{ $blog->createdBy?->name }}</a>
-                                            <p>{{ $blog->created_at->format('M j, Y') }}</p>
+                                            <a >{{ $data->createdBy?->name }}</a>
+                                            <p>{{ $data->created_at->format('M j, Y') }}</p>
                                         </div>
                                     </li>
                                     <li>

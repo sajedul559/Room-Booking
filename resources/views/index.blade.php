@@ -680,7 +680,7 @@
                             <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ route('blog-details',$data->slug)}}"><img
-                                        src="{{ asset('storage/' . $blog->image) }}" alt="Blog Image"></a>
+                                        src="{{ get_image_path($data->image) }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -693,16 +693,22 @@
                                 </div>
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
-                                        <a href="javascript:void(0);"><img
-                                                src="{{ asset('assets/frontend/img/profiles/user1.jpg') }}"
-                                                class="img-fluid avatar" alt="User"></a>
+                                        <a href="javascript:void(0);">
+                                            <img 
+                                                src="{{ asset('storage/' . $data->createdBy?->photo) }}" 
+                                                onerror="this.onerror=null;this.src='{{ asset('assets/images/users/avatar.jpg') }}';"
+                                                class="img-fluid avatar" 
+                                                alt="User">
+                                        </a>
+
+
                                         <div class="user-name">
                                             <h6><a href="javascript:void(0);">{{ $data->createdBy?->name }}</a></h6>
                                             <p>Posted on : {{ $data->created_at->format('M j, Y') }}</p>
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="{{ route('blog-details',$data->id)}}"><span><i
+                                        <a href="{{ route('blog-details',$data->slug)}}"><span><i
                                                     class='fa-solid fa-arrow-right'></i></span></a>
                                     </li>
                                 </ul>
@@ -712,142 +718,6 @@
                         
                         <!-- /Blog -->
 
-                        <!-- Blog -->
-                        {{-- <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
-                            <div class="blog-img">
-                                <a href="{{ url('blog-details') }}"><img
-                                        src="{{ asset('assets/frontend/img/blog/blog2.jpg') }}" alt="Blog Image"></a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-property">
-                                    <span>Advantages</span>
-                                </div>
-                                <div class="blog-title">
-                                    <h3><a href="{{ url('blog-details') }}">The most popular cities for homebuyers</a>
-                                    </h3>
-                                    <p>There are many variations of passages of lorem ipsum available.</p>
-                                </div>
-                                <ul class="property-category d-flex justify-content-between align-items-center">
-                                    <li class="user-info">
-                                        <a href="javascript:void(0);"><img
-                                                src="{{ asset('assets/frontend/img/profiles/user3.jpg') }}"
-                                                class="img-fluid avatar" alt="User"></a>
-                                        <div class="user-name">
-                                            <h6><a href="javascript:void(0);">John</a></h6>
-                                            <p>Posted on : 15 Jan 2023</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('blog-details') }}"><span><i
-                                                    class='fa-solid fa-arrow-right'></i></span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div> --}}
-                        <!-- /Blog -->
-
-                        <!-- Blog -->
-                        {{-- <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
-                            <div class="blog-img">
-                                <a href="{{ url('blog-details') }}"><img
-                                        src="{{ asset('storage/' . $blog->image) }}" alt="Blog Image"></a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-property">
-                                    <span>Finanace</span>
-                                </div>
-                                <div class="blog-title">
-                                    <h3><a href="{{ url('blog-details') }}">Learn how real estate really shapes our
-                                            future</a>
-                                    </h3>
-                                    <p>There are many variations of passages of lorem ipsum available.</p>
-                                </div>
-                                <ul class="property-category d-flex justify-content-between align-items-center">
-                                    <li class="user-info">
-                                        <a href="javascript:void(0);"><img
-                                                src="{{ asset('assets/frontend/img/profiles/user1.jpg') }}"
-                                                class="img-fluid avatar" alt="User"></a>
-                                        <div class="user-name">
-                                            <h6><a href="javascript:void(0);">Eric Krok</a></h6>
-                                            <p>Posted on : 15 Jan 2023</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('blog-details') }}"><span><i
-                                                    class='fa-solid fa-arrow-right'></i></span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div> --}}
-                        <!-- /Blog -->
-
-                        <!-- Blog -->
-                        {{-- <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
-                            <div class="blog-img">
-                                <a href="{{ url('blog-details') }}"><img
-                                        src="{{ asset('assets/frontend/img/blog/blog2.jpg') }}" alt="Blog Image"></a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-property">
-                                    <span>Property</span>
-                                </div>
-                                <div class="blog-title">
-                                    <h3><a href="{{ url('blog-details') }}">The most popular cities for homebuyers</a>
-                                    </h3>
-                                    <p>There are many variations of passages of lorem ipsum available.</p>
-                                </div>
-                                <ul class="property-category d-flex justify-content-between align-items-center">
-                                    <li class="user-info">
-                                        <a href="javascript:void(0);"><img
-                                                src="{{ asset('assets/frontend/img/profiles/user2.jpg') }}"
-                                                class="img-fluid avatar" alt="User"></a>
-                                        <div class="user-name">
-                                            <h6><a href="javascript:void(0);">Francis</a></h6>
-                                            <p>Posted on : 12 May 2023</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('blog-details') }}"><span><i
-                                                    class='fa-solid fa-arrow-right'></i></span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div> --}}
-                        <!-- /Blog -->
-
-                        <!-- Blog -->
-                        {{-- <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
-                            <div class="blog-img">
-                                <a href="{{ url('blog-details') }}"><img
-                                        src="{{ asset('storage/' . $blog->image) }}" alt="Blog Image"></a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-property">
-                                    <span>Property</span>
-                                </div>
-                                <div class="blog-title">
-                                    <h3><a href="{{ url('blog-details') }}">How to achieve financial independence</a>
-                                    </h3>
-                                    <p>There are many variations of passages of lorem ipsum available.</p>
-                                </div>
-                                <ul class="property-category d-flex justify-content-between align-items-center">
-                                    <li class="user-info">
-                                        <a href="javascript:void(0);"><img
-                                                src="{{ asset('assets/frontend/img/profiles/user3.jpg') }}"
-                                                class="img-fluid avatar" alt="User"></a>
-                                        <div class="user-name">
-                                            <h6><a href="javascript:void(0);">Rafael</a></h6>
-                                            <p>Posted on : 13 Jan 2023</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('blog-details') }}"><span><i
-                                                    class='fa-solid fa-arrow-right'></i></span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div> --}}
-                        <!-- /Blog -->
 
                     </div>
                 </div>

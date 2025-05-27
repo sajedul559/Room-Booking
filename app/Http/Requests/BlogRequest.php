@@ -27,7 +27,7 @@ class BlogRequest extends FormRequest
             'slug' => 'nullable|string|unique:blogs,slug,' . $this->blog,
             'description' => 'nullable|string',
             'content' => 'nullable|string',
-            'image' => 'nullable|image',
+            'image' => 'nullable|mimes:jpeg,png,jpg,gif,webp|max:5048',
             'status' => 'required|boolean',
         ];
     }
