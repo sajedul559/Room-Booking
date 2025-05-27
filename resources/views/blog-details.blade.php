@@ -23,7 +23,7 @@
                         </div>
                         <div class="blog-banner-content">
                             <div class="blog-banner-contenthead">
-                                <h6>Property</h6>
+                                <h6>{{ $blog->category->name }}</h6>
                                 <h5>Why community living is important for elderly people</h5>
                             </div>
                             <div class="blog-detailset">

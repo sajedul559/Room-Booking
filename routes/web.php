@@ -123,8 +123,7 @@ Route::get('/rent-property-grid', function () {
 })->name('rent-property-grid');
 
 Route::post('/room-review', [HomeController::class, 'storeReview'])->name('room.review.store');
-
-
+Route::get('/blog-details/{id}', [HomeController::class, 'blogDetails'])->name('blog-details');
 // Route::get('/rent-property-list', function () {
 //     return view('rent-property-list');
 // })->name('rent-property-list');
@@ -241,9 +240,7 @@ Route::get('/contact-us', function () {
 // Route::get('/blog-grid', function () {
 //     return view('blog-grid');
 // })->name('blog-grid');
-Route::get('/blog-details', function () {
-    return view('blog-details');
-})->name('blog-details');
+
 // Route::get('/agency-details', function () {
 //     return view('agency-details');
 // })->name('agency-details');

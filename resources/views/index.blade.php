@@ -679,7 +679,7 @@
                         @foreach ($blogs as $data)
                             <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
-                                <a href="{{ url('blog-details') }}"><img
+                                <a href="{{ route('blog-details',$data->slug)}}"><img
                                         src="{{ asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
@@ -687,7 +687,7 @@
                                     <span>Property</span>
                                 </div>
                                 <div class="blog-title">
-                                    <h3><a href="{{ url('blog-details') }}">How to achieve financial independence</a>
+                                    <h3><a href="{{ route('blog-details',$data->slug)}}">How to achieve financial independence</a>
                                     </h3>
                                     <p>There are many variations of passages of lorem ipsum available.</p>
                                 </div>
@@ -702,7 +702,7 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="{{ url('blog-details') }}"><span><i
+                                        <a href="{{ route('blog-details',$data->id)}}"><span><i
                                                     class='fa-solid fa-arrow-right'></i></span></a>
                                     </li>
                                 </ul>

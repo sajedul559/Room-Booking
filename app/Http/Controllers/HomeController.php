@@ -147,6 +147,12 @@ class HomeController extends Controller
         return back()->with('success', 'Review submitted successfully!');
     }
 
+    public function blogDetails($slug)
+    {
+        $blog = Blog::where('slug', $slug)->firstOrFail();
+        return view('blog-details', compact('blog'));
+    }
+
     
 
 }
