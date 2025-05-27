@@ -24,15 +24,22 @@
     </div>
 @endsection
 
+@push('style')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
+
+
+
+@endpush
 @push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
+
 <script>
-    @if (session('success'))
-        toastr.success("{{ session('success') }}");
-    @endif
+    $(document).ready(function () {
+        $('#summernote').summernote({
+            height: 300,
+            tabsize: 2
 
-    @if (session('error'))
-        toastr.error("{{ session('error') }}");
-    @endif
+        });
+    });
 </script>
-
 @endpush

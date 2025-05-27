@@ -680,16 +680,16 @@
                             <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ route('blog-details',$data->slug)}}"><img
-                                        src="{{ asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ asset('storage/' . $blog->image) }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
-                                    <span>Property</span>
+                                    <span>{{ $data->category?->name }}</span>
                                 </div>
                                 <div class="blog-title">
-                                    <h3><a href="{{ route('blog-details',$data->slug)}}">How to achieve financial independence</a>
+                                    <h3><a href="{{ route('blog-details',$data->slug)}}">{{ $data->title }}</a>
                                     </h3>
-                                    <p>There are many variations of passages of lorem ipsum available.</p>
+                                    <p>{{ $data->description }}.</p>
                                 </div>
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
@@ -697,8 +697,8 @@
                                                 src="{{ asset('assets/frontend/img/profiles/user1.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
-                                            <h6><a href="javascript:void(0);">Doe John</a></h6>
-                                            <p>Posted on : 15 Jan 2023</p>
+                                            <h6><a href="javascript:void(0);">{{ $data->createdBy?->name }}</a></h6>
+                                            <p>Posted on : {{ $data->created_at->format('M j, Y') }}</p>
                                         </div>
                                     </li>
                                     <li>
@@ -750,7 +750,7 @@
                         {{-- <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ asset('storage/' . $blog->image) }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
@@ -819,7 +819,7 @@
                         {{-- <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="blog-img">
                                 <a href="{{ url('blog-details') }}"><img
-                                        src="{{ asset('assets/frontend/img/blog/blog1.jpg') }}" alt="Blog Image"></a>
+                                        src="{{ asset('storage/' . $blog->image) }}" alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">

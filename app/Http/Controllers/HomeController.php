@@ -147,11 +147,19 @@ class HomeController extends Controller
         return back()->with('success', 'Review submitted successfully!');
     }
 
-    public function blogDetails($slug)
+   public function blogDetails($slug)
     {
         $blog = Blog::where('slug', $slug)->firstOrFail();
-        return view('blog-details', compact('blog'));
+
+        $relatedBlogs = Blog::where('blog_category_id', $blog->blog_category_id)
+            ->where('id', '!=', $blog->id) // Exclude the current blog
+            ->latest()
+            ->take(3) // Limit to 3 related posts (adjust as needed)
+            ->get();
+
+        return view('blog-details', compact('blog', 'relatedBlogs'));
     }
+
 
     
 

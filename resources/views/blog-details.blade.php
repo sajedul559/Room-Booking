@@ -23,38 +23,23 @@
                         </div>
                         <div class="blog-banner-content">
                             <div class="blog-banner-contenthead">
-                                <h6>{{ $blog->category->name }}</h6>
-                                <h5>Why community living is important for elderly people</h5>
+                                <h6>{{ $blog->category?->name }}</h6>
+                                <h5>{{ $blog->title }}</h5>
                             </div>
                             <div class="blog-detailset">
                                 <div class="post-author">
                                     <div class="post-author-img">
                                         <img src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}" alt="author">
                                     </div>
-                                    <a href="javascript:void(0)"> <span> Francis</span></a>
+                                    <a href="javascript:void(0)"> <span> {{ $blog->createdBy?->name }}</span></a>
                                 </div>
-                                <i class="fa-solid fa-calendar-days"></i> <span class="ms-2">Feb 6, 2023</span>
+                                <i class="fa-solid fa-calendar-days"></i> <span class="ms-2">{{ $blog->created_at->format('M j, Y') }}</span>
                             </div>
                         </div>
 
                     </div>
                     <div class="blog-para-content">
-                        <p>If you are living alone in your home or mostly living by yourself and are looking for ways to
-                            make your life better, then you should try community living. Elderly people need to live in a
-                            community with other people. This means that you are close to your friends and family, but not
-                            so much that you lose your privacy. Living in a community can help you feel more comfortable and
-                            safe.Let’s further check out why community living is important for elderly people:</p>
-                        <h4>There’s no place like home:</h4>
-                        <img src="{{ URL::asset('assets/frontend/img/blog/blog2-details.jpg') }}" alt="img">
-                        <p>Home is where the heart is. It’s where you make memories, laugh with friends and family, and feel
-                            safe. Where you can relax and enjoy life and be yourself. Home is where you can sleep peacefully
-                            at night, knowing that someone is there to watch over you when you need them most.
-                            There’s no place like home. This is true for everyone, but it is especially important for the
-                            elderly because they have more responsibilities than young people do. The elderly need support
-                            at home, and the same support and care are only possible in community settings.
-                            It’s not just the physical aspect of community living that’s important, but also the social
-                            side. There are several benefits to having a group of friends and family members who can help
-                            you out in your time of need.</p>
+                      {!! $blog->content !!}
                     </div>
                 </div>
             </div>
@@ -75,18 +60,19 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="testimonial-slider testimonialnext-prev owl-carousel">
-                        <div class="blog-card">
+                        @foreach ($relatedBlogs as $data)
+                              <div class="blog-card">
                             <div class="blog-img">
                                 <a href="javascript:void(0);"><img src="{{ URL::asset('assets/frontend/img/blog/blog1.jpg') }}"
                                         alt="Blog Image"></a>
                             </div>
                             <div class="blog-content">
                                 <div class="blog-property">
-                                    <span>Property</span>
+                                    <span>{{ $blog->category?->name }}</span>
                                 </div>
                                 <div class="blog-title">
-                                    <h3><a href="javascript:void(0);">How to achieve financial independence</a></h3>
-                                    <p>There are many variations of passages of lorem ipsum available.</p>
+                                    <h3><a href="javascript:void(0);">{{ $blog->title }}</a></h3>
+                                    <p>{{ $blog->description }}</p>
                                 </div>
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
@@ -94,8 +80,8 @@
                                                 src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}"
                                                 class="img-fluid avatar" alt="User"></a>
                                         <div class="user-name">
-                                            <a href="javascript:void(0);">Rafael</a>
-                                            <p>Posted on : 15 Jan 2023</p>
+                                            <a href="javascript:void(0);">{{ $blog->createdBy?->name }}</a>
+                                            <p>{{ $blog->created_at->format('M j, Y') }}</p>
                                         </div>
                                     </li>
                                     <li>
@@ -105,127 +91,9 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="blog-card">
-                            <div class="blog-img">
-                                <a href="javascript:void(0);"><img src="{{ URL::asset('assets/frontend/img/blog/blog2.jpg') }}"
-                                        alt="Blog Image"></a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-property">
-                                    <span>Condos</span>
-                                </div>
-                                <div class="blog-title">
-                                    <h3><a href="javascript:void(0);">The most popular cities for homebuyers</a></h3>
-                                    <p>There are many variations of passages of lorem ipsum available.</p>
-                                </div>
-                                <ul class="property-category d-flex justify-content-between align-items-center">
-                                    <li class="user-info">
-                                        <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('assets/frontend/img/profiles/user3.jpg') }}"
-                                                class="img-fluid avatar" alt="User"></a>
-                                        <div class="user-name">
-                                            <a href="javascript:void(0);">John</a>
-                                            <p>Posted on : 15 Jan 2023</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);"><span><i
-                                                    class='fa-solid fa-arrow-right'></i></span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="blog-card">
-                            <div class="blog-img">
-                                <a href="javascript:void(0);"><img src="{{ URL::asset('assets/frontend/img/blog/blog1.jpg') }}"
-                                        alt="Blog Image"></a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-property">
-                                    <span>Flat</span>
-                                </div>
-                                <div class="blog-title">
-                                    <h3><a href="javascript:void(0);">Learn how real estate really shapes our future</a>
-                                    </h3>
-                                    <p>There are many variations of passages of lorem ipsum available.</p>
-                                </div>
-                                <ul class="property-category d-flex justify-content-between align-items-center">
-                                    <li class="user-info">
-                                        <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('assets/frontend/img/profiles/user3.jpg') }}"
-                                                class="img-fluid avatar" alt="User"></a>
-                                        <div class="user-name">
-                                            <a href="javascript:void(0);">Eric Krok</a>
-                                            <p>Posted on : 15 Jan 2023</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);"><span><i
-                                                    class='fa-solid fa-arrow-right'></i></span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="blog-card">
-                            <div class="blog-img">
-                                <a href="javascript:void(0);"><img src="{{ URL::asset('assets/frontend/img/blog/blog1.jpg') }}"
-                                        alt="Blog Image"></a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-property">
-                                    <span>Villa</span>
-                                </div>
-                                <div class="blog-title">
-                                    <h3><a href="javascript:void(0);">The most popular cities for homebuyers</a></h3>
-                                    <p>There are many variations of passages of lorem ipsum available.</p>
-                                </div>
-                                <ul class="property-category d-flex justify-content-between align-items-center">
-                                    <li class="user-info">
-                                        <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('assets/frontend/img/profiles/user2.jpg') }}"
-                                                class="img-fluid avatar" alt="User"></a>
-                                        <div class="user-name">
-                                            <a href="javascript:void(0);">Francis</a>
-                                            <p>Posted on : 15 Jan 2023</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);"><span><i
-                                                    class='fa-solid fa-arrow-right'></i></span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="blog-card">
-                            <div class="blog-img">
-                                <a href="javascript:void(0);"><img src="{{ URL::asset('assets/frontend/img/blog/blog2.jpg') }}"
-                                        alt="Blog Image"></a>
-                            </div>
-                            <div class="blog-content">
-                                <div class="blog-property">
-                                    <span>Godown</span>
-                                </div>
-                                <div class="blog-title">
-                                    <h3><a href="javascript:void(0);">How to achieve financial independence</a></h3>
-                                    <p>There are many variations of passages of lorem ipsum available.</p>
-                                </div>
-                                <ul class="property-category d-flex justify-content-between align-items-center">
-                                    <li class="user-info">
-                                        <a href="javascript:void(0);"><img
-                                                src="{{ URL::asset('assets/frontend/img/profiles/user1.jpg') }}"
-                                                class="img-fluid avatar" alt="User"></a>
-                                        <div class="user-name">
-                                            <a href="javascript:void(0);">Rafael</a>
-                                            <p>Posted on : 15 Jan 2023</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);"><span><i
-                                                    class='fa-solid fa-arrow-right'></i></span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        @endforeach
+                      
+                        
                     </div>
                 </div>
             </div>
