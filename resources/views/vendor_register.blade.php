@@ -1,128 +1,127 @@
 <?php $page = 'register'; ?>
 @extends('layout.mainlayout')
+
 @section('content')
-<div class="login-wrapper ">
-    <div class="loginbox">
-        <div class="login-auth">
-            <div class="login-auth-wrap">
-                <h1>Signup For Vendor.</h1>
-                {{-- <h1>Signup! <span class="d-block"> For Vendor.</span></h1> --}}
-                <form action="{{ route('store.vendor') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="row">
-                
-                        <!-- Name -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="form-label">Name <span>*</span></label>
-                                <input style="background-color: #fff;" type="text" class="form-control"
-                                       placeholder="Enter Name" name="name" id="name" value="{{ old('name') }}">
-                                <div class="text-danger pt-2">
-                                    @error('name') {{ $message }} @enderror
-                                </div>
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-body p-5">
+                    <h2 class="mb-4 text-center">Vendor Signup</h2>
+
+                    <form action="{{ route('store.vendor') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+
+                        <div class="row g-3">
+                            <!-- Name -->
+                            <div class="col-md-6">
+                                <label class="form-label">Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="name" placeholder="Enter Name" value="{{ old('name') }}">
+                                @error('name') <div class="text-danger">{{ $message }}</div> @enderror
                             </div>
-                        </div>
-                
-                        <!-- Email -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="form-label">Email <span>*</span></label>
-                                <input style="background-color: #fff;" type="email" class="form-control"
-                                       placeholder="Enter Email" name="email" id="email" value="{{ old('email') }}">
-                                <div class="text-danger pt-2">
-                                    @error('email') {{ $message }} @enderror
-                                </div>
+
+                            <!-- Email -->
+                            <div class="col-md-6">
+                                <label class="form-label">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" name="email" placeholder="Enter Email" value="{{ old('email') }}">
+                                @error('email') <div class="text-danger">{{ $message }}</div> @enderror
                             </div>
-                        </div>
-                
-                        <!-- Phone -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="form-label">Phone <span>*</span></label>
-                                <input style="background-color: #fff;" type="number" class="form-control"
-                                       name="phone" id="phone" value="{{ old('phone') }}">
-                                <div class="text-danger pt-2">
-                                    @error('phone') {{ $message }} @enderror
-                                </div>
+
+                            <!-- Phone -->
+                            <div class="col-md-6">
+                                <label class="form-label">Phone <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="phone" placeholder="Enter Phone" value="{{ old('phone') }}">
+                                @error('phone') <div class="text-danger">{{ $message }}</div> @enderror
                             </div>
-                        </div>
-                
-                        <!-- ID Verification -->
-                        <div class="col-md-6">
-                            <div class="mb-3">
+
+                            <!-- Address -->
+                            <div class="col-md-6">
+                                <label class="form-label">Address</label>
+                                <input type="text" class="form-control" name="address" placeholder="Enter Address" value="{{ old('address') }}">
+                                @error('address') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
+
+                            <!-- Country -->
+                            <div class="col-md-6">
+                                <label class="form-label">Country</label>
+                                <input type="text" class="form-control" name="country" placeholder="Enter Country" value="{{ old('country') }}">
+                                @error('country') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
+
+                            <!-- State -->
+                            <div class="col-md-6">
+                                <label class="form-label">State</label>
+                                <input type="text" class="form-control" name="state" placeholder="Enter State" value="{{ old('state') }}">
+                                @error('state') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
+
+                            <!-- City -->
+                            <div class="col-md-6">
+                                <label class="form-label">City</label>
+                                <input type="text" class="form-control" name="city" placeholder="Enter City" value="{{ old('city') }}">
+                                @error('city') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
+
+                           <!-- ID Verification -->
+                            <div class="col-md-6">
                                 <label class="form-label">ID Verification</label>
                                 <input type="file" name="id_verification" class="form-control" accept="image/*" onchange="previewImage(event)">
-                                <div class="text-danger pt-2">
-                                    @error('id_verification') {{ $message }} @enderror
+                                @error('id_verification') <div class="text-danger">{{ $message }}</div> @enderror
+                                <div class="mt-2">
+                                    <img id="preview" src="" alt="Preview Image" style="display: none; width: 120px;" />
                                 </div>
                             </div>
-                        </div>
-                
-                        <!-- Password -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="form-label">Password <span>*</span></label>
-                                <div class="pass-group">
-                                    <input type="password" style="background-color: #fff;" 
-                                           class="form-control pass-input" placeholder="Enter Password" 
-                                           name="password" id="password">
-                                    <span class="fas fa-eye toggle-password feather-eye-off"></span>
-                                </div>
-                                <div class="text-danger pt-2">
-                                    @error('password') {{ $message }} @enderror
-                                </div>
+
+                            <!-- Password -->
+                            <div class="col-md-6">
+                                <label class="form-label">Password <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                                @error('password') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
+
+                            <!-- Confirm Password -->
+                            <div class="col-md-6">
+                                <label class="form-label">Confirm Password <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password">
+                                @error('password_confirmation') <div class="text-danger">{{ $message }}</div> @enderror
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary w-100 mt-3">Sign Up</button>
+                            </div>
+
+                            <!-- Login Link -->
+                            <div class="col-12 text-center mt-3">
+                                Already have an account? <a href="{{ url('login') }}">Sign In</a>
                             </div>
                         </div>
-                
-                        <!-- Confirm Password -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="form-label">Confirm Password <span>*</span></label>
-                                <div class="pass-group position-relative">
-                                    <input type="password" class="form-control pass-new-input" 
-                                           style="background-color: #fff;" 
-                                           placeholder="Enter Confirm Password" 
-                                           name="password_confirmation" id="password_confirmation">
-                                    <span class="fas fa-eye toggle-password1 feather-eye-off" 
-                                          style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"></span>
-                                </div>
-                                <div class="text-danger pt-2">
-                                    @error('password_confirmation') {{ $message }} @enderror
-                                </div>
-                            </div>
-                        </div>
-                
-                    </div>
-                
-                    <div>
-                        <button class="btn btn-outline-light w-100 btn-size" type="submit">Sign Up</button>
-                    </div>
-                
-                    <div class="text-center dont-have" style="margin-bottom: 100px;">
-                        Already have login? <a href="{{ url('login') }}">Sign In</a>
-                    </div>
-                </form>
-                
+                    </form>
+
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 @endsection
+
 <script>
     function previewImage(event) {
         const input = event.target;
         const preview = document.getElementById('preview');
-        
+
         if (input.files && input.files[0]) {
-            const reader = new FileReader();
-            
-            reader.onload = function(e) {
-                preview.src = e.target.result;
+            const file = input.files[0];
+            if (file.type.startsWith('image/')) {
+                preview.src = URL.createObjectURL(file);
                 preview.style.display = 'block';
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
             }
-            
-            reader.readAsDataURL(input.files[0]);
         }
     }
 </script>
+

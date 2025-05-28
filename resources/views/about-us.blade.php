@@ -306,7 +306,7 @@
     </section>
     <!-- /Testimonial -->
        <!-- Latest Blog -->
-     <section class="latest-blog-sec">
+     {{-- <section class="latest-blog-sec">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto">
@@ -494,6 +494,74 @@
                             </div>
                         </div>
                         <!-- /Blog -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> --}}
+     <section class="latest-blog-sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="section-heading text-center">
+                        <h2>Latest Blog</h2>
+                        <div class="sec-line">
+                            <span class="sec-line1"></span>
+                            <span class="sec-line2"></span>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmodtempor incididunt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog-slider owl-carousel">
+
+                        <!-- Blog -->
+                        @foreach ($blogs as $data)
+                            <div class="blog-card" data-aos="fade-down" data-aos-duration="2000">
+                            <div class="blog-img">
+                                <a href="{{ route('blog-details',$data->slug)}}"><img
+                                        src="{{ get_image_path($data->image) }}" alt="Blog Image"></a>
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-property">
+                                    <span>{{ $data->category?->name }}</span>
+                                </div>
+                                <div class="blog-title">
+                                    <h3><a href="{{ route('blog-details',$data->slug)}}">{{ $data->title }}</a>
+                                    </h3>
+                                    <p>{{ Str::limit($data->description, 100, '...') }}</p>
+
+                                </div>
+                                <ul class="property-category d-flex justify-content-between align-items-center">
+                                    <li class="user-info">
+                                        <a href="javascript:void(0);">
+                                            <img 
+                                                src="{{ asset('storage/' . $data->createdBy?->photo) }}" 
+                                                onerror="this.onerror=null;this.src='{{ asset('assets/images/users/avatar.jpg') }}';"
+                                                class="img-fluid avatar" 
+                                                alt="User">
+                                        </a>
+
+
+                                        <div class="user-name">
+                                            <h6><a href="javascript:void(0);">{{ $data->createdBy?->name }}</a></h6>
+                                            <p>Posted on : {{ $data->created_at->format('M j, Y') }}</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('blog-details',$data->slug)}}"><span><i
+                                                    class='fa-solid fa-arrow-right'></i></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        @endforeach
+                        
+                        <!-- /Blog -->
+
 
                     </div>
                 </div>

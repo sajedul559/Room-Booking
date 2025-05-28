@@ -67,7 +67,7 @@ class VendorService
     }
 
     //Register Vendor From Frontend
-    public function registerVendor(array $data)
+   public function registerVendor(array $data)
     {
         DB::beginTransaction();
 
@@ -88,13 +88,17 @@ class VendorService
                 $idVerificationPath = $data['id_verification']->store('id_verifications', 'public');
             }
 
-            // 3. Create Vendor
+            // 3. Create Vendor with extended data
             Vendor::create([
                 'user_id' => $user->id,
                 'phone' => $data['phone'],
                 'email' => $data['email'],
                 'status' => Vendor::VENDOR_STATUS_PENDING,
                 'id_verification' => $idVerificationPath,
+                'address' => $data['address'] ?? null,
+                'country' => $data['country'] ?? null,
+                'state' => $data['state'] ?? null,
+                'city' => $data['city'] ?? null,
             ]);
 
             DB::commit();
@@ -106,4 +110,5 @@ class VendorService
             return ['success' => false, 'message' => $e->getMessage()];
         }
     }
+
 }

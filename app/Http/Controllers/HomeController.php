@@ -27,14 +27,14 @@ class HomeController extends Controller
         $rooms = Room::with('images')->get();
         $properties = Property::where('is_publish','1')->get();
         $partners = Partner::where('status','1')->get();
-        $blogs = Blog::all();
+        $blogs = Blog::where("status",'1')->get();
         return view('index',compact('rooms','properties','partners','blogs'));
     }
     public function aboutUs()
     {
-        // dd("workiing");
         $partners = Partner::where('status','1')->get();
-        return view('about-us',compact('partners'));
+        $blogs = Blog::where("status",'1')->get();
+        return view('about-us',compact('partners','blogs'));
     }
     public function allRoom()
     {
