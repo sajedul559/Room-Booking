@@ -15,7 +15,7 @@ class Blog extends Model
         'description',
         'content',
         'image',
-        'feature_image',
+        'details_image',
         'status',
         'created_by','updated_by'
     ];

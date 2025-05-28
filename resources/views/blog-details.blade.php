@@ -19,8 +19,8 @@
                 <div class="col-lg-12">
                     <div class="blog-banner">
                         <div class="blog-banner-img">
-                            <img src="{{ URL::asset('assets/frontend/img/blog/blog2-details.jpg') }}" alt="img">
-                                                        {{-- <img src="{{ get_image_path($blog->image) }}" alt="img"> --}}
+                            {{-- <img src="{{ URL::asset('assets/frontend/img/blog/blog2-details.jpg') }}" alt="img"> --}}
+                            <img src="{{ get_image_path($blog->details_image) }}" alt="img">
 
                         </div>
                         <div class="blog-banner-content">
@@ -45,6 +45,7 @@
 
                     </div>
                     <div class="blog-para-content">
+                      <p>{{ $blog->description }}</p>
                       {!! $blog->content !!}
                     </div>
                 </div>

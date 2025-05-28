@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->longText('description');
             $table->string('image')->nullable();
-            $table->string('feature_image')->nullable();
+            $table->string('details_image')->nullable();
             $table->longText('content')->nullable();
             $table->boolean('status')->default(1);
             $table->foreignId('created_by')->constrained('users')->onDelete('cascade');

@@ -63,10 +63,10 @@
 </div>
 <div class="mb-3">
     <x-common.label title="Details Image" /> <span> (image size: 1076 w * 510 h)</span>
-    <x-common.input type="file" name="feature_image" id="featureImageInput"/>
+    <x-common.input type="file" name="details_image" id="featureImageInput"/>
     <div class="mt-2" id="featureImagePreview">
-        @if ($isEdit && !empty($blog->feature_image))       
-        <img src="{{ asset('storage/' . $blog->feature_image) }}" alt="Blog feature_image" width="100">      
+        @if ($isEdit && !empty($blog->details_image))       
+        <img src="{{ asset('storage/' . $blog->details_image) }}" alt="Blog details_image" width="100">      
         @endif
     </div>
 </div>

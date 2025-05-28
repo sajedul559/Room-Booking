@@ -31,11 +31,11 @@ class BlogService
             $data['image'] = $path; // Save relative path
         }
 
-        if (isset($data['feature_image']) && $data['feature_image']->isValid()) {
-            $file = $data['feature_image'];
+        if (isset($data['details_image']) && $data['details_image']->isValid()) {
+            $file = $data['details_image'];
             $imageNameFeature = time() . '.' . $file->getClientOriginalExtension();
             $imagePath = Storage::disk('public')->putFileAs('blogs', $file, $imageNameFeature);
-            $data['feature_image'] = $imagePath; // Save relative path
+            $data['details_image'] = $imagePath; // Save relative path
         }
 
         return Blog::create($data);
@@ -62,19 +62,19 @@ class BlogService
             }         
             
         }
-        if (isset($data['feature_image']) && $data['feature_image']->isValid()) {
+        if (isset($data['details_image']) && $data['details_image']->isValid()) {
             // Delete old image if exists
-            if ($blog->feature_image && Storage::disk('public')->exists($blog->feature_image)) {
-                Storage::disk('public')->delete($blog->feature_image);
+            if ($blog->details_image && Storage::disk('public')->exists($blog->details_image)) {
+                Storage::disk('public')->delete($blog->details_image);
             }
 
            // Image
             // Feature Image
-            if (!empty($data['feature_image'])) {
-                $featureFile = $data['feature_image'];
+            if (!empty($data['details_image'])) {
+                $featureFile = $data['details_image'];
                 $featureImageName = time() . '_feature.' . $featureFile->getClientOriginalExtension();
                 $featureImagePath = Storage::disk('public')->putFileAs('blogs', $featureFile, $featureImageName);
-                $data['feature_image'] = $featureImagePath;
+                $data['details_image'] = $featureImagePath;
             }     
             
         }

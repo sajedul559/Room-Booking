@@ -689,7 +689,8 @@
                                 <div class="blog-title">
                                     <h3><a href="{{ route('blog-details',$data->slug)}}">{{ $data->title }}</a>
                                     </h3>
-                                    <p>{{ $data->description }}.</p>
+                                    <p>{{ Str::limit($data->description, 100, '...') }}</p>
+
                                 </div>
                                 <ul class="property-category d-flex justify-content-between align-items-center">
                                     <li class="user-info">
