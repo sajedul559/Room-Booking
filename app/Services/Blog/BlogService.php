@@ -31,6 +31,13 @@ class BlogService
             $data['image'] = $path; // Save relative path
         }
 
+        if (isset($data['feature_image']) && $data['feature_image']->isValid()) {
+            $file = $data['feature_image'];
+            $imageNameFeature = time() . '.' . $file->getClientOriginalExtension();
+            $imagePath = Storage::disk('public')->putFileAs('blogs', $file, $imageNameFeature);
+            $data['feature_image'] = $imagePath; // Save relative path
+        }
+
         return Blog::create($data);
     }
 
@@ -46,10 +53,30 @@ class BlogService
                 Storage::disk('public')->delete($blog->image);
             }
 
-            $file = $data['image'];
-            $imageName = time() . '.' . $file->getClientOriginalExtension();
-            $path = Storage::disk('public')->putFileAs('blogs', $file, $imageName);
-            $data['image'] = $path; // Save relative path
+           // Image
+            if (!empty($data['image'])) {
+                $file = $data['image'];
+                $imageName = time() . '.' . $file->getClientOriginalExtension();
+                $path = Storage::disk('public')->putFileAs('blogs', $file, $imageName);
+                $data['image'] = $path; // Save relative path
+            }         
+            
+        }
+        if (isset($data['feature_image']) && $data['feature_image']->isValid()) {
+            // Delete old image if exists
+            if ($blog->feature_image && Storage::disk('public')->exists($blog->feature_image)) {
+                Storage::disk('public')->delete($blog->feature_image);
+            }
+
+           // Image
+            // Feature Image
+            if (!empty($data['feature_image'])) {
+                $featureFile = $data['feature_image'];
+                $featureImageName = time() . '_feature.' . $featureFile->getClientOriginalExtension();
+                $featureImagePath = Storage::disk('public')->putFileAs('blogs', $featureFile, $featureImageName);
+                $data['feature_image'] = $featureImagePath;
+            }     
+            
         }
 
         $blog->update($data);

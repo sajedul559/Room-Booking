@@ -36,8 +36,8 @@
                                     <td>{{ $blog->title }}</td>
                                     <td>{{ $blog->category->name ?? 'N/A' }}</td>
                                     <td>
-                                        <span class="badge bg-{{ $blog->status === 'active' ? 'success' : 'danger' }}">
-                                            {{ ucfirst($blog->status) }}
+                                        <span class="badge bg-{{ $blog->status == '1' ? 'success' : 'danger' }}">
+                                            {{ $blog->status == '1' ? 'Active' : 'Inactive' }}
                                         </span>
                                     </td>
                                     <td>

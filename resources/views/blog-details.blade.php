@@ -20,6 +20,8 @@
                     <div class="blog-banner">
                         <div class="blog-banner-img">
                             <img src="{{ URL::asset('assets/frontend/img/blog/blog2-details.jpg') }}" alt="img">
+                                                        {{-- <img src="{{ get_image_path($blog->image) }}" alt="img"> --}}
+
                         </div>
                         <div class="blog-banner-content">
                             <div class="blog-banner-contenthead">

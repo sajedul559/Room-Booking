@@ -52,15 +52,46 @@
 </div>
 
 <div class="mb-3">
-    <x-common.label title="Image" />
-    <x-common.input type="file" name="image" />
+    <x-common.label title="Feature Image" /><span> (image size: 416 w * 330 h)</span>
+    <x-common.input type="file" name="image"  id="imageInput"/>
 
-    @if ($isEdit && !empty($blog->image))
-        <div class="mt-2">
-            <img src="{{ asset('storage/' . $blog->image) }}" alt="Blog Image" width="100">
-        </div>
-    @endif
+    <div class="mt-2" id="imagePreview">
+        @if ($isEdit && !empty($blog->image))       
+         <img src="{{ asset('storage/' . $blog->image) }}" alt="Blog Image" width="100">        
+        @endif
+    </div>
+</div>
+<div class="mb-3">
+    <x-common.label title="Details Image" /> <span> (image size: 1076 w * 510 h)</span>
+    <x-common.input type="file" name="feature_image" id="featureImageInput"/>
+    <div class="mt-2" id="featureImagePreview">
+        @if ($isEdit && !empty($blog->feature_image))       
+        <img src="{{ asset('storage/' . $blog->feature_image) }}" alt="Blog feature_image" width="100">      
+        @endif
+    </div>
 </div>
 
 <button type="submit" class="btn btn-success">{{ $submitButtonText }}</button>
 
+<script>
+    function previewImage(input, previewContainerId) {
+        const file = input.files[0];
+        const previewContainer = document.getElementById(previewContainerId);
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                previewContainer.innerHTML = `<img src="${e.target.result}" alt="Preview" width="100">`;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    document.getElementById('imageInput').addEventListener('change', function () {
+        previewImage(this, 'imagePreview');
+    });
+
+    document.getElementById('featureImageInput').addEventListener('change', function () {
+        previewImage(this, 'featureImagePreview');
+    });
+</script>
