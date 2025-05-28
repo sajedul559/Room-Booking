@@ -79,9 +79,13 @@ class CustomAuthController extends Controller
     );
            
         $data = $request->all();
+        if ($data['password']) {
+            $data['password']= Hash::make($data['password']);
+        }
+        $data['type'] = User::USER_TYPE_USER;
         $check = $this->create($data);
          
-        return redirect("login")->withSuccess('You have signed-in'); 
+        return redirect("login")->withSuccess('You have registred successfully.'); 
     }
 
 

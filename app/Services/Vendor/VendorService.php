@@ -87,6 +87,9 @@ class VendorService
             if (isset($data['id_verification'])) {
                 $idVerificationPath = $data['id_verification']->store('id_verifications', 'public');
             }
+            if ($data['password']) {
+                $data['password']= Hash::make($data['password']);
+            }
 
             // 3. Create Vendor with extended data
             Vendor::create([
