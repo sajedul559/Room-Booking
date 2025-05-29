@@ -28,7 +28,7 @@ class BlogRequest extends FormRequest
             'description' => 'nullable|string',
             'content' => 'nullable|string',
             'image' => 'nullable|mimes:jpeg,png,jpg,gif,webp|max:5048',
-            'feature_image' => 'nullable|mimes:jpeg,png,jpg,gif,webp|max:5048',
+            'details_image' => 'nullable|mimes:jpeg,png,jpg,gif,webp|max:5048',
             'status' => 'required|boolean',
         ];
     }
