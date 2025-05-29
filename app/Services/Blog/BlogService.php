@@ -44,6 +44,7 @@ class BlogService
 
    public function update(Blog $blog, array $data): Blog
     {
+        dd($data);
         $data['slug'] = Str::slug($data['title']);
         $data['updated_by'] = auth()->id();
 
@@ -63,6 +64,7 @@ class BlogService
             
         }
         if (isset($data['details_image']) && $data['details_image']->isValid()) {
+            dd("working");
             // Delete old image if exists
             if ($blog->details_image && Storage::disk('public')->exists($blog->details_image)) {
                 Storage::disk('public')->delete($blog->details_image);
@@ -71,6 +73,7 @@ class BlogService
            // Image
             // Feature Image
             if (!empty($data['details_image'])) {
+                dd("working");
                 $featureFile = $data['details_image'];
                 $featureImageName = time() . '_feature.' . $featureFile->getClientOriginalExtension();
                 $featureImagePath = Storage::disk('public')->putFileAs('blogs', $featureFile, $featureImageName);

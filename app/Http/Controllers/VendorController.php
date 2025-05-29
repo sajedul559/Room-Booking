@@ -70,12 +70,14 @@ public function storeVendor(Request $request)
         'state' => 'nullable|string|max:100',
         'city' => 'nullable|string|max:100',
     ]);
-
+       if ($request->password) {
+             Hash::make($request->password);
+        }
     $data = $request->only([
-        'name', 'email', 'phone', 'address', 'country', 'state', 'city','id_verification'
+        'name', 'email', 'phone','password', 'address', 'country', 'state', 'city','id_verification'
     ]);
+   
 
-    $data['password'] = bcrypt($request->password);
 
     // if ($request->hasFile('id_verification')) {
     //     $file = $request->file('id_verification');
