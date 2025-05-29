@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
         $user = auth()->user();
         $rooms = Room::with('images')->get();
-        $properties = Property::where('is_publish','1')->get();
+        $properties = Property::with('reviews')->where('is_publish','1')->get();
         $partners = Partner::where('status','1')->get();
         $blogs = Blog::where("status",'1')->get();
         return view('index',compact('rooms','properties','partners','blogs'));
@@ -141,6 +141,8 @@ class HomeController extends Controller
             'comment' => 'required|string',
             'star' => 'required|integer|min:1|max:5',
         ]);
+         $room = Room::where('id', $request->room_id)->first();
+    $validated['property_id'] = $room->property_id; // Add property_id to validated data
 
         RoomReview::create($validated);
 

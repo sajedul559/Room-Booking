@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('room_reviews', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('room_id');
+            $table->unsignedBigInteger('property_id')->nullable();
+            $table->unsignedBigInteger('room_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();

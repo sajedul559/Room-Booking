@@ -379,7 +379,7 @@
                         <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="user-icon">
                                 <a href="javascript:void(0);"><img
-                                        src="{{ asset('assets/frontend/img/profiles/user1.jpg') }}"
+                                        src="{{ asset('assets/images/users/avatar.jpg')}}"
                                         alt="User"></a>
                             </div>
                             <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
@@ -398,7 +398,7 @@
                         <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="user-icon">
                                 <a href="javascript:void(0);"><img
-                                        src="{{ asset('assets/frontend/img/profiles/user2.jpg') }}"
+                                        src="{{ asset('assets/images/users/avatar.jpg')}}"
                                         alt="User"></a>
                             </div>
                             <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
@@ -417,7 +417,7 @@
                         <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="user-icon">
                                 <a href="javascript:void(0);"><img
-                                        src="{{ asset('assets/frontend/img/profiles/user3.jpg') }}"
+                                        src="{{asset('assets/images/users/avatar.jpg') }}"
                                         alt="User"></a>
                             </div>
                             <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
@@ -436,7 +436,7 @@
                         <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="user-icon">
                                 <a href="javascript:void(0);"><img
-                                        src="{{ asset('assets/frontend/img/profiles/user2.jpg') }}"
+                                        src="{{ asset('assets/images/users/avatar.jpg') }}"
                                         alt="User"></a>
                             </div>
                             <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
@@ -455,7 +455,7 @@
                         <div class="testimonial-card" data-aos="fade-down" data-aos-duration="2000">
                             <div class="user-icon">
                                 <a href="javascript:void(0);"><img
-                                        src="{{ asset('assets/frontend/img/profiles/user1.jpg') }}"
+                                        src="{{ asset('assets/images/users/avatar.jpg') }}"
                                         alt="User"></a>
                             </div>
                             <p>Omnis velit quia. Perspiciatis et cupiditate. Voluptatum beatae asperiores dolor magnam fuga.
