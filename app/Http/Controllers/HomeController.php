@@ -98,7 +98,7 @@ class HomeController extends Controller
     {
         $location = $request->location;
     
-        $rooms = Room::with(['images', 'property'])
+        $rooms = Room::with(['images', 'property','reviews'])
             ->when($location, function ($query) use ($location) {
                 $query->whereHas('property', function ($q) use ($location) {
                     $q->where('city', 'LIKE', "%{$location}%");

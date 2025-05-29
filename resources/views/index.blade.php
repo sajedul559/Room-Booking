@@ -306,15 +306,30 @@
                                             </div>
                                             <div class="pro-content">
                                                 <div class="rating">
+                                                    @php
+                                                        $avgRating = $data->averageRating();
+                                                        $fullStars = floor($avgRating);
+                                                        $hasHalfStar = ($avgRating - $fullStars) >= 0.5;
+                                                    @endphp
+
                                                     <span class="rating-count">
-                                                        <i class="fa-solid fa-star checked"></i>
-                                                        <i class="fa-solid fa-star checked"></i>
-                                                        <i class="fa-solid fa-star checked"></i>
-                                                        <i class="fa-solid fa-star checked"></i>
-                                                        <i class="fa-solid fa-star checked"></i>
+                                                        @for ($i = 1; $i <= 5; $i++)
+                                                            @if ($i <= $fullStars)
+                                                                <i class="fa-solid fa-star checked"></i>
+                                                            @elseif ($i == $fullStars + 1 && $hasHalfStar)
+                                                                <i class="fa-solid fa-star-half-stroke checked"></i>
+                                                            @else
+                                                                <i class="fa-solid fa-star"></i>
+                                                            @endif
+                                                        @endfor
                                                     </span>
-                                                    <span class="rating-review">Excellent</span>
+
+                                                    <span class="rating-review">
+                                                        {{ $avgRating > 4.5 ? 'Excellent' : ($avgRating > 3.5 ? 'Very Good' : ($avgRating > 2.5 ? 'Average' : 'Poor')) }}
+                                                        ({{ $avgRating }}/5)
+                                                    </span>
                                                 </div>
+
                                                 <h3 class="title">
                                                     <a href="{{ route('room.location', ['location' => isset($data) && $data->city ? $data->city : 'no location']) }}">{{ $data->property_name }}</a>
                                                 </h3>
