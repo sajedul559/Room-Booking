@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Room;
 use App\Models\User;
 use App\Models\Booking;
+use App\Models\Property;
+use App\Models\TenantRent;
 use Illuminate\Http\Request;
 use App\Models\BookingInformation;
 use Illuminate\Support\Facades\Auth;
@@ -115,11 +118,22 @@ class BookingController extends Controller
             ]);
         }
     
-        $booking = Booking::where('id',$request->booking_id)->first();
+        $booking = Booking::with('room.property')->where('id',$request->booking_id)->first();
         if($booking){
             $booking->user_id = $user->id;
             $booking->save();
         }
+        $room =  $booking->room;
+        $propertyId = $room->property_id;
+        $property = Property::where('id',$propertyId)->first();
+
+            $tenantRent = new TenantRent();
+            $tenantRent->user_id =  $user->id;
+            $tenantRent->vendor_id =  $booking?->room?->property?->vendor_id;
+            $tenantRent->amount =$booking->room->price;
+            $tenantRent->status = 'pending';
+            $tenantRent->due_date = Carbon::now()->addMonth()->toDateString();
+            $tenantRent->save();
         // Login the user (if not already logged in)
         if (!Auth::check()) {
             Auth::login($user);

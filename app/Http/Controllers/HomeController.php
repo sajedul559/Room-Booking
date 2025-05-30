@@ -45,7 +45,7 @@ class HomeController extends Controller
 
     public function allProperty()
     {
-        $rooms = Room::with('images')->get();
+        $rooms = Room::with('images','reviews')->get();
         $properties = Property::where('is_publish','1')->paginate(6);
 
         return view('rent-property-grid',compact('rooms','properties'));
@@ -54,6 +54,11 @@ class HomeController extends Controller
   public function roomDetails($slug)
   {
         $room = Room::with('images', 'reviews')->where('slug', $slug)->firstOrFail();
+        $similarListingRooms = Room::with('images','reviews')
+        ->where('id', '!=', $room->id)
+        ->where('property_id', $room->property_id) // or use 'location_id', 'type', etc.
+        ->limit(4)
+        ->get();
         $roomReviewCount = $room->reviews->where('status',RoomReview::STATUS_CONFIRMED)->count();
 
         $bookingCount = 0;
@@ -85,7 +90,7 @@ class HomeController extends Controller
             return view('partials._review', compact('reviews'))->render();
         }
 
-        return view('rent-details', compact('room', 'canReview', 'reviews','roomReviewCount'));
+        return view('rent-details', compact('room', 'canReview', 'reviews','roomReviewCount','similarListingRooms'));
   }
 
     // private function dashboardData()
