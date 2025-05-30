@@ -297,12 +297,15 @@
                                                     src="{{ get_image_path($data->image_path) }}">
                                                    
                                                 </a>
-                                                <div class="featured">
-                                                    <span>Featured</span>
-                                                </div>
-                                                <div class="new-featured">
+                                                @if ($data->is_new)
+                                                     <div class="featured">
                                                     <span>New</span>
                                                 </div>
+                                                @endif
+                                               
+                                                {{-- <div class="new-featured">
+                                                    <span>New</span>
+                                                </div> --}}
                                             </div>
                                             <div class="pro-content">
                                                 <div class="rating">

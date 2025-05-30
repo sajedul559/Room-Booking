@@ -143,7 +143,11 @@
         <div class="mb-3">
             <label class="form-label">Property Image (416 W and 293 H)</label>
             <input type="file" name="image" class="form-control" accept="image/*" onchange="previewImage(event)">
+             @error('image')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
+       
     </div>
 
     <div class="col-md-3">
@@ -171,9 +175,14 @@
 </div>
 
 <div class="mb-3">
-    <x-common.label title="Publish" />
+    <x-common.label title="Is Publish ?" />
     <x-common.checkbox name="is_publish" value="1" 
                        :checked="old('is_publish', $property->is_publish ?? false)" />
+</div>
+<div class="mb-3">
+    <x-common.label title="Is New ?" />
+    <x-common.checkbox name="is_new" value="1" 
+                       :checked="old('is_new', $property->is_new ?? false)" />
 </div>
 
 @push('scripts')

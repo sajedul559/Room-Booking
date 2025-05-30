@@ -28,6 +28,7 @@ class Property extends Model
         'last_updated_by',
         'vendor_id',
         'is_publish',
+        'is_new',
         'is_delete',
         'nearby_places',
     ];
