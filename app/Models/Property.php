@@ -28,6 +28,7 @@ class Property extends Model
         'last_updated_by',
         'vendor_id',
         'is_publish',
+        'is_new',
         'is_delete',
         'nearby_places',
     ];
@@ -84,4 +85,14 @@ class Property extends Model
      {
         return $this->belongsTo(user::class,'last_updated_by','id');
      }
+      public function reviews()
+    {
+        return $this->hasMany(RoomReview::class);
+    }
+
+    public function averageRating()
+    {
+        return number_format($this->reviews()->avg('star') ?? 0, 2);
+
+    }
 }

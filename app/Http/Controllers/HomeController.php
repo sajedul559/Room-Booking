@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Room;
 use App\Models\Booking;
 use App\Models\Partner;
@@ -24,15 +25,16 @@ class HomeController extends Controller
     {
         $user = auth()->user();
         $rooms = Room::with('images')->get();
-        $properties = Property::where('is_publish','1')->get();
+        $properties = Property::with('reviews')->where('is_publish','1')->get();
         $partners = Partner::where('status','1')->get();
-        return view('index',compact('rooms','properties','partners'));
+        $blogs = Blog::where("status",'1')->get();
+        return view('index',compact('rooms','properties','partners','blogs'));
     }
     public function aboutUs()
     {
-        // dd("workiing");
         $partners = Partner::where('status','1')->get();
-        return view('about-us',compact('partners'));
+        $blogs = Blog::where("status",'1')->get();
+        return view('about-us',compact('partners','blogs'));
     }
     public function allRoom()
     {
@@ -96,7 +98,7 @@ class HomeController extends Controller
     {
         $location = $request->location;
     
-        $rooms = Room::with(['images', 'property'])
+        $rooms = Room::with(['images', 'property','reviews'])
             ->when($location, function ($query) use ($location) {
                 $query->whereHas('property', function ($q) use ($location) {
                     $q->where('city', 'LIKE', "%{$location}%");
@@ -139,11 +141,27 @@ class HomeController extends Controller
             'comment' => 'required|string',
             'star' => 'required|integer|min:1|max:5',
         ]);
+         $room = Room::where('id', $request->room_id)->first();
+    $validated['property_id'] = $room->property_id; // Add property_id to validated data
 
         RoomReview::create($validated);
 
         return back()->with('success', 'Review submitted successfully!');
     }
+
+   public function blogDetails($slug)
+    {
+        $blog = Blog::where('slug', $slug)->firstOrFail();
+
+        $relatedBlogs = Blog::where('blog_category_id', $blog->blog_category_id)
+            ->where('id', '!=', $blog->id) // Exclude the current blog
+            ->latest()
+            ->take(3) // Limit to 3 related posts (adjust as needed)
+            ->get();
+
+        return view('blog-details', compact('blog', 'relatedBlogs'));
+    }
+
 
     
 

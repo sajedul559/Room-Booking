@@ -35,8 +35,9 @@ class PropertyFormRequest extends FormRequest
             'internet' => 'required|string|max:255',
             'accessibility' => ['required', 'array'],
             'accessibility.*' => ['required', 'string', 'max:255'],
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif',
             'is_publish' => 'sometimes|boolean',
+            'is_new' => 'sometimes|boolean',
         ];
     }
     public function payloadsData()

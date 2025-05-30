@@ -77,11 +77,16 @@ class CustomAuthController extends Controller
             'confirm_password' => 'Password is required'
         ]
     );
+        if ($request->password) {
+             Hash::make($request->password);
+        }
            
         $data = $request->all();
+        $data['type'] = User::USER_TYPE_USER;
         $check = $this->create($data);
+
          
-        return redirect("login")->withSuccess('You have signed-in'); 
+        return redirect("login")->withSuccess('You have registred successfully.'); 
     }
 
 
@@ -90,6 +95,7 @@ class CustomAuthController extends Controller
       return User::create([
         'name' => $data['name'],
         'email' => $data['email'],
+        'type' => $data['type'],
         'password' => Hash::make($data['password'])
       ]);
     }    

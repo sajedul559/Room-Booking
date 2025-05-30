@@ -6,8 +6,8 @@
         
         <div class="loginbox">
             <a href="{{ url('index') }}"><img class=""
-                src="{{ URL::asset('/frontend/img/logo.svg') }}" alt="Logo"></a>
-            <div class="login-auth">
+                src="{{ asset( $system_settings['large_logo']) }}" alt="Logo"></a>
+            <div class="login-auth pt-2">
                 <div class="login-auth-wrap">
                     <h1>Hey There!!! Welcome Back.</h1>
                     <form action="{{ url('custom-login') }}" method="POST">

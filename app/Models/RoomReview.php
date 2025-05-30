@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class RoomReview extends Model
 {
     use HasFactory;
-    protected $fillable = ['room_id','user_id', 'name', 'email', 'comment', 'star','status'];
+    protected $fillable = ['property_id','room_id','user_id', 'name', 'email', 'comment', 'star','status'];
      // Status Constants
      const STATUS_PENDING = 'pending';
      const STATUS_CONFIRMED = 'confirmed';

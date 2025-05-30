@@ -1,5 +1,5 @@
 @extends('layouts.layouts')
-@section('title', 'Properties')
+@section('title', 'Vendores')
 @section('content')
     <x-common.bread-crum />
     <div class="row">
@@ -7,7 +7,7 @@
                 <div class="card" id="orderList">
                     <div class="card-header" >
                         <div class="d-flex justify-content-between align-items-center mb-1">
-                            <h4 class="header-title mb-0">Property List</h4>
+                            <h4 class="header-title mb-0">Vendore List</h4>
                             <a class="btn btn-success" href="{{ route('vendors.create') }}" class="btn btn-primary"> <i class="mdi mdi-plus-circle me-2"></i>New Vendor</a>
 
                         </div>
@@ -137,7 +137,7 @@
             }[newStatus];
 
             $row.find('td:eq(6)').html(`
-                <span class="badge bg-${badgeClass}">
+                <span class="mt-2 badge bg-${badgeClass}">
                     ${newStatus.charAt(0).toUpperCase() + newStatus.slice(1)}
                 </span>
             `);
