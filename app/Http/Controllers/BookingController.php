@@ -126,13 +126,30 @@ class BookingController extends Controller
         $room =  $booking->room;
         $propertyId = $room->property_id;
         $property = Property::where('id',$propertyId)->first();
+        // Default stay duration in days
+
+       $minStay = $room->min_length_of_stay ?? 'no';
+
+        $dueDate = match ($minStay) {
+            'no' => Carbon::now(),                            // No minimum stay
+            '1 week' => Carbon::now()->addWeek(),
+            '2 weeks' => Carbon::now()->addWeeks(2),
+            '1 month' => Carbon::now()->addMonth(),
+            '2 months' => Carbon::now()->addMonth(),
+            '3 months' => Carbon::now()->addMonth(),
+            '4 months' => Carbon::now()->addMonth(),
+            '6 months' => Carbon::now()->addMonth(),
+            '9 months' => Carbon::now()->addMonth(),
+            '12 months+' => Carbon::now()->addMonth(),
+            default => Carbon::now()->addMonth(),             // Default to 1 month
+        };
 
             $tenantRent = new TenantRent();
             $tenantRent->user_id =  $user->id;
             $tenantRent->vendor_id =  $booking?->room?->property?->vendor_id;
             $tenantRent->amount =$booking->room->price;
             $tenantRent->status = 'pending';
-            $tenantRent->due_date = Carbon::now()->addMonth()->toDateString();
+            $tenantRent->due_date = $dueDate->toDateString();
             $tenantRent->save();
         // Login the user (if not already logged in)
         if (!Auth::check()) {

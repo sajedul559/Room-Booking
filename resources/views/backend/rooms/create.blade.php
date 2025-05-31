@@ -153,16 +153,16 @@
                                     <div class="mb-3">
                                         <label class="form-label">Minimum Length of Stay</label>
                                         <select name="min_length_of_stay" class="form-control">
-                                                <option value="0">No minimum stay</option>
-                                                <option value="1">1 week</option>
-                                                <option value="2">2 weeks</option>
-                                                <option value="3">1 month</option>
-                                                <option value="4">2 months</option>
-                                                <option value="5">3 months</option>
-                                                <option value="6">4 months</option>
-                                                <option value="7">6 months</option>
-                                                <option value="8">9 months</option>
-                                                <option value="9">12 months+</option>
+                                                <option value="no">No minimum stay</option>
+                                                <option value="1 week">1 week</option>
+                                                <option value="2 weeks">2 weeks</option>
+                                                <option value="1 month">1 month</option>
+                                                <option value="2 months">2 months</option>
+                                                <option value="3 months">3 months</option>
+                                                <option value="4 months">4 months</option>
+                                                <option value="6 months">6 months</option>
+                                                <option value="9 months">9 months</option>
+                                                <option value="12 months+">12 months+</option>
                                         </select>
                                     </div>
                                 </div>
@@ -170,16 +170,16 @@
                                     <div class="mb-3">
                                         <label class="form-label">Maximum Length of Stay</label>
                                         <select name="max_length_of_stay" class="form-control">
-                                                <option value="0">No maximum stay</option>
-                                                <option value="1">1 week</option>
-                                                <option value="2">2 weeks</option>
-                                                <option value="3">1 month</option>
-                                                <option value="4">2 months</option>
-                                                <option value="5">3 months</option>
-                                                <option value="6">4 months</option>
-                                                <option value="7">6 months</option>
-                                                <option value="8">9 months</option>
-                                                <option value="9">12 months+</option>
+                                                <option value="no">No minimum stay</option>
+                                                <option value="1 week">1 week</option>
+                                                <option value="2 weeks">2 weeks</option>
+                                                <option value="1 month">1 month</option>
+                                                <option value="2 months">2 months</option>
+                                                <option value="3 months">3 months</option>
+                                                <option value="4 months">4 months</option>
+                                                <option value="6 months">6 months</option>
+                                                <option value="9 months">9 months</option>
+                                                <option value="12 months+">12 months+</option>
                                         </select>
                                     </div>
                                 </div>

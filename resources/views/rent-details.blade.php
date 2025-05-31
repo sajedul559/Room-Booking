@@ -144,40 +144,64 @@
                         <div id="address" class="card-collapse collapse show  collapse-view">
                             <ul class="property-address">
                                 <li>Address : <span> {{ $room->property?->location }}</span></li>
-                                {{-- <li>City : <span> Jersey City </span></li>
-                                <li>State/County : <span> New Jersey State</span></li>
-                                <li>Country : <span> United States</span></li>
-                                <li>Zip : <span> 07305</span></li>
-                                <li>Area : <span> Greenville</span></li> --}}
+                                <li>City : <span> {{ $room->property?->city }} </span></li>
+                                <li>State : <span> {{ $room->property?->state }}</span></li>
+                                {{-- <li>Country : <span>@if (!empty($room->property->nearby_places) && is_array($room->property->nearby_places))
+                                            @foreach ($room->property->nearby_places as $place)
+                                                <li>{{ $place['name'] ?? 'N/A' }} ({{ $place['distance'] ?? 'N/A' }} km)</li>
+                                            @endforeach
+                                    @else
+                                        <span class="text-muted">No nearby places listed.</span>
+                                    @endif  </span></li> --}}
+                               
+                            </ul>
+                            <ul class="property-address">
+                               
+                              <li>
+                                NearBy Places :
+                                @if (!empty($room->property->nearby_places) && is_array($room->property->nearby_places))
+                                    @foreach ($room->property->nearby_places as $place)
+                                        <span>
+                                            <b>{{ $place['name'] ?? 'N/A' }} </b>
+                                        </span>
+                                        <span>
+                                            ({{  $place['distance'] ?? 'N/A' }} km){{ $loop->last ? '.' : ', ' }}
+                                        </span>
+                                    @endforeach
+                                @else
+                                    <span class="text-muted">No nearby places listed.</span>
+                                @endif
+                            </li>
+
+                               
                             </ul>
                         </div>
                     </div>
                     <!-- /Property Address -->
 
                     <!-- Property Details -->
-                    {{-- <div class="collapse-card">
+                    <div class="collapse-card">
                         <h4 class="card-title">
-                            <a class="collapsed" data-bs-toggle="collapse" href="#details" aria-expanded="false">Property
+                            <a class="collapsed" data-bs-toggle="collapse" href="#details" aria-expanded="false">Room
                                 Details</a>
                         </h4>
                         <div id="details" class="card-collapse collapse show  collapse-view">
                             <div class="row">
                                 <div class="col-md-4">
                                     <ul class="property-details">
-                                        <li>Property Id : <span> 22972</span></li>
-                                        <li>Price : <span> $ 860,000 </span></li>
-                                        <li>Price Info: <span> $ 1,098 /sq ft</span></li>
-                                        <li>Property Size : <span> 190 ft2</span></li>
-                                        <li>Property Lot Size : <span> 1,200 ft2</span></li>
+                                        <li>Room Type: <span> {{ $room->room_type }}</span></li>
+                                        <li>Bed Size : <span> {{ $room->bed_size }}</span></li>
+                                        <li>Bathroom Type:: <span> {{ $room->bathroom_type }}</span></li>
+                                        <li>Furnish Features: <span> {{ $room->furnishFeatures }}</span></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-4">
                                     <ul class="property-details">
-                                        <li>Rooms : <span> 10</span></li>
-                                        <li>Bedrooms : <span> 5</span></li>
-                                        <li>Bathrooms : <span> 6</span></li>
-                                        <li>Custom Id : <span> 68</span></li>
-                                        <li>Garages : <span> 2</span></li>
+                                        <li>Capacity: : <span> {{ $room->capacity }}</span></li>
+                                        <li>Min Stay : <span> {{ $room->min_length_of_stay }}</span></li>
+                                        <li>Max Stay : <span> {{ $room->max_length_of_stay }}</span></li>
+                                        <li>Price : <span> {{ $room->price }}</span></li>
+                                       
                                     </ul>
                                 </div>
                                 <div class="col-md-4">
@@ -191,7 +215,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                     <!-- /Property Details -->
 
                     <!-- Amenities -->
