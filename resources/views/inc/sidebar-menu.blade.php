@@ -73,7 +73,7 @@
                 @can('Expenses')
                 <li>
                     <a href="#sidebarExpense" data-bs-toggle="collapse">
-                        <i class="fas  fa-parachute-box"></i>
+                        <i class="fas fa-credit-card"></i>
                         
                         <span>Expense </span>
                         <span class="menu-arrow"></span>
@@ -104,10 +104,10 @@
                 </li>
                 @endcan
              @can('Partners')
-
              <li>
                     <a href="#sidebarPartner" data-bs-toggle="collapse">
-                        <i class="fas  fa-parachute-box"></i>
+                        <i class="fas fa-handshake"></i>
+
                         <span>Partners </span>
                         <span class="menu-arrow"></span>
                     </a>
@@ -172,7 +172,8 @@
                   @can('RentManagements')
                   <li>
                       <a href="#sidebarRent" data-bs-toggle="collapse">
-                          <i class="fas fa-landmark"></i>
+                          {{-- <i class="fas fa-landmark"></i> --}}
+                          <i class="fas fa-dollar-sign"></i>
                           <span>Rent Management </span>
                           <span class="menu-arrow"></span>
                       </a>
@@ -190,7 +191,7 @@
                   @can('Bookings')
                    <li>
                       <a href="#sidebarBooking" data-bs-toggle="collapse">
-                          <i class="fas fa-landmark"></i>
+                          <i class="fas fa-hotel"></i>
                           <span>Bookings  </span>
                           <span class="menu-arrow"></span>
                       </a>
@@ -205,7 +206,7 @@
                   @can('Bookings')
                    <li>
                       <a href="#sidebarBlogCategory" data-bs-toggle="collapse">
-                          <i class="fas fa-landmark"></i>
+                          <i class="fas fa-table"></i>
                           <span>Blog Category  </span>
                           <span class="menu-arrow"></span>
                       </a>
@@ -219,7 +220,7 @@
                   @can('Bookings')
                    <li>
                       <a href="#sidebarBlo" data-bs-toggle="collapse">
-                          <i class="fas fa-landmark"></i>
+                          <i class="fas fa-blog"></i>
                           <span>Blog  </span>
                           <span class="menu-arrow"></span>
                       </a>
@@ -233,7 +234,7 @@
                   {{-- @can('Reviews') --}}
                   <li>
                       <a href="#sidebarReview" data-bs-toggle="collapse">
-                          <i class="fas fa-landmark"></i>
+                          <i class="fas fa-star"></i>
                           <span>Reviews  </span>
                           <span class="menu-arrow"></span>
                       </a>
@@ -246,13 +247,13 @@
                     {{-- @endcan --}}
                   <li>
                     <a href="{{ route('tenant-reports.index') }}">
-                        <i class="fas fa-desktop"></i>
+                        <i class="fas fa-bug"></i>
                         <span> Report List </span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('contacts.index') }}">
-                        <i class="fas fa-desktop"></i>
+                        <i class="fas fa-address-card"></i>
                         <span> Contact List </span>
                     </a>
                 </li>
