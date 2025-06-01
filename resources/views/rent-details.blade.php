@@ -189,28 +189,33 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <ul class="property-details">
-                                        <li>Room Type: <span> {{ $room->room_type }}</span></li>
+                                        <li>Room Type: <span>   @if ($room->room_type == 1)
+                                    Private
+                                @elseif ($room->room_type == 0)
+                                    Shared
+                                @else
+                                    Common
+                                @endif</span></li>
                                         <li>Bed Size : <span> {{ $room->bed_size }}</span></li>
-                                        <li>Bathroom Type:: <span> {{ $room->bathroom_type }}</span></li>
+                                        <li>Bathroom Type: <span> {{ $room->bathroom_type }}</span></li>
                                         <li>Furnish Features: <span> {{ $room->furnishFeatures }}</span></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-4">
                                     <ul class="property-details">
-                                        <li>Capacity: : <span> {{ $room->capacity }}</span></li>
                                         <li>Min Stay : <span> {{ $room->min_length_of_stay }}</span></li>
                                         <li>Max Stay : <span> {{ $room->max_length_of_stay }}</span></li>
+                                        <li>Internet Available:<span> {{ $room->internet? "Yes":"No" }}</span></li>
                                         <li>Price : <span> {{ $room->price }}</span></li>
                                        
                                     </ul>
                                 </div>
                                 <div class="col-md-4">
                                     <ul class="property-details">
-                                        <li>Year Built : <span> 2005</span></li>
-                                        <li>Garage Size : <span> 2 cars </span></li>
-                                        <li>Available From : <span> 2023-11-18</span></li>
-                                        <li>Structure Type : <span> Brick</span></li>
-                                        <li>Floors No : <span> 3</span></li>
+                                        <li>Bill Included Rent : <span> {{ $room->is_bill_included_rent? "Yes":"No" }} </span></li>
+                                        <li>Pet Allow : <span> {{ $room->is_pet_allowed? "Yes":"No" }} </span></li>
+                                        <li>On Welfare Allow: <span> {{ $room->on_welfare_allowed? "Yes":"No" }} </span></li>
+                                        <li>Smook Allow: <span> {{ $room->is_smoking_allowed? "Yes":"No" }} </span></li>
                                     </ul>
                                 </div>
                             </div>

@@ -46,7 +46,7 @@ class HomeController extends Controller
     public function allProperty()
     {
         $rooms = Room::with('images','reviews')->get();
-        $properties = Property::where('is_publish','1')->paginate(6);
+        $properties = Property::where('is_publish','1')->paginate(12);
 
         return view('rent-property-grid',compact('rooms','properties'));
     }
