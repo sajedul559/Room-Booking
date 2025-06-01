@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div> --}}
-                <div class="col-lg-12">
+                {{-- <div class="col-lg-12">
                     <div class="booking-details">
                         <h4>Property Booking Details</h4>
                         <ul>
@@ -49,7 +49,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-lg-12">
                     <div class="booking-details">
                         <h4>Information</h4>

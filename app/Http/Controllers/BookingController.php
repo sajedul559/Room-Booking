@@ -44,8 +44,8 @@ class BookingController extends Controller
     {
         $request->validate([
             'room_id'   => 'required|exists:rooms,id',
-            'start_date'=> 'required|date|after_or_equal:today',
-            'end_date'  => 'required|date|after:start_date',
+            // 'start_date'=> 'required|date|after_or_equal:today',
+            // 'end_date'  => 'required|date|after:start_date',
             'amount'    => 'required|numeric|min:1',
             'stripe_token' => 'nullable|string',
         ]);

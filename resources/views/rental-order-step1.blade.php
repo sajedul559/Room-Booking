@@ -33,11 +33,11 @@
                         </div>
                         <div class="details-div-price">
                             <h5>Booking Amount</h5>
-                            <h6>${{ $room->price }} <span>/ Day</span></h6>
+                            <h6>${{ $room->price }} <span>/ Weekly</span></h6>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12">
+                {{-- <div class="col-lg-12">
                     <div class="booking-details">
                         <h4> Booking Details</h4>
                         <ul>
@@ -51,7 +51,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> --}}
                 {{-- <div class="col-lg-12">
                     <div class="booking-details">
                         <h4>Booking Details</h4>
