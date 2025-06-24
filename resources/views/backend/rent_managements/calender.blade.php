@@ -36,13 +36,38 @@
 
 @push('style')
 <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
-
 <style>
-    .fc-toolbar-chunk{
-       display: none;
+.fc-toolbar-chunk{
+    display: none;
 }
+.fc-daygrid-event {
+    display: inline-block !important;
+    margin: 0px !important;
+    padding: 0px 0px !important;
+           font-size: 0.9rem;
+
+    color: black;
+    white-space: nowrap;
+}
+  
+
+.fc-daygrid-day-events {
+    margin: 3px;
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.fc-daygrid-day-frame {
+    overflow: visible !important;
+}
+.fc-daygrid-event-harness {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
 </style>
-    
+  
 @endpush
 @push('scripts')
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
@@ -59,6 +84,8 @@
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
             initialDate: today,
+            eventDisplay: 'block',
+            dayMaxEventRows: false,
             events: function (fetchInfo, successCallback, failureCallback) {
                 let selectedMonth = monthSelect.value;
                 let selectedYear = yearSelect.value;
@@ -83,6 +110,16 @@
                         animation: 'scale',
                         theme: 'light-border',
                     });
+                }
+                 // Dynamic background for the whole day's event container
+                const dayCell = info.el.closest('.fc-daygrid-day'); // Find the day cell
+                const eventsContainer = dayCell?.querySelector('.fc-daygrid-day-events');
+
+                if (eventsContainer && !eventsContainer.dataset.bgSet) {
+                    eventsContainer.style.backgroundColor = info.event.backgroundColor || info.event.color;
+                    eventsContainer.style.borderRadius = '6px';
+                    eventsContainer.style.padding = '4px';
+                    eventsContainer.dataset.bgSet = true; // Prevent overriding from multiple events
                 }
             }
         });
