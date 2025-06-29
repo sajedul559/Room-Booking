@@ -37,33 +37,11 @@
 @push('style')
 <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
 <style>
-.fc-toolbar-chunk{
+.fc-list-event-time{
     display: none;
 }
-.fc-daygrid-event {
-    display: inline-block !important;
-    margin: 0px !important;
-    padding: 0px 0px !important;
-           font-size: 0.9rem;
-
-    color: black;
-    white-space: nowrap;
-}
-  
-
-.fc-daygrid-day-events {
-    margin: 3px;
-    display: flex !important;
-    flex-wrap: wrap;
-    align-items: flex-start;
-}
-
-.fc-daygrid-day-frame {
-    overflow: visible !important;
-}
-.fc-daygrid-event-harness {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+.fc-list-event-graphic{
+    display: none;
 }
 
 </style>
@@ -82,7 +60,7 @@
         var today = new Date();
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
+            initialView: 'listMonth',
             initialDate: today,
             eventDisplay: 'block',
             dayMaxEventRows: false,
@@ -111,16 +89,25 @@
                         theme: 'light-border',
                     });
                 }
-                 // Dynamic background for the whole day's event container
-                const dayCell = info.el.closest('.fc-daygrid-day'); // Find the day cell
-                const eventsContainer = dayCell?.querySelector('.fc-daygrid-day-events');
+                // Apply background color to .fc-list-event-title
+
+                 // Apply color to the full row (works in list views)
+                
+
+                  const dayCell = info.el.closest('.fc-list-event');
+                const eventsContainer = dayCell?.querySelector('.fc-list-event-title');
 
                 if (eventsContainer && !eventsContainer.dataset.bgSet) {
                     eventsContainer.style.backgroundColor = info.event.backgroundColor || info.event.color;
+                    eventsContainer.style.color = '#fff'; // Text color white
                     eventsContainer.style.borderRadius = '6px';
-                    eventsContainer.style.padding = '4px';
-                    eventsContainer.dataset.bgSet = true; // Prevent overriding from multiple events
+                    eventsContainer.style.padding = '4px 8px'; // Adjust padding if needed
+                    eventsContainer.style.margin = '5px 100px';
+                    eventsContainer.style.display = 'inline-block'; // ✅ Only cover text width
+                    eventsContainer.dataset.bgSet = true;
                 }
+
+
             }
         });
 
