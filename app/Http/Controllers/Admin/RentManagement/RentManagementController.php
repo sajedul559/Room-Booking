@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\RentManagement;
 
 use Carbon\Carbon;
+use App\Models\TenantRent;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\RentManagement;
@@ -60,15 +61,16 @@ class RentManagementController extends Controller
     
         \Log::info("Fetching rent events for: Month - $month, Year - $year");
     
-        $rents = RentManagement::with(['user', 'property', 'room']) // eager load relationships
-                               ->whereMonth('date', $month)
-                               ->whereYear('date', $year)
+        $rents = TenantRent::with(['user']) // eager load relationships
+                               ->whereMonth('due_date', $month)
+                               ->whereYear('due_date', $year)
                                ->get();
+        
     
         $events = [];
     
         foreach ($rents as $rent) {
-            $dueDate = Carbon::parse($rent->date);
+            $dueDate = Carbon::parse($rent->due_date);
             $statusColor = '';
             $text = Str::limit(optional($rent->user)->name ?? 'Unknown', 15);
     
@@ -80,18 +82,19 @@ class RentManagementController extends Controller
                 $statusColor = '#28a745'; // Upcoming
             }
     
-            $propertyName = optional($rent->property)->property_name ?? 'N/A';
-            $propertyAddress = optional($rent->property)->location ?? 'N/A';
-            $roomName = optional($rent->room)->name ?? 'N/A';
+            // $propertyName = optional($rent->property)->property_name ?? 'N/A';
+            // $propertyAddress = optional($rent->property)->location ?? 'N/A';
+            // $roomName = optional($rent->room)->name ?? 'N/A';
     
-            $tooltipText = "{$text} – {$propertyName}, {$propertyAddress}, {$roomName}. "
-                         . "Total Rent: " . number_format($rent->total_rent, 2)
-                         . ". Current Rent: " . number_format($rent->amount, 2)
-                         . ". Due Rent: " . number_format($rent->total_rent - $rent->amount, 2);
+            // $tooltipText = "{$text} – {$propertyName}, {$propertyAddress}, {$roomName}. "
+            //              . "Total Rent: " . number_format($rent->total_rent, 2)
+            //              . ". Current Rent: " . number_format($rent->amount, 2)
+            //              . ". Due Rent: " . number_format($rent->total_rent - $rent->amount, 2);
+            $tooltipText = "testing";
     
             $events[] = [
                 'title' => $text . ': $' . number_format($rent->amount, 2),
-                'start' => $rent->date,
+                'start' => $rent->due_date,
                 'color' => $statusColor,
                 'amount' => $rent->amount,
                 'tooltip' => $tooltipText
