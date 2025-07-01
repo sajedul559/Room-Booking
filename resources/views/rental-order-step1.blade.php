@@ -33,7 +33,7 @@
                         </div>
                         <div class="details-div-price">
                             <h5>Booking Amount</h5>
-                            <h6>${{ $room->price }} <span>/ Weekly</span></h6>
+                            <h6>${{ $room->weekly_rent }} <span>/ Weekly</span></h6>
                         </div>
                     </div>
                 </div>

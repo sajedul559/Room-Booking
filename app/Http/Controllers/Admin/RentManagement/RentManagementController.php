@@ -26,10 +26,10 @@ class RentManagementController extends Controller
         $this->vendorService = $vendorService;
         $this->propertyService = $propertyService;
         // Apply permission checks globally for these actions
-        $this->middleware('can:Create Expense')->only('create', 'store');
-        $this->middleware('can:Edit Expense')->only('edit', 'update');
-        $this->middleware('can:Delete Expense')->only('destroy');
-        $this->middleware('can:Index Properties')->only('index');
+        // $this->middleware('can:Create Expense')->only('create', 'store');
+        // $this->middleware('can:Edit Expense')->only('edit', 'update');
+        // $this->middleware('can:Delete Expense')->only('destroy');
+        // $this->middleware('can:Index Properties')->only('index');
     }
 
 
@@ -61,7 +61,8 @@ class RentManagementController extends Controller
     
         \Log::info("Fetching rent events for: Month - $month, Year - $year");
     
-        $rents = TenantRent::with(['user']) // eager load relationships
+        $rents = TenantRent::with(['user','room','vendor'])
+                               ->whereIn('status', ['pending', 'partial'])
                                ->whereMonth('due_date', $month)
                                ->whereYear('due_date', $year)
                                ->get();
@@ -73,6 +74,7 @@ class RentManagementController extends Controller
             $dueDate = Carbon::parse($rent->due_date);
             $statusColor = '';
             $text = Str::limit(optional($rent->user)->name ?? 'Unknown', 15);
+
     
             if ($dueDate->isPast()) {
                 $statusColor = '#dc3545'; // Overdue
@@ -81,16 +83,13 @@ class RentManagementController extends Controller
             } else {
                 $statusColor = '#28a745'; // Upcoming
             }
+
+            $roomName = optional($rent->room)->name ?? 'N/A';
     
-            // $propertyName = optional($rent->property)->property_name ?? 'N/A';
-            // $propertyAddress = optional($rent->property)->location ?? 'N/A';
-            // $roomName = optional($rent->room)->name ?? 'N/A';
-    
-            // $tooltipText = "{$text} – {$propertyName}, {$propertyAddress}, {$roomName}. "
-            //              . "Total Rent: " . number_format($rent->total_rent, 2)
-            //              . ". Current Rent: " . number_format($rent->amount, 2)
-            //              . ". Due Rent: " . number_format($rent->total_rent - $rent->amount, 2);
-            $tooltipText = "testing";
+            $tooltipText = "{$text} –  {$roomName}. "
+                         . "Total Rent: " . number_format($rent->amount, 2)
+                         . ". Paid Rent: " . number_format($rent->paid_amount, 2)
+                         . ". Due Rent: " . number_format($rent->amount - $rent->paid_amount, 2);
     
             $events[] = [
                 'title' => $text . ': $' . number_format($rent->amount, 2),

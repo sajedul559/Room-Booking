@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin\Booking;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Booking;
-
+use App\Models\TenantRent;
 use Illuminate\Http\Request;
+use App\Models\TenantPayment;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Booking\BookingService;
@@ -34,15 +36,14 @@ class BookingController extends Controller
      public function index()
     {
         $user = Auth::user();
+        $vendor = $user->vendor;
 
         // Show bookings based on vendor
-        if ($user->is_vendor) {
-            $bookings = Booking::whereHas('room.property', function ($query) use ($user) {
-                $query->where('vendor_id', $user->id);
-            })->with(['user', 'room.property'])->latest()->paginate(10);
+        if ($user->type == User::USER_TYPE_VENDOR) {
+            $bookings = Booking::where('vendor_id', $vendor->id)->with(['room.property'])->latest()->get();
         } else {
             // Show bookings made by the user
-            $bookings = Booking::where('user_id', $user->id)->with(['room.property'])->latest()->paginate(10);
+            $bookings = [];
         }
 
             return view('backend.bookings.list', compact('bookings'));
@@ -94,19 +95,81 @@ class BookingController extends Controller
         $this->bookingService->deleteBooking($id);
         return redirect()->route('Bookings.index')->with('success', 'Booking deleted successfully.');
     }
-    public function changeStatus(Request $request)
-    {
-        $request->validate([
-            'booking_id' => 'required|exists:Bookings,id',
-            'status' => 'required|in:pending,confirmed,cancelled',
-        ]);
+    // public function changeStatus(Request $request)
+    // {
+    //     $request->validate([
+    //         'booking_id' => 'required|exists:Bookings,id',
+    //         'status' => 'required|in:pending,confirmed,cancelled',
+    //     ]);
  
-        $booking = Booking::findOrFail($request->booking_id);
-        $booking->status = $request->status;
-        $booking->save();
+    //     $booking = Booking::findOrFail($request->booking_id);
+    //     $booking->status = $request->status;
+    //     $booking->save();
+       
+    //     if($request->status == Booking::STATUS_CONFIRMED){
+    //         $room =  $booking->room;
+    //         $property =  $room?->property;
+    //         $vendor =  $property?->vendor;
+    //     }
 
-        return response()->json(['message' => 'Booking status updated successfully.']);
+
+
+    //     return response()->json(['message' => 'Booking status updated successfully.']);
+    // }
+
+public function changeStatus(Request $request)
+{
+    $request->validate([
+        'booking_id' => 'required|exists:bookings,id',
+        'status' => 'required|in:pending,confirmed,cancelled',
+    ]);
+
+    $booking = Booking::findOrFail($request->booking_id);
+    $booking->status = $request->status;
+    $booking->save();
+
+    if ($request->status == Booking::STATUS_CONFIRMED) {
+        $room = $booking->room;
+        $property =  $room?->property;
+        $vendor =  $property?->vendor;
+        $tenant = $booking->user; // assuming relation exists
+        $weeklyPrice = $room->weekly_rent;
+        
+        // Get required values
+        $startDate = Carbon::parse($booking->start_date);
+        $endDate = Carbon::parse($booking->end_date);
+        $roomId = $room->id;
+        $tenantId = $tenant->id;
+        $vendorId = $vendor?->id;
+
+        // Create Tenant Payments
+        while ($startDate < $endDate) {
+            $weekEnd = $startDate->copy()->addDays(6);
+            if ($weekEnd > $endDate) {
+                $weekEnd = $endDate;
+            }
+
+            $daysInWeek = $startDate->diffInDays($weekEnd) + 1;
+            $amount = round(($weeklyPrice / 7) * $daysInWeek, 2);
+
+            TenantRent::create([
+                'room_id' => $roomId,
+                'user_id' => $tenantId,
+                'vendor_id' => $vendorId,
+                'amount' => $amount,
+                'due_date' => $weekEnd->toDateString(),
+                'status' => 'pending',
+
+            ]);
+
+            $startDate = $weekEnd->addDay();
+        }
     }
+
+    return response()->json(['message' => 'Booking status updated successfully.']);
+}
+
+    
 
     
 

@@ -31,8 +31,8 @@
                             <p class="mb-0">{{ $room->property?->location }}</p>
                         </div>
                         <div class="details-div-price">
-                            <h5> Amount</h5>
-                            <h6>$ {{ number_format($room->price, 0) }}</h6>
+                            <h5>Weekly Price</h5>
+                            <h6>$ {{ number_format($room->weekly_rent, 0) }}</h6>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                     <input type="hidden" name="room_id" value="{{ $room->id }}">
                     <input type="hidden" name="amount" value="315"> <!-- Set dynamically -->
                     
-                    {{-- <div class="col-lg-12">
+                    <div class="col-lg-12">
                         <div class="details-time">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                 
                     {{-- <div class="col-lg-12">
                         <div class="booking-details-btn">

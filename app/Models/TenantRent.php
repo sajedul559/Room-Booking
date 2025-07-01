@@ -12,6 +12,7 @@ class TenantRent extends Model
     protected $fillable = [
       'vendor_id',
       'user_id',
+      'room_id',
       'amount',
       'paid_amount',
       'status',
@@ -28,6 +29,10 @@ class TenantRent extends Model
     public function user()
     {
        return $this->belongsTo(user::class,'user_id','id');
+    }
+     public function room()
+    {
+       return $this->belongsTo(Room::class,'room_id','id');
     }
 
     public function tenantPayments() {
