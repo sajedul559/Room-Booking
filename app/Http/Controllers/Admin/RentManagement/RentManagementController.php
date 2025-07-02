@@ -47,12 +47,14 @@ class RentManagementController extends Controller
     public function calender(Request $request)
     {
         $month = $request->query('month', date('m'));
-
+        $unpaidRents = TenantRent::where('status', '!=', 'paid')->with('user')
+                            ->orderBy('id')
+                            ->get();
         $rents = RentManagement::whereMonth('created_at', $month)
                     ->orderBy('created_at', 'asc')
                     ->get();
     
-        return view('backend.rent_managements.calender', compact('rents'));
+        return view('backend.rent_managements.calender', compact('rents','unpaidRents'));
     }
     public function getRentEvents(Request $request)
     {

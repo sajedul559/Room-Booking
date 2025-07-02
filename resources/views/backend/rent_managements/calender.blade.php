@@ -1,8 +1,39 @@
 @extends('layouts.layouts')
-@section('title', 'Properties')
+@section('title', 'Rent Calender')
 @section('content')
     <x-common.bread-crum />
     <div class="row">
+       <div class="col-12">
+            @if($unpaidRents->count() > 0)
+                <div class="py-3">
+                    <h5 class="text-danger mb-3">Unpaid Rents</h5>
+                    <ul class="list-group">
+                        @foreach($unpaidRents as $rent)
+                            <li class="list-group-item d-flex justify-content-between align-items-start flex-column flex-md-row">
+                                <div>
+                                    <strong>{{ $rent->user->name ?? 'Unknown Tenant' }}</strong><br>
+                                    <small>
+                                        Status: <span class="text-warning">{{ ucfirst($rent->status) }}</span> |
+                                        Month: {{ \Carbon\Carbon::parse($rent->created_at)->format('l, d F Y') }}
+                                    </small>
+                                </div>
+                                <div class="text-end">
+                                    <div><strong>Total:</strong> {{ number_format($rent->amount, 2) }}$</div>
+                                    <div><strong>Paid:</strong> {{ number_format($rent->paid_amount ?? 0, 2) }}$</div>
+                                    <div><strong>Due:</strong> 
+                                        <span class="text-danger">
+                                            {{ number_format($rent->amount - ($rent->paid_amount ?? 0), 2) }}$
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+       </div>
+
+
         <div class="col-12">
             <div class="card" id="orderList">
                 <div class="card-header">
