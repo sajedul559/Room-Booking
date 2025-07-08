@@ -170,37 +170,40 @@
                 @endcan
                   <!-- Rent Management Section -->
                   @can('RentManagements')
-                  <li>
-                      <a href="#sidebarRent" data-bs-toggle="collapse">
-                          {{-- <i class="fas fa-landmark"></i> --}}
-                          <i class="fas fa-dollar-sign"></i>
-                          <span>Rent Management </span>
-                          <span class="menu-arrow"></span>
-                      </a>
-                      <div class="collapse" id="sidebarRent">
-                          <ul class="nav-second-level">
-                              <li><a href="{{ route('rent_managements.index') }}">Lists</a></li>
-                              <li><a href="{{ route('rent_managements.create') }}">Create</a></li>
-                              <li><a href="{{ route('rent.calender') }}">Rent Calender</a></li>
+                    <li>
+                        <a href="#sidebarRent" data-bs-toggle="collapse">
+                            {{-- <i class="fas fa-landmark"></i> --}}
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>Rent Management </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarRent">
+                            <ul class="nav-second-level">
+                                <li><a href="{{ route('rent_managements.index') }}">Lists</a></li>
+                                <li><a href="{{ route('rent_managements.create') }}">Create</a></li>
+                                <li><a href="{{ route('rent.calender') }}">Rent Calender</a></li>
 
-                          </ul>
-                      </div>
-                  </li>
-                    @endcan
+                            </ul>
+                        </div>
+                    </li>
+                  @endcan
                      <!-- Rent Management Section -->
                   @can('Bookings')
-                   <li>
-                      <a href="#sidebarBooking" data-bs-toggle="collapse">
-                          <i class="fas fa-hotel"></i>
-                          <span>Bookings  </span>
-                          <span class="menu-arrow"></span>
-                      </a>
-                      <div class="collapse" id="sidebarBooking">
-                          <ul class="nav-second-level">
-                              <li><a href="{{ route('bookings.index') }}">Lists</a></li>
-                          </ul>
-                      </div>
-                   </li>
+                    @if (user()?->type == 'vendor')
+                        <li>
+                        <a href="#sidebarBooking" data-bs-toggle="collapse">
+                            <i class="fas fa-hotel"></i>
+                            <span>Bookings  </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarBooking">
+                            <ul class="nav-second-level">
+                                <li><a href="{{ route('bookings.index') }}">Lists</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    @endif
+                 
                  @endcan
                  
                   @can('Bookings')

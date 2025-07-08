@@ -17,9 +17,14 @@
                                         <select name="property_id" class="form-control" required>
                                             <option value="">Select Property</option>
                                             @foreach ($properties as $property)
-                                                <option value="{{ $property->id }}" {{ old('property_id', $expense->property_id ?? '') == $property->id ? 'selected' : '' }}>
+                                                {{-- <option value="{{ $property->id }}" {{ old('property_id', $expense->property_id ?? '') == $property->id ? 'selected' : '' }}>
+                                                    {{ $property->property_name }}
+                                                </option> --}}
+                                                <option value="{{ $property->id }}" 
+                                                    {{ old('property_id', $selectedPropertyId ?? '') == $property->id ? 'selected' : '' }}>
                                                     {{ $property->property_name }}
                                                 </option>
+
                                             @endforeach
                                         </select>
                                     </div>

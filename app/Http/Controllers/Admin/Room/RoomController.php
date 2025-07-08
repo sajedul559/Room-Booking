@@ -30,9 +30,20 @@ class RoomController extends Controller
         return view('backend.rooms.list', compact('rooms', 'properties'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
         $properties = $this->propertyService->getAllProperties();
+        $propertySlug = $request->query('property_slug');
+         $selectedPropertyId = null;
+
+        if ($propertySlug) {
+            $selectedProperty = $properties->firstWhere('slug', $propertySlug);
+            if ($selectedProperty) {
+                $selectedPropertyId = $selectedProperty->id;
+            }
+        }
+
+    return view('backend.rooms.create', compact('properties', 'selectedPropertyId'));
         return view('backend.rooms.create',compact('properties'));
     }
 
