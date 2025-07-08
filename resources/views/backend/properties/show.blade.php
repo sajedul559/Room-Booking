@@ -110,7 +110,7 @@
                      <a href="{{ route('rooms.create', ['property_slug' => $property->slug]) }}" 
                     class="btn btn-success btn-sm" 
                     target="_blank">
-                        <i class="mdi mdi-plus-circle"></i> Create Room For This Property
+                        <i class="mdi mdi-plus-circle"></i> Create Room
                     </a>
 
                     <a href="{{ route('properties.edit', $property->id) }}" 
