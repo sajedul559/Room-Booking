@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Room;
 use App\Models\User;
 use App\Models\Booking;
+use App\Models\Property;
+use App\Models\TenantRent;
 use Illuminate\Http\Request;
 use App\Models\BookingInformation;
 use Illuminate\Support\Facades\Auth;
@@ -41,8 +44,8 @@ class BookingController extends Controller
     {
         $request->validate([
             'room_id'   => 'required|exists:rooms,id',
-            'start_date'=> 'required|date|after_or_equal:today',
-            'end_date'  => 'required|date|after:start_date',
+            // 'start_date'=> 'required|date|after_or_equal:today',
+            // 'end_date'  => 'required|date|after:start_date',
             'amount'    => 'required|numeric|min:1',
             'stripe_token' => 'nullable|string',
         ]);
@@ -115,11 +118,39 @@ class BookingController extends Controller
             ]);
         }
     
-        $booking = Booking::where('id',$request->booking_id)->first();
+        $booking = Booking::with('room.property')->where('id',$request->booking_id)->first();
         if($booking){
             $booking->user_id = $user->id;
             $booking->save();
         }
+        $room =  $booking->room;
+        $propertyId = $room->property_id;
+        $property = Property::where('id',$propertyId)->first();
+        // Default stay duration in days
+
+       $minStay = $room->min_length_of_stay ?? 'no';
+
+        $dueDate = match ($minStay) {
+            'no' => Carbon::now(),                            // No minimum stay
+            '1 week' => Carbon::now()->addWeek(),
+            '2 weeks' => Carbon::now()->addWeeks(2),
+            '1 month' => Carbon::now()->addMonth(),
+            '2 months' => Carbon::now()->addMonth(),
+            '3 months' => Carbon::now()->addMonth(),
+            '4 months' => Carbon::now()->addMonth(),
+            '6 months' => Carbon::now()->addMonth(),
+            '9 months' => Carbon::now()->addMonth(),
+            '12 months+' => Carbon::now()->addMonth(),
+            default => Carbon::now()->addMonth(),             // Default to 1 month
+        };
+
+            $tenantRent = new TenantRent();
+            $tenantRent->user_id =  $user->id;
+            $tenantRent->vendor_id =  $booking?->room?->property?->vendor_id;
+            $tenantRent->amount =$booking->room->price;
+            $tenantRent->status = 'pending';
+            $tenantRent->due_date = $dueDate->toDateString();
+            $tenantRent->save();
         // Login the user (if not already logged in)
         if (!Auth::check()) {
             Auth::login($user);

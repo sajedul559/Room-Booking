@@ -308,7 +308,7 @@
                                                 </div> --}}
                                             </div>
                                             <div class="pro-content">
-                                                <div class="rating">
+                                                {{-- <div class="rating">
                                                     @php
                                                         $avgRating = $data->averageRating();
                                                         $fullStars = floor($avgRating);
@@ -331,7 +331,7 @@
                                                         {{ $avgRating > 4.5 ? 'Excellent' : ($avgRating > 3.5 ? 'Very Good' : ($avgRating > 2.5 ? 'Average' : 'Poor')) }}
                                                         ({{ $avgRating }}/5)
                                                     </span>
-                                                </div>
+                                                </div> --}}
 
                                                 <h3 class="title">
                                                     <a href="{{ route('room.location', ['location' => isset($data) && $data->city ? $data->city : 'no location']) }}">{{ $data->property_name }}</a>

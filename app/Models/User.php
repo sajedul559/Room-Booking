@@ -48,5 +48,10 @@ class User extends Authenticatable
             'name'=>'not found'
         ]);
     }
+    public function vendor()
+    {
+        return $this->hasOne(Vendor::class);
+    }
+
 
 }

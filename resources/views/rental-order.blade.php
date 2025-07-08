@@ -25,14 +25,14 @@
                 <div class="col-lg-12">
                     <div class="details-div">
                         <div class="details-div-content">
-                            <h5>Details</h5>
-                            <p>{!! $room->description !!}</p>
+                            {{-- <h5>Details</h5>
+                            <p>{!! $room->description !!}</p> --}}
                             <h5>Location </h5>
                             <p class="mb-0">{{ $room->property?->location }}</p>
                         </div>
                         <div class="details-div-price">
-                            <h5> Amount</h5>
-                            <h6>$ {{ $room->price }}</h6>
+                            <h5>Weekly Price</h5>
+                            <h6>$ {{ number_format($room->weekly_rent, 0) }}</h6>
                         </div>
                     </div>
                 </div>

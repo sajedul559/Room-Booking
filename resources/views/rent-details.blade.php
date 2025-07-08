@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="latest-update">
-                        <h5>Last Updated on : 15 Jan 2023</h5>
+                        <h5>Last Updated on :  {{ $room->updated_at->format('d M Y') }}</h5>
                         <p>$ {{ $room->price }}</p>
                         {{-- <ul class="other-pages">
                             <li><a href="javascript:void(0);"><i class="feather-share-2"></i>Share</a></li>
@@ -144,54 +144,83 @@
                         <div id="address" class="card-collapse collapse show  collapse-view">
                             <ul class="property-address">
                                 <li>Address : <span> {{ $room->property?->location }}</span></li>
-                                {{-- <li>City : <span> Jersey City </span></li>
-                                <li>State/County : <span> New Jersey State</span></li>
-                                <li>Country : <span> United States</span></li>
-                                <li>Zip : <span> 07305</span></li>
-                                <li>Area : <span> Greenville</span></li> --}}
+                                <li>City : <span> {{ $room->property?->city }} </span></li>
+                                <li>State : <span> {{ $room->property?->state }}</span></li>
+                                {{-- <li>Country : <span>@if (!empty($room->property->nearby_places) && is_array($room->property->nearby_places))
+                                            @foreach ($room->property->nearby_places as $place)
+                                                <li>{{ $place['name'] ?? 'N/A' }} ({{ $place['distance'] ?? 'N/A' }} km)</li>
+                                            @endforeach
+                                    @else
+                                        <span class="text-muted">No nearby places listed.</span>
+                                    @endif  </span></li> --}}
+                               
+                            </ul>
+                            <ul class="property-address">
+                               
+                              <li>
+                                NearBy Places :
+                                @if (!empty($room->property->nearby_places) && is_array($room->property->nearby_places))
+                                    @foreach ($room->property->nearby_places as $place)
+                                        <span>
+                                            <b>{{ $place['name'] ?? 'N/A' }} </b>
+                                        </span>
+                                        <span>
+                                            ({{  $place['distance'] ?? 'N/A' }} km){{ $loop->last ? '.' : ', ' }}
+                                        </span>
+                                    @endforeach
+                                @else
+                                    <span class="text-muted">No nearby places listed.</span>
+                                @endif
+                            </li>
+
+                               
                             </ul>
                         </div>
                     </div>
                     <!-- /Property Address -->
 
                     <!-- Property Details -->
-                    {{-- <div class="collapse-card">
+                    <div class="collapse-card">
                         <h4 class="card-title">
-                            <a class="collapsed" data-bs-toggle="collapse" href="#details" aria-expanded="false">Property
+                            <a class="collapsed" data-bs-toggle="collapse" href="#details" aria-expanded="false">Room
                                 Details</a>
                         </h4>
                         <div id="details" class="card-collapse collapse show  collapse-view">
                             <div class="row">
                                 <div class="col-md-4">
                                     <ul class="property-details">
-                                        <li>Property Id : <span> 22972</span></li>
-                                        <li>Price : <span> $ 860,000 </span></li>
-                                        <li>Price Info: <span> $ 1,098 /sq ft</span></li>
-                                        <li>Property Size : <span> 190 ft2</span></li>
-                                        <li>Property Lot Size : <span> 1,200 ft2</span></li>
+                                        <li>Room Type: <span>   @if ($room->room_type == 1)
+                                    Private
+                                @elseif ($room->room_type == 0)
+                                    Shared
+                                @else
+                                    Common
+                                @endif</span></li>
+                                        <li>Bed Size : <span> {{ $room->bed_size }}</span></li>
+                                        <li>Bathroom Type: <span> {{ $room->bathroom_type }}</span></li>
+                                        <li>Furnish Features: <span> {{ $room->furnishFeatures }}</span></li>
                                     </ul>
                                 </div>
                                 <div class="col-md-4">
                                     <ul class="property-details">
-                                        <li>Rooms : <span> 10</span></li>
-                                        <li>Bedrooms : <span> 5</span></li>
-                                        <li>Bathrooms : <span> 6</span></li>
-                                        <li>Custom Id : <span> 68</span></li>
-                                        <li>Garages : <span> 2</span></li>
+                                        <li>Min Stay : <span> {{ $room->min_length_of_stay }}</span></li>
+                                        <li>Max Stay : <span> {{ $room->max_length_of_stay }}</span></li>
+                                        <li>Internet Available:<span> {{ $room->internet? "Yes":"No" }}</span></li>
+                                        <li>Price : <span> {{ $room->price }}</span></li>
+                                       
                                     </ul>
                                 </div>
                                 <div class="col-md-4">
                                     <ul class="property-details">
-                                        <li>Year Built : <span> 2005</span></li>
-                                        <li>Garage Size : <span> 2 cars </span></li>
-                                        <li>Available From : <span> 2023-11-18</span></li>
-                                        <li>Structure Type : <span> Brick</span></li>
-                                        <li>Floors No : <span> 3</span></li>
+                                        <li>Bill Included Rent : <span> {{ $room->is_bill_included_rent? "Yes":"No" }} </span></li>
+                                        <li>Pet Allow : <span> {{ $room->is_pet_allowed? "Yes":"No" }} </span></li>
+                                        <li>On Welfare Allow: <span> {{ $room->on_welfare_allowed? "Yes":"No" }} </span></li>
+                                        <li>Smook Allow: <span> {{ $room->is_smoking_allowed? "Yes":"No" }} </span></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                     <!-- /Property Details -->
 
                     <!-- Amenities -->
@@ -370,7 +399,7 @@
 
                                             </div>
                                         @else
-                                        <p class="text-danger">You have already submitted reviews for all your bookings of this room.</p>
+                                        {{-- <p class="text-danger">You have already submitted reviews for all your bookings of this room.</p> --}}
                                         @endif
                                     @endauth
                                <div class="pagination-wrapper mt-3 text-center">
@@ -422,7 +451,7 @@
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmodtempor incididunt</p>
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-md-12">
                         <div class="feature-property-sec for-rent p-0">
                             <div class="rentfeature-slider owl-carousel">
@@ -710,6 +739,89 @@
                             </div>
                         </div>
                     </div>
+                </div> --}}
+                <div class="row">
+                    @forelse($similarListingRooms as $room)
+                    <div class=" col-lg-6 col-md-6 mb-4">
+                            <div class="product-custom">
+                                <div class="profile-widget">
+                                    <div class="doc-img">
+                                        <!-- Slider -->
+                                        <div class="buy-details-col">
+                                            <div class="rental-card">
+                                                <div class="slider rental-slider">
+                                                    @foreach($room->images as $image)
+                                                        <div class="product-img">
+                                                            <img  src="{{ get_image_path($image->image_path) }}" alt="Room Image">
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                                
+                                                <div class="slider slider-nav-thumbnails d-none">
+                                                    @foreach($room->images as $image)
+                                                        <div>
+                                                            <img src="{{ get_image_path($image->image_path) }}" alt="Thumbnail">
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /Slider -->
+                                    </div>
+            
+                                    <div class="pro-content">
+                                        
+                                            <div class="rating">
+                                                @php
+                                                    $avgRating = $room->averageRating();
+                                                    $fullStars = floor($avgRating);
+                                                    $hasHalfStar = ($avgRating - $fullStars) >= 0.5;
+                                                @endphp
+
+                                                <span class="rating-count">
+                                                    @for ($i = 1; $i <= 5; $i++)
+                                                        @if ($i <= $fullStars)
+                                                            <i class="fa-solid fa-star checked"></i>
+                                                        @elseif ($i == $fullStars + 1 && $hasHalfStar)
+                                                            
+                                                            <i class="fa-solid fa-star-half-stroke checked"></i>
+                                                        @else
+                                                            <i class="fa-solid fa-star"></i>
+                                                        @endif
+                                                    @endfor
+                                                </span>
+
+                                                <span class="rating-review">
+                                                    {{ $avgRating > 4.5 ? 'Excellent' : ($avgRating > 3.5 ? 'Very Good' : ($avgRating > 2.5 ? 'Average' : 'Poor')) }}
+                                                    ({{ $avgRating }}/5)
+                                                </span>
+                                            </div>
+                                        <h3 class="title">
+                                            <a href="{{ route('room.details',$room->slug)}}">{{ $room->name ?? 'Room Title' }}</a>
+                                        </h3>
+                                        <p><i class="feather-map-pin"></i> {{ $room->property->location ?? 'No address' }}</p>
+                                        <div class="decription">
+                                            {{-- <p>{!! $room->description !!}</p> --}}
+                                            <p>{{ \Illuminate\Support\Str::limit(strip_tags($room->description), 150) }}</p>
+
+                                            {{-- <p class="description-p">
+                                                <b> {{ $room->description ?? 'N/A' }}</b>
+                                            </p> --}}
+                                        </div>
+                                        <ul class="property-category d-flex justify-content-between align-items-center">
+                                            <li>
+                                                <a href="{{ route('room.details',$room->slug)}}" class="btn-primary">View Rooms</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @empty
+                        <div class="col-12 text-center my-5">
+                            <h4 class="text-muted">No similar listings available at the moment. Try exploring other listings.</h4>
+                        </div>
+                    @endforelse
                 </div>
             </div>
             <!-- /Similar Listings -->

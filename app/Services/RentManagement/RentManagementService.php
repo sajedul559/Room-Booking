@@ -133,7 +133,6 @@ class RentManagementService
         catch(\Exception $e)
         {
             DB::rollBack();
-            dd($e);
             throw $e;
         }
         
@@ -169,7 +168,6 @@ class RentManagementService
         catch(\Exception $e)
         {
             DB::rollBack();
-            dd($e);
         }
     }
 

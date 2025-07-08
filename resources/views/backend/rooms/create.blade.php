@@ -7,7 +7,7 @@
             <div class="card p-4 border-0 shadow-sm">
                 <div class="row">
                     <div class="container">
-                        <form action="{{ route('rooms.store') }}" method="POST" enctype="multipart/form-data">
+                        <form id="room-form" action="{{ route('rooms.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                     
                             <div class="row">
@@ -17,9 +17,14 @@
                                         <select name="property_id" class="form-control" required>
                                             <option value="">Select Property</option>
                                             @foreach ($properties as $property)
-                                                <option value="{{ $property->id }}" {{ old('property_id', $expense->property_id ?? '') == $property->id ? 'selected' : '' }}>
+                                                {{-- <option value="{{ $property->id }}" {{ old('property_id', $expense->property_id ?? '') == $property->id ? 'selected' : '' }}>
+                                                    {{ $property->property_name }}
+                                                </option> --}}
+                                                <option value="{{ $property->id }}" 
+                                                    {{ old('property_id', $selectedPropertyId ?? '') == $property->id ? 'selected' : '' }}>
                                                     {{ $property->property_name }}
                                                 </option>
+
                                             @endforeach
                                         </select>
                                     </div>
@@ -153,16 +158,16 @@
                                     <div class="mb-3">
                                         <label class="form-label">Minimum Length of Stay</label>
                                         <select name="min_length_of_stay" class="form-control">
-                                                <option value="0">No minimum stay</option>
-                                                <option value="1">1 week</option>
-                                                <option value="2">2 weeks</option>
-                                                <option value="3">1 month</option>
-                                                <option value="4">2 months</option>
-                                                <option value="5">3 months</option>
-                                                <option value="6">4 months</option>
-                                                <option value="7">6 months</option>
-                                                <option value="8">9 months</option>
-                                                <option value="9">12 months+</option>
+                                                <option value="no">No minimum stay</option>
+                                                <option value="1 week">1 week</option>
+                                                <option value="2 weeks">2 weeks</option>
+                                                <option value="1 month">1 month</option>
+                                                <option value="2 months">2 months</option>
+                                                <option value="3 months">3 months</option>
+                                                <option value="4 months">4 months</option>
+                                                <option value="6 months">6 months</option>
+                                                <option value="9 months">9 months</option>
+                                                <option value="12 months+">12 months+</option>
                                         </select>
                                     </div>
                                 </div>
@@ -170,16 +175,16 @@
                                     <div class="mb-3">
                                         <label class="form-label">Maximum Length of Stay</label>
                                         <select name="max_length_of_stay" class="form-control">
-                                                <option value="0">No maximum stay</option>
-                                                <option value="1">1 week</option>
-                                                <option value="2">2 weeks</option>
-                                                <option value="3">1 month</option>
-                                                <option value="4">2 months</option>
-                                                <option value="5">3 months</option>
-                                                <option value="6">4 months</option>
-                                                <option value="7">6 months</option>
-                                                <option value="8">9 months</option>
-                                                <option value="9">12 months+</option>
+                                                <option value="no">No minimum stay</option>
+                                                <option value="1 week">1 week</option>
+                                                <option value="2 weeks">2 weeks</option>
+                                                <option value="1 month">1 month</option>
+                                                <option value="2 months">2 months</option>
+                                                <option value="3 months">3 months</option>
+                                                <option value="4 months">4 months</option>
+                                                <option value="6 months">6 months</option>
+                                                <option value="9 months">9 months</option>
+                                                <option value="12 months+">12 months+</option>
                                         </select>
                                     </div>
                                 </div>
@@ -248,7 +253,7 @@
                             <div class="col-md">
                                 <div class="mb-3">
                                     <div class="input-field">
-                                        <label class="active">Service Gallery Image (817 W and 446 H)</label>
+                                        <label class="active">Room Gallery Image (817 W and 446 H)</label>
                                         <div class="input-images-1" style="padding-top: .5rem;"></div>
                                     </div>
                                 </div>
@@ -283,6 +288,7 @@
 
 <!-- Include CKEditor Script -->
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
     $(document).ready(function() {
@@ -291,6 +297,20 @@
             extensions: ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp'],
             mimes: ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/webp'],
         });
+         $('#room-form').on('submit', function (e) {
+        // Count number of images
+        const imageCount = $('.image-uploader .uploaded .uploaded-image').length;
+
+         if (imageCount < 4) {
+            e.preventDefault();
+            Swal.fire({
+            icon: 'warning',
+            title: 'Minimum 4 Images Required',
+            text: 'Please upload at least 4 room gallery images before submitting.',
+            confirmButtonText: 'OK'
+        });
+        }
+    });
         $('#summernote').summernote();
         $('.image-uploader input[type="file"]').attr('accept', 'image/*');
 

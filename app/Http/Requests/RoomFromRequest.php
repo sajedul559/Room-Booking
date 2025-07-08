@@ -37,8 +37,8 @@ class RoomFromRequest extends FormRequest
             'bond' => 'nullable|numeric',
             'available_date' => 'nullable|date',
             
-            'min_length_of_stay' => 'nullable|integer',
-            'max_length_of_stay' => 'nullable|integer',
+            'min_length_of_stay' => 'nullable|string',
+            'max_length_of_stay' => 'nullable|string',
             'room_type' => 'nullable|string',
             'bathroom_type' => 'nullable|string',
             'bed_size' => 'nullable|string',

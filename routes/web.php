@@ -111,12 +111,12 @@ Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about-us');
 
 
 Route::get('/room-details/{slug}', [HomeController::class, 'roomDetails'])->name('room.details');
-Route::get('/rent-details', function () {
-    return view('rent-details');
-})->name('rent-details');
-Route::get('/rent-details', function () {
-    return view('rent-details');
-})->name('rent-details');
+// Route::get('/rent-details', function () {
+//     return view('rent-details');
+// })->name('rent-details');
+// Route::get('/rent-details', function () {
+//     return view('rent-details');
+// })->name('rent-details');
 
 Route::get('/rent-property-grid', function () {
     return view('rent-property-grid');

@@ -8,7 +8,7 @@
                 <div class="row">
                     
                     <div class="container">
-                        <form action="{{ route('rooms.update', $room->id) }}" method="POST" enctype="multipart/form-data">
+                        <form id="room-form" action="{{ route('rooms.update', $room->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -156,34 +156,34 @@
                                     <div class="mb-3">
                                         <label class="form-label">Minimum Length of Stay</label>
                                         <select name="min_length_of_stay" class="form-control">
-                                                <option value="0" {{ $room->min_length_of_stay == 0 ? 'selected' : '' }}>No minimum stay</option>
-                                                <option value="1" {{ $room->min_length_of_stay == 1 ? 'selected' : '' }}>1 week</option>
-                                                <option value="2" {{ $room->min_length_of_stay == 2 ? 'selected' : '' }}>2 weeks</option>
-                                                <option value="3" {{ $room->min_length_of_stay == 3 ? 'selected' : '' }}>1 month</option>
-                                                <option value="4" {{ $room->min_length_of_stay == 4 ? 'selected' : '' }}>2 months</option>
-                                                <option value="5" {{ $room->min_length_of_stay == 5 ? 'selected' : '' }}>3 months</option>
-                                                <option value="6" {{ $room->min_length_of_stay == 6 ? 'selected' : '' }}>4 months</option>
-                                                <option value="7" {{ $room->min_length_of_stay == 7 ? 'selected' : '' }}>6 months</option>
-                                                <option value="8" {{ $room->min_length_of_stay == 8 ? 'selected' : '' }}>9 months</option>
-                                                <option value="9" {{ $room->min_length_of_stay == 9 ? 'selected' : '' }}>12 months+</option>
+                                        <option value="no" {{ $room->max_length_of_stay == 'no' ? 'selected' : '' }}>No minimum stay</option>
+                                        <option value="1 week" {{ $room->max_length_of_stay == '1 week' ? 'selected' : '' }}>1 week</option>
+                                        <option value="2 weeks" {{ $room->max_length_of_stay == '2 weeks' ? 'selected' : '' }}>2 weeks</option>
+                                        <option value="1 month" {{ $room->max_length_of_stay == '1 month' ? 'selected' : '' }}>1 month</option>
+                                        <option value="2 months" {{ $room->max_length_of_stay == '2 months' ? 'selected' : '' }}>2 months</option>
+                                        <option value="3 months" {{ $room->max_length_of_stay == '3 months' ? 'selected' : '' }}>3 months</option>
+                                        <option value="4 months" {{ $room->max_length_of_stay == '4 months' ? 'selected' : '' }}>4 months</option>
+                                        <option value="6 months" {{ $room->max_length_of_stay == '6 months' ? 'selected' : '' }}>6 months</option>
+                                        <option value="9 months" {{ $room->max_length_of_stay == '9 months' ? 'selected' : '' }}>9 months</option>
+                                        <option value="12 months+" {{ $room->max_length_of_stay == '12 months+' ? 'selected' : '' }}>12 months+</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">Maximum Length of Stay</label>
-                                        <select name="max_length_of_stay" class="form-control">
-                                                <option value="0" {{ $room->max_length_of_stay == 0 ? 'selected' : '' }}>No maximum stay</option>
-                                                <option value="1" {{ $room->max_length_of_stay == 1 ? 'selected' : '' }}>1 week</option>
-                                                <option value="2" {{ $room->max_length_of_stay == 2 ? 'selected' : '' }}>2 weeks</option>
-                                                <option value="3" {{ $room->max_length_of_stay == 3 ? 'selected' : '' }}>1 month</option>
-                                                <option value="4" {{ $room->max_length_of_stay == 4 ? 'selected' : '' }}>2 months</option>
-                                                <option value="5" {{ $room->max_length_of_stay == 5 ? 'selected' : '' }}>3 months</option>
-                                                <option value="6" {{ $room->max_length_of_stay == 6 ? 'selected' : '' }}>4 months</option>
-                                                <option value="7" {{ $room->max_length_of_stay == 7 ? 'selected' : '' }}>6 months</option>
-                                                <option value="8" {{ $room->max_length_of_stay == 8 ? 'selected' : '' }}>9 months</option>
-                                                <option value="9" {{ $room->max_length_of_stay == 9 ? 'selected' : '' }}>12 months+</option>
-                                        </select>
+                                       <select name="max_length_of_stay" class="form-control">
+                                        <option value="no" {{ $room->max_length_of_stay == 'no' ? 'selected' : '' }}>No maximum stay</option>
+                                        <option value="1 week" {{ $room->max_length_of_stay == '1 week' ? 'selected' : '' }}>1 week</option>
+                                        <option value="2 weeks" {{ $room->max_length_of_stay == '2 weeks' ? 'selected' : '' }}>2 weeks</option>
+                                        <option value="1 month" {{ $room->max_length_of_stay == '1 month' ? 'selected' : '' }}>1 month</option>
+                                        <option value="2 months" {{ $room->max_length_of_stay == '2 months' ? 'selected' : '' }}>2 months</option>
+                                        <option value="3 months" {{ $room->max_length_of_stay == '3 months' ? 'selected' : '' }}>3 months</option>
+                                        <option value="4 months" {{ $room->max_length_of_stay == '4 months' ? 'selected' : '' }}>4 months</option>
+                                        <option value="6 months" {{ $room->max_length_of_stay == '6 months' ? 'selected' : '' }}>6 months</option>
+                                        <option value="9 months" {{ $room->max_length_of_stay == '9 months' ? 'selected' : '' }}>9 months</option>
+                                        <option value="12 months+" {{ $room->max_length_of_stay == '12 months+' ? 'selected' : '' }}>12 months+</option>
+                                    </select>
                                     </div>
                                 </div>
                             </div>
@@ -253,7 +253,7 @@
                             <div class="col-md">
                                 <div class="mb-3">
                                     <div class="input-field">
-                                        <label class="active">Service Gallery Image (817 W and 446 H)<span class="text-danger"> *</span></label>
+                                        <label class="active">Room Gallery Image (817 W and 446 H)<span class="text-danger"> *</span></label>
                                         <div class="input-images-1" style="padding-top: .5rem;"></div>
                                     </div>
                                 </div>
@@ -291,10 +291,12 @@
 @endpush
 @push('scripts')
 <script src="{{ asset('assets/frontend/js/image-uploader.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 <script>
    $(document).ready(function () {
+   
     setTimeout(function () {
         var posts = @json($gellary_image);
         let preloaded = [];
@@ -314,7 +316,19 @@
         });
 
     }, 500); // Delay for smoother loading
+ $('#room-form').on('submit', function (e) {
+        const imageCount = $('.image-uploader .uploaded .uploaded-image').length;
 
+        if (imageCount < 4) {
+            e.preventDefault();
+            Swal.fire({
+            icon: 'warning',
+            title: 'Minimum 4 Images Required',
+            text: 'Please upload at least 4 room gallery images before submitting.',
+            confirmButtonText: 'OK'
+        });
+        }
+    });
     $('.image-uploader input[type="file"]').attr('accept', 'image/*');
 
         // changing the tenant Preference

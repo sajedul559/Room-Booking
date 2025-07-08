@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\RentManagement;
 
 use Carbon\Carbon;
+use App\Models\TenantRent;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\RentManagement;
@@ -25,10 +26,10 @@ class RentManagementController extends Controller
         $this->vendorService = $vendorService;
         $this->propertyService = $propertyService;
         // Apply permission checks globally for these actions
-        $this->middleware('can:Create Expense')->only('create', 'store');
-        $this->middleware('can:Edit Expense')->only('edit', 'update');
-        $this->middleware('can:Delete Expense')->only('destroy');
-        $this->middleware('can:Index Properties')->only('index');
+        // $this->middleware('can:Create Expense')->only('create', 'store');
+        // $this->middleware('can:Edit Expense')->only('edit', 'update');
+        // $this->middleware('can:Delete Expense')->only('destroy');
+        // $this->middleware('can:Index Properties')->only('index');
     }
 
 
@@ -46,12 +47,14 @@ class RentManagementController extends Controller
     public function calender(Request $request)
     {
         $month = $request->query('month', date('m'));
-
+        $unpaidRents = TenantRent::where('status', '!=', 'paid')->with('user')
+                            ->orderBy('id')
+                            ->get();
         $rents = RentManagement::whereMonth('created_at', $month)
                     ->orderBy('created_at', 'asc')
                     ->get();
     
-        return view('backend.rent_managements.calender', compact('rents'));
+        return view('backend.rent_managements.calender', compact('rents','unpaidRents'));
     }
     public function getRentEvents(Request $request)
     {
@@ -60,17 +63,20 @@ class RentManagementController extends Controller
     
         \Log::info("Fetching rent events for: Month - $month, Year - $year");
     
-        $rents = RentManagement::with(['user', 'property', 'room']) // eager load relationships
-                               ->whereMonth('date', $month)
-                               ->whereYear('date', $year)
+        $rents = TenantRent::with(['user','room','vendor'])
+                               ->whereIn('status', ['pending', 'partial'])
+                               ->whereMonth('due_date', $month)
+                               ->whereYear('due_date', $year)
                                ->get();
+        
     
         $events = [];
     
         foreach ($rents as $rent) {
-            $dueDate = Carbon::parse($rent->date);
+            $dueDate = Carbon::parse($rent->due_date);
             $statusColor = '';
             $text = Str::limit(optional($rent->user)->name ?? 'Unknown', 15);
+
     
             if ($dueDate->isPast()) {
                 $statusColor = '#dc3545'; // Overdue
@@ -79,19 +85,17 @@ class RentManagementController extends Controller
             } else {
                 $statusColor = '#28a745'; // Upcoming
             }
-    
-            $propertyName = optional($rent->property)->property_name ?? 'N/A';
-            $propertyAddress = optional($rent->property)->location ?? 'N/A';
+
             $roomName = optional($rent->room)->name ?? 'N/A';
     
-            $tooltipText = "{$text} – {$propertyName}, {$propertyAddress}, {$roomName}. "
-                         . "Total Rent: " . number_format($rent->total_rent, 2)
-                         . ". Current Rent: " . number_format($rent->amount, 2)
-                         . ". Due Rent: " . number_format($rent->total_rent - $rent->amount, 2);
+            $tooltipText = "{$text} –  {$roomName}. "
+                         . "Total Rent: " . number_format($rent->amount, 2)
+                         . ". Paid Rent: " . number_format($rent->paid_amount, 2)
+                         . ". Due Rent: " . number_format($rent->amount - $rent->paid_amount, 2);
     
             $events[] = [
                 'title' => $text . ': $' . number_format($rent->amount, 2),
-                'start' => $rent->date,
+                'start' => $rent->due_date,
                 'color' => $statusColor,
                 'amount' => $rent->amount,
                 'tooltip' => $tooltipText

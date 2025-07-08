@@ -5,6 +5,7 @@ namespace App\Services\Booking;
 use Exception;
 use Stripe\Charge;
 use Stripe\Stripe;
+use App\Models\Room;
 use App\Models\Booking;
 use App\Models\Payment;
 use Illuminate\Support\Facades\DB;
@@ -35,11 +36,21 @@ class BookingService
         try {
             // Set default status (if not provided, default to 'pending')
             $status = $request->status ?? Booking::STATUS_PENDING;
+            $room = Room::find($request->room_id);
+
+           if ($room && $room->property && $room->property->vendor) {
+                $vendorId = $room->property->vendor->id;
+            } else {
+                // Handle the case when property or vendor doesn't exist
+                return ['success' => false, 'message' => 'Room not found!'];
+
+            }
            
     
             // Create Booking
             $booking = Booking::create([
                 'user_id'   => 1,
+                'vendor_id'   => $vendorId,
                 'room_id'   => $request->room_id,
                 'start_date'=> $request->start_date,
                 'end_date'  => $request->end_date,

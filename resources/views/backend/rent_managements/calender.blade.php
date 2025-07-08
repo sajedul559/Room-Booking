@@ -1,8 +1,39 @@
 @extends('layouts.layouts')
-@section('title', 'Properties')
+@section('title', 'Rent Calender')
 @section('content')
     <x-common.bread-crum />
     <div class="row">
+       <div class="col-12">
+            @if($unpaidRents->count() > 0)
+                <div class="py-3">
+                    <h5 class="text-danger mb-3">Unpaid Rents</h5>
+                    <ul class="list-group">
+                        @foreach($unpaidRents as $rent)
+                            <li class="list-group-item d-flex justify-content-between align-items-start flex-column flex-md-row">
+                                <div>
+                                    <strong>{{ $rent->user->name ?? 'Unknown Tenant' }}</strong><br>
+                                    <small>
+                                        Status: <span class="text-warning">{{ ucfirst($rent->status) }}</span> |
+                                        Month: {{ \Carbon\Carbon::parse($rent->created_at)->format('l, d F Y') }}
+                                    </small>
+                                </div>
+                                <div class="text-end">
+                                    <div><strong>Total:</strong> {{ number_format($rent->amount, 2) }}$</div>
+                                    <div><strong>Paid:</strong> {{ number_format($rent->paid_amount ?? 0, 2) }}$</div>
+                                    <div><strong>Due:</strong> 
+                                        <span class="text-danger">
+                                            {{ number_format($rent->amount - ($rent->paid_amount ?? 0), 2) }}$
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+       </div>
+
+
         <div class="col-12">
             <div class="card" id="orderList">
                 <div class="card-header">
@@ -36,13 +67,16 @@
 
 @push('style')
 <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
-
 <style>
-    .fc-toolbar-chunk{
-       display: none;
+.fc-list-event-time{
+    display: none;
 }
+.fc-list-event-graphic{
+    display: none;
+}
+
 </style>
-    
+  
 @endpush
 @push('scripts')
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
@@ -57,8 +91,10 @@
         var today = new Date();
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
+            initialView: 'listMonth',
             initialDate: today,
+            eventDisplay: 'block',
+            dayMaxEventRows: false,
             events: function (fetchInfo, successCallback, failureCallback) {
                 let selectedMonth = monthSelect.value;
                 let selectedYear = yearSelect.value;
@@ -84,6 +120,25 @@
                         theme: 'light-border',
                     });
                 }
+                // Apply background color to .fc-list-event-title
+
+                 // Apply color to the full row (works in list views)
+                
+
+                  const dayCell = info.el.closest('.fc-list-event');
+                const eventsContainer = dayCell?.querySelector('.fc-list-event-title');
+
+                if (eventsContainer && !eventsContainer.dataset.bgSet) {
+                    eventsContainer.style.backgroundColor = info.event.backgroundColor || info.event.color;
+                    eventsContainer.style.color = '#fff'; // Text color white
+                    eventsContainer.style.borderRadius = '6px';
+                    eventsContainer.style.padding = '4px 8px'; // Adjust padding if needed
+                    eventsContainer.style.margin = '5px 100px';
+                    eventsContainer.style.display = 'inline-block'; // ✅ Only cover text width
+                    eventsContainer.dataset.bgSet = true;
+                }
+
+
             }
         });
 
