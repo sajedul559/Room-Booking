@@ -75,6 +75,11 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/fetch-chart-data', [HomeController::class, 'fetchData'])->name('fetch.chart.data');
 
 
+    Route::get('bookings/{booking}/rebook', [BookingController::class, 'rebook'])->name('bookings.rebook');
+    Route::post('/bookings/update-dates', [BookingController::class, 'updateDates'])->name('bookings.updateDates');
+
+
+
 });
 
 

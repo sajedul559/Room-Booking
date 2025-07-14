@@ -169,6 +169,27 @@ public function changeStatus(Request $request)
     return response()->json(['message' => 'Booking status updated successfully.']);
 }
 
+public function rebook(Booking $booking)
+{
+    // Logic to duplicate or prefill rebooking form
+    return view('backend.bookings.re_booking', compact('booking'));
+}
+public function updateDates(Request $request)
+{
+    $request->validate([
+        'booking_id' => 'required|exists:bookings,id',
+        'start_date' => 'required|date|before_or_equal:end_date',
+        'end_date' => 'required|date|after_or_equal:start_date',
+    ]);
+
+    $booking = Booking::find($request->booking_id);
+
+    $booking->start_date = $request->start_date;
+    $booking->end_date = $request->end_date;
+    $booking->save();
+
+    return redirect()->back()->with('success', 'Booking dates updated successfully.');
+}
     
 
     
