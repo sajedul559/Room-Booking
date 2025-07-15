@@ -183,12 +183,52 @@ public function updateDates(Request $request)
     ]);
 
     $booking = Booking::find($request->booking_id);
+    $bookingOldEndDate = $booking->end_date;
 
     $booking->start_date = $request->start_date;
     $booking->end_date = $request->end_date;
     $booking->save();
 
-    return redirect()->back()->with('success', 'Booking dates updated successfully.');
+    // if ($request->status == Booking::STATUS_CONFIRMED) {
+        $room = $booking->room;
+        $property =  $room?->property;
+        $vendor =  $property?->vendor;
+        $tenant = $booking->user; // assuming relation exists
+        $weeklyPrice = $room->weekly_rent;
+        
+        // Get required values
+        $startDate = Carbon::parse($booking->bookingOldEndDate);
+        $endDate = Carbon::parse($booking->end_date);
+        $roomId = $room->id;
+        $tenantId = $tenant->id;
+        $vendorId = $vendor?->id;
+
+        // Create Tenant Payments
+        while ($startDate < $endDate) {
+            $weekEnd = $startDate->copy()->addDays(6);
+            if ($weekEnd > $endDate) {
+                $weekEnd = $endDate;
+            }
+
+            $daysInWeek = $startDate->diffInDays($weekEnd) + 1;
+            $amount = round(($weeklyPrice / 7) * $daysInWeek, 2);
+
+            TenantRent::create([
+                'room_id' => $roomId,
+                'user_id' => $tenantId,
+                'vendor_id' => $vendorId,
+                'amount' => $amount,
+                'due_date' => $weekEnd->toDateString(),
+                'status' => 'pending',
+
+            ]);
+
+            $startDate = $weekEnd->addDay();
+        }
+    // }
+
+    return redirect()->route('bookings.index')->with('success', 'Booking dates updated successfully.');
+
 }
     
 

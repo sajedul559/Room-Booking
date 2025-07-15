@@ -38,31 +38,32 @@
                 $daysRemaining = $endDate->diffInDays(Carbon::today()); // removes false, so default is absolute difference
 
                 $isExpiring = $daysRemaining <= 7;
+                $isExpiringSoon = $daysRemaining <= 15;
                 $statusClass = match($booking->status) {
                     'confirmed' => 'success',
                     'cancelled' => 'danger',
                     default => 'warning',
                 };
             @endphp
-            <tr @if($daysRemaining <= 7) style="background-color: #f39999;" @endif>
+            <tr @if($isExpiringSoon) style="background-color: #f39999;" @endif>
                 <td>{{ $booking->user->name }}</td>
                 <td>{{ $booking->room->name ?? 'N/A' }}</td>
                 <td>{{ $booking->room->property->property_name ?? 'N/A' }}</td>
                 <td>{{ $booking->start_date }}</td>
                 <td>{{ $booking->end_date }}</td>
                <td>
-                    <div>
+                    {{-- <div> --}}
                         <span class="mt-2 badge bg-{{ $statusClass }}">
                             {{ ucfirst($booking->status) }}
                         </span>
-                    </div>
+                    {{-- </div> --}}
 
-                    @if($isExpiring)
-                        <div class="mt-2">
-                            <a href="{{ route('bookings.rebook', $booking->id) }}" class="btn btn-sm btn-info">
+                    @if($isExpiringSoon)
+                        {{-- <div class="mt-2"> --}}
+                            <a style="margin-left: 8px;" href="{{ route('bookings.rebook', $booking->id) }}" class="btn btn-sm btn-info">
                                 Re-Booking
                             </a>
-                        </div>
+                        {{-- </div> --}}
                     @endif
                 </td>
 
