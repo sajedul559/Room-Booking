@@ -30,8 +30,7 @@
                         </thead>
                         <tbody>
                             @foreach($properties as $property)
-                                <tr>
-                                    <td>{{ $property->id }}</td>
+                                <tr style="background-color: {{ $property->background_color ?? 'transparent' }}; color: {{ $property->font_color ?? 'inherit' }}">                                    <td>{{ $property->id }}</td>
                                     <td>{{ $property->property_name }}</td>
                                     <td>{{ $property->vendor->user->name }}</td>
 

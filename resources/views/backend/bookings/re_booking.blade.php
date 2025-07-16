@@ -17,27 +17,27 @@
                 </div>
 
                <div class="card-body">
-    <form action="{{ route('bookings.updateDates') }}" method="POST">
-        @csrf
-        <input type="hidden" name="booking_id" value="{{ $booking->id }}">
+                    <form action="{{ route('bookings.updateDates') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="booking_id" value="{{ $booking->id }}">
 
-        <div class="mb-3">
-            <label for="start_date" class="form-label">Start Date</label>
-            <input type="date" readonly name="start_date" class="form-control" value="{{ $booking->start_date }}" required>
-        </div>
+                        <div class="mb-3">
+                            <label for="start_date" class="form-label">Start Date</label>
+                            <input type="date" readonly name="start_date" class="form-control" value="{{ $booking->start_date }}" required>
+                        </div>
 
-        <div class="mb-3">
-            <label for="end_date" class="form-label">End Date</label>
-            <input type="date" name="end_date" class="form-control" value="{{ $booking->end_date }}" required>
-        </div>
+                        <div class="mb-3">
+                            <label for="end_date" class="form-label">End Date</label>
+                            <input type="date" name="end_date" class="form-control" value="{{ $booking->end_date }}" required>
+                        </div>
 
-       <div class="d-flex justify-content-between gap-2">
-    <a href="{{ url()->previous() }}" class="btn btn-secondary w-50">← Back</a>
-    <button type="submit" class="btn btn-success w-50">Update Dates</button>
-</div>
+                        <div class="d-flex justify-content-between gap-2">
+                            <a href="{{ url()->previous() }}" class="btn btn-secondary w-50">← Back</a>
+                            <button type="submit" class="btn btn-success w-50">Update Dates</button>
+                        </div>
 
-    </form>
-</div>
+                    </form>
+                </div>
 
             </div>
         </div>

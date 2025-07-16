@@ -82,19 +82,20 @@
 <div class="mb-3">
     <label class="form-label">Parking</label>
     <select name="parking" class="form-control">
-        <option value="0">No parking</option>
-        <option value="1">Off-street parking</option>
-        <option value="2">On-street parking</option>
+        <option value="0" {{ old('parking', $property->parking ?? '') == 0 ? 'selected' : '' }}>No parking</option>
+        <option value="1" {{ old('parking', $property->parking ?? '') == 1 ? 'selected' : '' }}>Off-street parking</option>
+        <option value="2" {{ old('parking', $property->parking ?? '') == 2 ? 'selected' : '' }}>On-street parking</option>
     </select>
 </div>
+
 
 <div class="mb-3">
     <label class="form-label">Internet</label>
     <select name="internet" class="form-control">
-        <option value="0">No internet</option>
-        <option value="1">Available but not inc in rent</option>
-        <option value="2">Included in rent</option>
-        <option value="3">Unlimited included in rent</option>
+        <option value="0" {{ old('internet', $property->internet ?? '') == 0 ? 'selected' : '' }}>No internet</option>
+        <option value="1" {{ old('internet', $property->internet ?? '') == 1 ? 'selected' : '' }}>Available but not inc in rent</option>
+        <option value="2" {{ old('internet', $property->internet ?? '') == 2 ? 'selected' : '' }}>Included in rent</option>
+        <option value="3" {{ old('internet', $property->internet ?? '') == 3 ? 'selected' : '' }}>Unlimited included in rent</option>
     </select>
 </div>
 
@@ -103,14 +104,35 @@
 
     <x-common.select2 name="accessibility[]" id="accessibility-features-select" multiple="multiple" placeholder="Select">
         <option value="" disabled>Select Accessibility Features</option>
-        
-        @foreach (\App\Models\Property::getAccessibilityFeatures() as $type => $label)
-            <option value="{{ $type }}" {{ in_array($label, old('accessibility', $property->accessibility ?? [])) ? 'selected' : '' }}>
+
+        @foreach (\App\Models\Property::getAccessibilityFeatures() as $label)
+            <option value="{{ $label }}" {{ in_array($label, old('accessibility', $property->accessibility ?? [])) ? 'selected' : '' }}>
                 {{ $label }}
             </option>
         @endforeach
     </x-common.select2>
 </div>
+
+
+
+<div class="mb-3">
+    <x-common.label title="Background Color" />
+    <x-common.input name="background_color" type="color"
+                    value="{{ old('background_color', $property->background_color ?? '#ffffff') }}" />
+    @error('background_color')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
+
+<div class="mb-3">
+    <x-common.label title="Font Color" />
+    <x-common.input name="font_color" type="color"
+                    value="{{ old('font_color', $property->font_color ?? '#000000') }}" />
+    @error('font_color')
+        <span class="text-danger">{{ $message }}</span>
+    @enderror
+</div>
+
 
 @php
     $places = old('nearby_places', $property->nearby_places ?? [['name' => '', 'distance' => '']]);

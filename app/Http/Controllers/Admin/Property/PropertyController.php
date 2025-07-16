@@ -49,7 +49,10 @@ class PropertyController extends Controller
 
     public function edit(Property $property)
     {  
-        $property->accessibility = explode(',', $property->accessibility);
+        // $property->accessibility = explode(',', $property->accessibility);
+        if (is_string($property->accessibility)) {
+            $property->accessibility = json_decode($property->accessibility, true);
+        }
         return view('backend.properties.edit', compact('property'));
     }
 

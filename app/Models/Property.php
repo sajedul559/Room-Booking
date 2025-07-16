@@ -31,6 +31,8 @@ class Property extends Model
         'is_new',
         'is_delete',
         'nearby_places',
+        'background_color',
+        'font_color',
     ];
 
     protected $casts = [
