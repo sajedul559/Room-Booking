@@ -14,13 +14,21 @@ use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
     // Display a listing of the resource.
-    public function index()
+    public function index(Request $request)
     {
+        $query = User::with('role','identities');
 
+        if ($request->has('type')) {
+            $type = $request->type;
+           
+                $query->where('type', $type);
+        }
 
-        $users = User::with('role')->get();
+        $users = $query->get();
+
         return view('backend.users.list', compact('users'));
     }
+
 
     // Show the form for creating a new resource.
     public function create()
@@ -51,11 +59,16 @@ class UserController extends Controller
     }
 
     // Display the specified resource.
+    // public function show($id)
+    // {
+    //     $user = User::with('roles')->findOrFail($id);
+    //     return view('user.show', compact('user'));
+    // }
     public function show($id)
-    {
-        $user = User::with('roles')->findOrFail($id);
-        return view('user.show', compact('user'));
-    }
+{
+    $user = User::with('role','identities')->findOrFail($id);
+    return view('backend.users.show', compact('user'));
+}
 
     // Show the form for editing the specified resource.
     public function edit($id)

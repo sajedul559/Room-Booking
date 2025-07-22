@@ -45,7 +45,10 @@
                     </a>
                     <div class="collapse" id="sidebarUser">
                         <ul class="nav-second-level">
-                            <li><a href="{{ route('admins.index') }}">Users</a></li>
+                            <li><a href="{{ route('admins.index') }}">All  Users</a></li>
+                            <li><a href="{{ route('admins.index', ['type' => 'admin']) }}">Admins</a></li>
+                            <li><a href="{{ route('admins.index', ['type' => 'vendor']) }}">Vendors</a></li>
+                            <li><a href="{{ route('admins.index', ['type' => 'user']) }}">Users</a></li>
                             <li><a href="{{ route('admins.create') }}">Users create</a></li>
                         </ul>
                     </div>
