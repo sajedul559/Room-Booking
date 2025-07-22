@@ -127,6 +127,7 @@
 
                                 <div><strong>Total Points:</strong> <span id="total-points">0</span></div>
 
+                                <input type="hidden" name="point" id="point" value="0">
 
 
                                 {{-- <button type="submit" class="btn btn-primary mt-3">Submit</button> --}}
@@ -199,6 +200,7 @@ function calculatePoints() {
         total += points;
     });
     $('#total-points').text(total);
+    $('#point').val(total);
 }
 
 function updateRemoveButtons() {

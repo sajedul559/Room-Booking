@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('user_identities', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable(); // or booking_id if you want
+            $table->unsignedBigInteger('user_id')->nullable(); 
             $table->unsignedBigInteger('booking_id')->nullable();
-            $table->string('document_type')->nullable(); // path to stored image
-            $table->string('image_path'); // path to stored image
-            
+            $table->string('document_type')->nullable(); 
+            $table->decimal('point', 10, 2)->nullable();
+            $table->string('image_path');
             $table->timestamps();
         });
     }

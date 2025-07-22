@@ -189,10 +189,14 @@ class BookingController extends Controller
             $file = $doc['file'];
             $path = $file->store('user_identity_documents', 'public');
 
+             // Get the point based on document type
+             $point = $pointsMap[$doc['type']] ?? 0;
+
             UserIdentity::create([
                 'user_id' => auth()->id(),
                 'booking_id' => $request->booking_id,
                 'image_path' => $path,
+                'point' => $point,
                 'document_type' => $doc['type'],
             ]);
         }

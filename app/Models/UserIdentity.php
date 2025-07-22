@@ -12,6 +12,7 @@ class UserIdentity extends Model
         'user_id',
         'booking_id',
         'document_type',
+        'point',
         'image_path',
         
     ];
