@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\ReferralIncomeHistory;
+use App\Services\Property\PropertyService;
 
 class HomeController extends Controller
 {
@@ -16,12 +17,20 @@ class HomeController extends Controller
     //     $this->middleware('auth');
     // }
 
+    protected $propertyService;
 
+
+    public function __construct(PropertyService $propertyService)
+    {
+   
+        $this->propertyService = $propertyService;
+    }
 
     public function home()
     {
         $rooms = Room::with('images')->get();
-        return view('home',compact('rooms'));
+        $properties = $this->propertyService->getAllProperties();
+        return view('home',compact('rooms','properties'));
     }
 
     public function roomDetails($slug)
@@ -65,35 +74,77 @@ class HomeController extends Controller
         ]);
     }
 
-    public function fetchData(Request $request)
-    {
-        $month = $request->input('month');
-        $type = $request->input('type');
-        $year = date('Y');
+    // public function fetchData(Request $request)
+    // {
+    //     $month = $request->input('month');
+    //     $type = $request->input('type');
+    //     $year = date('Y');
 
-        if ($type === 'expense') {
-            $data = DB::table('expenses')
-                ->select(DB::raw('DAY(created_at) as day'), DB::raw('SUM(amount) as total'))
-                ->whereMonth('created_at', $month)
-                ->whereYear('created_at', $year)
-                ->groupBy('day')
-                ->orderBy('day')
-                ->get();
-        } else {
-            $data = DB::table('payments')
-                ->select(DB::raw('DAY(created_at) as day'), DB::raw('SUM(amount) as total'))
-                ->whereMonth('created_at', $month)
-                ->whereYear('created_at', $year)
-                ->groupBy('day')
-                ->orderBy('day')
-                ->get();
+    //     if ($type === 'expense') {
+    //         $data = DB::table('expenses')
+    //             ->select(DB::raw('DAY(created_at) as day'), DB::raw('SUM(amount) as total'))
+    //             ->whereMonth('created_at', $month)
+    //             ->whereYear('created_at', $year)
+    //             ->groupBy('day')
+    //             ->orderBy('day')
+    //             ->get();
+    //     } else {
+    //         $data = DB::table('payments')
+    //             ->select(DB::raw('DAY(created_at) as day'), DB::raw('SUM(amount) as total'))
+    //             ->whereMonth('created_at', $month)
+    //             ->whereYear('created_at', $year)
+    //             ->groupBy('day')
+    //             ->orderBy('day')
+    //             ->get();
+    //     }
+
+    //     return response()->json([
+    //         'labels' => $data->pluck('day'),
+    //         'data' => $data->pluck('total'),
+    //     ]);
+    // }
+
+  public function fetchData(Request $request)
+{
+    $month = $request->input('month');
+    $year = $request->input('year', date('Y'));
+    $type = $request->input('type');
+    $propertyId = $request->input('property_id');
+
+    if ($type === 'expense') {
+        $query = DB::table('expenses')
+            ->select(DB::raw('DAY(date) as day'), DB::raw('SUM(amount) as total'))
+            ->whereMonth('date', $month)
+            ->whereYear('date', $year)
+            ->where('is_credit','0');
+
+        if (!empty($propertyId)) {
+            $query->where('property_id', $propertyId);
         }
 
-        return response()->json([
-            'labels' => $data->pluck('day'),
-            'data' => $data->pluck('total'),
-        ]);
+        $data = $query->groupBy('day')->orderBy('day')->get();
+
+    } else {
+        $query = DB::table('expenses')
+            ->select(DB::raw('DAY(date) as day'), DB::raw('SUM(amount) as total'))
+            ->whereMonth('date', $month)
+            ->whereYear('date', $year)
+            ->where('is_credit','1');
+
+        if (!empty($propertyId)) {
+            $query->where('property_id', $propertyId);
+        }
+
+        $data = $query->groupBy('day')->orderBy('day')->get();
     }
+
+    return response()->json([
+        'labels' => $data->pluck('day'),
+        'data' => $data->pluck('total'),
+    ]);
+}
+
+
     // private function dashboardData()
     // {
     //     $user_id = userId();
