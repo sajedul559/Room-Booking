@@ -147,12 +147,6 @@
     </div>
 </div>
 
-<!-- Income Filters -->
-<div class="row mb-3">
-    
-</div>
-
-
 
 <!-- Expense and Income Charts -->
 <div class="row">
@@ -231,7 +225,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
-
     // Event Listeners for filters
     $('#expenseYearFilter, #expenseMonthFilter, #expensePropertyFilter').change(function() {
         fetchChartData("expense");
