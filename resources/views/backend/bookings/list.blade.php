@@ -45,7 +45,8 @@
                     default => 'warning',
                 };
             @endphp
-            <tr @if($isExpiringSoon) style="background-color: #f39999;" @endif>
+             <tr @if($isExpiringSoon && $booking->status == App\Models\Booking::STATUS_CONFIRMED) style="background-color: #f39999;" @endif>
+
                 <td>{{ $booking->user->name }}</td>
                 <td>{{ $booking->room->name ?? 'N/A' }}</td>
                 <td>{{ $booking->room->property->property_name ?? 'N/A' }}</td>
@@ -58,12 +59,14 @@
                         </span>
                     {{-- </div> --}}
 
-                    @if($isExpiringSoon)
+                    @if($booking->status == App\Models\Booking::STATUS_CONFIRMED)
+                      @if($isExpiringSoon)
                         {{-- <div class="mt-2"> --}}
                             <a style="margin-left: 8px;" href="{{ route('bookings.rebook', $booking->id) }}" class="btn btn-sm btn-info">
                                 Re-Booking
                             </a>
                         {{-- </div> --}}
+                      @endif
                     @endif
                 </td>
 

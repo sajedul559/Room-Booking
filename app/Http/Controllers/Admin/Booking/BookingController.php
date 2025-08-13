@@ -43,7 +43,7 @@ class BookingController extends Controller
             $bookings = Booking::where('vendor_id', $vendor->id)->with(['room.property'])->latest()->get();
         } else {
             // Show bookings made by the user
-            $bookings = [];
+             $bookings = Booking::with(['room.property'])->latest()->get();
         }
 
             return view('backend.bookings.list', compact('bookings'));

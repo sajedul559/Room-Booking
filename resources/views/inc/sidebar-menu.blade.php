@@ -205,7 +205,7 @@
                   @endcan
                      <!-- Rent Management Section -->
                   @can('Bookings')
-                    @if (user()?->type == 'vendor')
+                    {{-- @if (user()?->type == 'vendor') --}}
                         <li>
                         <a href="#sidebarBooking" data-bs-toggle="collapse">
                             <i class="fas fa-hotel"></i>
@@ -218,7 +218,7 @@
                             </ul>
                         </div>
                     </li>
-                    @endif
+                    {{-- @endif --}}
                  
                  @endcan
                  
