@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Room;
+use App\Models\User;
+use App\Models\Expense;
+use App\Models\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -28,9 +31,18 @@ class HomeController extends Controller
 
     public function home()
     {
-        $rooms = Room::with('images')->get();
-        $properties = $this->propertyService->getAllProperties();
-        return view('home',compact('rooms','properties'));
+        $user = auth()->user();
+        $users = User::where('type',User::USER_TYPE_USER)->get();
+        $totalExpense = Expense::where(['is_credit' =>'0','vendor_id' => $user->id])->sum('amount');
+        $totalIncome = Expense::where(['is_credit' =>'1','vendor_id' => $user->id])->sum('amount');
+         // Eager load rooms
+        $properties = Property::with('rooms')->where('vendor_id', $user->id)->get();
+
+        // Count total rooms for this vendor
+        $totalRooms = $properties->sum(function ($property) {
+            return $property->rooms->count();
+        });
+        return view('home',compact('properties','users','totalExpense','totalIncome','totalRooms'));
     }
 
     public function roomDetails($slug)

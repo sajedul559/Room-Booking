@@ -11,7 +11,7 @@
 <div class="row">
   
   
-    <div class="col-md-6 col-xl-3">
+    {{-- <div class="col-md-6 col-xl-3">
       <div class="card" id="tooltip-container1">
         <div class="card-body">
           <i
@@ -23,13 +23,48 @@
           ></i>
           <h4 class="mt-0 font-16">Total Users</h4>
           <h2 class="text-primary my-3 text-center">
-            <span data-plugin="counterup">00</span>
+            <span data-plugin="counterup">{{ $users->count() }}</span>
+          </h2>
+          
+        </div>
+      </div>
+    </div> --}}
+    <div class="col-md-6 col-xl-3">
+      <div class="card" id="tooltip-container1">
+        <div class="card-body">
+          <i
+            class="fa fa-info-circle text-muted float-end"
+            data-bs-container="#tooltip-container1"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            title="More Info"
+          ></i>
+          <h4 class="mt-0 font-16">Total Properties</h4>
+          <h2 class="text-primary my-3 text-center">
+            <span data-plugin="counterup">{{ $properties->count() }}</span>
           </h2>
           
         </div>
       </div>
     </div>
-  
+   <div class="col-md-6 col-xl-3">
+      <div class="card" id="tooltip-container3">
+        <div class="card-body">
+          <i
+            class="fa fa-info-circle text-muted float-end"
+            data-bs-container="#tooltip-container3"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            title="More Info"
+          ></i>
+          <h4 class="mt-0 font-16">Total Rooms</h4>
+          <h2 class="text-primary my-3 text-center">
+            <span data-plugin="counterup">{{ $totalRooms }}</span>
+          </h2>
+          
+        </div>
+      </div>
+    </div>
     <div class="col-md-6 col-xl-3">
       <div class="card" id="tooltip-container2">
         <div class="card-body">
@@ -42,49 +77,32 @@
           ></i>
           <h4 class="mt-0 font-16">Total Expense </h4>
           <h2 class="text-primary my-3 text-center">
-            <span data-plugin="counterup">00</span>M
+           $<span data-plugin="counterup">{{ $totalExpense }}</span>
+          </h2>
+          
+        </div>
+      </div>
+    </div>
+     <div class="col-md-6 col-xl-3">
+      <div class="card" id="tooltip-container2">
+        <div class="card-body">
+          <i
+            class="fa fa-info-circle text-muted float-end"
+            data-bs-container="#tooltip-container2"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            title="More Info"
+          ></i>
+          <h4 class="mt-0 font-16">Total Income </h4>
+          <h2 class="text-primary my-3 text-center">
+           $<span data-plugin="counterup">{{ $totalIncome }}</span>
           </h2>
           
         </div>
       </div>
     </div>
   
-    <div class="col-md-6 col-xl-3">
-      <div class="card" id="tooltip-container3">
-        <div class="card-body">
-          <i
-            class="fa fa-info-circle text-muted float-end"
-            data-bs-container="#tooltip-container3"
-            data-bs-toggle="tooltip"
-            data-bs-placement="bottom"
-            title="More Info"
-          ></i>
-          <h4 class="mt-0 font-16">Total Revenue</h4>
-          <h2 class="text-primary my-3 text-center">
-            $<span data-plugin="counterup">00</span>
-          </h2>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-xl-3">
-        <div class="card" id="tooltip-container">
-          <div class="card-body">
-            <i
-              class="fa fa-info-circle text-muted float-end"
-              data-bs-container="#tooltip-container"
-              data-bs-toggle="tooltip"
-              data-bs-placement="bottom"
-              title="More Info"
-            ></i>
-            <h4 class="mt-0 font-16">Total Income</h4>
-            <h2 class="text-primary my-3 text-center">
-              $<span data-plugin="counterup"> 00</span>
-            </h2>
-            
-          </div>
-        </div>
-      </div>
+   
   </div>
 <!-- Filters for Expenses and Income -->
 <!-- Expense Filters -->

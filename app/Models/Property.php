@@ -87,14 +87,18 @@ class Property extends Model
      {
         return $this->belongsTo(user::class,'last_updated_by','id');
      }
-      public function reviews()
-    {
+     public function reviews()
+     {
         return $this->hasMany(RoomReview::class);
-    }
+     }
 
-    public function averageRating()
-    {
+     public function averageRating()
+     {
         return number_format($this->reviews()->avg('star') ?? 0, 2);
 
-    }
+     }
+     public function rooms()
+     {
+        return $this->hasMany(Room::class);
+     }
 }
