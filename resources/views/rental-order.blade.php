@@ -43,20 +43,29 @@
                     
                     <div class="col-lg-12">
                         <div class="details-time">
-                            <div class="row">
+                           <div class="row">
                                 <div class="col-lg-6">
                                     <div class="arrival-div">
                                         <h5>Arrival Time</h5>
-                                        <input type="date" name="start_date" class="form-control" required>
+                                       <input type="date" 
+                                        id="arrival_date"
+                                        name="start_date" 
+                                        class="form-control" 
+                                        required 
+                                        min="{{ \Carbon\Carbon::parse($room->available_date)->format('Y-m-d') }}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="arrival-div arrival-dept">
                                         <h5>Departure Time</h5>
-                                        <input type="date" name="end_date" class="form-control" required>
+                                        <input type="date" 
+                                            name="end_date" 
+                                            class="form-control" 
+                                            required>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 
@@ -109,3 +118,17 @@
     </section>
     <!-- /Detail View Section -->
 @endsection
+@push('scripts')
+<script>
+    $(document).ready(function() {
+        // Get available date from backend
+        let availableDate = "{{ \Carbon\Carbon::parse($room->available_date)->format('Y-m-d') }}";
+
+        // When the Arrival Date input is focused, set its value
+        $('#arrival_date').on('focus', function() {
+            $(this).val(availableDate);
+        });
+    });
+</script>
+@endpush
+

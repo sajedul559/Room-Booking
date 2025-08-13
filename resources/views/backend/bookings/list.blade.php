@@ -15,49 +15,75 @@
                 <div class="card-body">
                    
                     
-                    <table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
-                       <thead>
-                            <tr>
-                                <th>User</th>
-                                <th>Room</th>
-                                <th>Property</th>
-                                <th>Start</th>
-                                <th>End</th>
-                                <th>Status</th>
-                                <th>Change Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                             @foreach ($bookings as $booking)
-                                <tr>
-                                    <td>{{ $booking->user->name }}</td>
-                                    <td>{{ $booking->room->name ?? 'N/A' }}</td>
-                                    <td>{{ $booking->room->property->property_name ?? 'N/A' }}</td>
-                                    <td>{{ $booking->start_date }}</td>
-                                    <td>{{ $booking->end_date }}</td>
-                                    <td>
-                                        @php
-                                            $statusClass = match($booking->status) {
-                                                'confirmed' => 'success',
-                                                'cancelled' => 'danger',
-                                                default => 'warning',
-                                            };
-                                        @endphp
-                                        <span class="mt-2 badge bg-{{ $statusClass }}">
-                                            {{ ucfirst($booking->status) }}
-                                        </span>
-                                    </td>                                    
-                                    <td>
-                                        <select class="form-select status-change" data-id="{{ $booking->id }}">
-                                            <option value="pending" {{ $booking->status === 'pending' ? 'selected' : '' }}>Pending</option>
-                                            <option value="confirmed" {{ $booking->status === 'confirmed' ? 'selected' : '' }}>Confirmed</option>
-                                            <option value="cancelled" {{ $booking->status === 'cancelled' ? 'selected' : '' }}>Cancelled</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                @endforeach
-                        </tbody>
-                    </table>
+                  @php
+    use Carbon\Carbon;
+@endphp
+
+<table id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Room</th>
+            <th>Property</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Status</th>
+            <th>Change Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($bookings as $booking)
+            @php
+                $endDate = Carbon::parse($booking->end_date);
+                $daysRemaining = $endDate->diffInDays(Carbon::today()); // removes false, so default is absolute difference
+
+                $isExpiring = $daysRemaining <= 7;
+                $isExpiringSoon = $daysRemaining <= 15;
+                $statusClass = match($booking->status) {
+                    'confirmed' => 'success',
+                    'cancelled' => 'danger',
+                    default => 'warning',
+                };
+            @endphp
+             <tr @if($isExpiringSoon && $booking->status == App\Models\Booking::STATUS_CONFIRMED) style="background-color: #f39999;" @endif>
+
+                <td>{{ $booking->user->name }}</td>
+                <td>{{ $booking->room->name ?? 'N/A' }}</td>
+                <td>{{ $booking->room->property->property_name ?? 'N/A' }}</td>
+                <td>{{ $booking->start_date }}</td>
+                <td>{{ $booking->end_date }}</td>
+               <td>
+                    {{-- <div> --}}
+                        <span class="mt-2 badge bg-{{ $statusClass }}">
+                            {{ ucfirst($booking->status) }}
+                        </span>
+                    {{-- </div> --}}
+
+                    @if($booking->status == App\Models\Booking::STATUS_CONFIRMED)
+                      @if($isExpiringSoon)
+                        {{-- <div class="mt-2"> --}}
+                            <a style="margin-left: 8px;" href="{{ route('bookings.rebook', $booking->id) }}" class="btn btn-sm btn-info">
+                                Re-Booking
+                            </a>
+                        {{-- </div> --}}
+                      @endif
+                    @endif
+                </td>
+
+                <td>
+                    <select class="form-select status-change" data-id="{{ $booking->id }}">
+                        <option value="pending" {{ $booking->status === 'pending' ? 'selected' : '' }}>Pending</option>
+                        <option value="confirmed" {{ $booking->status === 'confirmed' ? 'selected' : '' }}>Confirmed</option>
+                        <option value="cancelled" {{ $booking->status === 'cancelled' ? 'selected' : '' }}>Cancelled</option>
+                    </select>
+
+                  
+                </td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
+
                 </div>
             </div>
         </div>

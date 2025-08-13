@@ -30,8 +30,7 @@
                         </thead>
                         <tbody>
                             @foreach($properties as $property)
-                                <tr>
-                                    <td>{{ $property->id }}</td>
+                                <tr style="background-color: {{ $property->background_color ?? 'transparent' }}; color: {{ $property->font_color ?? 'inherit' }}">                                    <td>{{ $property->id }}</td>
                                     <td>{{ $property->property_name }}</td>
                                     <td>{{ $property->vendor->user->name }}</td>
 
@@ -83,8 +82,35 @@
     .dt-buttons{
         display:none;
     }
+     .custom-bg {
+        background-color: var(--bg-color) !important;
+        color: var(--font-color) !important;
+    }
+    #datatable-buttons.table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: inherit !important;
+    color: inherit !important;
+}
+
 </style>
+
 @endpush
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+ function applyDynamicRowColors() {
+    @foreach ($properties as $index => $property)
+        const row = $('#datatable-buttons tbody tr').eq({{ $index }});
+        row.css({
+            backgroundColor: '{{ $property->background_color ?? '#fff' }}',
+            color: '{{ $property->font_color ?? '#000' }}'
+        });
+    @endforeach
+}
+
+$(document).ready(function () {
+    applyDynamicRowColors();
+    $('#datatable-buttons').on('draw.dt', applyDynamicRowColors);
+});
+
+</script>
 @endpush

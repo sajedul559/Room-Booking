@@ -45,8 +45,24 @@
                     </a>
                     <div class="collapse" id="sidebarUser">
                         <ul class="nav-second-level">
-                            <li><a href="{{ route('admins.index') }}">Users</a></li>
-                            <li><a href="{{ route('admins.create') }}">Users create</a></li>
+
+                            <li class="{{ request('type') === null ? 'active' : '' }}">
+                                <a href="{{ route('admins.index') }}">All Users</a>
+                            </li>
+                           
+                            <li class="{{ request('type') === 'admin' ? 'active' : '' }}">
+                                <a href="{{ route('admins.index', ['type' => 'admin']) }}">Admins</a>
+                            </li>
+                            <li class="{{ request('type') === 'vendor' ? 'active' : '' }}">
+                                <a href="{{ route('admins.index', ['type' => 'vendor']) }}">Vendors</a>
+                            </li>
+                            <li class="{{ request('type') === 'user' ? 'active' : '' }}">
+                                <a href="{{ route('admins.index', ['type' => 'user']) }}">Users</a>
+                            </li>
+                            <li class="{{ request()->routeIs('admins.create') ? 'active' : '' }}">
+                                <a href="{{ route('admins.create') }}">Users Create</a>
+                            </li>
+
                         </ul>
                     </div>
                 </li>
@@ -189,7 +205,7 @@
                   @endcan
                      <!-- Rent Management Section -->
                   @can('Bookings')
-                    @if (user()?->type == 'vendor')
+                    {{-- @if (user()?->type == 'vendor') --}}
                         <li>
                         <a href="#sidebarBooking" data-bs-toggle="collapse">
                             <i class="fas fa-hotel"></i>
@@ -202,7 +218,7 @@
                             </ul>
                         </div>
                     </li>
-                    @endif
+                    {{-- @endif --}}
                  
                  @endcan
                  

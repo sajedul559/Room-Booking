@@ -40,6 +40,12 @@
                             </td>
                             <td class="text-start">
                                 <x-common.action-drop-down>
+                                    <!-- Show Button -->
+                                    @if($user->type == app\models\User::USER_TYPE_USER)
+                                     <a class="dropdown-item edit-item-btn" href="{{ route('admins.show', $user->id) }}">
+                                        <i class="mdi mdi-eye me-2 text-muted vertical-middle"></i>Show
+                                    </a>
+                                    @endif
                                     <!-- Edit Button -->
                                     <a class="dropdown-item edit-item-btn" href="{{ route('admins.edit', $user->id) }}">
                                         <i class="mdi mdi-pencil me-2 text-muted vertical-middle"></i>Edit

@@ -6,34 +6,53 @@
        <div class="col-12">
             @if($unpaidRents->count() > 0)
                 <div class="py-3">
-                    <h5 class="text-danger mb-3">Unpaid Rents</h5>
-                    <ul class="list-group">
-                        @foreach($unpaidRents as $rent)
-                            <li class="list-group-item d-flex justify-content-between align-items-start flex-column flex-md-row">
-                                <div>
-                                    <strong>{{ $rent->user->name ?? 'Unknown Tenant' }}</strong><br>
-                                    <small>
-                                        Status: <span class="text-warning">{{ ucfirst($rent->status) }}</span> |
-                                        Month: {{ \Carbon\Carbon::parse($rent->created_at)->format('l, d F Y') }}
-                                    </small>
+                    <div class="card shadow-sm border-0">
+                        <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
+                            <a class="text-white text-decoration-none d-flex align-items-center w-100"
+                            data-bs-toggle="collapse" 
+                            href="#unpaidRentsCollapse" 
+                            role="button" 
+                            aria-expanded="false" 
+                            aria-controls="unpaidRentsCollapse">
+                                <span>Click Here to View Unpaid Rents</span>
+                                <i class="fas fa-chevron-down ms-auto" id="unpaidRentsIcon"></i>
+                            </a>
+                        </div>
+
+                        <div class="collapse" id="unpaidRentsCollapse">
+                            <ul class="list-group list-group-flush" id="unpaidRentsList">
+                                @foreach($unpaidRents->take(10) as $rent)
+                                    <li class="list-group-item d-flex justify-content-between align-items-start flex-column flex-md-row">
+                                        <div>
+                                            <strong>{{ $rent->user->name ?? 'Unknown Tenant' }}</strong><br>
+                                            <small>
+                                                Status: <span class="text-warning">{{ ucfirst($rent->status) }}</span> |
+                                                Month: {{ \Carbon\Carbon::parse($rent->created_at)->format('l, d F Y') }}
+                                            </small>
+                                        </div>
+                                        <div class="text-end">
+                                            <div><strong>Total:</strong> {{ number_format($rent->amount, 2) }}$</div>
+                                            <div><strong>Paid:</strong> {{ number_format($rent->paid_amount ?? 0, 2) }}$</div>
+                                            <div><strong>Due:</strong> 
+                                                <span class="text-danger">
+                                                    {{ number_format($rent->amount - ($rent->paid_amount ?? 0), 2) }}$
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+
+                            @if($unpaidRents->count() > 5)
+                                <div class="text-center p-3">
+                                    <button id="loadMoreBtn" class="btn btn-outline-danger btn-sm">Load More</button>
                                 </div>
-                                <div class="text-end">
-                                    <div><strong>Total:</strong> {{ number_format($rent->amount, 2) }}$</div>
-                                    <div><strong>Paid:</strong> {{ number_format($rent->paid_amount ?? 0, 2) }}$</div>
-                                    <div><strong>Due:</strong> 
-                                        <span class="text-danger">
-                                            {{ number_format($rent->amount - ($rent->paid_amount ?? 0), 2) }}$
-                                        </span>
-                                    </div>
-                                </div>
-                            </li>
-                        @endforeach
-                    </ul>
+                            @endif
+                        </div>
+                    </div>
                 </div>
             @endif
-       </div>
-
-
+        </div>
         <div class="col-12">
             <div class="card" id="orderList">
                 <div class="card-header">
@@ -156,5 +175,59 @@
         yearSelect.addEventListener('change', updateCalendarDate);
     });
 </script>
+<script>
+    $(document).ready(function () {
+        const allRents = @json($unpaidRents);
+        const $listContainer = $('#unpaidRentsList');
+        const $loadMoreBtn = $('#loadMoreBtn');
+        const $icon = $('#unpaidRentsIcon');
+
+        let visibleCount = 10;
+
+        // Icon rotation
+        $('#unpaidRentsCollapse').on('show.bs.collapse', function () {
+            $icon.removeClass('fa-chevron-down').addClass('fa-chevron-up');
+        });
+        $('#unpaidRentsCollapse').on('hide.bs.collapse', function () {
+            $icon.removeClass('fa-chevron-up').addClass('fa-chevron-down');
+        });
+
+        // Load more functionality
+        $loadMoreBtn.on('click', function () {
+            visibleCount += 10;
+            let html = '';
+
+            $.each(allRents.slice(0, visibleCount), function (index, rent) {
+                html += `
+                    <li class="list-group-item d-flex justify-content-between align-items-start flex-column flex-md-row">
+                        <div>
+                            <strong>${rent.user?.name ?? 'Unknown Tenant'}</strong><br>
+                            <small>
+                                Status: <span class="text-warning">${rent.status.charAt(0).toUpperCase() + rent.status.slice(1)}</span> |
+                                Month: ${new Date(rent.created_at).toLocaleDateString('en-US', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' })}
+                            </small>
+                        </div>
+                        <div class="text-end">
+                            <div><strong>Total:</strong> ${parseFloat(rent.amount).toFixed(2)}$</div>
+                            <div><strong>Paid:</strong> ${parseFloat(rent.paid_amount ?? 0).toFixed(2)}$</div>
+                            <div><strong>Due:</strong> 
+                                <span class="text-danger">
+                                    ${(rent.amount - (rent.paid_amount ?? 0)).toFixed(2)}$
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                `;
+            });
+
+            $listContainer.html(html);
+
+            if (visibleCount >= allRents.length) {
+                $loadMoreBtn.hide();
+            }
+        });
+    });
+</script>
+
 
 @endpush

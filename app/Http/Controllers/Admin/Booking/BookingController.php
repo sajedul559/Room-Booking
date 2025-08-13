@@ -43,7 +43,7 @@ class BookingController extends Controller
             $bookings = Booking::where('vendor_id', $vendor->id)->with(['room.property'])->latest()->get();
         } else {
             // Show bookings made by the user
-            $bookings = [];
+             $bookings = Booking::with(['room.property'])->latest()->get();
         }
 
             return view('backend.bookings.list', compact('bookings'));
@@ -169,6 +169,67 @@ public function changeStatus(Request $request)
     return response()->json(['message' => 'Booking status updated successfully.']);
 }
 
+public function rebook(Booking $booking)
+{
+    // Logic to duplicate or prefill rebooking form
+    return view('backend.bookings.re_booking', compact('booking'));
+}
+public function updateDates(Request $request)
+{
+    $request->validate([
+        'booking_id' => 'required|exists:bookings,id',
+        'start_date' => 'required|date|before_or_equal:end_date',
+        'end_date' => 'required|date|after_or_equal:start_date',
+    ]);
+
+    $booking = Booking::find($request->booking_id);
+    $bookingOldEndDate = $booking->end_date;
+
+    $booking->start_date = $request->start_date;
+    $booking->end_date = $request->end_date;
+    $booking->save();
+
+    // if ($request->status == Booking::STATUS_CONFIRMED) {
+        $room = $booking->room;
+        $property =  $room?->property;
+        $vendor =  $property?->vendor;
+        $tenant = $booking->user; // assuming relation exists
+        $weeklyPrice = $room->weekly_rent;
+        
+        // Get required values
+        $startDate = Carbon::parse($booking->bookingOldEndDate);
+        $endDate = Carbon::parse($booking->end_date);
+        $roomId = $room->id;
+        $tenantId = $tenant->id;
+        $vendorId = $vendor?->id;
+
+        // Create Tenant Payments
+        while ($startDate < $endDate) {
+            $weekEnd = $startDate->copy()->addDays(6);
+            if ($weekEnd > $endDate) {
+                $weekEnd = $endDate;
+            }
+
+            $daysInWeek = $startDate->diffInDays($weekEnd) + 1;
+            $amount = round(($weeklyPrice / 7) * $daysInWeek, 2);
+
+            TenantRent::create([
+                'room_id' => $roomId,
+                'user_id' => $tenantId,
+                'vendor_id' => $vendorId,
+                'amount' => $amount,
+                'due_date' => $weekEnd->toDateString(),
+                'status' => 'pending',
+
+            ]);
+
+            $startDate = $weekEnd->addDay();
+        }
+    // }
+
+    return redirect()->route('bookings.index')->with('success', 'Booking dates updated successfully.');
+
+}
     
 
     

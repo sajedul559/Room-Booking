@@ -52,6 +52,11 @@ class User extends Authenticatable
     {
         return $this->hasOne(Vendor::class);
     }
+     public function identities()
+    {
+        return $this->hasMany(UserIdentity::class);
+    }
+
 
 
 }

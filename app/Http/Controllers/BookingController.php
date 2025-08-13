@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Booking;
 use App\Models\Property;
 use App\Models\TenantRent;
+use App\Models\UserIdentity;
 use Illuminate\Http\Request;
 use App\Models\BookingInformation;
 use Illuminate\Support\Facades\Auth;
@@ -92,7 +93,12 @@ class BookingController extends Controller
             'email'     => 'nullable|email|max:255',
             'address'   => 'nullable|string',
             'comments'  => 'nullable|string',
+            
+            // 'identity_documents' => 'required|array|min:1',
+            // 'identity_documents.*.type' => 'required|string',
+            // 'identity_documents.*.file' => 'required|file|mimes:jpeg,png,jpg|max:2048',
         ]);
+        
     
         // Store Booking Information
         $bookingUserInformation = BookingInformation::create([
@@ -154,6 +160,45 @@ class BookingController extends Controller
         // Login the user (if not already logged in)
         if (!Auth::check()) {
             Auth::login($user);
+        }
+
+        $pointsMap = [
+            'passport' => 70,
+            'birth_certificate' => 70,
+            'citizenship_certificate' => 70,
+            'drivers_license' => 40,
+            'photo_id_card' => 40,
+            'student_id' => 40,
+            'medicare' => 25,
+            'bank_card' => 25,
+            'utility_bill' => 25,
+        ];
+
+        $totalPoints = 0;
+
+        foreach ($request->identity_documents as $doc) {
+            $totalPoints += $pointsMap[$doc['type']] ?? 0;
+        }
+
+        // if ($totalPoints < 100) {
+        //     return back()->withErrors(['identity_documents' => 'Total identity points must be at least 100.'])->withInput();
+        // }
+
+        // Save images
+        foreach ($request->identity_documents as $doc) {
+            $file = $doc['file'];
+            $path = $file->store('user_identity_documents', 'public');
+
+             // Get the point based on document type
+             $point = $pointsMap[$doc['type']] ?? 0;
+
+            UserIdentity::create([
+                'user_id' => auth()->id(),
+                'booking_id' => $request->booking_id,
+                'image_path' => $path,
+                'point' => $point,
+                'document_type' => $doc['type'],
+            ]);
         }
         session()->flash('success', 'Booking information saved successfully!');
         return $this->bookDetails($request, $bookingUserInformation);
